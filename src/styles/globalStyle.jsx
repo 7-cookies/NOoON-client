@@ -1,4 +1,4 @@
-import { createGlobalStyle, css } from 'styled-components';
+import styled, { createGlobalStyle, css } from 'styled-components';
 
 export const reset = css`
   html,
@@ -152,5 +152,18 @@ ${reset}
 
 }
 `;
+
+export const Button=styled.button`
+    border:1px solid pink;
+    border-radius:1.25rem;
+    background-color:pink;
+
+`
+export const Container=styled.section`
+  max-width: 28.125rem; 
+  min-width: 6.25rem;
+  height: auto;
+  margin : 0 auto;
+`
 
 export default GlobalStyle;

@@ -4,7 +4,7 @@ import {Button} from "../styles/globalStyle"
 const Main = () => {
     return (
         <>
-            <Button>dd</Button>
+            <Button>안녕</Button>
         </>
      
 

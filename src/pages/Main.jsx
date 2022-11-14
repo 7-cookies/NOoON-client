@@ -1,8 +1,10 @@
+import styled from "styled-components"
+import {Button} from "../styles/globalStyle"
 
 const Main = () => {
     return (
         <>
-            홈입니다
+            <Button>dd</Button>
         </>
      
 

@@ -7,6 +7,8 @@ import moveToLeft from '../../asset/icon/Group 88.png'
 import moveToRight from '../../asset/icon/Group 89.png'
 import base from '../../asset/img/base.png'
 
+import CateMenu from '../../components/DressUp/CateMenu.jsx'
+
 const DressUp = () => {
     return (
         
@@ -25,7 +27,10 @@ const DressUp = () => {
 
 
                 <CategoryContainer>
-                    <CateMenuCon>카테고리메뉴</CateMenuCon>
+                    <CateMenuCon>
+                        <CateMenu />
+                    </CateMenuCon>
+
                     <CateItemsCon>카테고리항목</CateItemsCon>
                 </CategoryContainer>
             </DressZone>
@@ -45,7 +50,6 @@ const Header = styled.section `
     justify-content: space-between;
     align-items: center;
 
-    background-color: aliceblue;
     font-size: 0.6111rem;
 
     border-bottom: solid 0.0278rem #CACACA;
@@ -65,21 +69,26 @@ const BaseContainer = styled.section`
 display: flex;
 justify-content: center;
 
-margin: 0.6389rem 1.6667rem 0;
-/* background-color: pink; */
-
+margin: 0.6389rem 1.6667rem 2.375rem;
 `
 const Base = styled.img`
-width: 9rem;
-height: 9rem;
-border: solid black
-
+width: 19.375rem;
+height: 19.375rem;
+border: solid black;
 `
 
 const CategoryContainer = styled.section`
+width: 26.875rem; 
+border: solid purple;
 `
 
 const CateMenuCon = styled.section`
+display: flex;
+
+
 `
+
+
 const CateItemsCon = styled.section`
+background-color: #CDDDEF;
 `

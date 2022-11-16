@@ -85,6 +85,9 @@ border: solid purple;
 const CateMenuCon = styled.section`
 display: flex;
 
+width:26.875rem; 
+height: 4.125rem;
+
 
 `
 

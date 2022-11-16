@@ -160,8 +160,7 @@ export const Button=styled.button`
 
 `
 export const Container=styled.section`
-  max-width: 28.125rem; 
-  min-width: 6.25rem;
+  width: 26.875rem;
   height: auto;
   margin : 0 auto;
 `

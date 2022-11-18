@@ -92,5 +92,9 @@ height: 4.125rem;
 
 
 const CateItemsCon = styled.section`
-background-color: #CDDDEF;
+background-color: #D6E2F0;
+
+position: relative;
+z-index: 1;
+
 `

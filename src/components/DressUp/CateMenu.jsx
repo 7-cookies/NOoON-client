@@ -43,6 +43,12 @@ align-items: center;
 background-color: ${(props)=>(props.check === props.num ? '#D6E2F0' : '#E9F3FF')};
 width: 4.125rem;
 height: 4.125rem;
+/* height: ${(props)=>(props.check === props.num ? 4.125 : 4.75)}rem; */
+top: ${(props)=>(props.check === props.num ? 0 : 0.625)}rem;
+/* top: 0.625rem;*/
+position: relative;
+
+
 
 border-radius: 0.9375rem 0.9375rem 0 0;
 margin: 0 0.15rem;

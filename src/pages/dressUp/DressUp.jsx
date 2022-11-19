@@ -74,12 +74,12 @@ margin: 0.6389rem 1.6667rem 2.375rem;
 const Base = styled.img`
 width: 19.375rem;
 height: 19.375rem;
-border: solid black;
+/* border: solid black; */
 `
 
 const CategoryContainer = styled.section`
 width: 26.875rem; 
-border: solid purple;
+/* border: solid purple; */
 `
 
 const CateMenuCon = styled.section`

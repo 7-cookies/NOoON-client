@@ -2,13 +2,11 @@ import React, {useState} from 'react'
 import styled from 'styled-components'
 import {useRecoilState} from 'recoil'
 
-import {modalStateC, modalStateT} from '../../asset/dressRecoil.jsx'
-
-import {headImg} from "../../asset/imgData"
+import {headImg, eyeImg} from "../../asset/imgData"
 import {baseEyes, baseArms, baseHead, baseNose, baseItem, baseMouth} from '../../asset/dressRecoil'
 
 
-export const DressPalette = () => {
+export const DressPalette = ({showModal, modalType}) => {
     const [checkNum, setCheckNum] = useState(0)
 
     //recoilState 선언
@@ -19,127 +17,62 @@ export const DressPalette = () => {
     const [mouth, setMouth] = useRecoilState(baseMouth);
     const [head, setHead] = useRecoilState(baseHead);
 
+    console.log(`ddd ${showModal}`)
 
-    // const handleChangeHead=(e)=>{
-    //     setCateNum(e.currentTarget.getAttribute('value'));
-    // }
-    // console.log(cateNum);
 
-    return(
-        <ModalContainer>
-        {headImg.map((res)=>(
-            <ItemContainer 
-            key={res}
-            onClick={()=>{setCheckNum(res);}}
-            check={res} 
-            number={checkNum}> 
-                <Item 
+
+    // eslint-disable-next-line default-case
+    switch (modalType){
+        case 'head' :
+        return(  
+        <>
+        {showModal===true ? 
+            <>
+            <ModalContainer>
+            {headImg.map((res,num)=>(
+                <ItemContainer 
                 key={res}
-                src={res.palette} 
-                alt={`모자`} 
-                value={`head_${res.num+1}`}/>
+                onClick={()=>{setCheckNum(res);}}
+                check={res} 
+                number={checkNum}
+                num={num}> 
 
-            </ItemContainer> 
-        ))}
-        </ModalContainer>)
-
-    // switch (modalStateT){
-    //     case 'eye' :
-    //     return(
-    //         <>
-    //                 {modalStateC===true ? 
-    //             <>
-
-    //                     <ModalContainer>
-    //                         <OpenModal> 
-    //                             <Item src='' alt='눈1' value='eyes_01' ></Item>
-    //                             <Item src='' alt='눈2' value='eyes_02' ></Item>
-    //                         </OpenModal> 
+                    <Item 
+                    key={res}
+                    src={res.palette} 
+                    alt={`모자`} 
+                    value={`head_${res.num+1}`}/>
     
-    //                     </ModalContainer>
-    //                     </>: null }</>
-    //         )
+                </ItemContainer> 
+            ))}
+            </ModalContainer></> : null }</>)
 
-    //     case 'nose' :
-    //         return(
-    //             <>
-    //                 {modalStateC===true ? 
-    //                 <>
-    //                         <ModalContainer>
-    //                             <OpenModal> 
-    //                                 <Item src='' alt='코1' value='nose_01' ></Item>
-    //                                 <Item src='' alt='코2' value='nose_02' ></Item>
-    //                             </OpenModal> 
-        
-    //                         </ModalContainer>
-    //                         </>:null}</>
-    //     )
-    //     case 'head' :
-    //         return(
-    //                 <>
-    //                 {modalStateC===true ? 
-    //                         <>
-    //                         <ModalContainer>
-    //                             <OpenModal> 
-    //                                 <Item src='' alt='머리1' value='head_01' ></Item>
-    //                                 <Item src='' alt='머리2' value='head_02' ></Item>
-    //                             </OpenModal> 
-        
-    //                         </ModalContainer>
-    //                         </>
-    //                     : null}
-    //                     </>)
-    //     case 'item' :
-    //         return(
-    //                 <>
-    //                 {modalStateC===true ? 
-    //                         <>
-    //                         <ModalContainer>
-    //                             <OpenModal> 
-    //                                 <Item src='' alt='소품1' value='item_01' ></Item>
-    //                                 <Item src='' alt='소품2' value='item_02' ></Item>
-    //                             </OpenModal> 
-        
-    //                         </ModalContainer>
-    //                         </>
-    //                     : null}
-    //                     </>)
-    //     case 'arms' :
-    //         return(
-    //                 <>
-    //                 {modalStateC===true ? 
-    //                         <>
-    //                         <ModalContainer>
-    //                             <OpenModal> 
-    //                                 <Item src='' alt='팔1' value='arms_01' ></Item>
-    //                                 <Item src='' alt='팔2' value='arms_02' ></Item>
-    //                             </OpenModal> 
-        
-    //                         </ModalContainer>
-    //                         </>
-    //                     : null}
-    //                     </>)
-    //     case 'mouth' :
-    //         return(
-    //                 <>
-    //                 {modalStateC===true ? 
-    //                         <>
-    //                         <ModalContainer>
-    //                             <OpenModal> 
-    //                                 <Item src='' alt='입1' value='mouth_01' ></Item>
-    //                                 <Item src='' alt='입2' value='mouth_02' ></Item>
-    //                             </OpenModal> 
-        
-    //                         </ModalContainer>
-    //                         </>
-    //                     : null}
-    //                     </>)
-    //     default : return (null)
-        
+        case 'eye' :
+        return(
+        <>
+            {showModal===true ? 
+                <>
+                <ModalContainer>
+                {eyeImg.map((res,num)=>(
+                    <ItemContainer 
+                        key={res}
+                        onClick={()=>{setCheckNum(res);}}
+                        check={res} 
+                        number={checkNum}
+                        num={num}> 
 
-
-    // }
+                        <Item 
+                            key={res}
+                            src={res.palette} 
+                            alt={`눈`} 
+                            value={`eye_${res.num+1}`}/>
+                    </ItemContainer> 
+            ))}
+            </ModalContainer></> : null }</>)
+        default : return (null)
+    }
 }
+
 
 
 
@@ -164,15 +97,12 @@ justify-content: center;
 align-items: center;
 width: 7rem; 
 height: 7rem;
-background-color: white;
+background-color: ${(props)=>(props.num)===11? 'transparent':'white'};
 text-align: center;
 
 margin: 0.5rem;
-
-/* border: #95AECA solid 0.1875rem; */
 border: ${(props)=>(props.check === props.number ? '#95AECA solid 0.1875rem':'transparent solid 0.1875rem' )};
 border-radius: 0.9375rem;
-/* box-shadow: 0.15rem 0.15rem 0.15rem 0.15rem ${(props)=>(props.check === props.number ? 'grey':'transparent' )} inset; */
 
 `
 

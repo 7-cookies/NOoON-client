@@ -5,8 +5,7 @@ import {useRecoilState} from 'recoil'
 import {Container} from '../../styles/globalStyle';
 import {CateMenu} from '../../components/dressUp/CateMenu.jsx'
 import {DressPalette} from '../../components/dressUp/DressPalette';
-import {dressImg} from "../../asset/imgData"
-import {baseEyes, baseArms, baseHead, baseNose, baseItem, baseMouth} from '../../asset/dressRecoil'
+import {baseEyes, baseArms, baseHead, baseNose, baseItem, baseMouth, modalStateC, modalStateT} from '../../asset/dressRecoil'
 
 import moveToLeft from '../../asset/icon/Group 88.png'
 import moveToRight from '../../asset/icon/Group 89.png'
@@ -20,6 +19,9 @@ const DressUp = () => {
     const [item, setItem] = useRecoilState(baseItem);
     const [mouth, setMouth] = useRecoilState(baseMouth);
     const [head, setHead] = useRecoilState(baseHead);
+
+    const [showModal, setModal] = useRecoilState(modalStateC);
+    const [modalType, setModalType] = useRecoilState(modalStateT);
 
     return (
         
@@ -48,10 +50,10 @@ const DressUp = () => {
 
                 <CategoryContainer>
                     <CateMenuCon>
-                        <CateMenu />
+                        <CateMenu setModal={setModal} showModal={showModal} setModalType={setModalType} modalType={modalType} />
                     </CateMenuCon>
 
-                    <DressPalette/>
+                    <DressPalette showModal={showModal} modalType={modalType}/>
                 </CategoryContainer>
             </DressZone>
             

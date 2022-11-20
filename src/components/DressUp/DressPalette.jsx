@@ -1,16 +1,44 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
+import {useRecoilState} from 'recoil'
 
 import {modalStateC, modalStateT} from '../../asset/dressRecoil.jsx'
 
 import {headImg} from "../../asset/imgData"
+import {baseEyes, baseArms, baseHead, baseNose, baseItem, baseMouth} from '../../asset/dressRecoil'
+
 
 export const DressPalette = () => {
+    const [checkNum, setCheckNum] = useState(0)
+
+    //recoilState 선언
+    const [eye, setEyes] = useRecoilState(baseEyes);
+    const [nose, setNose] = useRecoilState(baseNose);
+    const [arm, setArms] = useRecoilState(baseArms);
+    const [item, setItem] = useRecoilState(baseItem);
+    const [mouth, setMouth] = useRecoilState(baseMouth);
+    const [head, setHead] = useRecoilState(baseHead);
+
+
+    // const handleChangeHead=(e)=>{
+    //     setCateNum(e.currentTarget.getAttribute('value'));
+    // }
+    // console.log(cateNum);
+
     return(
         <ModalContainer>
-        {headImg.map((res,num)=>(
-            <ItemContainer key={res}> 
-                <Item src={res.palette} alt={`모자`} value={`head_${num+1}`}/>
+        {headImg.map((res)=>(
+            <ItemContainer 
+            key={res}
+            onClick={()=>{setCheckNum(res);}}
+            check={res} 
+            number={checkNum}> 
+                <Item 
+                key={res}
+                src={res.palette} 
+                alt={`모자`} 
+                value={`head_${res.num+1}`}/>
+
             </ItemContainer> 
         ))}
         </ModalContainer>)
@@ -141,8 +169,10 @@ text-align: center;
 
 margin: 0.5rem;
 
-border: #95AECA solid 0.1875rem;
+/* border: #95AECA solid 0.1875rem; */
+border: ${(props)=>(props.check === props.number ? '#95AECA solid 0.1875rem':'transparent solid 0.1875rem' )};
 border-radius: 0.9375rem;
+/* box-shadow: 0.15rem 0.15rem 0.15rem 0.15rem ${(props)=>(props.check === props.number ? 'grey':'transparent' )} inset; */
 
 `
 

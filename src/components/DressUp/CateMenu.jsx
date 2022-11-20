@@ -15,7 +15,6 @@ export const CateMenu = () => {
         setModal(true);
         setModalType(e.currentTarget.getAttribute('type'))
     }
-    console.log(modalType);
 
 
     return (

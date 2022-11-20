@@ -29,17 +29,17 @@ export const menuData = [
 
 
 export const headImg = [
-    {palette : none},
-    {palette : headPal_01},
-    {palette : headPal_02},
-    {palette : headPal_03},
-    {palette : headPal_04},
-    {palette : headPal_05},
-    {palette : headPal_06},
-    {palette : headPal_07},
-    {palette : headPal_08},
-    {palette : headPal_09},
-    {palette : headPal_10}]
+    {val:'0', palette : none},
+    {val:'1', palette : headPal_01},
+    {val:'2', palette : headPal_02},
+    {val:'3', palette : headPal_03},
+    {val:'4', palette : headPal_04},
+    {val:'5', palette : headPal_05},
+    {val:'6', palette : headPal_06},
+    {val:'7', palette : headPal_07},
+    {val:'8', palette : headPal_08},
+    {val:'9', palette : headPal_09},
+    {val:'10', palette : headPal_10}]
         // {putOn: [
         //     "../img/dressPutOn/head/head_1",
         //     "../img/dressPutOn/head/head_2",

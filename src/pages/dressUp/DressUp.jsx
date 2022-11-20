@@ -6,7 +6,7 @@ import {Container} from '../../styles/globalStyle';
 import {CateMenu} from '../../components/dressUp/CateMenu.jsx'
 import {DressPalette} from '../../components/dressUp/DressPalette';
 import {dressImg} from "../../asset/imgData"
-import {baseEyes, baseArms, baseHead, baseNose, baseItem, baseMouth} from '../../asset/imgRecoil'
+import {baseEyes, baseArms, baseHead, baseNose, baseItem, baseMouth} from '../../asset/dressRecoil'
 
 import moveToLeft from '../../asset/icon/Group 88.png'
 import moveToRight from '../../asset/icon/Group 89.png'
@@ -32,16 +32,16 @@ const DressUp = () => {
 
             <DressZone>
                 <ImgContainer>
-                <BaseContainer>
-                    <Base src={base}/>
-                </BaseContainer>
+                    <BaseContainer>
+                        <Base src={base}/>
+                    </BaseContainer>
 
-                <Eye src={eye[0].Eyes} alt='눈'  ></Eye>
-                <Nose src={nose[0].Nose} alt='코'  ></Nose>
-                <Head src={head[0].Head} alt='머리'  ></Head>
-                <Arm src={arm[0].Arms} alt='팔'  ></Arm>
-                <Mouth src={mouth[0].Mouth} alt='입'  ></Mouth>
-                <Item src={item[0].Item} alt='소품'  ></Item>
+                    <Eye src={eye[0].Eyes} alt='눈'></Eye>
+                    <Nose src={nose[0].Nose} alt='코'></Nose>
+                    <Head src={head[0].Head} alt='머리'></Head>
+                    <Arm src={arm[0].Arms} alt='팔'></Arm>
+                    <Mouth src={mouth[0].Mouth} alt='입'></Mouth>
+                    <Item src={item[0].Item} alt='소품'></Item>
 
                 </ImgContainer>
 
@@ -51,9 +51,7 @@ const DressUp = () => {
                         <CateMenu />
                     </CateMenuCon>
 
-                    <CateItemsCon>
-                        <DressPalette/>
-                    </CateItemsCon>
+                    <DressPalette/>
                 </CategoryContainer>
             </DressZone>
             
@@ -100,7 +98,7 @@ align-items: center;
 width: 19.375rem;
 height: 19.375rem;
 
-border: solid green;
+/* border: solid green; */
 position: relative;
 `
 
@@ -121,7 +119,7 @@ z-index: 0;
 `
 
 const Eye = styled.img`
-border: solid yellow;
+/* border: solid yellow; */
 z-index: 1;
 
 width: 19.375rem;
@@ -129,7 +127,7 @@ height: 19.375rem;
 `
 
 const Nose = styled.img`
-border: solid pink;
+/* border: solid pink; */
 position: absolute;
 
 width: 19.375rem;
@@ -147,11 +145,6 @@ const Mouth = styled(Nose)`
 
 
 
-
-
-
-
-
 //아이템을 선택하는 구역
 const CategoryContainer = styled.section`
 width: 26.875rem; 
@@ -164,14 +157,4 @@ justify-content: center;
 
 width:26.875rem; 
 height: 4.125rem;
-`
-
-const CateItemsCon = styled.section`
-background-color: #D6E2F0;
-
-position: relative;
-z-index: 1;
-
-border: solid purple;
-
 `

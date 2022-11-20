@@ -50,3 +50,14 @@ export const baseMouth = atom({
         'MouthVal' :'mouth_0'}
     ]
 })
+
+// 아이템 모달창 state
+export const modalStateC = atom({
+    key: 'modal',
+    default: {'modalClick': true}
+})
+
+export const modalStateT= atom({
+    key: 'modal',
+    default: {'modalType' : 'head'},
+})

@@ -1,20 +1,36 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
+import { useRecoilState } from 'recoil'
 
 import {menuData} from "../../asset/imgData"
+import {modalStateC, modalStateT} from "../../asset/dressRecoil"
 
 export const CateMenu = () => {
     const [cateNum, setCateNum] = useState(0);
 
+    const [showModal, setModal] = useRecoilState(modalStateC);
+    const [modalType, setModalType] = useRecoilState(modalStateT);
+
+    const openModal = (e) => {
+        setModal(true);
+        setModalType(e.currentTarget.getAttribute('type'))
+    }
+    console.log(modalType);
+
+
     return (
 
-        menuData.map(index=>(
+        menuData.map(data=>(
             <Menu 
-                key={index + 'category'} 
-                onClick={()=>{setCateNum(index);}} 
-                check={index} 
+                key={data + 'category'} 
+                onClick={()=>{setCateNum(data);}} 
+                check={data} 
                 num={cateNum}>
-                    <MenuImg  url={index.url} />
+
+                    <MenuImg  
+                    url={data.url}
+                    type={data.categoryName}
+                    onClick={openModal}/>
             </Menu>
         ))
 
@@ -47,7 +63,5 @@ background-image: url(${(props)=>props.url});
 background-position: center;
 background-repeat: no-repeat;
 background-size: cover;
-
-
 
 `

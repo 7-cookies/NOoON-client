@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import {RecoilRoot} from 'recoil'
 
 import {Container} from "../../styles/globalStyle";
 
@@ -10,11 +11,13 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Container>
+        <RecoilRoot>
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="*" element={<Error404 />} />
           <Route path="/dressUp" element={<DressUp />} />
         </Routes>
+        </RecoilRoot>
       </Container>        
     </BrowserRouter>
   );

@@ -1,26 +1,9 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
 
-import eyeI from '../../asset/icon/menuIcon/eyeIcon.png'
-import headI from '../../asset/icon/menuIcon/headIcon.png'
-import armI from '../../asset/icon/menuIcon/armIcon.png'
-import mouthI from '../../asset/icon/menuIcon/mouthIcon.png'
-import noseI from '../../asset/icon/menuIcon/noseIcon.png'
-import accI from '../../asset/icon/menuIcon/accIcon.png'
+import {menuData} from "../../asset/imgData"
 
-
-// https://goddaehee.tistory.com/303
-const menuData = [
-    {categoryName : 'head', url : headI},
-    {categoryName : 'eye', url : eyeI },
-    {categoryName : 'nose', url : noseI},
-    {categoryName : 'mouth', url : mouthI},
-    {categoryName : 'arm', url : armI},
-    {categoryName : 'accessary', url : accI}
-]
-
-
-const CateMenu = () => {
+export const CateMenu = () => {
     const [cateNum, setCateNum] = useState(0);
 
     return (
@@ -38,7 +21,6 @@ const CateMenu = () => {
     )
 }
 
-export default CateMenu;
 
 
 const Menu = styled.section`

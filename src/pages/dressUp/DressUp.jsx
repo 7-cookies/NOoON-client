@@ -1,19 +1,29 @@
 import React from 'react';
 import styled from 'styled-components'
+import {useRecoilState} from 'recoil'
 
 import {Container} from '../../styles/globalStyle';
+import {CateMenu} from '../../components/dressUp/CateMenu.jsx'
+import {DressPalette} from '../../components/dressUp/DressPalette';
+import {dressImg} from "../../asset/imgData"
+import {baseEyes, baseArms, baseHead, baseNose, baseItem, baseMouth} from '../../asset/imgRecoil'
 
 import moveToLeft from '../../asset/icon/Group 88.png'
 import moveToRight from '../../asset/icon/Group 89.png'
 import base from '../../asset/img/base.png'
 
-import CateMenu from '../../components/DressUp/CateMenu.jsx'
-
 const DressUp = () => {
+    //recoilState 선언
+    const [eye, setEyes] = useRecoilState(baseEyes);
+    const [nose, setNose] = useRecoilState(baseNose);
+    const [arm, setArms] = useRecoilState(baseArms);
+    const [item, setItem] = useRecoilState(baseItem);
+    const [mouth, setMouth] = useRecoilState(baseMouth);
+    const [head, setHead] = useRecoilState(baseHead);
+
     return (
         
         <Container>
-            {/* 상단 여백도 줘야함 */}
             <Header>
                 <Arrow src={moveToRight}/>
                 눈사람 꾸미기
@@ -21,9 +31,19 @@ const DressUp = () => {
             </Header>
 
             <DressZone>
+                <ImgContainer>
                 <BaseContainer>
                     <Base src={base}/>
                 </BaseContainer>
+
+                <Eye src={eye[0].Eyes} alt='눈'  ></Eye>
+                <Nose src={nose[0].Nose} alt='코'  ></Nose>
+                <Head src={head[0].Head} alt='머리'  ></Head>
+                <Arm src={arm[0].Arms} alt='팔'  ></Arm>
+                <Mouth src={mouth[0].Mouth} alt='입'  ></Mouth>
+                <Item src={item[0].Item} alt='소품'  ></Item>
+
+                </ImgContainer>
 
 
                 <CategoryContainer>
@@ -31,7 +51,9 @@ const DressUp = () => {
                         <CateMenu />
                     </CateMenuCon>
 
-                    <CateItemsCon>카테고리항목</CateItemsCon>
+                    <CateItemsCon>
+                        <DressPalette/>
+                    </CateItemsCon>
                 </CategoryContainer>
             </DressZone>
             
@@ -63,20 +85,74 @@ const Arrow = styled.img`
 
 // 옷입히기 구역
 const DressZone = styled.section`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+`
+
+//옷입히기 구역- 선택 아이템이 장착되는 구역
+const ImgContainer=styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+
+width: 19.375rem;
+height: 19.375rem;
+
+border: solid green;
+position: relative;
 `
 
 const BaseContainer = styled.section`
 display: flex;
 justify-content: center;
+align-items: center;
 
-margin: 0.6389rem 1.6667rem 2.375rem;
+position: absolute;
+/* margin: 0.6389rem 1.6667rem 2.375rem; */
 `
+
 const Base = styled.img`
 width: 19.375rem;
 height: 19.375rem;
-/* border: solid black; */
+
+z-index: 0;
 `
 
+const Eye = styled.img`
+border: solid yellow;
+z-index: 1;
+
+width: 19.375rem;
+height: 19.375rem;
+`
+
+const Nose = styled.img`
+border: solid pink;
+position: absolute;
+
+width: 19.375rem;
+height: 19.375rem;
+`
+
+const Head = styled(Nose)`
+`
+const Item = styled(Nose)`
+`
+const Arm = styled(Nose)`
+`
+const Mouth = styled(Nose)`
+`
+
+
+
+
+
+
+
+
+//아이템을 선택하는 구역
 const CategoryContainer = styled.section`
 width: 26.875rem; 
 /* border: solid purple; */
@@ -90,11 +166,12 @@ width:26.875rem;
 height: 4.125rem;
 `
 
-
 const CateItemsCon = styled.section`
 background-color: #D6E2F0;
 
 position: relative;
 z-index: 1;
+
+border: solid purple;
 
 `

@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import {useRecoilState} from 'recoil'
 
 import {Container} from '../../styles/globalStyle';
-import {CateMenu} from '../../components/dressUp/CateMenu.jsx'
-import {DressPalette} from '../../components/dressUp/DressPalette';
+import {CateMenu} from '../../components/DressUp/CateMenu.jsx'
+import {DressPalette} from '../../components/DressUp/DressPalette';
 import {baseEyes, baseArms, baseHead, baseNose, baseItem, baseMouth, modalStateC, modalStateT} from '../../asset/dressRecoil'
 
 import base from '../../asset/img/base.png'

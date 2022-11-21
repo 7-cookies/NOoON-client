@@ -63,10 +63,8 @@ export const DressPalette = ({showModal, modalType}) => {
 
     // eslint-disable-next-line default-case
     switch (modalType){
-        case 'head' :
-        return(  
-        <>
-        {showModal===true ? 
+        default : 
+            return(  
             <>
             <ModalContainer>
             {headImg.map((res,num)=>(
@@ -86,7 +84,8 @@ export const DressPalette = ({showModal, modalType}) => {
     
                 </ItemContainer> 
             ))}
-            </ModalContainer></> : null }</>)
+            </ModalContainer></> 
+            )
 
         case 'eye' :
         return(
@@ -211,7 +210,7 @@ case 'acc' :
 
 
 
-        default : return (null)
+        // default : return (null)
     }
 }
 

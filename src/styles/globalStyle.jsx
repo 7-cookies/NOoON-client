@@ -154,7 +154,7 @@ ${reset}
 `;
 
 export const Button = styled.button`
-  border: 1px solid pink;
+  border: 1px solid blue;
   border-radius: 1.25rem;
   background-color: pink;
 `;

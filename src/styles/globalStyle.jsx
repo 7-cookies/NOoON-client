@@ -166,6 +166,9 @@ export const LongButton=styled.button`
     border-radius:1.25rem;
     background-color:${({ theme }) => theme.colors.blue};
     color:white;
+    ${({ theme }) => theme.fonts.kotrahope}
+  font-size:1rem;
+
 `
 
 export const ShortButton=styled.button`
@@ -179,6 +182,9 @@ export const ShortButton=styled.button`
     border-radius:1.25rem;
     background-color:${({ theme }) => theme.colors.blue};
     color:white;
+    ${({ theme }) => theme.fonts.kotrahope}
+  font-size:1rem;
+
 `
 
 export const Container=styled.section`
@@ -197,6 +203,8 @@ export const Input=styled.input`
   border-radius:1.25rem;
 
   background-color:${({ theme }) => theme.colors.skyblue};
+  ${({ theme }) => theme.fonts.kotrahope}
+  font-size:1rem;
 `
 
 export default GlobalStyle;

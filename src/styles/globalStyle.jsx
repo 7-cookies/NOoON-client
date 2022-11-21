@@ -146,22 +146,65 @@ ${reset}
 * {
     box-sizing: border-box;
     }
-@font-face{
-  font-family: "AcuminPro-Black";
-  src:url("../fonts/Acumin-Pro-Black.ttf")
 
+@font-face {
+    font-family: 'KOTRAHOPE';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRAHOPE.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
 `;
 
-export const Button = styled.button`
-  border: 1px solid blue;
-  border-radius: 1.25rem;
-  background-color: pink;
-`;
-export const Container = styled.section`
+export const LongButton=styled.button`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 23.875rem;
+    height: 3.75rem;
+  
+    border:1px solid transparent;
+    border-radius:1.25rem;
+    background-color:${({ theme }) => theme.colors.blue};
+    color:white;
+    ${({ theme }) => theme.fonts.kotrahope}
+  font-size:1rem;
+
+`
+
+export const ShortButton=styled.button`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 8.75rem;
+    height: 3.375rem;
+  
+    border:1px solid transparent;
+    border-radius:1.25rem;
+    background-color:${({ theme }) => theme.colors.blue};
+    color:white;
+    ${({ theme }) => theme.fonts.kotrahope}
+  font-size:1rem;
+
+`
+
+export const Container=styled.section`
   width: 26.875rem;
-  height: auto;
-  margin: 0 auto;
-`;
+  height: 58.25rem;
+  margin : 0 auto;
+  ${({ theme }) => theme.fonts.kotrahope}
+
+`
+
+export const Input=styled.input`
+  width: 23.875rem;
+  height: 3.75rem;
+
+  border:1px solid transparent;
+  border-radius:1.25rem;
+
+  background-color:${({ theme }) => theme.colors.skyblue};
+  ${({ theme }) => theme.fonts.kotrahope}
+  font-size:1rem;
+`
 
 export default GlobalStyle;

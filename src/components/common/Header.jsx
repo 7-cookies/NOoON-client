@@ -1,13 +1,14 @@
 import styled from "styled-components";
+import backArrow from "../../asset/icon/arrow.svg";
 
-const Header = (title) => {
+const Header = (props) => {
     return (
         <>
-        <Icon src="../../asset/icon/arrow.svg" alt="#" />
+        <Icon src={backArrow} alt="#" />
 
         <StHeaderWrapper>
             <StHeader>
-                <h1>{title}</h1>
+                <h1>{props.title}</h1>
             </StHeader>
         </StHeaderWrapper>
         </>
@@ -21,21 +22,29 @@ const Icon=styled.img`
     position: absolute;
     z-index: 2;
 
-    margin: 4.3125 0 0 0.875rem;
+    padding: 4.3125rem 0 0 0.875rem;
+
 `
 
 const StHeaderWrapper=styled.header`
     display: flex;
     justify-content: center;
+
+    width: 26.875rem;
+    height: 7.2188rem;
 `
 
 const StHeader=styled.section`
     width: 23.875rem;
-    height: 0.9375rem;
+    height: 115px;
+    display: flex;
+    justify-content: center;
+
 
     border-bottom: 1px solid;
 
     & > h1{
-        margin-top: 4.895rem;
+        padding-top: 4.895rem;
+        font-size:1.5rem;
     }
 `

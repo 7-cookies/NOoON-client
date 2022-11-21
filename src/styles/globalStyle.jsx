@@ -189,7 +189,7 @@ export const Container=styled.section`
 
 `
 
-export const Input=styled.input1`
+export const Input=styled.input`
   width: 23.875rem;
   height: 3.75rem;
 

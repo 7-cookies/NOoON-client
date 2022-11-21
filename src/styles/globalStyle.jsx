@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle, css } from 'styled-components';
+import styled, { createGlobalStyle, css } from "styled-components";
 
 export const reset = css`
   html,
@@ -126,7 +126,7 @@ export const reset = css`
   blockquote:after,
   q:before,
   q:after {
-    content: '';
+    content: "";
     content: none;
   }
   table {
@@ -153,16 +153,15 @@ ${reset}
 }
 `;
 
-export const Button=styled.button`
-    border:1px solid pink;
-    border-radius:1.25rem;
-    background-color:pink;
-
-`
-export const Container=styled.section`
+export const Button = styled.button`
+  border: 1px solid pink;
+  border-radius: 1.25rem;
+  background-color: pink;
+`;
+export const Container = styled.section`
   width: 26.875rem;
   height: auto;
-  margin : 0 auto;
-`
+  margin: 0 auto;
+`;
 
 export default GlobalStyle;

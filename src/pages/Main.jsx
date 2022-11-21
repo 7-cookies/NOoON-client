@@ -1,18 +1,16 @@
-import styled from "styled-components"
-import {Button} from "../styles/globalStyle"
+import styled from "styled-components";
+import StaticGrid from "./dongsan/StaticGrid";
 
 const Main = () => {
-    return (
-        <Container>
-            <Button>안녕</Button>
-        </Container>
-     
-
-    );
+  return (
+    <Container>
+      <StaticGrid />
+    </Container>
+  );
 };
 
 export default Main;
 
 const Container = styled.section`
-    background-color: black;
-`
+  width: 430px;
+`;

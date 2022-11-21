@@ -17,9 +17,29 @@ export const DressPalette = ({showModal, modalType}) => {
     const [mouth, setMouth] = useRecoilState(baseMouth);
     const [head, setHead] = useRecoilState(baseHead);
 
-    console.log(`ddd ${showModal}`)
+    const handleClickHead = (e) =>{
+        const Head = e.currentTarget.getAttribute('value');
+        const HeadVal = e.currentTarget.getAttribute('src');
+        const Arr =[{Head, HeadVal}];
+        setHead(Arr);
+
+    }
+
+    const handleClickEye = (e) =>{
+        const Eye = e.currentTarget.getAttribute('value');
+        const EyeVal = e.currentTarget.getAttribute('src');
+        const Arr =[{Eye, EyeVal}];
+        setEyes(Arr);
+    }
+    
 
 
+    // const handleChangeHead = (e) => {
+    //     const Head = e.currentTarget.getAttribute('src');
+    //     const HeadVal = e.currentTarget.getAttribute('value');
+    //     const Array = [{Head, HeadVal}];
+    //     setHead(Array);
+    // }
 
     // eslint-disable-next-line default-case
     switch (modalType){
@@ -41,7 +61,8 @@ export const DressPalette = ({showModal, modalType}) => {
                     key={res}
                     src={res.palette} 
                     alt={`모자`} 
-                    value={`head_${res.num+1}`}/>
+                    value={num}
+                    onClick={handleClickHead}/>
     
                 </ItemContainer> 
             ))}
@@ -65,7 +86,8 @@ export const DressPalette = ({showModal, modalType}) => {
                             key={res}
                             src={res.palette} 
                             alt={`눈`} 
-                            value={`eye_${res.num+1}`}/>
+                            value={num}
+                            onClick={handleClickEye}/>
                     </ItemContainer> 
             ))}
             </ModalContainer></> : null }</>)

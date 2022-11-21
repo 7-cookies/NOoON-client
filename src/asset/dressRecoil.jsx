@@ -6,8 +6,8 @@ import base from '../asset/img/base.png'
 export const baseEyes = atom({
     key: 'baseSnowman_e',
     default: [
-        {'Eyes' : base,
-        'EyesVal' : 'eyes_0'}
+        {'Eye' : 0,
+        'EyesVal' : 'eye_0'}
     ]
 })
 
@@ -23,7 +23,7 @@ export const baseArms = atom({
     key: 'baseSnowman_a',
     default: [
         {'Arms' : base,
-        'ArmsVal' :'arms_0'}
+        'ArmsVal' :'arm_0'}
     ]
 })
 
@@ -38,7 +38,7 @@ export const baseItem = atom({
 export const baseHead = atom({
     key: 'baseSnowman_h',
     default: [
-        {'Head' : base,
+        {'Head' : 0,
         'HeadVal' :'head_0'}
     ]
 })
@@ -50,6 +50,7 @@ export const baseMouth = atom({
         'MouthVal' :'mouth_0'}
     ]
 })
+
 
 // 아이템 모달창 state
 export const modalStateC = atom({

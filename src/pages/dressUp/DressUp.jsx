@@ -10,6 +10,7 @@ import {baseEyes, baseArms, baseHead, baseNose, baseItem, baseMouth, modalStateC
 import moveToLeft from '../../asset/icon/Group 88.png'
 import moveToRight from '../../asset/icon/Group 89.png'
 import base from '../../asset/img/base.png'
+import {headImg, eyeImg} from '../../asset/imgData.jsx'
 
 const DressUp = () => {
     //recoilState 선언
@@ -22,6 +23,10 @@ const DressUp = () => {
 
     const [showModal, setModal] = useRecoilState(modalStateC);
     const [modalType, setModalType] = useRecoilState(modalStateT);
+
+
+    console.log(headImg[0].putOn)
+    console.log(eye[0].Eye)
 
     return (
         
@@ -38,9 +43,9 @@ const DressUp = () => {
                         <Base src={base}/>
                     </BaseContainer>
 
-                    <Eye src={eye[0].Eyes} alt='눈'></Eye>
+                    <Eye src={eyeImg[eye[0].Eye].putOn} alt='눈'></Eye>
                     <Nose src={nose[0].Nose} alt='코'></Nose>
-                    <Head src={head[0].Head} alt='머리'></Head>
+                    <Head src={headImg[head[0].Head].putOn} alt='머리'></Head>
                     <Arm src={arm[0].Arms} alt='팔'></Arm>
                     <Mouth src={mouth[0].Mouth} alt='입'></Mouth>
                     <Item src={item[0].Item} alt='소품'></Item>
@@ -137,6 +142,7 @@ height: 19.375rem;
 `
 
 const Head = styled(Nose)`
+z-index: 2;
 `
 const Item = styled(Nose)`
 `

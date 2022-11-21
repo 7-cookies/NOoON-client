@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import styled from 'styled-components'
 import {useRecoilState} from 'recoil'
 
-import {headImg, eyeImg} from "../../asset/imgData"
+import {headImg, eyeImg, noseImg, armImg, mouthImg, accImg } from "../../asset/imgData"
 import {baseEyes, baseArms, baseHead, baseNose, baseItem, baseMouth} from '../../asset/dressRecoil'
 
 
@@ -12,7 +12,7 @@ export const DressPalette = ({showModal, modalType}) => {
     //recoilState 선언
     const [eye, setEyes] = useRecoilState(baseEyes);
     const [nose, setNose] = useRecoilState(baseNose);
-    const [arm, setArms] = useRecoilState(baseArms);
+    const [arm, setArm] = useRecoilState(baseArms);
     const [item, setItem] = useRecoilState(baseItem);
     const [mouth, setMouth] = useRecoilState(baseMouth);
     const [head, setHead] = useRecoilState(baseHead);
@@ -31,15 +31,35 @@ export const DressPalette = ({showModal, modalType}) => {
         const Arr =[{Eye, EyeVal}];
         setEyes(Arr);
     }
-    
 
+    const handleClickNose = (e) =>{
+        const Nose = e.currentTarget.getAttribute('value');
+        const NoseVal = e.currentTarget.getAttribute('src');
+        const Arr =[{Nose, NoseVal}];
+        setNose(Arr);
+    }
 
-    // const handleChangeHead = (e) => {
-    //     const Head = e.currentTarget.getAttribute('src');
-    //     const HeadVal = e.currentTarget.getAttribute('value');
-    //     const Array = [{Head, HeadVal}];
-    //     setHead(Array);
-    // }
+    const handleClickArm = (e) =>{
+        const Arm = e.currentTarget.getAttribute('value');
+        const ArmVal = e.currentTarget.getAttribute('src');
+        const Arr =[{Arm, ArmVal}];
+        setArm(Arr);
+    }
+
+    const handleClickMouth = (e) =>{
+        const Mouth = e.currentTarget.getAttribute('value');
+        const MouthVal = e.currentTarget.getAttribute('src');
+        const Arr =[{Mouth, MouthVal}];
+        setMouth(Arr);
+    }
+
+    const handleClickAcc = (e) =>{
+        const Item = e.currentTarget.getAttribute('value');
+        const ItemVal = e.currentTarget.getAttribute('src');
+        const Arr =[{Item, ItemVal}];
+        setItem(Arr);
+    }
+
 
     // eslint-disable-next-line default-case
     switch (modalType){
@@ -91,6 +111,106 @@ export const DressPalette = ({showModal, modalType}) => {
                     </ItemContainer> 
             ))}
             </ModalContainer></> : null }</>)
+
+
+        case 'nose' :
+                return(
+                <>
+                    {showModal===true ? 
+                        <>
+                        <ModalContainer>
+                        {noseImg.map((res,num)=>(
+                            <ItemContainer 
+                                key={res}
+                                onClick={()=>{setCheckNum(res);}}
+                                check={res} 
+                                number={checkNum}
+                                num={num}> 
+
+                                <Item 
+                                    key={res}
+                                    src={res.palette} 
+                                    alt={`코`} 
+                                    value={num}
+                                    onClick={handleClickNose}/>
+                            </ItemContainer> 
+                    ))}
+                    </ModalContainer></> : null }</>)
+
+        case 'arm' :
+                            return(
+                            <>
+                                {showModal===true ? 
+                                    <>
+                                    <ModalContainer>
+                                    {armImg.map((res,num)=>(
+                                        <ItemContainer 
+                                            key={res}
+                                            onClick={()=>{setCheckNum(res);}}
+                                            check={res} 
+                                            number={checkNum}
+                                            num={num}> 
+
+                                            <Item 
+                                                key={res}
+                                                src={res.palette} 
+                                                alt={`코`} 
+                                                value={num}
+                                                onClick={handleClickArm}/>
+                                        </ItemContainer> 
+                                ))}
+                                </ModalContainer></> : null }</>)
+
+    case 'mouth' :
+        return(
+        <>
+            {showModal===true ? 
+                <>
+                <ModalContainer>
+                {mouthImg.map((res,num)=>(
+                    <ItemContainer 
+                        key={res}
+                        onClick={()=>{setCheckNum(res);}}
+                        check={res} 
+                        number={checkNum}
+                        num={num}> 
+
+                        <Item 
+                            key={res}
+                            src={res.palette} 
+                            alt={`입`} 
+                            value={num}
+                            onClick={handleClickMouth}/>
+                    </ItemContainer> 
+            ))}
+            </ModalContainer></> : null }</>)
+
+case 'acc' :
+    return(
+    <>
+        {showModal===true ? 
+            <>
+            <ModalContainer>
+            {accImg.map((res,num)=>(
+                <ItemContainer 
+                    key={res}
+                    onClick={()=>{setCheckNum(res);}}
+                    check={res} 
+                    number={checkNum}
+                    num={num}> 
+
+                    <Item 
+                        key={res}
+                        src={res.palette} 
+                        alt={`악세사리`} 
+                        value={num}
+                        onClick={handleClickAcc}/>
+                </ItemContainer> 
+        ))}
+        </ModalContainer></> : null }</>)
+
+
+
         default : return (null)
     }
 }

@@ -7,10 +7,8 @@ import {CateMenu} from '../../components/dressUp/CateMenu.jsx'
 import {DressPalette} from '../../components/dressUp/DressPalette';
 import {baseEyes, baseArms, baseHead, baseNose, baseItem, baseMouth, modalStateC, modalStateT} from '../../asset/dressRecoil'
 
-import moveToLeft from '../../asset/icon/Group 88.png'
-import moveToRight from '../../asset/icon/Group 89.png'
 import base from '../../asset/img/base.png'
-import {headImg, eyeImg} from '../../asset/imgData.jsx'
+import {headImg, eyeImg, noseImg, armImg, mouthImg, accImg} from '../../asset/imgData.jsx'
 
 const DressUp = () => {
     //recoilState 선언
@@ -31,11 +29,6 @@ const DressUp = () => {
     return (
         
         <Container>
-            <Header>
-                <Arrow src={moveToRight}/>
-                눈사람 꾸미기
-                <Arrow src={moveToLeft}/>
-            </Header>
 
             <DressZone>
                 <ImgContainer>
@@ -43,12 +36,12 @@ const DressUp = () => {
                         <Base src={base}/>
                     </BaseContainer>
 
-                    <Eye src={eyeImg[eye[0].Eye].putOn} alt='눈'></Eye>
-                    <Nose src={nose[0].Nose} alt='코'></Nose>
                     <Head src={headImg[head[0].Head].putOn} alt='머리'></Head>
-                    <Arm src={arm[0].Arms} alt='팔'></Arm>
-                    <Mouth src={mouth[0].Mouth} alt='입'></Mouth>
-                    <Item src={item[0].Item} alt='소품'></Item>
+                    <Eye src={eyeImg[eye[0].Eye].putOn} alt='눈'></Eye>
+                    <Nose src={noseImg[nose[0].Nose].putOn} alt='코'></Nose>
+                    <Arm src={armImg[arm[0].Arm].putOn} alt='팔'></Arm>
+                    <Mouth src={mouthImg[mouth[0].Mouth].putOn} alt='입'></Mouth>
+                    <Item src={accImg[item[0].Item].putOn} alt='소품'></Item>
 
                 </ImgContainer>
 
@@ -70,23 +63,6 @@ const DressUp = () => {
 };
 
 export default DressUp;
-
-// 헤더
-const Header = styled.section `
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    font-size: 0.6111rem;
-
-    border-bottom: solid 0.0278rem #CACACA;
-    padding: 0.4444rem 0.3889rem;
-`
-
-const Arrow = styled.img`
-    width: 1rem;
-    height: 1rem;
-`
 
 // 옷입히기 구역
 const DressZone = styled.section`
@@ -125,6 +101,15 @@ height: 19.375rem;
 z-index: 0;
 `
 
+const Head = styled.img`
+z-index: 2;
+
+position: absolute;
+
+width: 19.375rem;
+height: 19.375rem;
+`
+
 const Eye = styled.img`
 /* border: solid yellow; */
 z-index: 1;
@@ -139,10 +124,6 @@ position: absolute;
 
 width: 19.375rem;
 height: 19.375rem;
-`
-
-const Head = styled(Nose)`
-z-index: 2;
 `
 const Item = styled(Nose)`
 `

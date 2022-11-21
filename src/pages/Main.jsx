@@ -1,10 +1,8 @@
 import styled from "styled-components";
-import StaticGrid from "./dongsan/StaticGrid";
 
 const Main = () => {
   return (
     <Container>
-      <StaticGrid />
     </Container>
   );
   }

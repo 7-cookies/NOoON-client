@@ -6,6 +6,7 @@ import {Container} from "../../styles/globalStyle";
 import Error404 from '../../pages/Error404';
 import Main from '../../pages/Main';
 import DressUp from '../../pages/dressUp/DressUp';
+import {Message} from '../../pages/dressUp/Message';
 
 const Router = () => {
   return (
@@ -16,6 +17,7 @@ const Router = () => {
           <Route path="/" element={<Main />} />
           <Route path="*" element={<Error404 />} />
           <Route path="/dressUp" element={<DressUp />} />
+          <Route path="/dressUp/message" element={<Message />} />
         </Routes>
         </RecoilRoot>
       </Container>        

@@ -32,6 +32,8 @@ const StHeaderWrapper=styled.header`
 
     width: 26.875rem;
     height: 7.2188rem;
+
+    ${({ theme }) => theme.fonts.kotrahopeCommon}
 `
 
 const StHeader=styled.section`
@@ -41,7 +43,7 @@ const StHeader=styled.section`
     justify-content: center;
 
 
-    border-bottom: 1px solid;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.grey};
 
     & > h1{
         padding-top: 4.895rem;

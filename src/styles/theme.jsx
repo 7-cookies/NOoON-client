@@ -5,13 +5,51 @@ const colors = {
 
 const fonts = {
   kotrahope: `
-    font-family: KOTRAHOPE;
-    font-size: 8rem;
-    font-weight: 900;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-  `
+  font-family: ‘KOTRAHOPE’;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.07em;
+  `,
+  kotrahopeTitle: `
+  font-family: ‘KOTRAHOPE’;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 42px;
+  line-height: 23px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.07em;
+  `,
+  kotrahopeSubTitle: `
+  font-family: ‘KOTRAHOPE’;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 23px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.07em;
+  `,
+  kotrahopeHeader: `
+  font-family: ‘KOTRAHOPE’;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 23px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.07em;
+  `,
+
+
 };
 
 const theme = {

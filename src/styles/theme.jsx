@@ -4,14 +4,50 @@ const colors = {
 };
 
 const fonts = {
-  kotrahope: `
-    font-family: KOTRAHOPE;
-    font-size: 8rem;
-    font-weight: 900;
+  kotrahopeCommon: `
+    font-family: ‘KOTRA HOPE’;
     font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-  `
+    font-weight: 400;
+    font-size: 1.375rem;
+    line-height: 1.4375rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.07em;
+  `,
+  kotrahopeLandingTitle: `
+  font-family: ‘KOTRA HOPE’;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2.625rem;
+  line-height: 1.4375rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.07em;
+`,
+kotrahopeText: `
+  font-family: ‘KOTRA HOPE’;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 1.4375rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.07em;
+`,
+kotrahopeMessage: `
+  font-family: ‘KOTRA HOPE’;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height : 1.875rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.07em;
+`
 };
 
 const theme = {

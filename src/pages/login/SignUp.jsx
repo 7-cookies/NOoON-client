@@ -4,7 +4,7 @@ import LoginCommon from '../../components/login/LoginCommon';
 const SignUp = () => {
     return (
         <div>
-            <LoginCommon props="회원가입" />
+            <LoginCommon title="회원가입" />
         </div>
     );
 };

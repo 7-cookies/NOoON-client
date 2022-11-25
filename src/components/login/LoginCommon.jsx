@@ -5,10 +5,9 @@ import Header from "../common/Header";
 
 
 const LoginCommon = (props) => {
-    const title={props}
     return (
         <StLoginWrapper>
-            <Header title={title}/>
+            <Header title={props.title}/>
             <StLogin>
 
             <div>

@@ -53,7 +53,7 @@ class StaticGrid extends React.Component {
 export default StaticGrid;
 
 const StGridWrapper = styled.section`
-  background-image: url("image/back.png");
+  background-image: url("image/background1.png");
   background-size: 430px;
   padding-left: 8px;
 `;

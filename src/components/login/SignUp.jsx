@@ -4,6 +4,7 @@ import Header from '../common/Header';
 import { useRef, useState } from 'react';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import { useCookies } from 'react-cookie'; 
 
 const SignUp = () => {
     const userNameRef=useRef(null)
@@ -12,9 +13,9 @@ const SignUp = () => {
     const [password, setPassword] = useState()
     const navigate=useNavigate();
 
+    const [cookies, setCookie, removeCookie] = useCookies(["access_token"]);
 
     const handleSubmit=()=>{
-        console.log("ddd");
         setUsername(userNameRef.current.value)
         setPassword(userNameRef.current.value)
 
@@ -29,7 +30,7 @@ const SignUp = () => {
           .then((response) => {
             console.log(response.data);
             // access토큰 저장
-            window.sessionStorage.setItem("access_token", response.data.access_token);
+            setCookie(response.data.access_token);
             alert("추가완료!");
             navigate("/makedongsan");
           });

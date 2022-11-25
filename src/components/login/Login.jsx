@@ -2,10 +2,47 @@ import styled from 'styled-components';
 import { Input, ShortButton } from '../../styles/globalStyle';
 import Header from '../common/Header';
 import { useRef } from 'react';
+import axios from 'axios';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 
 const Login = () => {
     const userNameRef=useRef(null)
     const userPasswordRef=useRef(null)
+    const [username, setUsername] = useState()
+    const [password, setPassword] = useState()
+    const navigate=useNavigate();
+
+    const [cookies, setCookie, removeCookie] = useCookies(["access_token"]);
+
+    const handleSubmit=()=>{
+        setUsername(userNameRef.current.value)
+        setPassword(userNameRef.current.value)
+
+        axios
+          .post(
+            "api/v1/user/login",
+            {
+              username: username,
+              password: password,
+            },
+            {
+              headers: {
+                Authorization: `Bearer ${cookies}`,
+              },
+              "Content-Type": "application/json",
+            }
+          )
+          .then((response) => {
+            console.log(response.data);
+            // access토큰 저장
+            setCookie(response.data.access_token);
+            alert("추가완료!");
+            navigate("/makedongsan");
+          });
+    };
+    
 
     return (
         <StLoginWrapper>
@@ -22,7 +59,7 @@ const Login = () => {
             <StLoginInpt placeholder="숫자 4자리를 입력해주세요" ref={userPasswordRef} />
         </div>
         </StLogin>
-        <ShortButton button="button" className="check">확인</ShortButton>
+        <ShortButton button="button" className="check" onClick={handleSubmit}>확인</ShortButton>
 
     </StLoginWrapper>
     );

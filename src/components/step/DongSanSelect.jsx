@@ -9,42 +9,21 @@ const DongSanSelect = () => {
     const navigate=useNavigate();
     const [dongsanBeginData, setDongsanBeginData]=useRecoilState(dongsanstep)
 
-    const handleNextClick=(e)=>{
-        // e.preventDefault();
-        // setDongsanBeginData((prev)=>({...prev, background:`${e.target.contact.value}`}))
-        // navigate('/grid');
-        // alert(`${e.target.contact.value}`)
+    const handleChooseClick =(data)=>{
+        setDongsanBeginData((prev)=>({...prev, background:data}))
+        console.log("dddd");
+        console.log(dongsanBeginData)
     }
 
     return (
         <StDongSanSelectWrapper>
             <Header title="동산 배경 정하기" />
             <StDongSanWrapper>
-            <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        alert(`${e.target.contact.value}를 통해 연락드리겠습니다!`);
-      }}
-    >
-                <input type="radio" name="background" id="background1" value="1" />
-                <label for="background1">
-                    <img src="image/background1.png" alt="동산배경1" />
-                </label>
-                <input type="radio" name="background" id="background2" value="2" />
-
-                <label for="background2">
-                    <img src="image/background2.png" alt="동산배경2" />
-                </label>
-                <input type="radio" name="background" id="background3" value="3" />
-                <label for="background3">
-                    <img src="image/background3.png" alt="동산배경3" />
-                </label>
-                <input type="radio" name="background" id="background4" value="4" />
-                <label for="background4">
-                    <img src="image/background4.png" alt="동산배경4" />
-                </label>
-                <StShortButton button="submit" onClick={(e)=>handleNextClick(e)}>확인</StShortButton>
-                </form>
+                <img src="image/background1.png" alt="동산배경1" onClick={()=>handleChooseClick(1)}/>
+                <img src="image/background2.png" alt="동산배경2" onClick={()=>handleChooseClick(2)}/>
+                <img src="image/background3.png" alt="동산배경3" onClick={()=>handleChooseClick(3)}/>
+                <img src="image/background4.png" alt="동산배경4" onClick={()=>handleChooseClick(4)}/>
+                <StShortButton button="submit" onClick={()=>navigate('/grid')}>확인</StShortButton>
             </StDongSanWrapper>
         </StDongSanSelectWrapper>
     );
@@ -56,10 +35,8 @@ const StDongSanSelectWrapper=styled.section`
 `
 
 const StDongSanWrapper = styled.div`
-    
-    & > form {margin-left:39.5px;}
+    margin-left:39.5px;
 
-    & input[type="radio"]{display:none;}
     & img {
         width: 150px;
         height: 326px;
@@ -74,7 +51,9 @@ const StDongSanWrapper = styled.div`
         box-shadow :0px 0px 0px 5px ${({ theme }) => theme.colors.blue};
     }
 
-
+    & img {
+        box-shadow :0px 0px 0px 5px ${({ theme }) => theme.colors.blue};
+    }
 `
 
 const StShortButton = styled(ShortButton)`

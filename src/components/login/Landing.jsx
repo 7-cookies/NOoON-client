@@ -2,6 +2,8 @@ import styled from "styled-components"
 import {LongButton} from "../../styles/globalStyle"
 
 const Landing = () => {
+    console.log(`${process.env.REACT_APP_BACKGROUND}`);
+
     return (
         <StMainWrapper>
             <p>크리스마스에 완성되는 나만의 눈동산</p>

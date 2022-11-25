@@ -34,7 +34,7 @@ const SignUp = () => {
             navigate("/makedongsan");
           });
     };
-    
+
 
     return (
         <StLoginWrapper>
@@ -48,7 +48,7 @@ const SignUp = () => {
                     
         <div>
             <p>PASSWORD</p>
-            <StLoginInpt placeholder="숫자 4자리를 입력해주세요" ref={userPasswordRef}/>
+            <StLoginInpt type="password" placeholder="숫자 4자리를 입력해주세요" ref={userPasswordRef}  maxLength={4} />
         </div>
         </StLogin>
         <ShortButton button="submit" className="check" onClick={handleSubmit}>확인</ShortButton>

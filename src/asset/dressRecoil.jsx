@@ -1,6 +1,5 @@
 import {atom} from 'recoil'
-
-import base from '../asset/img/base.png'
+import {selector} from 'recoil'
 
 //눈사람 이미지
 export const baseEyes = atom({
@@ -62,3 +61,5 @@ export const modalStateT= atom({
     key: 'modalT',
     default: {'modalType' : 'head'},
 })
+
+

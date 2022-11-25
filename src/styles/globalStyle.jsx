@@ -170,6 +170,22 @@ export const LongButton = styled.button`
   cursor: pointer;
 `;
 
+export const MiddleButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10.625rem;
+  height: 3.375rem;
+
+  border: 1px solid transparent;
+  border-radius: 1.25rem;
+  background-color: ${({ theme }) => theme.colors.blue};
+  color: white;
+  ${({ theme }) => theme.fonts.kotrahopeCommon}
+
+  cursor: pointer;
+`;
+
 export const ShortButton = styled.button`
   display: flex;
   justify-content: center;

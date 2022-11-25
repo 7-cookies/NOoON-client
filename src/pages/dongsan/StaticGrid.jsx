@@ -3,6 +3,7 @@ import GridLayout from "react-grid-layout";
 import styled from "styled-components";
 
 import base from "../../asset/img/base.png";
+import { MiddleButton } from "../../styles/globalStyle";
 
 class StaticGrid extends React.Component {
   render() {
@@ -43,7 +44,14 @@ class StaticGrid extends React.Component {
           <div
             key="j"
             data-grid={{ x: 0, y: 11, w: 2, h: 2, static: true }}
-          ></div>
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "30.25px",
+            }}
+          >
+            <MiddleButton>내 동산 공유하기</MiddleButton>
+          </div>
         </GridLayout>
       </StGridWrapper>
     );

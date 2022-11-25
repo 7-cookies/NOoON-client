@@ -43,7 +43,7 @@ const DressUp = () => {
     return (
         <>
         <ContainerE>
-            <Header title={(message===true)?'눈사람 꾸미기':'메세지 남기기'}/>
+            <Header title={message?'메세지 남기기':'눈사람 꾸미기'}/>
             <DressZone>
                 <SnowMan imgSize={(message===true)?'15':'19.375'} />
 

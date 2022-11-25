@@ -4,7 +4,6 @@ import { Input, ShortButton} from "../../styles/globalStyle";
 
 
 const WRMessage = () => {
-    
 
     return (
         <TextZone>

@@ -191,7 +191,6 @@ export const Container=styled.section`
   width: 26.875rem;
   height: 58.25rem;
   margin : 0 auto;
-  background-color: #e3e3e3;
 `
 
 export const Input=styled.input`

@@ -13,7 +13,7 @@ const DongsanName = ({ setStep }) => {
         setDongsanBeginData((prev)=>({...prev, name:nameRef.current.value}))
         setStep('DONSAN-NAMING-MODAL');
     }
-
+//
     return (
         <>
         <StDongsanNameWrapper>

@@ -18,7 +18,7 @@ const DongSanSelect = () => {
         console.log("dddd");
         console.log(dongsanBeginData)
     }
-
+//
     return (
         <StDongSanSelectWrapper>
             <Header title="동산 배경 정하기" />

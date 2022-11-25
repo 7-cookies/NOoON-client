@@ -1,8 +1,19 @@
 import styled from 'styled-components';
 import { ShortButton } from '../../styles/globalStyle';
 import Header from '../common/Header';
+import {useRecoilState} from "recoil";
+import {dongsanstep} from '../../utils/atoms';
+import { useNavigate } from 'react-router-dom';
 
 const DongSanSelect = () => {
+    const navigate=useNavigate();
+    const [dongsanBeginData, setDongsanBeginData]=useRecoilState(dongsanstep)
+
+    const handleNextClick=()=>{
+        setDongsanBeginData((prev)=>({...prev, background:}))
+        navigate('/grid');
+    }
+
     return (
         <StDongSanSelectWrapper>
             <Header title="동산 배경 정하기" />

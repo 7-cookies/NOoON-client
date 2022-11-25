@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import { Input, ShortButton } from "../../styles/globalStyle";
 import DongsanName from "./DongsanName";
+import {useRecoilValue, } from 'recoil';
+import {dongsanstep} from '../../utils/atoms';
 
 const DongSanNameModal = ({ setStep }) => {
-    console.log(dongsanBeginData);
+    const dongsan=useRecoilValue(dongsanstep);
 
     const handleNextClick=()=>{
         setStep('DONSAN-SELECTING');
@@ -19,7 +21,7 @@ const DongSanNameModal = ({ setStep }) => {
         <StModalBackgroundWrapper>
             <StModalWrapper>
                 <StModal>
-                    <StInput defaultValue="눈 펑펑 오는 눈동산" />
+                    <StInput defaultValue={dongsan.name} />
                     <p>(으)로 동산을 만드시겠습니까?</p>
                     <StButtonWrapper>
                         <ShortButton button="submit" onClick={handleNextClick}>확인</ShortButton>

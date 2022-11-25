@@ -9,6 +9,7 @@ import CateMenu from '../../components/DressUp/CateMenu.jsx'
 import DressPalette from '../../components/DressUp/DressPalette';
 import SnowMan from '../../components/DressUp/SnowMan.jsx'
 import WRMessage from '../../components/DressUp/WRMessage.jsx'
+import Header from '../../components/common/Header.jsx'
 
 import {modalStateC, modalStateT} from '../../asset/dressRecoil'
 
@@ -16,8 +17,8 @@ import {modalStateC, modalStateT} from '../../asset/dressRecoil'
 const DressUp = () => {
     const [showModal, setModal] = useRecoilState(modalStateC);
     const [modalType, setModalType] = useRecoilState(modalStateT);
-
     const [message, setMessage] = useState(false);
+
 
     const moveToMessage = () =>{
         setMessage(!message);
@@ -27,6 +28,7 @@ const DressUp = () => {
     
     return (
         <Container>
+            <Header title={(message===true)?'눈사람 꾸미기':'메세지 남기기'}/>
             <DressZone>
                 <SnowMan imgSize={(message===true)?'15':'19.375'} />
 

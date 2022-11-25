@@ -12,12 +12,12 @@ const LoginCommon = (props) => {
 
             <div>
                 <p>ID</p>
-                <LoginInpt placeholder="아이디를 입력해주세요" />
+                <StLoginInpt placeholder="아이디를 입력해주세요" />
             </div>
                         
             <div>
                 <p>PASSWORD</p>
-                <LoginInpt placeholder="숫자 4자리를 입력해주세요" />
+                <StLoginInpt placeholder="숫자 4자리를 입력해주세요" />
             </div>
             </StLogin>
             <ShortButton className="check">확인</ShortButton>
@@ -48,7 +48,7 @@ const StLogin=styled.div`
         margin-top:49.3px;
     }
 `
-const LoginInpt=styled(Input)`
+const StLoginInpt=styled(Input)`
     align-items: flex-start;
     text-align: left;
     margin-left:24px;

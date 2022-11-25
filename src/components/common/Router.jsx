@@ -7,6 +7,7 @@ import Main from '../../pages/Main';
 import StaticGrid from "../../pages/dongsan/StaticGrid";
 import Login from "../../pages/login/Login";
 import SignUp from "../../pages/login/SignUp";
+import DongsanName from '../../pages/login/DongsanName';
 
 const Router = () => {
   return (
@@ -18,6 +19,7 @@ const Router = () => {
           <Route path='/grid' element={<StaticGrid />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/dongsanname" element={<DongsanName />} />
         </Routes>
       </Container>        
     </BrowserRouter>

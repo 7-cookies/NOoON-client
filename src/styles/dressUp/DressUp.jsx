@@ -68,6 +68,7 @@ export const CategoryContainer = styled.section`
 width: 26.875rem; 
 display: flex;
 flex-direction: column;
+align-items: center;
 `
 
 export const CateMenuCon = styled.section`

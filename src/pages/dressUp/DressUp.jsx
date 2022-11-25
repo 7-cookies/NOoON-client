@@ -65,9 +65,11 @@ const DressUp = () => {
 export default DressUp;
 
 const NextButton = styled(ShortButton)`
-margin: auto;
+margin: 25rem 0;
+width: 23.875rem;
 position: fixed;
 z-index: 5;
+
 
 
 `

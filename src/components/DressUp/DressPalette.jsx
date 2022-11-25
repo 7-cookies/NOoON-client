@@ -223,9 +223,10 @@ align-items: center;
 flex-wrap: wrap;
 
 width: 26.875rem; 
-height: auto;
+height:35.75rem;
 background-color:#D6E2F0;
-padding: 1rem 0;
+/* background-color:red; */
+padding: 1rem 0 37rem 0;
 
 position: relative;
 z-index: 1;

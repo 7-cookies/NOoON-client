@@ -1,7 +1,7 @@
 import styled from "styled-components"
-import {LongButton} from "../styles/globalStyle"
+import {LongButton} from "../../styles/globalStyle"
 
-const Main = () => {
+const Landing = () => {
     return (
         <StMainWrapper>
             <p>크리스마스에 완성되는 나만의 눈동산</p>
@@ -13,7 +13,7 @@ const Main = () => {
     );
 };
 
-export default Main;
+export default Landing;
 
 const StMainWrapper = styled.section`
     background-image: url("image/landingImg.png");

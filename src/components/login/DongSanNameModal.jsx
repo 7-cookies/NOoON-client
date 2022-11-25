@@ -1,18 +1,37 @@
 import styled from "styled-components";
 import { Input, ShortButton } from "../../styles/globalStyle";
+import { useNavigate } from 'react-router-dom';
+import DongsanName from "./DongsanName";
 
-const DongSanNameModal = () => {
+const DongSanNameModal = ({ setStep }) => {
+    const navigate=useNavigate()
+    const handleNextClick=()=>{
+        // setStep('DONSAN-SELECTING');
+        // console.log("zmffldafsafs");
+        navigate(-1);
+    }
+
+    const handlePrevClick=()=>{
+        setStep('DONSAN-NAMING');
+    }
+
     return (
-        <StModalWrapper>
-            <StModal>
-                <StInput defaultValue="눈 펑펑 오는 눈동산" />
-                <p>(으)로 동산을 만드시겠습니까?</p>
-                <StButtonWrapper>
-                    <ShortButton button="submit">확인</ShortButton>
-                    <ShortButton button="submit">취소</ShortButton>   
-                </StButtonWrapper>
-            </StModal>
-        </StModalWrapper>
+        <>
+        <StModalBackgroundWrapper>
+            <StModalWrapper>
+                <StModal>
+                    <StInput defaultValue="눈 펑펑 오는 눈동산" />
+                    <p>(으)로 동산을 만드시겠습니까?</p>
+                    <StButtonWrapper>
+                        <ShortButton button="submit" onClick={handleNextClick}>확인</ShortButton>
+                        <ShortButton button="submit" onClick={handlePrevClick}>취소</ShortButton>   
+                    </StButtonWrapper>
+                </StModal>
+            </StModalWrapper>
+        </StModalBackgroundWrapper>
+
+        <DongsanName />
+        </>
     );
 };
 
@@ -21,7 +40,10 @@ export default DongSanNameModal;
 const StInput = styled(Input)`
     width: 341px;
 `
-
+const StModalBackgroundWrapper = styled.section`
+    position: absolute;
+    z-index: 2;
+`
 const StModalWrapper=styled.section`
     display: flex;
     justify-content: center;

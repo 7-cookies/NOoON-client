@@ -38,8 +38,6 @@ const StDongSanSelectWrapper=styled.section`
 `
 
 const StDongSanWrapper = styled.div`
-    /* width:330px; */
-
     & > form{
         margin-left:39.5px;
     }

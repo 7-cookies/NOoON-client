@@ -32,8 +32,6 @@ const StMainWrapper = styled.section`
     & > h1{
         margin: 1rem 0 20rem 0;
         ${({ theme }) => theme.fonts.kotrahopeLandingTitle}
-        font-color: '#6578BE';
-
     }
     & > .button1 {
         margin-top: 6.4375rem;

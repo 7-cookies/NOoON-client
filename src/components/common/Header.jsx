@@ -32,6 +32,8 @@ const StHeaderWrapper=styled.header`
 
     width: 26.875rem;
     height: 7.2188rem;
+
+    ${({ theme }) => theme.fonts.kotrahopeCommon}
 `
 
 const StHeader=styled.section`

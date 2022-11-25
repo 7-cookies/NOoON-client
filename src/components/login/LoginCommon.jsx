@@ -30,9 +30,8 @@ const LoginCommon = (props) => {
 export default LoginCommon;
 
 const StLoginWrapper = styled.section`
-font-size:1rem;
-& > .check{
-    margin: 223px 145px 102px 145px;
+    & > .check{
+        margin: 223px 145px 102px 145px;
 }
 `
 

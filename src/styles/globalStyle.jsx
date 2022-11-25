@@ -200,7 +200,7 @@ export const Input=styled.input`
   border-radius:1.25rem;
 
   background-color:${({ theme }) => theme.colors.skyblue};
-  ${({ theme }) => theme.fonts.kotrahopeCommon}
+  ${({ theme }) => theme.fonts.kotrahopeText}
 `
 
 export default GlobalStyle;

@@ -13,11 +13,13 @@ export const ImgContainer=styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
+/* width: 19.375rem;
+height: 19.375rem; */
+width: ${(props)=>props.imgSize}rem;
+height: ${(props)=>props.imgSize}rem;
 
-width: 19.375rem;
-height: 19.375rem;
+border: solid black;
 
-/* border: solid green; */
 position: relative;
 `
 
@@ -27,12 +29,11 @@ justify-content: center;
 align-items: center;
 
 position: absolute;
-/* margin: 0.6389rem 1.6667rem 2.375rem; */
 `
 
 export const Base = styled.img`
-width: 19.375rem;
-height: 19.375rem;
+width: ${(props)=>props.imgSize}rem;
+height: ${(props)=>props.imgSize}rem;
 
 z-index: 0;
 `
@@ -42,24 +43,20 @@ z-index: 2;
 
 position: absolute;
 
-width: 19.375rem;
-height: 19.375rem;
+width: ${(props)=>props.imgSize}rem;
+height: ${(props)=>props.imgSize}rem;
 `
 
 export const Eye = styled.img`
-/* border: solid yellow; */
 z-index: 1;
-
-width: 19.375rem;
-height: 19.375rem;
+width: ${(props)=>props.imgSize}rem;
+height: ${(props)=>props.imgSize}rem;
 `
 
 export const Nose = styled.img`
-/* border: solid pink; */
 position: absolute;
-
-width: 19.375rem;
-height: 19.375rem;
+width: ${(props)=>props.imgSize}rem;
+height: ${(props)=>props.imgSize}rem;
 `
 export const Item = styled(Nose)`
 `
@@ -71,7 +68,6 @@ export const Mouth = styled(Nose)`
 //아이템을 선택하는 구역
 export const CategoryContainer = styled.section`
 width: 26.875rem; 
-/* border: solid purple; */
 `
 
 export const CateMenuCon = styled.section`

@@ -5,7 +5,9 @@ import { useRecoilState } from 'recoil'
 import {menuData} from "../../asset/imgData"
 import {modalStateC, modalStateT} from "../../asset/dressRecoil"
 
-export const CateMenu = () => {
+import {CateMenuCon} from '../../styles/dressUp/DressUp.jsx'
+
+const CateMenu = () => {
     const [cateNum, setCateNum] = useState(0);
 
     const [showModal, setModal] = useRecoilState(modalStateC);
@@ -18,8 +20,9 @@ export const CateMenu = () => {
 
 
     return (
+    <CateMenuCon>
 
-        menuData.map(data=>(
+        {menuData.map(data=>(
             <Menu 
                 key={data + 'category'} 
                 onClick={()=>{setCateNum(data);}} 
@@ -31,11 +34,14 @@ export const CateMenu = () => {
                     type={data.categoryName}
                     onClick={openModal}/>
             </Menu>
-        ))
+        ))}
+
+    </CateMenuCon>
 
     )
 }
 
+export default CateMenu;
 
 
 const Menu = styled.section`

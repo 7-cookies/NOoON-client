@@ -6,7 +6,7 @@ import {headImg, eyeImg, noseImg, armImg, mouthImg, accImg } from "../../asset/i
 import {baseEyes, baseArms, baseHead, baseNose, baseItem, baseMouth} from '../../asset/dressRecoil'
 
 
-export const DressPalette = ({showModal, modalType}) => {
+const DressPalette = ({showModal, modalType}) => {
     const [checkNum, setCheckNum] = useState(0)
 
     //recoilState 선언
@@ -153,20 +153,44 @@ export const DressPalette = ({showModal, modalType}) => {
                                             <Item 
                                                 key={res}
                                                 src={res.palette} 
-                                                alt={`코`} 
+                                                alt={`팔`} 
                                                 value={num}
                                                 onClick={handleClickArm}/>
                                         </ItemContainer> 
                                 ))}
                                 </ModalContainer></> : null }</>)
 
-    case 'mouth' :
+        case 'mouth' :
+            return(
+            <>
+                {showModal===true ? 
+                    <>
+                    <ModalContainer>
+                    {mouthImg.map((res,num)=>(
+                        <ItemContainer 
+                            key={res}
+                            onClick={()=>{setCheckNum(res);}}
+                            check={res} 
+                            number={checkNum}
+                            num={num}> 
+
+                            <Item 
+                                key={res}
+                                src={res.palette} 
+                                alt={`입`} 
+                                value={num}
+                                onClick={handleClickMouth}/>
+                        </ItemContainer> 
+                ))}
+                </ModalContainer></> : null }</>)
+
+    case 'acc' :
         return(
         <>
             {showModal===true ? 
                 <>
                 <ModalContainer>
-                {mouthImg.map((res,num)=>(
+                {accImg.map((res,num)=>(
                     <ItemContainer 
                         key={res}
                         onClick={()=>{setCheckNum(res);}}
@@ -177,42 +201,17 @@ export const DressPalette = ({showModal, modalType}) => {
                         <Item 
                             key={res}
                             src={res.palette} 
-                            alt={`입`} 
+                            alt={`악세사리`} 
                             value={num}
-                            onClick={handleClickMouth}/>
+                            onClick={handleClickAcc}/>
                     </ItemContainer> 
             ))}
             </ModalContainer></> : null }</>)
 
-case 'acc' :
-    return(
-    <>
-        {showModal===true ? 
-            <>
-            <ModalContainer>
-            {accImg.map((res,num)=>(
-                <ItemContainer 
-                    key={res}
-                    onClick={()=>{setCheckNum(res);}}
-                    check={res} 
-                    number={checkNum}
-                    num={num}> 
-
-                    <Item 
-                        key={res}
-                        src={res.palette} 
-                        alt={`악세사리`} 
-                        value={num}
-                        onClick={handleClickAcc}/>
-                </ItemContainer> 
-        ))}
-        </ModalContainer></> : null }</>)
-
-
-
-        // default : return (null)
     }
 }
+
+export default DressPalette;
 
 
 

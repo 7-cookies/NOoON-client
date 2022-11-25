@@ -1,48 +1,58 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components'
 import {useRecoilState} from 'recoil'
 
 import {Container} from '../../styles/globalStyle';
-import {DressZone, ImgContainer, BaseContainer, Base, Head, Eye, Nose, Item, Arm, Mouth, CategoryContainer, CateMenuCon} from '../../styles/dressUp/DressUp.jsx'
-import {CateMenu} from '../../components/DressUp/CateMenu.jsx'
-import {DressPalette} from '../../components/DressUp/DressPalette';
-import {SnowMan} from '../../components/DressUp/SnowMan.jsx'
-import {baseEyes, baseArms, baseHead, baseNose, baseItem, baseMouth, modalStateC, modalStateT} from '../../asset/dressRecoil'
+import {DressZone, CategoryContainer} from '../../styles/dressUp/DressUp.jsx'
+
+import CateMenu from '../../components/DressUp/CateMenu.jsx'
+import DressPalette from '../../components/DressUp/DressPalette';
+import SnowMan from '../../components/DressUp/SnowMan.jsx'
+import WRMessage from '../../components/DressUp/WRMessage.jsx'
+
+import {modalStateC, modalStateT} from '../../asset/dressRecoil'
 
 
 const DressUp = () => {
-    //recoilState 선언
-    const [eye, setEyes] = useRecoilState(baseEyes);
-    const [nose, setNose] = useRecoilState(baseNose);
-    const [arm, setArms] = useRecoilState(baseArms);
-    const [item, setItem] = useRecoilState(baseItem);
-    const [mouth, setMouth] = useRecoilState(baseMouth);
-    const [head, setHead] = useRecoilState(baseHead);
-
     const [showModal, setModal] = useRecoilState(modalStateC);
     const [modalType, setModalType] = useRecoilState(modalStateT);
 
+    const [message, setMessage] = useState(false);
+    const [imgSize, setImgSize] = useState(19.375);
 
-    // console.log(headImg[0].putOn)
-    // console.log(eye[0].Eye)
+    const moveToMessage = () =>{
+        setMessage(!message);
+    }
 
+    
+    
     return (
         <Container>
             <DressZone>
-                <ImgContainer>
-                    <SnowMan />
-                </ImgContainer>
+                <SnowMan imgSize={(message===true)?'15':'19.375'} />
 
+                {message === false ?
+                <>
                 <CategoryContainer>
-                    <CateMenuCon>
-                        <CateMenu setModal={setModal} showModal={showModal} setModalType={setModalType} modalType={modalType} />
-                    </CateMenuCon>
+                    <CateMenu 
+                    setModal={setModal} 
+                    showModal={showModal} 
+                    setModalType={setModalType} 
+                    modalType={modalType} />
 
-                    <DressPalette showModal={showModal} modalType={modalType}/>
+                    <DressPalette 
+                    showModal={showModal} 
+                    modalType={modalType}/>
+
                 </CategoryContainer>
-            </DressZone>
-            
 
+                </> :
+
+                <WRMessage />
+                }
+
+            <button onClick={moveToMessage} header='메시지 남기기'> 메시지 작성 </button>
+            </DressZone>
         </Container>
             
         

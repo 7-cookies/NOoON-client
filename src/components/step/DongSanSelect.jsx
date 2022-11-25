@@ -9,6 +9,7 @@ const DongSanSelect = () => {
     const navigate=useNavigate();
     const [dongsanBeginData, setDongsanBeginData]=useRecoilState(dongsanstep)
 
+
     const handleChooseClick =(data)=>{
         setDongsanBeginData((prev)=>({...prev, background:data}))
         console.log("dddd");

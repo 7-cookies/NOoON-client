@@ -1,8 +1,10 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
-import { Input, ShortButton } from "../../styles/globalStyle";
+import { Input, ShortButton} from "../../styles/globalStyle";
+
 
 const WRMessage = () => {
+    
 
     return (
         <TextZone>
@@ -20,8 +22,7 @@ const WRMessage = () => {
                 </div>
             </ContentsCon>
 
-            <ShortButton> 저장 </ShortButton>
-            
+
         </TextZone>
 
     )
@@ -34,7 +35,6 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 
-width: 26.875rem; 
 margin: 2rem 0;
 `
 const WriterCon = styled.section`
@@ -52,6 +52,10 @@ text-align: left;
 
 margin-left: 24px;
 padding-left:20.5px;
+
+::placeholder{
+    color: #B4B4B4;
+}
 `
 
 
@@ -83,6 +87,10 @@ padding-left:20.5px;
 overflow: hidden;
 margin-bottom: 2.6875rem;
 
+::placeholder{
+    color: #B4B4B4;
+}
 
 `
+
 

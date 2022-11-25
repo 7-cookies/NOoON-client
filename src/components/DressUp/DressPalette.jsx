@@ -69,14 +69,14 @@ const DressPalette = ({showModal, modalType}) => {
             <ModalContainer>
             {headImg.map((res,num)=>(
                 <ItemContainer 
-                key={res}
+                key={res.palette}
                 onClick={()=>{setCheckNum(res);}}
                 check={res} 
                 number={checkNum}
-                num={num}> 
+                > 
 
                     <Item 
-                    key={res}
+                    key={res.palette}
                     src={res.palette} 
                     alt={`모자`} 
                     value={num}
@@ -95,14 +95,14 @@ const DressPalette = ({showModal, modalType}) => {
                 <ModalContainer>
                 {eyeImg.map((res,num)=>(
                     <ItemContainer 
-                        key={res}
+                        key={res.palette}
                         onClick={()=>{setCheckNum(res);}}
                         check={res} 
                         number={checkNum}
-                        num={num}> 
+                        > 
 
                         <Item 
-                            key={res}
+                            key={res.palette}
                             src={res.palette} 
                             alt={`눈`} 
                             value={num}
@@ -120,14 +120,14 @@ const DressPalette = ({showModal, modalType}) => {
                         <ModalContainer>
                         {noseImg.map((res,num)=>(
                             <ItemContainer 
-                                key={res}
+                                key={res.palette}
                                 onClick={()=>{setCheckNum(res);}}
                                 check={res} 
                                 number={checkNum}
-                                num={num}> 
+                                > 
 
                                 <Item 
-                                    key={res}
+                                    key={res.palette}
                                     src={res.palette} 
                                     alt={`코`} 
                                     value={num}
@@ -144,14 +144,14 @@ const DressPalette = ({showModal, modalType}) => {
                                     <ModalContainer>
                                     {armImg.map((res,num)=>(
                                         <ItemContainer 
-                                            key={res}
+                                            key={res.palette}
                                             onClick={()=>{setCheckNum(res);}}
                                             check={res} 
                                             number={checkNum}
-                                            num={num}> 
+                                            > 
 
                                             <Item 
-                                                key={res}
+                                                key={res.palette}
                                                 src={res.palette} 
                                                 alt={`팔`} 
                                                 value={num}
@@ -168,14 +168,14 @@ const DressPalette = ({showModal, modalType}) => {
                     <ModalContainer>
                     {mouthImg.map((res,num)=>(
                         <ItemContainer 
-                            key={res}
+                            key={res.palette}
                             onClick={()=>{setCheckNum(res);}}
                             check={res} 
                             number={checkNum}
-                            num={num}> 
+                            > 
 
                             <Item 
-                                key={res}
+                                key={res.palette}
                                 src={res.palette} 
                                 alt={`입`} 
                                 value={num}
@@ -192,14 +192,14 @@ const DressPalette = ({showModal, modalType}) => {
                 <ModalContainer>
                 {accImg.map((res,num)=>(
                     <ItemContainer 
-                        key={res}
+                        key={res.palette}
                         onClick={()=>{setCheckNum(res);}}
                         check={res} 
                         number={checkNum}
-                        num={num}> 
+                        > 
 
                         <Item 
-                            key={res}
+                            key={res.palette}
                             src={res.palette} 
                             alt={`악세사리`} 
                             value={num}
@@ -223,9 +223,10 @@ align-items: center;
 flex-wrap: wrap;
 
 width: 26.875rem; 
-height: auto;
+height:35.75rem;
 background-color:#D6E2F0;
-padding: 1rem 0;
+/* background-color:red; */
+padding: 1rem 0 37rem 0;
 
 position: relative;
 z-index: 1;
@@ -237,11 +238,11 @@ justify-content: center;
 align-items: center;
 width: 7rem; 
 height: 7rem;
-background-color: ${(props)=>(props.num)===11? 'transparent':'white'};
+background-color: ${(props)=>(props.num)===11 ? 'transparent':'white'};
 text-align: center;
 
 margin: 0.5rem;
-border: ${(props)=>(props.check === props.number ? '#95AECA solid 0.1875rem':'transparent solid 0.1875rem' )};
+border: ${(props)=>(props.check === props.number ? '#95AECA solid 0.1875rem':'transparent solid 0.1875rem')};
 border-radius: 0.9375rem;
 
 `

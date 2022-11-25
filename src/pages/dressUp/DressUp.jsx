@@ -18,7 +18,6 @@ const DressUp = () => {
     const [modalType, setModalType] = useRecoilState(modalStateT);
 
     const [message, setMessage] = useState(false);
-    const [imgSize, setImgSize] = useState(19.375);
 
     const moveToMessage = () =>{
         setMessage(!message);

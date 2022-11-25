@@ -13,12 +13,10 @@ export const ImgContainer=styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
-/* width: 19.375rem;
-height: 19.375rem; */
 width: ${(props)=>props.imgSize}rem;
 height: ${(props)=>props.imgSize}rem;
 
-border: solid black;
+/* border: solid black; */
 
 position: relative;
 `

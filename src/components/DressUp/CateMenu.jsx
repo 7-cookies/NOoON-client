@@ -8,7 +8,7 @@ import {modalStateC, modalStateT} from "../../asset/dressRecoil"
 import {CateMenuCon} from '../../styles/dressUp/DressUp.jsx'
 
 const CateMenu = () => {
-    const [cateNum, setCateNum] = useState(0);
+    const [cateNum, setCateNum] = useState(menuData[0]);
 
     const [showModal, setModal] = useRecoilState(modalStateC);
     const [modalType, setModalType] = useRecoilState(modalStateT);
@@ -17,14 +17,15 @@ const CateMenu = () => {
         setModal(true);
         setModalType(e.currentTarget.getAttribute('type'))
     }
+    
 
 
     return (
     <CateMenuCon>
 
-        {menuData.map(data=>(
+        {menuData.map((data)=>(
             <Menu 
-                key={data + 'category'} 
+                key={data.categoryName} 
                 onClick={()=>{setCateNum(data);}} 
                 check={data} 
                 num={cateNum}>
@@ -34,6 +35,7 @@ const CateMenu = () => {
                     type={data.categoryName}
                     onClick={openModal}/>
             </Menu>
+
         ))}
 
     </CateMenuCon>
@@ -49,7 +51,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 
-background-color: ${(props)=>(props.check === props.num ? '#D6E2F0' : '#E9F3FF')};
+background-color: ${(props)=>(props.key === 'head' ? '#E9F3FF' : (props.check === props.num ? '#D6E2F0' : '#E9F3FF'))};
 width: 4.125rem;
 height: 4.125rem;
 top: ${(props)=>(props.check === props.num ? 0 : 0.625)}rem;

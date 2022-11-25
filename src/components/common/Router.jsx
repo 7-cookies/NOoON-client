@@ -7,6 +7,7 @@ import StaticGrid from "../../pages/dongsan/StaticGrid";
 import {Login, SignUp, Landing} from '../login';
 import DongSanStep from '../../pages/DongSanStep';
 import { RecoilRoot } from 'recoil';
+import Test from '../step/Test';
 
 const Router = () => {
   return (
@@ -20,6 +21,7 @@ const Router = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/landing" element={<Landing />} />
+            <Route path="/test" element={<Test />} />
           </Routes>
         </Container>  
       </RecoilRoot>      

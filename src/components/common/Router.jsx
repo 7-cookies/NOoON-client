@@ -4,33 +4,33 @@ import {RecoilRoot} from 'recoil'
 import {Container} from "../../styles/globalStyle";
 
 import Error404 from '../../pages/Error404';
-import Main from '../../pages/Main';
 import DressUp from '../../pages/dressUp/DressUp';
 import StaticGrid from "../../pages/dongsan/StaticGrid";
-import Login from "../login/Login";
-import SignUp from "../login/SignUp";
-import DongsanName from '../login/DongsanName';
-import DongSanSelect from '../login/DongSanSelect';
+import {Login, SignUp, Landing} from '../login';
+import DongSanStep from '../../pages/DongSanStep';
+import { CookiesProvider } from 'react-cookie';
+
 
 
 const Router = () => {
   return (
-    <BrowserRouter>
-      <Container>
+    <CookiesProvider>
+      <BrowserRouter>
         <RecoilRoot>
-        <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="*" element={<Error404 />} />
-          <Route path="/dressUp" element={<DressUp />} />
-          <Route path='/grid' element={<StaticGrid />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/dongsanname" element={<DongsanName />} />
-          <Route path="/dongsanselect" element={<DongSanSelect />} />
-        </Routes>
-        </RecoilRoot>
-      </Container>        
-    </BrowserRouter>
+          <Container>
+            <Routes>
+              <Route path="/makedongsan" element={<DongSanStep />} />
+              <Route path="*" element={<Error404 />} />
+              <Route path='/grid' element={<StaticGrid />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<SignUp />} />
+              <Route path="/" element={<Landing />} />
+              <Route path="/dressUp" element={<DressUp />} />
+            </Routes>
+          </Container>  
+        </RecoilRoot>      
+      </BrowserRouter>
+    </CookiesProvider>
   );
 };
 

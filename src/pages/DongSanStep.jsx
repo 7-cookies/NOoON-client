@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import StepRenderer from '../components/step/StepRenderer';
 
-const DongSanStart = () => {
+const DongSanStep = () => {
   // type step= 'DONSAN-NAMING' | 'DONSAN-NAMING-MODAL' | 'SDONGSAN-SELECTING'
   const [step, setStep] = useState('DONSAN-NAMING');
   
@@ -13,6 +13,6 @@ const DongSanStart = () => {
     );
 };
 
-export default DongSanStart;
+export default DongSanStep;
 
 

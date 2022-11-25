@@ -3,6 +3,8 @@ import { Input, ShortButton } from "../../styles/globalStyle";
 import DongsanName from "./DongsanName";
 
 const DongSanNameModal = ({ setStep }) => {
+    console.log(dongsanBeginData);
+
     const handleNextClick=()=>{
         setStep('DONSAN-SELECTING');
         // navigate(-1);

@@ -1,10 +1,16 @@
 import styled from "styled-components";
 import Header from '../common/Header'
 import { Input, ShortButton } from "../../styles/globalStyle";
+import { useRef } from "react";
+import {useRecoilState} from "recoil";
+import {dongsanstep} from '../../utils/atoms';
 
 const DongsanName = ({ setStep }) => {
+    const nameRef=useRef(null);
+    const [dongsanBeginData, setDongsanBeginData]=useRecoilState(dongsanstep)
 
     const handleNextClick=()=>{
+        setDongsanBeginData((prev)=>({...prev, name:nameRef.current.value}))
         setStep('DONSAN-NAMING-MODAL');
     }
 
@@ -15,7 +21,7 @@ const DongsanName = ({ setStep }) => {
             <StDongsanName>
                 <div>
                     <p>동산 이름을 지어주세요 ☃️</p>
-                    <StNameInput placeholder="ex) 눈 펑펑 오는 눈동산 (최대 20자)" />
+                    <StNameInput placeholder="ex) 눈 펑펑 오는 눈동산 (최대 20자)" ref={nameRef} />
                 </div> 
                 <StButtonWrapper>
                     <ShortButton button="button" className="check" onClick={handleNextClick}>확인</ShortButton>

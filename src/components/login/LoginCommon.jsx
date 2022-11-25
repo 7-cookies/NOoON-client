@@ -12,13 +12,12 @@ const LoginCommon = (props) => {
 
             <div>
                 <p>ID</p>
-                        <LoginInpt placeholder="아이디를 입력해주세요" />
+                <LoginInpt placeholder="아이디를 입력해주세요" />
             </div>
                         
             <div>
-                        <p>PASSWORD</p>
-            <LoginInpt placeholder="숫자 4자리를 입력해주세요" />
-
+                <p>PASSWORD</p>
+                <LoginInpt placeholder="숫자 4자리를 입력해주세요" />
             </div>
             </StLogin>
             <ShortButton className="check">확인</ShortButton>
@@ -39,6 +38,7 @@ const StLogin=styled.div`
     & > div> p{
         margin-left: 44.62px;
         margin-bottom:16.5px;
+        ${({ theme }) => theme.fonts.kotrahopeCommon}
     }
     & > div:nth-child(1){
         margin-top:207.97px;
@@ -49,6 +49,8 @@ const StLogin=styled.div`
     }
 `
 const LoginInpt=styled(Input)`
+    align-items: flex-start;
+    text-align: left;
     margin-left:24px;
     padding-left: 20.93px;
 `

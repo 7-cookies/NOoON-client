@@ -43,7 +43,7 @@ const StHeader=styled.section`
     justify-content: center;
 
 
-    border-bottom: 1px solid;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.grey};
 
     & > h1{
         padding-top: 4.895rem;

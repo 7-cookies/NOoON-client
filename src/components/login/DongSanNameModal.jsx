@@ -6,9 +6,8 @@ import DongsanName from "./DongsanName";
 const DongSanNameModal = ({ setStep }) => {
     const navigate=useNavigate()
     const handleNextClick=()=>{
-        // setStep('DONSAN-SELECTING');
-        // console.log("zmffldafsafs");
-        navigate(-1);
+        setStep('DONSAN-SELECTING');
+        // navigate(-1);
     }
 
     const handlePrevClick=()=>{

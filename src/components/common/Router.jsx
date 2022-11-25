@@ -21,8 +21,6 @@ const Router = () => {
           <Route path='/grid' element={<StaticGrid />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/dongsanname" element={<DongsanName />} />
-          <Route path="/dongsanselect" element={<DongSanSelect />} />
           <Route path="/landing" element={<Landing />} />
         </Routes>
       </Container>        

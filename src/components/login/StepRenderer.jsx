@@ -1,15 +1,17 @@
 import { DongsanName, DongSanNameModal, DongSanSelect} from './';
 
 const StepRenderer = ({ step, setStep }) => {
+    console.log(step);
+
     switch (step) {
         case 'DONSAN-NAMING':
             return <DongsanName setStep={setStep} />;
         case 'DONSAN-NAMING-MODAL':
             return <DongSanNameModal setStep={setStep} />;
         case 'DONGSAN-SELECTING':
-            return <DongSanSelect setStep={setStep} />;
+            return <DongSanSelect />;
         default:
-            return <DongsanName setStep={setStep} />;
+            return <DongSanSelect setStep={setStep} />;
         }
 };
 

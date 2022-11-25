@@ -4,52 +4,50 @@ const colors = {
 };
 
 const fonts = {
-  kotrahope: `
-  font-family: ‘KOTRAHOPE’;
+  kotrahopeCommon: `
+    font-family: ‘KOTRA HOPE’;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.375rem;
+    line-height: 1.4375rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.07em;
+  `,
+  kotrahopeLandingTitle: `
+  font-family: ‘KOTRA HOPE’;
   font-style: normal;
   font-weight: 400;
-  font-size: 20px;
-  line-height: 23px;
+  font-size: 2.625rem;
+  line-height: 1.4375rem;
   display: flex;
   align-items: center;
   text-align: center;
   letter-spacing: 0.07em;
-  `,
-  kotrahopeTitle: `
-  font-family: ‘KOTRAHOPE’;
+`,
+kotrahopeText: `
+  font-family: ‘KOTRA HOPE’;
   font-style: normal;
   font-weight: 400;
-  font-size: 42px;
-  line-height: 23px;
+  font-size: 1.25rem;
+  line-height: 1.4375rem;
   display: flex;
   align-items: center;
   text-align: center;
   letter-spacing: 0.07em;
-  `,
-  kotrahopeSubTitle: `
-  font-family: ‘KOTRAHOPE’;
+`,
+kotrahopeMessage: `
+  font-family: ‘KOTRA HOPE’;
   font-style: normal;
   font-weight: 400;
-  font-size: 22px;
-  line-height: 23px;
+  font-size: 1.25rem;
+  line-height : 1.875rem;
   display: flex;
   align-items: center;
   text-align: center;
   letter-spacing: 0.07em;
-  `,
-  kotrahopeHeader: `
-  font-family: ‘KOTRAHOPE’;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 22px;
-  line-height: 23px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  letter-spacing: 0.07em;
-  `,
-
-
+`
 };
 
 const theme = {

@@ -166,7 +166,7 @@ export const LongButton=styled.button`
     border-radius:1.25rem;
     background-color:${({ theme }) => theme.colors.blue};
     color:white;
-    ${({ theme }) => theme.fonts.kotrahope}
+    ${({ theme }) => theme.fonts.kotrahopeCommon}
   font-size:1rem;
 
 `

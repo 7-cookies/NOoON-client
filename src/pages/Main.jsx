@@ -7,8 +7,8 @@ const Main = () => {
             <p>크리스마스에 완성되는 나만의 눈동산</p>
             <h1>내가 만든 눈동산</h1>
             <img src="#" alt="#"/>
-            <LongButton className="button1">내 동산 보러가기</LongButton>
-            <LongButton className="button2">내 동산 만들기</LongButton>
+            <LongButton button="button" className="button1">내 동산 보러가기</LongButton>
+            <LongButton button="button" className="button2">내 동산 만들기</LongButton>
         </StMainWrapper>
 
     );

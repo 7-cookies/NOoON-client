@@ -36,10 +36,7 @@ const Login = () => {
           )
           .then((response) => {
             console.log(response.data);
-            // access토큰 저장
-            setCookie(response.data.access_token);
-            alert("추가완료!");
-            navigate("/makedongsan");
+            navigate("/");
           });
     };
     

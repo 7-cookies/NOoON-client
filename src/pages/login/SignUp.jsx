@@ -1,12 +1,12 @@
 import React from 'react';
 import LoginCommon from '../../components/login/LoginCommon';
 
-const Login = () => {
+const SignUp = () => {
     return (
         <div>
-            <LoginCommon props="로그인" />
+            <LoginCommon props="회원가입" />
         </div>
     );
 };
 
-export default Login;
+export default SignUp;

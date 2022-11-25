@@ -6,11 +6,11 @@ const Header = (props) => {
     const navigate=useNavigate();
 
     const handleBackClick=()=>{
-        navigate(-1);
+        navigate(`${props.url}`);
     }
     return (
         <>
-        <Icon src={backArrow} alt="#" onClick={{handleBackClick}}/>
+        <Icon src={backArrow} alt="#" onClick={handleBackClick} />
 
         <StHeaderWrapper>
             <StHeader>

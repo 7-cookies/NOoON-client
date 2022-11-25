@@ -39,7 +39,8 @@ const DongSanSelect = () => {
             }
           )
           .then((response) => {
-            window.sessionStorage.setItem(response.data.invitationCode);
+            sessionStorage.setItem("invitationCode", response.data.invitationCode);
+            //가져올 때에는 window.sessionStorage.getItem으로 가져옴.
             navigate("/grid");
           });
 

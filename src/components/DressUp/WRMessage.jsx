@@ -1,22 +1,26 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
+import { Input, ShortButton } from "../../styles/globalStyle";
 
 const WRMessage = () => {
 
     return (
         <TextZone>
             <WriterCon>
-                <Title> 만든이 </Title>
-                <WriterName placeholder='닉네임을 입력해주세요(최대 10자)'></WriterName>
-
+                <div>
+                    <p> 만든이 </p>
+                    <WRName placeholder='닉네임을 입력해주세요(최대 10자)'/>
+                </div>
             </WriterCon>
 
             <ContentsCon>
-                <Title> 메세지 내용 </Title>
-                <MessageContents placeholder='메시지를 작성해주세요(최대 100자)'></MessageContents>
+                <div>
+                    <p> 메세지 내용 </p>
+                    <MessageContents placeholder='메시지를 작성해주세요 (최대 100자)'/>
+                </div>
             </ContentsCon>
 
-            <SaveButton > 저장 </SaveButton>
+            <ShortButton> 저장 </ShortButton>
             
         </TextZone>
 
@@ -34,46 +38,51 @@ width: 26.875rem;
 margin: 2rem 0;
 `
 const WriterCon = styled.section`
-width: 26.875rem; 
+& > div> p{
+        margin-left: 44.62px;
+        margin-bottom:16.5px;
+        ${({ theme }) => theme.fonts.kotrahopeCommon}
+    }
 margin-bottom: 2.75rem;
 `
 
-const Title = styled.section`
-margin: 0 2rem;
+const WRName = styled(Input)`
+align-items: flex-start;
+text-align: left;
+
+margin-left: 24px;
+padding-left:20.5px;
 `
 
-const WriterName = styled.input`
-width: 23.875rem;
-height: 3.75rem; 
-margin: 0 1.5rem;
-
-line-height: normal;  
-padding: .8em 1em;
-outline-style: none;
-border: transparent;
-background-color: #E9F3FF;
-border-radius: 0.9375rem;
-`
 
 const ContentsCon = styled.section`
-width: 26.875rem; 
+& > div> p{
+        margin-left: 44.62px;
+        margin-bottom:16.5px;
+        ${({ theme }) => theme.fonts.kotrahopeCommon}
+    }
 
 `
 
 const MessageContents = styled.textarea`
 width: 23.875rem;
-margin: 0 1.5rem;
-height: 13.125rem; 
+height:  13.125rem; 
 
-/* line-height: normal;   */
-overflow: auto;
-padding: 2em 1em;
-outline-style: none;
-border: transparent;
-background-color: #E9F3FF;
-border-radius: 0.9375rem;
+border:1px solid transparent;
+border-radius:1.25rem;
+line-height: normal;  
+padding: .8em 1em;
+
+background-color:${({ theme }) => theme.colors.skyblue};
+${({ theme }) => theme.fonts.kotrahopeText}
+
+align-items: flex-start;
+text-align: left;
+margin-left: 24px;
+padding-left:20.5px;
+overflow: hidden;
+margin-bottom: 2.6875rem;
+
+
 `
 
-const SaveButton = styled.button`
-margin-top: 2.6875rem;
-`

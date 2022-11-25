@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import styled from 'styled-components'
 import {useRecoilState} from 'recoil'
 
-import {Container} from '../../styles/globalStyle';
+import {Container, ShortButton} from '../../styles/globalStyle';
 import {DressZone, CategoryContainer} from '../../styles/dressUp/DressUp.jsx'
 
 import CateMenu from '../../components/DressUp/CateMenu.jsx'
@@ -25,7 +25,6 @@ const DressUp = () => {
     }
 
     
-    
     return (
         <Container>
             <Header title={(message===true)?'눈사람 꾸미기':'메세지 남기기'}/>
@@ -35,15 +34,19 @@ const DressUp = () => {
                 {message === false ?
                 <>
                 <CategoryContainer>
-                    <CateMenu 
-                    setModal={setModal} 
-                    showModal={showModal} 
-                    setModalType={setModalType} 
-                    modalType={modalType} />
+                    <section>
+                        <CateMenu 
+                        setModal={setModal} 
+                        showModal={showModal} 
+                        setModalType={setModalType} 
+                        modalType={modalType} />
 
-                    <DressPalette 
-                    showModal={showModal} 
-                    modalType={modalType}/>
+                        <DressPalette 
+                        showModal={showModal} 
+                        modalType={modalType}/>
+                    </section>
+
+                    <NextButton onClick={moveToMessage}> 다음 </NextButton>
 
                 </CategoryContainer>
 
@@ -52,7 +55,6 @@ const DressUp = () => {
                 <WRMessage />
                 }
 
-            <button onClick={moveToMessage} header='메시지 남기기'> 메시지 작성 </button>
             </DressZone>
         </Container>
             
@@ -61,4 +63,12 @@ const DressUp = () => {
 };
 
 export default DressUp;
+
+const NextButton = styled(ShortButton)`
+margin: auto;
+position: fixed;
+z-index: 5;
+
+
+`
 

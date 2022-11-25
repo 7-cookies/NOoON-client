@@ -66,6 +66,8 @@ export const Mouth = styled(Nose)`
 //아이템을 선택하는 구역
 export const CategoryContainer = styled.section`
 width: 26.875rem; 
+display: flex;
+flex-direction: column;
 `
 
 export const CateMenuCon = styled.section`

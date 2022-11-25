@@ -20,7 +20,7 @@ const LoginCommon = (props) => {
                 <StLoginInpt placeholder="숫자 4자리를 입력해주세요" />
             </div>
             </StLogin>
-            <ShortButton className="check">확인</ShortButton>
+            <ShortButton button="button" className="check">확인</ShortButton>
 
         </StLoginWrapper>
     );

@@ -168,6 +168,7 @@ export const LongButton=styled.button`
     color:white;
     ${({ theme }) => theme.fonts.kotrahopeCommon}
 
+    cursor: pointer;
 `
 
 export const ShortButton=styled.button`
@@ -183,6 +184,7 @@ export const ShortButton=styled.button`
     color:white;
     ${({ theme }) => theme.fonts.kotrahopeCommon}
 
+    cursor: pointer;
 `
 
 export const Container=styled.section`

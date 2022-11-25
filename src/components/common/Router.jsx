@@ -5,9 +5,10 @@ import {Container} from "../../styles/globalStyle";
 import Error404 from '../../pages/Error404';
 import Main from '../../pages/Main';
 import StaticGrid from "../../pages/dongsan/StaticGrid";
-import Login from "../../pages/login/Login";
-import SignUp from "../../pages/login/SignUp";
-import DongsanName from '../../pages/login/DongsanName';
+import Login from "../login/Login";
+import SignUp from "../login/SignUp";
+import DongsanName from '../login/DongsanName';
+import DongSanSelect from '../login/DongSanSelect';
 
 const Router = () => {
   return (
@@ -20,6 +21,8 @@ const Router = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/dongsanname" element={<DongsanName />} />
+          <Route path="/dongsanselect" element={<DongSanSelect />} />
+
         </Routes>
       </Container>        
     </BrowserRouter>

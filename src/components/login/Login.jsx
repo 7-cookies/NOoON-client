@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginCommon from '../../components/login/LoginCommon';
+import LoginCommon from './LoginCommon';
 
 const Login = () => {
     return (

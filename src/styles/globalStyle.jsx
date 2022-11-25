@@ -167,7 +167,6 @@ export const LongButton=styled.button`
     background-color:${({ theme }) => theme.colors.blue};
     color:white;
     ${({ theme }) => theme.fonts.kotrahopeCommon}
-  font-size:1rem;
 
 `
 
@@ -182,8 +181,7 @@ export const ShortButton=styled.button`
     border-radius:1.25rem;
     background-color:${({ theme }) => theme.colors.blue};
     color:white;
-    ${({ theme }) => theme.fonts.kotrahope}
-  font-size:1rem;
+    ${({ theme }) => theme.fonts.kotrahopeCommon}
 
 `
 
@@ -191,8 +189,7 @@ export const Container=styled.section`
   width: 26.875rem;
   height: 58.25rem;
   margin : 0 auto;
-  ${({ theme }) => theme.fonts.kotrahope}
-
+  background-color: #e3e3e3;
 `
 
 export const Input=styled.input`
@@ -203,8 +200,7 @@ export const Input=styled.input`
   border-radius:1.25rem;
 
   background-color:${({ theme }) => theme.colors.skyblue};
-  ${({ theme }) => theme.fonts.kotrahope}
-  font-size:1rem;
+  ${({ theme }) => theme.fonts.kotrahopeCommon}
 `
 
 export default GlobalStyle;

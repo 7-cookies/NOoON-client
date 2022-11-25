@@ -1,4 +1,4 @@
-import { DongsanName, DongSanNameModal, DongSanSelect} from './';
+import { DongsanName, DongSanNameModal, DongSanSelect} from '../step';
 
 const StepRenderer = ({ step, setStep }) => {
     console.log(step);

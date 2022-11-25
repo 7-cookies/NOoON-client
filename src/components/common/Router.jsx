@@ -4,11 +4,7 @@ import {Container} from "../../styles/globalStyle";
 
 import Error404 from '../../pages/Error404';
 import StaticGrid from "../../pages/dongsan/StaticGrid";
-import Login from "../login/Login";
-import SignUp from "../login/SignUp";
-import DongsanName from '../login/DongsanName';
-import DongSanSelect from '../login/DongSanSelect';
-import Landing from '../login/Landing';
+import {Login, SignUp, Landing} from '../login';
 import DongSanStart from '../../pages/DongSanStart';
 
 const Router = () => {

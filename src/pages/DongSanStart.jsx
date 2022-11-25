@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import StepRenderer from '../components/login/StepRenderer';
+import StepRenderer from '../components/step/StepRenderer';
 
 const DongSanStart = () => {
   // type step= 'DONSAN-NAMING' | 'DONSAN-NAMING-MODAL' | 'SDONGSAN-SELECTING'

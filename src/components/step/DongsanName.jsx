@@ -1,26 +1,15 @@
 import styled from "styled-components";
 import Header from '../common/Header'
 import { Input, ShortButton } from "../../styles/globalStyle";
-import DongSanNameModal from './DongSanNameModal';
-import { useState } from 'react';
-
 
 const DongsanName = ({ setStep }) => {
-    // const [isClicked, setIsClicked] = useState(false);
 
     const handleNextClick=()=>{
         setStep('DONSAN-NAMING-MODAL');
     }
 
-
     return (
         <>
-        {/* {isClicked&&(
-        <StModalWrapper>
-            <DongSanNameModal />
-        </StModalWrapper>
-        )} */}
-        
         <StDongsanNameWrapper>
             <Header title="동산이름 정하기" />
             <StDongsanName>
@@ -67,9 +56,4 @@ const StButtonWrapper = styled.div`
     justify-content: center;
 
     margin-top: 299px;
-`
-
-const StModalWrapper = styled.section`
-    position: absolute;
-    z-index: 2;
 `

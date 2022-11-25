@@ -1,10 +1,8 @@
 import styled from "styled-components";
 import { Input, ShortButton } from "../../styles/globalStyle";
-import { useNavigate } from 'react-router-dom';
 import DongsanName from "./DongsanName";
 
 const DongSanNameModal = ({ setStep }) => {
-    const navigate=useNavigate()
     const handleNextClick=()=>{
         setStep('DONSAN-SELECTING');
         // navigate(-1);

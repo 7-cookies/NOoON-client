@@ -5,11 +5,15 @@ import {useRecoilState} from "recoil";
 import {dongsanstep} from '../../utils/atoms';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { useCookies } from 'react-cookie';
+import axios from 'axios';
 
 const DongSanSelect = () => {
     const navigate=useNavigate();
     const [dongsanBeginData, setDongsanBeginData]=useRecoilState(dongsanstep)
     const [isNumClicked, setIsNumClicked] = useState(1)
+
+    const [cookies, setCookie, removeCookie] = useCookies(["access_token"]);
 
 
     const handleChooseClick =(data)=>{
@@ -19,6 +23,29 @@ const DongSanSelect = () => {
         console.log(dongsanBeginData)
     }
 
+    const handleSubmit =()=>{
+        axios
+          .post(
+            "api/v1/user/place",
+            {
+              name: dongsanBeginData.name,
+              background: dongsanBeginData.background,
+            },
+            {
+              headers: {
+                Authorization: `Bearer ${cookies}`,
+              },
+              "Content-Type": "application/json",
+            }
+          )
+          .then((response) => {
+            sessionStorage.setItem("invitationCode", response.data.invitationCode);
+            //가져올 때에는 window.sessionStorage.getItem으로 가져옴.
+            navigate("/grid");
+          });
+
+    }
+//
     return (
         <StDongSanSelectWrapper>
             <Header title="동산 배경 정하기" />
@@ -27,7 +54,7 @@ const DongSanSelect = () => {
                 <img src="image/background2.png" alt="동산배경2" num={2} check={isNumClicked} onClick={()=>handleChooseClick(2)}/>
                 <img src="image/background3.png" alt="동산배경3" num={3} check={isNumClicked}  onClick={()=>handleChooseClick(3)}/>
                 <img src="image/background4.png" alt="동산배경4" num={4} check={isNumClicked}  onClick={()=>handleChooseClick(4)}/>
-                <StShortButton button="submit" onClick={()=>navigate('/grid')}>확인</StShortButton>
+                <StShortButton button="submit" onClick={handleSubmit}>확인</StShortButton>
             </StDongSanWrapper>
         </StDongSanSelectWrapper>
     );

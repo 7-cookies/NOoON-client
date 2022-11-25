@@ -1,3 +1,4 @@
 export { default as DongsanName } from './DongsanName';
-export { default as DongSanNameModal } from '../step/DongSanNameModal';
-export { default as DongSanSelect } from '../step/DongSanSelect';
+export { default as DongSanNameModal } from './DongSanNameModal';
+export { default as DongSanSelect } from './DongSanSelect';
+//

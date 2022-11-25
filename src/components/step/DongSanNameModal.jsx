@@ -15,7 +15,7 @@ const DongSanNameModal = ({ setStep }) => {
     const handlePrevClick=()=>{
         setStep('DONSAN-NAMING');
     }
-//
+
     return (
         <>
         <StModalBackgroundWrapper>

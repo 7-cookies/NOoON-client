@@ -141,7 +141,6 @@ ${reset}
 #root, body, html {
     width: 100%;
     height: 100vh;
- 
 }
 * {
     box-sizing: border-box;
@@ -167,8 +166,8 @@ export const LongButton=styled.button`
     background-color:${({ theme }) => theme.colors.blue};
     color:white;
     ${({ theme }) => theme.fonts.kotrahopeCommon}
-  font-size:1rem;
 
+    cursor: pointer;
 `
 
 export const ShortButton=styled.button`
@@ -182,17 +181,15 @@ export const ShortButton=styled.button`
     border-radius:1.25rem;
     background-color:${({ theme }) => theme.colors.blue};
     color:white;
-    ${({ theme }) => theme.fonts.kotrahope}
-  font-size:1rem;
+    ${({ theme }) => theme.fonts.kotrahopeCommon}
 
+    cursor: pointer;
 `
 
 export const Container=styled.section`
   width: 26.875rem;
   height: 58.25rem;
   margin : 0 auto;
-  ${({ theme }) => theme.fonts.kotrahope}
-
 `
 
 export const Input=styled.input`
@@ -203,8 +200,7 @@ export const Input=styled.input`
   border-radius:1.25rem;
 
   background-color:${({ theme }) => theme.colors.skyblue};
-  ${({ theme }) => theme.fonts.kotrahope}
-  font-size:1rem;
+  ${({ theme }) => theme.fonts.kotrahopeText}
 `
 
 export default GlobalStyle;

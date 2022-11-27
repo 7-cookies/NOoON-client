@@ -2,8 +2,8 @@ import React, {useState} from 'react'
 import styled from 'styled-components'
 import {useRecoilState} from 'recoil'
 
-import {headImg, eyeImg, noseImg, armImg, mouthImg, accImg } from "../../asset/imgData"
-import {baseEyes, baseArms, baseHead, baseNose, baseItem, baseMouth} from '../../asset/dressRecoil'
+import {headImg, eyeImg, noseImg, armImg, mouthImg, accImg } from "../../utils/imgData"
+import {baseEyes, baseArms, baseHead, baseNose, baseItem, baseMouth} from '../../utils/dressRecoil'
 
 
 const DressPalette = ({showModal, modalType}) => {

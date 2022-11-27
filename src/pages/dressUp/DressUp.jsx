@@ -11,7 +11,7 @@ import SnowMan from '../../components/DressUp/SnowMan.jsx'
 import WRMessage from '../../components/DressUp/WRMessage.jsx'
 import Header from '../../components/common/Header.jsx'
 
-import {modalStateC, modalStateT} from '../../asset/dressRecoil'
+import {modalStateC, modalStateT} from '../../utils/dressRecoil'
 
 
 const DressUp = () => {

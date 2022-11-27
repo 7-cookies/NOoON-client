@@ -69,22 +69,24 @@ const DressPalette = ({showModal, modalType}) => {
             return(  
             <>
             <ModalContainer>
-            {headImg.map((res,num)=>(
-                <ItemContainer 
-                key={res.palette}
-                onClick={()=>{setCheckNum(res);}}
-                check={res} 
-                number={checkNum}> 
-
-                    <Item 
+                <ScrollContainer>
+                {headImg.map((res,num)=>(
+                    <ItemContainer 
                     key={res.palette}
-                    src={res.palette} 
-                    alt={`모자`} 
-                    value={num}
-                    onClick={handleClickHead}/>
-    
-                </ItemContainer> 
-            ))}
+                    onClick={()=>{setCheckNum(res);}}
+                    check={res} 
+                    number={checkNum}> 
+
+                        <Item 
+                        key={res.palette}
+                        src={res.palette} 
+                        alt={`모자`} 
+                        value={num}
+                        onClick={handleClickHead}/>
+        
+                    </ItemContainer> 
+                ))}
+                </ScrollContainer>
             </ModalContainer></> 
             )
 
@@ -212,22 +214,26 @@ export default DressPalette;
 
 
 const ModalContainer= styled.section`
-display: flex;
-justify-content: center;
-align-items: center;
-flex-wrap: nowrap;
-
 width: 26.875rem; 
 height: 26.875rem; 
 background-color:#D6E2F0;
 
 position: relative;
-z-index: 1;
 
 padding-top: 0.8rem;
-overflow: auto;
-white-space: nowrap;
-/* border: black solid; */
+`
+
+const ScrollContainer = styled.section`
+display: flex;
+align-items: center;
+
+width: 50rem;
+flex-wrap: wrap;
+overflow: hidden scroll;
+overflow-y: hidden;
+
+border: solid black;
+
 `
 
 const ItemContainer = styled.section`

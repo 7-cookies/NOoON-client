@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
 import {useRecoilState} from 'recoil'
+// import {InfiniteScroll} from 'react-infinite-scroller'
 
 import {headImg, eyeImg, noseImg, armImg, mouthImg, accImg } from "../../utils/imgData"
 import {baseEyes, baseArms, baseHead, baseNose, baseItem, baseMouth} from '../../utils/dressRecoil'
@@ -69,7 +70,7 @@ const DressPalette = ({showModal, modalType}) => {
             return(  
             <>
             <ModalContainer>
-                <ScrollContainer>
+            <ScrollContainer className='scrollbar'>
                 {headImg.map((res,num)=>(
                     <ItemContainer 
                     key={res.palette}
@@ -86,7 +87,7 @@ const DressPalette = ({showModal, modalType}) => {
         
                     </ItemContainer> 
                 ))}
-                </ScrollContainer>
+            </ScrollContainer>
             </ModalContainer></> 
             )
 
@@ -219,21 +220,24 @@ height: 26.875rem;
 background-color:#D6E2F0;
 
 position: relative;
-
-padding-top: 0.8rem;
 `
 
 const ScrollContainer = styled.section`
 display: flex;
-align-items: center;
-
-width: 50rem;
+flex-direction: column;
 flex-wrap: wrap;
-overflow: hidden scroll;
-overflow-y: hidden;
+align-items: center;
+justify-content: center;
 
-border: solid black;
+width: 26.875rem; 
+height: 20rem;
 
+white-space:nowrap;
+overflow: auto; 
+
+.scrollbar{
+    scrollbar-width: thin;
+}
 `
 
 const ItemContainer = styled.section`
@@ -245,7 +249,7 @@ height: 7rem;
 background-color: ${(props)=>(props.num)===11 ? 'transparent':'white'};
 text-align: center;
 
-margin: 0.5rem;
+margin: 0.8rem 0.85rem;
 border: ${(props)=>(props.check === props.number ? '#95AECA solid 0.1875rem':'transparent solid 0.1875rem')};
 border-radius: 0.9375rem;
 

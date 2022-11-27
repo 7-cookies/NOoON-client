@@ -33,7 +33,7 @@ export const headImg = [
     {palette : headPal+'8.png', putOn:head+'8.png', val:'head8'},
     {palette : headPal+'9.png', putOn:head+'9.png', val:'head9'},
     {palette : headPal+'10.png', putOn:head+'10.png', val:'head10'},
-    {palette : none, putOn:none}]
+    ]
 
 //눈
 const eyePal=process.env.REACT_APP_S3_URL+'dressPalette/eye/eyePal_';
@@ -50,7 +50,7 @@ export const eyeImg = [
     {palette : eyePal+'8.png', putOn:eye+'8.png', val:'eye8'},
     {palette : eyePal+'9.png', putOn:eye+'9.png', val:'eye9'},
     {palette : eyePal+'10.png', putOn:eye+'10.png', val:'eye10'},
-    {palette : none, putOn:none}]
+    ]
 
 //코
 const nosePal = process.env.REACT_APP_S3_URL+'dressPalette/nose/nosePal_';
@@ -67,7 +67,7 @@ export const noseImg = [
     {palette : nosePal+'8.png', putOn:nose+'8.png', val:'nose8'},
     {palette : nosePal+'9.png', putOn:nose+'9.png', val:'nose9'},
     {palette : nosePal+'10.png', putOn:nose+'10.png', val:'nose10'},
-    {palette : none, putOn:none}]
+    ]
     
 //팔
 const armPal = process.env.REACT_APP_S3_URL+'dressPalette/arm/armPal_';
@@ -84,7 +84,7 @@ export const armImg = [
     {palette : armPal+'8.png', putOn:arm+'8.png', val:'arm8'},
     {palette : armPal+'9.png', putOn:arm+'9.png', val:'arm9'},
     {palette : armPal+'10.png', putOn:arm+'10.png', val:'arm10'},
-    {palette : none, putOn:none}]   
+    ]   
     
 //입
 const mouthPal = process.env.REACT_APP_S3_URL+'dressPalette/mouth/mouthPal_';
@@ -101,7 +101,7 @@ export const mouthImg = [
     {palette : mouthPal+'8.png', putOn:mouth+'8.png', val:'mouth8'},
     {palette : mouthPal+'9.png', putOn:mouth+'9.png', val:'mouth9'},
     {palette : mouthPal+'10.png', putOn:mouth+'10.png', val:'mouth10'},
-    {palette : none, putOn:none}]
+    ]
 
 //악세서리
 const accPal = process.env.REACT_APP_S3_URL+'dressPalette/acc/accPal_';
@@ -118,4 +118,4 @@ export const accImg = [
     {palette : accPal+'8.png', putOn:acc+'8.png', val:'acc8'},
     {palette : accPal+'9.png', putOn:acc+'9.png', val:'acc9'},
     {palette : accPal+'10.png', putOn:acc+'10.png', val:'acc10'},
-    {palette : none, putOn:none}]
+    ]

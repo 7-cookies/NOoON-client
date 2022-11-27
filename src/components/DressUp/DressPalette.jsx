@@ -97,6 +97,7 @@ const DressPalette = ({showModal, modalType}) => {
         {showModal? 
             <>
             <ModalContainer>
+            <ScrollContainer className='scrollbar'>
             {eyeImg.map((res,num)=>(
                 <ItemContainer 
                     key={res.palette}
@@ -111,6 +112,7 @@ const DressPalette = ({showModal, modalType}) => {
                         onClick={handleClickEye}/>
                 </ItemContainer> 
             ))}
+            </ScrollContainer>
             </ModalContainer></> : null }</>)
 
 
@@ -120,6 +122,7 @@ const DressPalette = ({showModal, modalType}) => {
         {showModal? 
             <>
             <ModalContainer>
+                <ScrollContainer className='scrollbar'>
             {noseImg.map((res,num)=>(
                 <ItemContainer 
                     key={res.palette}
@@ -135,6 +138,7 @@ const DressPalette = ({showModal, modalType}) => {
                         onClick={handleClickNose}/>
                 </ItemContainer> 
             ))}
+            </ScrollContainer>
             </ModalContainer></> : null }</>)
 
         case 'arm' :
@@ -143,6 +147,7 @@ const DressPalette = ({showModal, modalType}) => {
             {showModal? 
                 <>
                 <ModalContainer>
+                    <ScrollContainer className='scrollbar'>
                 {armImg.map((res,num)=>(
                     <ItemContainer 
                         key={res.palette}
@@ -158,6 +163,7 @@ const DressPalette = ({showModal, modalType}) => {
                             onClick={handleClickArm}/>
                     </ItemContainer> 
                 ))}
+                </ScrollContainer>
                 </ModalContainer></> : null }</>)
 
         case 'mouth' :
@@ -166,6 +172,7 @@ const DressPalette = ({showModal, modalType}) => {
                 {showModal? 
                     <>
                     <ModalContainer>
+                        <ScrollContainer className='scrollbar'>
                     {mouthImg.map((res,num)=>(
                         <ItemContainer 
                             key={res.palette}
@@ -182,6 +189,7 @@ const DressPalette = ({showModal, modalType}) => {
                                 onClick={handleClickMouth}/>
                         </ItemContainer> 
                 ))}
+                </ScrollContainer>
                 </ModalContainer></> : null }</>)
 
     case 'acc' :
@@ -190,6 +198,7 @@ const DressPalette = ({showModal, modalType}) => {
             {showModal? 
                 <>
                 <ModalContainer>
+                    <ScrollContainer className='scrollbar'>
                 {accImg.map((res,num)=>(
                     <ItemContainer 
                         key={res.palette}
@@ -206,6 +215,7 @@ const DressPalette = ({showModal, modalType}) => {
                             onClick={handleClickAcc}/>
                     </ItemContainer> 
             ))}
+            </ScrollContainer>
             </ModalContainer></> : null }</>)
 
     }
@@ -220,6 +230,7 @@ height: 26.875rem;
 background-color:#D6E2F0;
 
 position: relative;
+
 `
 
 const ScrollContainer = styled.section`
@@ -227,17 +238,26 @@ display: flex;
 flex-direction: column;
 flex-wrap: wrap;
 align-items: center;
-justify-content: center;
 
 width: 26.875rem; 
 height: 20rem;
+padding: 1rem 0.4rem 0;
 
 white-space:nowrap;
-overflow: auto; 
+overflow-y: auto; 
 
-.scrollbar{
-    scrollbar-width: thin;
+::-webkit-scrollbar {
+    height: 1rem;
 }
+::-webkit-scrollbar-track {
+    margin: 1rem;
+
+}
+::-webkit-scrollbar-thumb {
+    background-color: #E9F3FF;
+    border-radius: 1.5rem;
+}
+
 `
 
 const ItemContainer = styled.section`

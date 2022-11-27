@@ -113,7 +113,7 @@ const NextButton = styled(ShortButton)`
 width: 23.875rem;
 box-shadow: 0.3vw 0.3vw 0.6vw rgba(0, 0, 0, 0.3);
 position: fixed;
-margin-top: 40rem;
+margin-top: 43rem;
 z-index: 1;
 
 `

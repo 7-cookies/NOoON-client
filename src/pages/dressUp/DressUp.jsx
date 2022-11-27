@@ -1,33 +1,32 @@
 import React, {useState} from 'react';
 import styled from 'styled-components'
-import {useRecoilState} from 'recoil'
+import {useRecoilState, useRecoilValue} from 'recoil'
 
 import {Container, ShortButton} from '../../styles/globalStyle';
-import {DressZone, CategoryContainer} from '../../styles/dressUp/DressUp.jsx'
+import {DressZone} from '../../styles/dressUp/DressUp.jsx'
 
 import CateMenu from '../../components/DressUp/CateMenu.jsx'
 import DressPalette from '../../components/DressUp/DressPalette';
 import SnowMan from '../../components/DressUp/SnowMan.jsx'
 import WRMessage from '../../components/DressUp/WRMessage.jsx'
+import HeaderForDress from '../../components/common/HeaderForDress.jsx'
 import Header from '../../components/common/Header.jsx'
 
-import {modalStateC, modalStateT} from '../../utils/dressRecoil'
+import {modalStateC, modalStateT, messageState} from '../../utils/dressRecoil'
 
 
 const DressUp = () => {
     const [showModal, setModal] = useRecoilState(modalStateC);
     const [modalType, setModalType] = useRecoilState(modalStateT);
-    const [message, setMessage] = useState(false);
-
-
+    const [ms, setMs] = useRecoilState(messageState);
+    const message = useRecoilValue(messageState);
     const moveToMessage = () =>{
-        setMessage(!message);
+        setMs(!ms);
     }
 
 
     const [saveFirst, setSaveFirst] = useState(false);
     const [saveComp, setSaveComp] = useState(false);
-
     const isClickedSaveBt = () =>{
         setSaveFirst(!saveFirst);
         console.log(saveFirst);
@@ -43,13 +42,12 @@ const DressUp = () => {
     return (
         <>
         <ContainerE>
-            <Header title={message?'메세지 남기기':'눈사람 꾸미기'}/>
+            {message? <HeaderForDress title={'메세지 남기기'}/>:<Header title={'눈사람 꾸미기'}></Header>}
             <DressZone>
                 <SnowMan imgSize={(message===true)?'15':'19.375'} />
 
                 {message === false ?
                 <>
-                {/* <CategoryContainer> */}
                     <section>
                         <CateMenu 
                         setModal={setModal} 
@@ -63,8 +61,6 @@ const DressUp = () => {
                     </section>
 
                     <NextButton onClick={moveToMessage}> 저장하기 </NextButton>
-
-                {/* </CategoryContainer> */}
 
                 </> :
                 <>

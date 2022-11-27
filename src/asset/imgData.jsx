@@ -7,52 +7,6 @@ import accI from '../asset/icon/menuIcon/accIcon.png'
 
 import none from '../asset/img/transparent.png'
 
-//머리
-import headPal_01 from '../asset/img/dressPalette/head/headPal_1.png'
-import headPal_02 from '../asset/img/dressPalette/head/headPal_2.png'
-import headPal_03 from '../asset/img/dressPalette/head/headPal_3.png'
-import headPal_04 from '../asset/img/dressPalette/head/headPal_4.png'
-import headPal_05 from '../asset/img/dressPalette/head/headPal_5.png'
-import headPal_06 from '../asset/img/dressPalette/head/headPal_6.png'
-import headPal_07 from '../asset/img/dressPalette/head/headPal_7.png'
-import headPal_08 from '../asset/img/dressPalette/head/headPal_8.png'
-import headPal_09 from '../asset/img/dressPalette/head/headPal_9.png'
-import headPal_10 from '../asset/img/dressPalette/head/headPal_10.png'
-
-import head_1 from '../asset/img/dressPutOn/head/head_1.png'
-import head_2 from '../asset/img/dressPutOn/head/head_2.png'
-import head_3 from '../asset/img/dressPutOn/head/head_3.png'
-import head_4 from '../asset/img/dressPutOn/head/head_4.png'
-import head_5 from '../asset/img/dressPutOn/head/head_5.png'
-import head_6 from '../asset/img/dressPutOn/head/head_6.png'
-import head_7 from '../asset/img/dressPutOn/head/head_7.png'
-import head_8 from '../asset/img/dressPutOn/head/head_8.png'
-import head_9 from '../asset/img/dressPutOn/head/head_9.png'
-import head_10 from '../asset/img/dressPutOn/head/head_10.png'
-
-//눈
-import eyePal_01 from '../asset/img/dressPalette/eye/eyePal_1.png'
-import eyePal_02 from '../asset/img/dressPalette/eye/eyePal_2.png'
-import eyePal_03 from '../asset/img/dressPalette/eye/eyePal_3.png'
-import eyePal_04 from '../asset/img/dressPalette/eye/eyePal_4.png'
-import eyePal_05 from '../asset/img/dressPalette/eye/eyePal_5.png'
-import eyePal_06 from '../asset/img/dressPalette/eye/eyePal_6.png'
-import eyePal_07 from '../asset/img/dressPalette/eye/eyePal_7.png'
-import eyePal_08 from '../asset/img/dressPalette/eye/eyePal_8.png'
-import eyePal_09 from '../asset/img/dressPalette/eye/eyePal_9.png'
-import eyePal_10 from '../asset/img/dressPalette/eye/eyePal_10.png'
-
-import eye_1 from '../asset/img/dressPutOn/eye/eye_1.png'
-import eye_2 from '../asset/img/dressPutOn/eye/eye_2.png'
-import eye_3 from '../asset/img/dressPutOn/eye/eye_3.png'
-import eye_4 from '../asset/img/dressPutOn/eye/eye_4.png'
-import eye_5 from '../asset/img/dressPutOn/eye/eye_5.png'
-import eye_6 from '../asset/img/dressPutOn/eye/eye_6.png'
-import eye_7 from '../asset/img/dressPutOn/eye/eye_7.png'
-import eye_8 from '../asset/img/dressPutOn/eye/eye_8.png'
-import eye_9 from '../asset/img/dressPutOn/eye/eye_9.png'
-import eye_10 from '../asset/img/dressPutOn/eye/eye_10.png'
-
 //코
 import nosePal_01 from '../asset/img/dressPalette/nose/nosePal_1.png'
 import nosePal_02 from '../asset/img/dressPalette/nose/nosePal_2.png'
@@ -146,6 +100,7 @@ import acc_9 from '../asset/img/dressPutOn/acc/acc_9.png'
 import acc_10 from '../asset/img/dressPutOn/acc/acc_10.png'
 
 
+
 export const menuData = [
     {categoryName : 'head', url : headI},
     {categoryName : 'eye', url : eyeI},
@@ -155,34 +110,81 @@ export const menuData = [
     {categoryName : 'acc', url : accI}
 ]
 
+const headPal=process.env.REACT_APP_S3_URL+'dressPalette/head/headPal_';
+export const headPal_01 = headPal+'1.png'
+export const headPal_02 = headPal+'2.png'
+export const headPal_03 = headPal+'3.png'
+export const headPal_04 = headPal+'4.png'
+export const headPal_05 = headPal+'5.png'
+export const headPal_06 = headPal+'6.png'
+export const headPal_07 = headPal+'7.png'
+export const headPal_08 = headPal+'8.png'
+export const headPal_09 = headPal+'9.png'
+export const headPal_10 = headPal+'10.png'
+
+const head = process.env.REACT_APP_S3_URL+'dressPutOn/head/head_';
+export const head_01 = head+'1.png'
+export const head_02 = head+'2.png'
+export const head_03 = head+'3.png'
+export const head_04 = head+'4.png'
+export const head_05 = head+'5.png'
+export const head_06 = head+'6.png'
+export const head_07 = head+'7.png'
+export const head_08 = head+'8.png'
+export const head_09 = head+'9.png'
+export const head_10 = head+'10.png'
 
 export const headImg = [
     {palette : none, putOn: none},
-    {palette : headPal_01, putOn: head_1},
-    {palette : headPal_02, putOn: head_2},
-    {palette : headPal_03, putOn: head_3},
-    {palette : headPal_04, putOn: head_4},
-    {palette : headPal_05, putOn: head_5},
-    {palette : headPal_06, putOn: head_6},
-    {palette : headPal_07, putOn: head_7},
-    {palette : headPal_08, putOn: head_8},
-    {palette : headPal_09, putOn: head_9},
+    {palette : headPal_01, putOn: head_01},
+    {palette : headPal_02, putOn: head_02},
+    {palette : headPal_03, putOn: head_03},
+    {palette : headPal_04, putOn: head_04},
+    {palette : headPal_05, putOn: head_05},
+    {palette : headPal_06, putOn: head_06},
+    {palette : headPal_07, putOn: head_07},
+    {palette : headPal_08, putOn: head_08},
+    {palette : headPal_09, putOn: head_09},
     {palette : headPal_10, putOn: head_10},
     {palette : none, putOn: none}
 ]
 
+const eyePal=process.env.REACT_APP_S3_URL+'dressPalette/eye/eyePal_';
+export const eyePal_01 = eyePal+'1.png'
+export const eyePal_02 = eyePal+'2.png'
+export const eyePal_03 = eyePal+'3.png'
+export const eyePal_04 = eyePal+'4.png'
+export const eyePal_05 = eyePal+'5.png'
+export const eyePal_06 = eyePal+'6.png'
+export const eyePal_07 = eyePal+'7.png'
+export const eyePal_08 = eyePal+'8.png'
+export const eyePal_09 = eyePal+'9.png'
+export const eyePal_10 = eyePal+'10.png'
+
+const eye = process.env.REACT_APP_S3_URL+'dressPutOn/eye/eye_';
+export const eye_01 = eye+'1.png'
+export const eye_02 = eye+'2.png'
+export const eye_03 = eye+'3.png'
+export const eye_04 = eye+'4.png'
+export const eye_05 = eye+'5.png'
+export const eye_06 = eye+'6.png'
+export const eye_07 = eye+'7.png'
+export const eye_08 = eye+'8.png'
+export const eye_09 = eye+'9.png'
+export const eye_10 = eye+'10.png'
+
 
     export const eyeImg = [
         {palette : none, putOn: none},
-        {palette : eyePal_01, putOn: eye_1},
-        {palette : eyePal_02, putOn:eye_2},
-        {palette : eyePal_03, putOn:eye_3},
-        {palette : eyePal_04, putOn:eye_4},
-        {palette : eyePal_05, putOn:eye_5},
-        {palette : eyePal_06, putOn:eye_6},
-        {palette : eyePal_07, putOn:eye_7},
-        {palette : eyePal_08, putOn:eye_8},
-        {palette : eyePal_09, putOn:eye_9},
+        {palette : eyePal_01, putOn: eye_01},
+        {palette : eyePal_02, putOn:eye_02},
+        {palette : eyePal_03, putOn:eye_03},
+        {palette : eyePal_04, putOn:eye_04},
+        {palette : eyePal_05, putOn:eye_05},
+        {palette : eyePal_06, putOn:eye_06},
+        {palette : eyePal_07, putOn:eye_07},
+        {palette : eyePal_08, putOn:eye_08},
+        {palette : eyePal_09, putOn:eye_09},
         {palette : eyePal_10, putOn:eye_10},
         {palette : none, putOn:none},]
 

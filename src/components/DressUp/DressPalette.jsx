@@ -17,6 +17,8 @@ const DressPalette = ({showModal, modalType}) => {
     const [mouth, setMouth] = useRecoilState(baseMouth);
     const [head, setHead] = useRecoilState(baseHead);
 
+    console.log(headImg)
+
     const handleClickHead = (e) =>{
         const Head = e.currentTarget.getAttribute('value');
         const HeadVal = e.currentTarget.getAttribute('src');

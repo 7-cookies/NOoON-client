@@ -39,6 +39,8 @@ const DressUp = () => {
 
     }
 
+    console.log(process.env.REACT_APP_BACKGROUND[0])
+
     
     return (
         <>

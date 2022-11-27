@@ -111,11 +111,10 @@ export default DressUp;
 
 const NextButton = styled(ShortButton)`
 width: 23.875rem;
-box-shadow: 0.3vw 0.3vw 0.6vw rgba(0, 0, 0, 0.3);
+/* box-shadow: 0.3vw 0.3vw 0.6vw rgba(0, 0, 0, 0.3); */
 position: fixed;
 margin-top: 43rem;
 z-index: 1;
-
 `
 
 const ContainerEdit = styled(Container)`
@@ -147,8 +146,6 @@ margin-bottom: 10rem;
 border-radius: 1.0625rem;
 
 box-shadow: 0.3vw 0.3vw 0.6vw rgba(0, 0, 0, 0.3);
-
-
 `
 
 const TextCon = styled.section`

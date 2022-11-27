@@ -17,6 +17,7 @@ width: ${(props)=>props.imgSize}rem;
 height: ${(props)=>props.imgSize}rem;
 
 position: relative;
+margin-top: 1rem;
 `
 
 export const BaseContainer = styled.section`

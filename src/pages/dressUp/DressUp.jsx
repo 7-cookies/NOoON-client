@@ -39,8 +39,6 @@ const DressUp = () => {
 
     }
 
-    console.log(process.env.REACT_APP_BACKGROUND[0])
-
     
     return (
         <>
@@ -51,7 +49,7 @@ const DressUp = () => {
 
                 {message === false ?
                 <>
-                <CategoryContainer>
+                {/* <CategoryContainer> */}
                     <section>
                         <CateMenu 
                         setModal={setModal} 
@@ -64,9 +62,9 @@ const DressUp = () => {
                         modalType={modalType}/>
                     </section>
 
-                    <NextButton onClick={moveToMessage}> 다음 </NextButton>
+                    <NextButton onClick={moveToMessage}> 저장하기 </NextButton>
 
-                </CategoryContainer>
+                {/* </CategoryContainer> */}
 
                 </> :
                 <>
@@ -112,11 +110,12 @@ const DressUp = () => {
 export default DressUp;
 
 const NextButton = styled(ShortButton)`
-margin: 25rem 0;
 width: 23.875rem;
-position: fixed;
-z-index: 5;
 box-shadow: 0.3vw 0.3vw 0.6vw rgba(0, 0, 0, 0.3);
+position: fixed;
+margin-top: 40rem;
+z-index: 1;
+
 `
 
 const ContainerEdit = styled(Container)`
@@ -127,11 +126,7 @@ position: absolute;
 display: flex;
 justify-content: center;
 align-items: center;
-/* 
-& .compSaved{
-position: absolute;
-z-index: 1001;
-} */
+
 `
 
 const ContainerE = styled.section`

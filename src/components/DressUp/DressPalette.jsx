@@ -5,7 +5,6 @@ import {useRecoilState} from 'recoil'
 import {headImg, eyeImg, noseImg, armImg, mouthImg, accImg } from "../../utils/imgData"
 import {baseEyes, baseArms, baseHead, baseNose, baseItem, baseMouth} from '../../utils/dressRecoil'
 
-
 const DressPalette = ({showModal, modalType}) => {
     const [checkNum, setCheckNum] = useState(0)
 
@@ -16,8 +15,6 @@ const DressPalette = ({showModal, modalType}) => {
     const [item, setItem] = useRecoilState(baseItem);
     const [mouth, setMouth] = useRecoilState(baseMouth);
     const [head, setHead] = useRecoilState(baseHead);
-
-    console.log(headImg)
 
     const handleClickHead = (e) =>{
         const Head = e.currentTarget.getAttribute('value');
@@ -62,6 +59,9 @@ const DressPalette = ({showModal, modalType}) => {
         setItem(Arr);
     }
 
+    //팔레트 무한 스크롤 페이징 (좌우))
+
+
 
     // eslint-disable-next-line default-case
     switch (modalType){
@@ -74,8 +74,7 @@ const DressPalette = ({showModal, modalType}) => {
                 key={res.palette}
                 onClick={()=>{setCheckNum(res);}}
                 check={res} 
-                number={checkNum}
-                > 
+                number={checkNum}> 
 
                     <Item 
                     key={res.palette}
@@ -92,80 +91,76 @@ const DressPalette = ({showModal, modalType}) => {
         case 'eye' :
         return(
         <>
-            {showModal===true ? 
-                <>
-                <ModalContainer>
-                {eyeImg.map((res,num)=>(
-                    <ItemContainer 
+        {showModal? 
+            <>
+            <ModalContainer>
+            {eyeImg.map((res,num)=>(
+                <ItemContainer 
+                    key={res.palette}
+                    onClick={()=>{setCheckNum(res);}}
+                    check={res} 
+                    number={checkNum}> 
+                    <Item 
                         key={res.palette}
-                        onClick={()=>{setCheckNum(res);}}
-                        check={res} 
-                        number={checkNum}
-                        > 
-
-                        <Item 
-                            key={res.palette}
-                            src={res.palette} 
-                            alt={`눈`} 
-                            value={num}
-                            onClick={handleClickEye}/>
-                    </ItemContainer> 
+                        src={res.palette} 
+                        alt={`눈`} 
+                        value={num}
+                        onClick={handleClickEye}/>
+                </ItemContainer> 
             ))}
             </ModalContainer></> : null }</>)
 
 
         case 'nose' :
-                return(
-                <>
-                    {showModal===true ? 
-                        <>
-                        <ModalContainer>
-                        {noseImg.map((res,num)=>(
-                            <ItemContainer 
-                                key={res.palette}
-                                onClick={()=>{setCheckNum(res);}}
-                                check={res} 
-                                number={checkNum}
-                                > 
+        return(
+        <>
+        {showModal? 
+            <>
+            <ModalContainer>
+            {noseImg.map((res,num)=>(
+                <ItemContainer 
+                    key={res.palette}
+                    onClick={()=>{setCheckNum(res);}}
+                    check={res} 
+                    number={checkNum}> 
 
-                                <Item 
-                                    key={res.palette}
-                                    src={res.palette} 
-                                    alt={`코`} 
-                                    value={num}
-                                    onClick={handleClickNose}/>
-                            </ItemContainer> 
-                    ))}
-                    </ModalContainer></> : null }</>)
+                    <Item 
+                        key={res.palette}
+                        src={res.palette} 
+                        alt={`코`} 
+                        value={num}
+                        onClick={handleClickNose}/>
+                </ItemContainer> 
+            ))}
+            </ModalContainer></> : null }</>)
 
         case 'arm' :
-                            return(
-                            <>
-                                {showModal===true ? 
-                                    <>
-                                    <ModalContainer>
-                                    {armImg.map((res,num)=>(
-                                        <ItemContainer 
-                                            key={res.palette}
-                                            onClick={()=>{setCheckNum(res);}}
-                                            check={res} 
-                                            number={checkNum}
-                                            > 
+        return(
+        <>
+            {showModal? 
+                <>
+                <ModalContainer>
+                {armImg.map((res,num)=>(
+                    <ItemContainer 
+                        key={res.palette}
+                        onClick={()=>{setCheckNum(res);}}
+                        check={res} 
+                        number={checkNum}> 
 
-                                            <Item 
-                                                key={res.palette}
-                                                src={res.palette} 
-                                                alt={`팔`} 
-                                                value={num}
-                                                onClick={handleClickArm}/>
-                                        </ItemContainer> 
-                                ))}
-                                </ModalContainer></> : null }</>)
+                        <Item 
+                            key={res.palette}
+                            src={res.palette} 
+                            alt={`팔`} 
+                            value={num}
+                            onClick={handleClickArm}/>
+                    </ItemContainer> 
+                ))}
+                </ModalContainer></> : null }</>)
 
         case 'mouth' :
             return(
             <>
-                {showModal===true ? 
+                {showModal? 
                     <>
                     <ModalContainer>
                     {mouthImg.map((res,num)=>(
@@ -189,7 +184,7 @@ const DressPalette = ({showModal, modalType}) => {
     case 'acc' :
         return(
         <>
-            {showModal===true ? 
+            {showModal? 
                 <>
                 <ModalContainer>
                 {accImg.map((res,num)=>(
@@ -216,22 +211,23 @@ const DressPalette = ({showModal, modalType}) => {
 export default DressPalette;
 
 
-
-
 const ModalContainer= styled.section`
 display: flex;
 justify-content: center;
 align-items: center;
-flex-wrap: wrap;
+flex-wrap: nowrap;
 
 width: 26.875rem; 
-height:35.75rem;
+height: 26.875rem; 
 background-color:#D6E2F0;
-/* background-color:red; */
-padding: 1rem 0 37rem 0;
 
 position: relative;
 z-index: 1;
+
+padding-top: 0.8rem;
+overflow: auto;
+white-space: nowrap;
+/* border: black solid; */
 `
 
 const ItemContainer = styled.section`

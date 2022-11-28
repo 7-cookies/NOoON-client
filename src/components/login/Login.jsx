@@ -46,22 +46,19 @@ const Login = () => {
 
     return (
         <StLoginWrapper>
-        <Header title="로그인"/>
-        <StLogin>
+            <Header title="로그인"/>
+            <StInputWrapper>
+                <div className='username'><p>ID</p> <p className='error'>* 사용 중인 아이디입니다</p></div>
+                <StLoginInpt placeholder="아이디를 입력해주세요" ref={userNameRef} />
+            </StInputWrapper>
+                        
+            <StInputWrapper>
+                <div className='password'><p>PASSWORD</p><p className='error'>* 숫자 4자리를 입력해주세요</p></div>
+                <StLoginInpt type="password" placeholder="숫자 4자리를 입력해주세요" ref={userPasswordRef} />
+            </StInputWrapper>
+            <ShortButton button="button" className="check" onClick={handleSubmit}>확인</ShortButton>
 
-        <div>
-            <p>ID</p> <p className='error'>* 사용 중인 아이디입니다</p>
-            <StLoginInpt placeholder="아이디를 입력해주세요" ref={userNameRef} />
-        </div>
-                    
-        <div>
-            <p>PASSWORD</p><p className='error'>* 숫자 4자리를 입력해주세요</p>
-            <StLoginInpt type="password" placeholder="숫자 4자리를 입력해주세요" ref={userPasswordRef} />
-        </div>
-        </StLogin>
-        <ShortButton button="button" className="check" onClick={handleSubmit}>확인</ShortButton>
-
-    </StLoginWrapper>
+        </StLoginWrapper>
     );
 };
 
@@ -70,26 +67,43 @@ export default Login;
 const StLoginWrapper = styled.section`
     & > .check{
         margin: 223px 145px 102px 145px;
+    
+    & .username {
+        margin-top:207.97px;
+    }
+
+    & .passowrd {
+        margin-top:49.3px;
+    }
+
 }
 `
 
-const StLogin=styled.div`
+const StInputWrapper=styled.div`
+    & > div {
+      display: flex;
+
+    }
+
+    & div.username {
+        margin-top:207.97px;
+    }
+
+    & div.password {
+        margin-top:49.3px;
+    }
+
+
     & > div> p{
         margin-left: 44.62px;
         margin-bottom:16.5px;
         ${({ theme }) => theme.fonts.kotrahopeCommon}
     }
 
-    & > div > p.error{
+    & > div> p.error{
+      margin-left: 20.62px;
       ${({ theme }) => theme.fonts.kotrahopeError};
     } 
-    & > div:nth-child(1){
-        margin-top:207.97px;
-    }
-
-    & > div:nth-child(2){
-        margin-top:49.3px;
-    }
 `
 const StLoginInpt=styled(Input)`
     align-items: flex-start;

@@ -66,6 +66,9 @@ justify-content: center;
 align-items: center;
 width: ${(props)=>props.imgSize}rem;
 height: ${(props)=>props.imgSize}rem;
-margin: 0 -1rem;
+width: 12rem;
+height: 12rem;
+
+/* margin: 0 -1rem; */
 /* margin-top: 1rem; */
 `

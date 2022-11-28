@@ -12,7 +12,8 @@ import { CookiesProvider } from 'react-cookie';
 
 import MessageModal from "../message/MessageModal";
 import GridFix from '../../pages/dongsan/GridFix';
-
+import Grid2 from '../../pages/dongsan/Grid2';
+import Grid3 from '../../pages/dongsan/Grid3';
 
 const Router = () => {
   return (

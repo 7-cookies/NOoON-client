@@ -70,9 +70,6 @@ const fonts = {
     font-weight: 400;
     font-size: 1rem;
     line-height : 1.0625rem;
-    display: flex;
-    align-items: center;
-    text-align: left;
     letter-spacing: 0.07em;
   `
 };

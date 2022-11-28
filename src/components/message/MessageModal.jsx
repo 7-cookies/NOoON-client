@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import DongsanName from "./DongsanName";
 import messageCard from '../../asset/img/messageCard.png';
 import xButton from '../../asset/icon/Group 130.svg';
 
@@ -11,19 +10,20 @@ const MessageModal = ({ setStep }) => {
         <StModalBackgroundWrapper>
             <StModalWrapper>
                 <StModal>
-                    <img src={messageCard} alt="#" />
+                    <StCard src={messageCard} alt="#" />
                     <img src={xButton} alt="#" />
                 </StModal>
             </StModalWrapper>
         </StModalBackgroundWrapper>
-
-        <DongsanName />
         </>
     );
 };
 
 export default MessageModal;
 
+const StCard = styled.img`
+    width: 382px;
+`
 const StModalBackgroundWrapper = styled.section`
     position: absolute;
     z-index: 2;

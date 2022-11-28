@@ -9,11 +9,6 @@ const Landing = () => {
     const navigate=useNavigate();
     return (
         <StMainWrapper>
-            <MessageModal/>
-            <p>크리스마스에 완성되는 나만의 눈동산</p>
-            <h1>내가 만든 눈동산</h1>
-            <LongButton button="button" className="button1" onClick={()=>navigate('/login')}>로그인</LongButton>
-            <LongButton button="button" className="button2" onClick={()=>navigate('/signup')}>회원가입</LongButton>
 
             <p className='floating'>크리스마스에 완성되는 나만의 눈동산</p>
             <h1 className='floating'>내가 만든 눈동산</h1>

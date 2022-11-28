@@ -14,6 +14,9 @@ const Login = () => {
     const [password, setPassword] = useState()
     const navigate=useNavigate();
 
+    const [usernameError, setUsernameError] = useState(false)
+    const [passwordError, setPasswordError] = useState(false)
+
     const [cookies, setCookie, removeCookie] = useCookies(["access_token"]);
 
     const handleSubmit=()=>{
@@ -47,12 +50,12 @@ const Login = () => {
         <StLogin>
 
         <div>
-            <p>ID</p>
+            <p>ID</p> <p className='error'>* 사용 중인 아이디입니다</p>
             <StLoginInpt placeholder="아이디를 입력해주세요" ref={userNameRef} />
         </div>
                     
         <div>
-            <p>PASSWORD</p>
+            <p>PASSWORD</p><p className='error'>* 숫자 4자리를 입력해주세요</p>
             <StLoginInpt type="password" placeholder="숫자 4자리를 입력해주세요" ref={userPasswordRef} />
         </div>
         </StLogin>
@@ -76,6 +79,10 @@ const StLogin=styled.div`
         margin-bottom:16.5px;
         ${({ theme }) => theme.fonts.kotrahopeCommon}
     }
+
+    & > div > p.error{
+      ${({ theme }) => theme.fonts.kotrahopeError};
+    } 
     & > div:nth-child(1){
         margin-top:207.97px;
     }

@@ -21,7 +21,6 @@ const MessageModal = ({ setStep }) => {
                             <StXButton src={xButton} alt="#" onClick={handleXClick} /> 
                             </div>
                         </StTitle>
-                        
                         <div>안녕! 나는 멋쟁이 사자야~ 아기사자에서 우유 먹고 쑥쑥 자라서 어른사자가 되었지! 너도 어른사자가 될 준비가 되었니?우리 함께 헤쳐나가보자!😎나는 우리팀이 잘할거라 믿어!</div>
                     </StContentWrapper>
                 </StModal>

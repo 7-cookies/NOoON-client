@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 
 import {
   BaseContainer,
@@ -9,7 +10,6 @@ import {
   Item,
   Arm,
   Mouth,
-  ImgContainer,
 } from "../../styles/dressUp/DressUp.jsx";
 
 import base from "../../asset/img/base.png";
@@ -25,7 +25,7 @@ import {
 
 const SnowManforGrid = (props) => {
   return (
-    <ImgContainer>
+    <StImgContainer>
       <BaseContainer imgSize={props.imgSize}>
         <Base src={base} imgSize={props.imgSize} />
       </BaseContainer>
@@ -54,8 +54,18 @@ const SnowManforGrid = (props) => {
         alt="소품"
         imgSize={props.imgSize}
       ></Item>
-    </ImgContainer>
+    </StImgContainer>
   );
 };
 
 export default SnowManforGrid;
+
+const StImgContainer=styled.section`
+display: flex;
+justify-content: center;
+align-items: center;
+width: ${(props)=>props.imgSize}rem;
+height: ${(props)=>props.imgSize}rem;
+margin: 0 -1rem;
+/* margin-top: 1rem; */
+`

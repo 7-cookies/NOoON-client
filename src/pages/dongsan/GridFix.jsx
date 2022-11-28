@@ -1,35 +1,22 @@
 import React from "react";
 import styled from "styled-components";
 
-// import base from "../../asset/img/base.png";
 import { MiddleButton } from "../../styles/globalStyle";
-// import ShareModal from "./ShareModal";
-//import StartModal from "./StartModal";
-// import CheckModal from "./CheckModal";
-import base from '../../asset/img/base.png';
 import SnowManforGrid from '../../components/dongsan/SnowManforGrid'
 import data from '../../mocks/test.json';
-import DressUp from '../dressUp/DressUp';
 
-const gridList = [
-  { id: 0, x: 0, y: 2, w: 1, h: 3 },
-  { id: 1, x: 3, y: 3, w: 1, h: 3 },
-  { id: 2, x: 0, y: 5, w: 1, h: 3},
-  { id: 3, x: 7, y: 7, w: 1, h: 3},
-  { id: 4, x: 0, y: 8, w: 1, h: 3},
-];
+import rightArrow from '../../asset/icon/rightArrow.svg';
+import leftArrow from '../../asset/icon/leftArrow.svg';
 
 const GridFix = () => {
 
     return (
       <>
-      <StGridWrapper>
-          {/* {data.snowman.map(({id, head, eye, nose, arm, mouse, accessary, creator})=>(
-          <StSnowMan key={id}>
-            <SnowManforGrid imgSize={12} head={head} eye={eye} nose={nose} arm={arm} mouth={mouse} item={accessary} />
-            <p>{creator}</p>
-          </StSnowMan>
-          ))} */}
+      <StGridWrapper>  
+        <StArrowWrapper>
+          <img src={leftArrow} alt="왼쪽 화살표" />
+          <img src={rightArrow} alt="오른쪽 화살표" />
+        </StArrowWrapper>        
         <StGrid>
             {data.snowman.map(({id, head, eye, nose, arm, mouse, accessary, creator})=>(
           <StSnowMan key={id}>
@@ -48,6 +35,16 @@ const GridFix = () => {
 
 export default GridFix;
 
+const StArrowWrapper=styled.section`
+  display: flex;
+  justify-content: space-between;
+
+  position: absolute;
+  z-index: 3;
+
+  width: 430px;
+  padding:0 1rem;
+`
 const StMiddleButton=styled(MiddleButton)`
   margin: 845px 0 33px 0px ;
 `
@@ -59,12 +56,7 @@ const StGridWrapper = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  
 `;
-
-// const SnowManforGrid = styled.img`
-//   width: 192px;
-// `;
 
 const StGrid=styled.div`
   width: 400px;
@@ -73,31 +65,24 @@ const StGrid=styled.div`
   grid-template-columns: repeat(3, 1fr);
   transform: rotate(-90deg);
 
-    /* flex-direction: column; */
-
-  /* border: 1px solid black; */
-  width: 700px;
+  width: 650px;
   height: 430px;
 
   position: absolute;
   z-index: 2;
   overflow: hidden;
-  /* overflow-y:scroll; */
-  /* overflow-y: auto; */
 `
 const StSnowMan=styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  transform: rotate(90deg);
 
-    /* width: 200px;
-    height:  200px; */
-    transform: rotate(90deg);
   & > div{
    display: flex;
    justify-content: center;
    align-items: center;
-   
+
     & > p{
       ${({ theme }) => theme.fonts.kotrahopeCreator}
     }

@@ -14,6 +14,8 @@ const Login = () => {
     const [password, setPassword] = useState()
     const navigate=useNavigate();
 
+    const [error, setError] = useState(false)
+
     const [cookies, setCookie, removeCookie] = useCookies(["access_token"]);
 
     const handleSubmit=()=>{
@@ -43,22 +45,21 @@ const Login = () => {
 
     return (
         <StLoginWrapper>
-        <Header title="로그인"/>
-        <StLogin>
+            <Header title="로그인"/>
+            <StInputWrapper>
+                <div className='username'><p>ID</p></div>
+                <StLoginInpt placeholder="아이디를 입력해주세요" ref={userNameRef} />
+            </StInputWrapper>
+                        
+            <StInputWrapper>
+              <div className='password'><p>PASSWORD</p></div>
+                <StLoginInpt type="password" placeholder="숫자 4자리를 입력해주세요" ref={userPasswordRef} />
+                <div className='error errorsection'><p>*아이디 또는 비밀번호를 잘못 입력했습니다.</p></div>
+                <div className='error'><p>다시 확인해주세요.</p></div>
+            </StInputWrapper>
+            <ShortButton button="button" className="check" onClick={handleSubmit}>확인</ShortButton>
 
-        <div>
-            <p>ID</p>
-            <StLoginInpt placeholder="아이디를 입력해주세요" ref={userNameRef} />
-        </div>
-                    
-        <div>
-            <p>PASSWORD</p>
-            <StLoginInpt type="password" placeholder="숫자 4자리를 입력해주세요" ref={userPasswordRef} />
-        </div>
-        </StLogin>
-        <ShortButton button="button" className="check" onClick={handleSubmit}>확인</ShortButton>
-
-    </StLoginWrapper>
+        </StLoginWrapper>
     );
 };
 
@@ -67,21 +68,48 @@ export default Login;
 const StLoginWrapper = styled.section`
     & > .check{
         margin: 223px 145px 102px 145px;
+    
+    & .username {
+        margin-top:207.97px;
+    }
+
+    & .passowrd {
+        margin-top:49.3px;
+    }
+
 }
 `
 
-const StLogin=styled.div`
+const StInputWrapper=styled.div`
+    & > div {
+      display: flex;
+
+    }
+
+    & div.username {
+        margin-top:207.97px;
+    }
+
+    & div.password {
+        margin-top:49.3px;
+    }
+
+    & div.error {
+        & > p{
+          ${({ theme }) => theme.fonts.kotrahopeError};
+        }
+    }
+
+    & div.errorsection {
+        margin-top: 18px;
+        margin-bottom: -18px;
+    }
+
+
     & > div> p{
         margin-left: 44.62px;
         margin-bottom:16.5px;
         ${({ theme }) => theme.fonts.kotrahopeCommon}
-    }
-    & > div:nth-child(1){
-        margin-top:207.97px;
-    }
-
-    & > div:nth-child(2){
-        margin-top:49.3px;
     }
 `
 const StLoginInpt=styled(Input)`

@@ -51,6 +51,18 @@ const fonts = {
     align-items: center;
     text-align: center;
     letter-spacing: 0.07em;
+  `,
+  kotrahopeError: css`
+    font-family: 'KOTRAHOPE';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.9375rem;
+    line-height : 1.0625rem;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    letter-spacing: 0.07em;
+    color:#EB4253;
   `
 };
 

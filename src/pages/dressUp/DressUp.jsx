@@ -14,7 +14,6 @@ import Header from '../../components/common/Header.jsx'
 
 import {modalStateC, modalStateT, messageState} from '../../utils/dressRecoil'
 
-
 const DressUp = () => {
     const [showModal, setModal] = useRecoilState(modalStateC);
     const [modalType, setModalType] = useRecoilState(modalStateT);
@@ -95,8 +94,8 @@ const DressUp = () => {
                 </ButtonCon>
             </ModalCon> : <></>    
             }
-            
         </ContainerEdit>
+        
         </>
             
         

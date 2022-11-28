@@ -2,8 +2,8 @@ import React, {useState} from 'react'
 import styled from 'styled-components'
 import {useRecoilState} from 'recoil'
 
-import {headImg, eyeImg, noseImg, armImg, mouthImg, accImg } from "../../asset/imgData"
-import {baseEyes, baseArms, baseHead, baseNose, baseItem, baseMouth} from '../../asset/dressRecoil'
+import {headImg, eyeImg, noseImg, armImg, mouthImg, accImg } from "../../utils/imgData"
+import {baseEyes, baseArms, baseHead, baseNose, baseItem, baseMouth} from '../../utils/dressRecoil'
 
 
 const DressPalette = ({showModal, modalType}) => {
@@ -16,6 +16,8 @@ const DressPalette = ({showModal, modalType}) => {
     const [item, setItem] = useRecoilState(baseItem);
     const [mouth, setMouth] = useRecoilState(baseMouth);
     const [head, setHead] = useRecoilState(baseHead);
+
+    console.log(headImg)
 
     const handleClickHead = (e) =>{
         const Head = e.currentTarget.getAttribute('value');

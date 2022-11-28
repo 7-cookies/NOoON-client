@@ -1,40 +1,54 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
-import logo from '../asset/icon/Group 88.png'
 
 const kakaoJsKey = process.env.REACT_APP_KAKAO_JS_KEY;
 
-const KakaoShare = () => {
-    const [sender, SetSender] = useState('');
+export const KakaoShare = ({url}) => {
+
+    useEffect(()=>{
+        handleClickKakao();
+    },[])
+
+    const Name = '하린'
 
     const handleClickKakao = (e)=>{
-        const Sender = e.currentTarget.getAttribute('value');
-        SetSender(Sender);
 
-        window.Kakao.Share.createCustomButton({
-        container: "#kakao-link-btn",
-        templateId: 86522,
-        // requestUrl: 'http://localhost:3000/dressUp',
-
-        templateArgs:{
-                'title': '크리스마스에 완성되는 나만의 눈동산',
-                'desc': `${sender}님의 눈동산에 방문해 눈사람을 꾸미고 메시지를 남겨주세요!`,
-                }
-            
-        })
-    // console.log(sender);
-    
-
+        if (window.Kakao) {
+            const kakao = window.Kakao;
+            if (!kakao.isInitialized()){
+                kakao.init(process.env.REACT_APP_KAKAO_JS_KEY)
+            }
+            kakao.Share.createDefaultButton({
+                container: "#kakao-link-btn",
+                objectType: "feed",
+                content:{
+                    title: '크리스마스에 완성되는 나만의 눈동산',
+                    description: `${Name}님의 눈동산에 방문해 눈사람을 꾸미고 메시지를 남겨주세요!`,
+                    imageUrl: `${process.env.REACT_APP_S3_URL}%E1%84%8C%E1%85%A6%E1%84%86%E1%85%A9%E1%86%A8_%E1%84%8B%E1%85%A5%E1%86%B9%E1%84%82%E1%85%B3%E1%86%AB_%E1%84%8B%E1%85%A1%E1%84%90%E1%85%B3%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3+4+15.png`,
+                link: {
+                    mobileWebUrl: window.location.href,
+                    // .replace(window.location.href,url),
+                    webUrl: window.location.href
+                    // .replace(window.location.href,url),
+                },
+            },
+        });
     }
-    
+};
+
+
     return (
-    <KakaoImg id="kakao-link-btn" onClick={handleClickKakao} value='하린'>
+    <KakaoImg 
+    id="kakao-link-btn"
+    url={url} 
+    onClick={() => {
+        handleClickKakao(url)}} 
+    sender='하린'>
         공유버튼
     </KakaoImg>
     )
 }
 
-export default KakaoShare
 
 const KakaoImg = styled.button`
 

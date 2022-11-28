@@ -40,7 +40,7 @@ const eyePal=process.env.REACT_APP_S3_URL+'dressPalette/eye/eyePal_';
 const eye = process.env.REACT_APP_S3_URL+'dressPutOn/eye/eye_';
 export const eyeImg = [
     {palette : none, putOn: none},
-    {palette : eyePal+'1.png', putOn: eye+'1.png', val:'eye1'},
+    {palette : eyePal+'1.png', putOn:eye+'1.png', val:'eye1'},
     {palette : eyePal+'2.png', putOn:eye+'2.png', val:'eye2'},
     {palette : eyePal+'3.png', putOn:eye+'3.png', val:'eye3'},
     {palette : eyePal+'4.png', putOn:eye+'4.png', val:'eye4'},

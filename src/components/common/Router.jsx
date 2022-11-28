@@ -11,6 +11,7 @@ import DongSanStep from '../../pages/DongSanStep';
 import { CookiesProvider } from 'react-cookie';
 
 import MessageModal from "../message/MessageModal";
+import GridFix from '../../pages/dongsan/GridFix';
 
 
 const Router = () => {
@@ -28,6 +29,7 @@ const Router = () => {
               <Route path="/" element={<Landing />} />
               <Route path="/dressUp" element={<DressUp />} />
               <Route path="/message/:id" element={<MessageModal />} />
+              <Route path="/fix" element={<GridFix/>}/>
             </Routes>
           </Container>  
         </RecoilRoot>      

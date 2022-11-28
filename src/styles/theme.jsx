@@ -63,6 +63,17 @@ const fonts = {
     text-align: left;
     letter-spacing: 0.07em;
     color:#EB4253;
+  `,
+  kotrahopeCreator: css`
+    font-family: 'KOTRAHOPE';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height : 1.0625rem;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    letter-spacing: 0.07em;
   `
 };
 

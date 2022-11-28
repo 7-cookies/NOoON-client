@@ -1,6 +1,7 @@
 import styled, {keyframes} from "styled-components"
 import {LongButton} from "../../styles/globalStyle"
 import { useNavigate } from 'react-router-dom';
+import MessageModal from "../message/MessageModal";
 
 import {tossing1, tossing2, floating} from '../../styles/animation.jsx'
 
@@ -8,6 +9,7 @@ const Landing = () => {
     const navigate=useNavigate();
     return (
         <StMainWrapper>
+            <MessageModal/>
             <p>크리스마스에 완성되는 나만의 눈동산</p>
             <h1>내가 만든 눈동산</h1>
             <LongButton button="button" className="button1" onClick={()=>navigate('/login')}>로그인</LongButton>

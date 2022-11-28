@@ -62,4 +62,11 @@ export const modalStateT= atom({
     default: {'modalType' : 'head'},
 })
 
+//옷입히기->메세지 모달창
+export const messageState =atom({
+    key: 'msState',
+    default: false,
+})
+
+
 

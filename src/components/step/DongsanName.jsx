@@ -1,37 +1,31 @@
 import styled from "styled-components";
 import Header from '../common/Header'
 import { Input, ShortButton } from "../../styles/globalStyle";
-import DongSanNameModal from './DongSanNameModal';
-import { useState } from 'react';
+import { useRef } from "react";
+import {useRecoilState} from "recoil";
+import {dongsanstep} from '../../utils/atoms';
 
+const DongsanName = ({ setStep }) => {
+    const nameRef=useRef(null);
+    const [dongsanBeginData, setDongsanBeginData]=useRecoilState(dongsanstep)
 
-const DongsanName = () => {
-    const [isClicked, setIsClicked] = useState(false);
-
-    const handleClick =()=>{
-        setIsClicked((prev)=>!prev)
+    const handleNextClick=()=>{
+        setDongsanBeginData((prev)=>({...prev, name:nameRef.current.value}))
+        setStep('DONSAN-NAMING-MODAL');
     }
 
     return (
         <>
-        {isClicked&&(
-        <StModalWrapper onClick={handleClick}>
-            <DongSanNameModal />
-        </StModalWrapper>
-        )}
-        
         <StDongsanNameWrapper>
-
             <Header title="동산이름 정하기" />
-
-                <StDongsanName>
-            <div>
-                <p>동산 이름을 지어주세요 ☃️</p>
-                <StNameInput placeholder="ex) 눈 펑펑 오는 눈동산 (최대 20자)" />
-            </div> 
-            <StButtonWrapper>
-                <ShortButton button="button" className="check" onClick={handleClick}>확인</ShortButton>
-            </StButtonWrapper>
+            <StDongsanName>
+                <div>
+                    <p>동산 이름을 지어주세요 ☃️</p>
+                    <StNameInput placeholder="ex) 눈 펑펑 오는 눈동산 (최대 20자)" ref={nameRef} />
+                </div> 
+                <StButtonWrapper>
+                    <ShortButton button="button" className="check" onClick={handleNextClick}>확인</ShortButton>
+                </StButtonWrapper>
             </StDongsanName>
         </StDongsanNameWrapper>
         </>
@@ -68,9 +62,4 @@ const StButtonWrapper = styled.div`
     justify-content: center;
 
     margin-top: 299px;
-`
-
-const StModalWrapper = styled.section`
-    position: absolute;
-    z-index: 2;
 `

@@ -1,18 +1,25 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import backArrow from "../../asset/icon/arrow.svg";
 
 const Header = (props) => {
-  return (
-    <>
-      <Icon src={backArrow} alt="#" />
+    const navigate=useNavigate();
 
-      <StHeaderWrapper>
-        <StHeader>
-          <h1>{props.title}</h1>
-        </StHeader>
-      </StHeaderWrapper>
-    </>
-  );
+    const handleBackClick=()=>{
+        navigate(`${props.url}`);
+    }
+    return (
+        <>
+        <Icon src={backArrow} alt="#" onClick={handleBackClick} />
+
+        <StHeaderWrapper>
+            <StHeader>
+                <h1>{props.title}</h1>
+            </StHeader>
+        </StHeaderWrapper>
+        </>
+
+    );
 };
 
 export default Header;

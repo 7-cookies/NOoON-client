@@ -2,19 +2,31 @@
   "name": "snowman",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
+ "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
-    "axios": "^1.1.3",
-    "msw": "^0.49.0",
+    "aws-amplify": "^5.0.4",
+    "aws-sdk": "^2.1261.0",
+    "axios": "^1.2.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "msw": "^0.48.2",
+    "multi": "^0.1.3",
     "react": "^18.2.0",
+    "react-aws-s3": "^1.5.0",
+    "react-cookie": "^4.1.1",
     "react-dom": "^18.2.0",
     "react-grid-layout": "^1.3.4",
+    "react-infinite-scroller": "^1.2.6",
     "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1",
+    "reactstrap": "^9.1.5",
     "recoil": "^0.7.6",
     "styled-components": "^5.3.6",
+    "util": "^0.12.5",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
@@ -40,5 +52,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0",
+    "nodemon": "^2.0.20"
   }
 }

@@ -57,10 +57,10 @@ const fonts = {
     font-style: normal;
     font-weight: 400;
     font-size: 0.9375rem;
-    line-height : 1.875rem;
+    line-height : 1.0625rem;
     display: flex;
     align-items: center;
-    text-align: center;
+    text-align: left;
     letter-spacing: 0.07em;
     color:#EB4253;
   `

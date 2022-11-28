@@ -14,8 +14,7 @@ const Login = () => {
     const [password, setPassword] = useState()
     const navigate=useNavigate();
 
-    const [usernameError, setUsernameError] = useState(false)
-    const [passwordError, setPasswordError] = useState(false)
+    const [error, setError] = useState(false)
 
     const [cookies, setCookie, removeCookie] = useCookies(["access_token"]);
 
@@ -48,13 +47,15 @@ const Login = () => {
         <StLoginWrapper>
             <Header title="로그인"/>
             <StInputWrapper>
-                <div className='username'><p>ID</p> <p className='error'>* 사용 중인 아이디입니다</p></div>
+                <div className='username'><p>ID</p></div>
                 <StLoginInpt placeholder="아이디를 입력해주세요" ref={userNameRef} />
             </StInputWrapper>
                         
             <StInputWrapper>
-                <div className='password'><p>PASSWORD</p><p className='error'>* 숫자 4자리를 입력해주세요</p></div>
+              <div className='password'><p>PASSWORD</p></div>
                 <StLoginInpt type="password" placeholder="숫자 4자리를 입력해주세요" ref={userPasswordRef} />
+                <div className='error errorsection'><p>*아이디 또는 비밀번호를 잘못 입력했습니다.</p></div>
+                <div className='error'><p>다시 확인해주세요.</p></div>
             </StInputWrapper>
             <ShortButton button="button" className="check" onClick={handleSubmit}>확인</ShortButton>
 
@@ -93,17 +94,23 @@ const StInputWrapper=styled.div`
         margin-top:49.3px;
     }
 
+    & div.error {
+        & > p{
+          ${({ theme }) => theme.fonts.kotrahopeError};
+        }
+    }
+
+    & div.errorsection {
+        margin-top: 18px;
+        margin-bottom: -18px;
+    }
+
 
     & > div> p{
         margin-left: 44.62px;
         margin-bottom:16.5px;
         ${({ theme }) => theme.fonts.kotrahopeCommon}
     }
-
-    & > div> p.error{
-      margin-left: 20.62px;
-      ${({ theme }) => theme.fonts.kotrahopeError};
-    } 
 `
 const StLoginInpt=styled(Input)`
     align-items: flex-start;

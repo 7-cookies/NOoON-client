@@ -154,53 +154,69 @@ ${reset}
 }
 `;
 
-export const LongButton=styled.button`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 23.875rem;
-    height: 3.75rem;
-  
-    border:1px solid transparent;
-    border-radius:1.25rem;
-    background-color:${({ theme }) => theme.colors.blue};
-    color:white;
-    ${({ theme }) => theme.fonts.kotrahopeCommon}
-
-    cursor: pointer;
-`
-
-export const ShortButton=styled.button`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 8.75rem;
-    height: 3.375rem;
-  
-    border:1px solid transparent;
-    border-radius:1.25rem;
-    background-color:${({ theme }) => theme.colors.blue};
-    color:white;
-    ${({ theme }) => theme.fonts.kotrahopeCommon}
-
-    cursor: pointer;
-`
-
-export const Container=styled.section`
-  width: 26.875rem;
-  height: 58.25rem;
-  margin : 0 auto;
-`
-
-export const Input=styled.input`
+export const LongButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 23.875rem;
   height: 3.75rem;
 
-  border:1px solid transparent;
-  border-radius:1.25rem;
+  border: 1px solid transparent;
+  border-radius: 1.25rem;
+  background-color: ${({ theme }) => theme.colors.blue};
+  color: white;
+  ${({ theme }) => theme.fonts.kotrahopeCommon}
 
-  background-color:${({ theme }) => theme.colors.skyblue};
+  cursor: pointer;
+`;
+
+export const MiddleButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10.625rem;
+  height: 3.375rem;
+
+  border: 1px solid transparent;
+  border-radius: 1.25rem;
+  background-color: ${({ theme }) => theme.colors.blue};
+  color: white;
+  ${({ theme }) => theme.fonts.kotrahopeCommon}
+
+  cursor: pointer;
+`;
+
+export const ShortButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 8.75rem;
+  height: 3.375rem;
+
+  border: 1px solid transparent;
+  border-radius: 1.25rem;
+  background-color: ${({ theme }) => theme.colors.blue};
+  color: white;
+  ${({ theme }) => theme.fonts.kotrahopeCommon}
+
+  cursor: pointer;
+`;
+
+export const Container = styled.section`
+  width: 26.875rem;
+  height: 58.25rem;
+  margin: 0 auto;
+`;
+
+export const Input = styled.input`
+  width: 23.875rem;
+  height: 3.75rem;
+
+  border: 1px solid transparent;
+  border-radius: 1.25rem;
+
+  background-color: ${({ theme }) => theme.colors.skyblue};
   ${({ theme }) => theme.fonts.kotrahopeText}
-`
+`;
 
 export default GlobalStyle;

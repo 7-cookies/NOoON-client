@@ -10,6 +10,7 @@ import {Login, SignUp, Landing} from '../login';
 import DongSanStep from '../../pages/DongSanStep';
 import { CookiesProvider } from 'react-cookie';
 
+import MessageModal from "../message/MessageModal";
 
 
 const Router = () => {
@@ -26,6 +27,7 @@ const Router = () => {
               <Route path="/signup" element={<SignUp />} />
               <Route path="/" element={<Landing />} />
               <Route path="/dressUp" element={<DressUp />} />
+              <Route path="/message/:id" element={<MessageModal />} />
             </Routes>
           </Container>  
         </RecoilRoot>      

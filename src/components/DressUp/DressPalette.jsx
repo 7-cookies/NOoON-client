@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
 import {useRecoilState} from 'recoil'
+// import {InfiniteScroll} from 'react-infinite-scroller'
 
-import {headImg, eyeImg, noseImg, armImg, mouthImg, accImg } from "../../asset/imgData"
-import {baseEyes, baseArms, baseHead, baseNose, baseItem, baseMouth} from '../../asset/dressRecoil'
-
+import {headImg, eyeImg, noseImg, armImg, mouthImg, accImg } from "../../utils/imgData"
+import {baseEyes, baseArms, baseHead, baseNose, baseItem, baseMouth} from '../../utils/dressRecoil'
 
 const DressPalette = ({showModal, modalType}) => {
     const [checkNum, setCheckNum] = useState(0)
@@ -60,6 +60,9 @@ const DressPalette = ({showModal, modalType}) => {
         setItem(Arr);
     }
 
+    //팔레트 무한 스크롤 페이징 (좌우))
+
+
 
     // eslint-disable-next-line default-case
     switch (modalType){
@@ -67,105 +70,109 @@ const DressPalette = ({showModal, modalType}) => {
             return(  
             <>
             <ModalContainer>
-            {headImg.map((res,num)=>(
-                <ItemContainer 
-                key={res.palette}
-                onClick={()=>{setCheckNum(res);}}
-                check={res} 
-                number={checkNum}
-                > 
-
-                    <Item 
+            <ScrollContainer className='scrollbar'>
+                {headImg.map((res,num)=>(
+                    <ItemContainer 
                     key={res.palette}
-                    src={res.palette} 
-                    alt={`모자`} 
-                    value={num}
-                    onClick={handleClickHead}/>
-    
-                </ItemContainer> 
-            ))}
+                    onClick={()=>{setCheckNum(res);}}
+                    check={res} 
+                    number={checkNum}> 
+
+                        <Item 
+                        key={res.palette}
+                        src={res.palette} 
+                        alt={`모자`} 
+                        value={num}
+                        onClick={handleClickHead}/>
+        
+                    </ItemContainer> 
+                ))}
+            </ScrollContainer>
             </ModalContainer></> 
             )
 
         case 'eye' :
         return(
         <>
-            {showModal===true ? 
-                <>
-                <ModalContainer>
-                {eyeImg.map((res,num)=>(
-                    <ItemContainer 
+        {showModal? 
+            <>
+            <ModalContainer>
+            <ScrollContainer className='scrollbar'>
+            {eyeImg.map((res,num)=>(
+                <ItemContainer 
+                    key={res.palette}
+                    onClick={()=>{setCheckNum(res);}}
+                    check={res} 
+                    number={checkNum}> 
+                    <Item 
                         key={res.palette}
-                        onClick={()=>{setCheckNum(res);}}
-                        check={res} 
-                        number={checkNum}
-                        > 
-
-                        <Item 
-                            key={res.palette}
-                            src={res.palette} 
-                            alt={`눈`} 
-                            value={num}
-                            onClick={handleClickEye}/>
-                    </ItemContainer> 
+                        src={res.palette} 
+                        alt={`눈`} 
+                        value={num}
+                        onClick={handleClickEye}/>
+                </ItemContainer> 
             ))}
+            </ScrollContainer>
             </ModalContainer></> : null }</>)
 
 
         case 'nose' :
-                return(
-                <>
-                    {showModal===true ? 
-                        <>
-                        <ModalContainer>
-                        {noseImg.map((res,num)=>(
-                            <ItemContainer 
-                                key={res.palette}
-                                onClick={()=>{setCheckNum(res);}}
-                                check={res} 
-                                number={checkNum}
-                                > 
+        return(
+        <>
+        {showModal? 
+            <>
+            <ModalContainer>
+                <ScrollContainer className='scrollbar'>
+            {noseImg.map((res,num)=>(
+                <ItemContainer 
+                    key={res.palette}
+                    onClick={()=>{setCheckNum(res);}}
+                    check={res} 
+                    number={checkNum}> 
 
-                                <Item 
-                                    key={res.palette}
-                                    src={res.palette} 
-                                    alt={`코`} 
-                                    value={num}
-                                    onClick={handleClickNose}/>
-                            </ItemContainer> 
-                    ))}
-                    </ModalContainer></> : null }</>)
+                    <Item 
+                        key={res.palette}
+                        src={res.palette} 
+                        alt={`코`} 
+                        value={num}
+                        onClick={handleClickNose}/>
+                </ItemContainer> 
+            ))}
+            </ScrollContainer>
+            </ModalContainer></> : null }</>)
 
         case 'arm' :
-                            return(
-                            <>
-                                {showModal===true ? 
-                                    <>
-                                    <ModalContainer>
-                                    {armImg.map((res,num)=>(
-                                        <ItemContainer 
-                                            key={res.palette}
-                                            onClick={()=>{setCheckNum(res);}}
-                                            check={res} 
-                                            number={checkNum}
-                                            > 
+        return(
+        <>
+            {showModal? 
+                <>
+                <ModalContainer>
+                    <ScrollContainer className='scrollbar'>
+                {armImg.map((res,num)=>(
+                    <ItemContainer 
+                        key={res.palette}
+                        onClick={()=>{setCheckNum(res);}}
+                        check={res} 
+                        number={checkNum}> 
 
-                                            <Item 
-                                                key={res.palette}
-                                                src={res.palette} 
-                                                alt={`팔`} 
-                                                value={num}
-                                                onClick={handleClickArm}/>
-                                        </ItemContainer> 
-                                ))}
-                                </ModalContainer></> : null }</>)
+                        <Item 
+                            key={res.palette}
+                            src={res.palette} 
+                            alt={`팔`} 
+                            value={num}
+                            onClick={handleClickArm}/>
+                    </ItemContainer> 
+                ))}
+                </ScrollContainer>
+                </ModalContainer></> : null }</>)
 
         case 'mouth' :
             return(
             <>
-                {showModal===true ? 
+                {showModal? 
                     <>
                     <ModalContainer>
+                        <ScrollContainer className='scrollbar'>
                     {mouthImg.map((res,num)=>(
                         <ItemContainer 
                             key={res.palette}
@@ -182,14 +189,16 @@ const DressPalette = ({showModal, modalType}) => {
                                 onClick={handleClickMouth}/>
                         </ItemContainer> 
                 ))}
+                </ScrollContainer>
                 </ModalContainer></> : null }</>)
 
     case 'acc' :
         return(
         <>
-            {showModal===true ? 
+            {showModal? 
                 <>
                 <ModalContainer>
+                    <ScrollContainer className='scrollbar'>
                 {accImg.map((res,num)=>(
                     <ItemContainer 
                         key={res.palette}
@@ -206,6 +215,7 @@ const DressPalette = ({showModal, modalType}) => {
                             onClick={handleClickAcc}/>
                     </ItemContainer> 
             ))}
+            </ScrollContainer>
             </ModalContainer></> : null }</>)
 
     }
@@ -214,22 +224,40 @@ const DressPalette = ({showModal, modalType}) => {
 export default DressPalette;
 
 
-
-
 const ModalContainer= styled.section`
-display: flex;
-justify-content: center;
-align-items: center;
-flex-wrap: wrap;
-
 width: 26.875rem; 
-height:35.75rem;
+height: 26.875rem; 
 background-color:#D6E2F0;
-/* background-color:red; */
-padding: 1rem 0 37rem 0;
 
 position: relative;
-z-index: 1;
+
+`
+
+const ScrollContainer = styled.section`
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+align-items: center;
+
+width: 26.875rem; 
+height: 20rem;
+padding: 1rem 0.4rem 0;
+
+white-space:nowrap;
+overflow-y: auto; 
+
+::-webkit-scrollbar {
+    height: 1rem;
+}
+::-webkit-scrollbar-track {
+    margin: 1rem;
+
+}
+::-webkit-scrollbar-thumb {
+    background-color: #E9F3FF;
+    border-radius: 1.5rem;
+}
+
 `
 
 const ItemContainer = styled.section`
@@ -241,7 +269,7 @@ height: 7rem;
 background-color: ${(props)=>(props.num)===11 ? 'transparent':'white'};
 text-align: center;
 
-margin: 0.5rem;
+margin: 0.8rem 0.85rem;
 border: ${(props)=>(props.check === props.number ? '#95AECA solid 0.1875rem':'transparent solid 0.1875rem')};
 border-radius: 0.9375rem;
 

@@ -16,9 +16,8 @@ align-items: center;
 width: ${(props)=>props.imgSize}rem;
 height: ${(props)=>props.imgSize}rem;
 
-/* border: solid black; */
-
 position: relative;
+margin-top: 1rem;
 `
 
 export const BaseContainer = styled.section`
@@ -66,6 +65,7 @@ export const Mouth = styled(Nose)`
 //아이템을 선택하는 구역
 export const CategoryContainer = styled.section`
 width: 26.875rem; 
+height: 26.875rem; 
 display: flex;
 flex-direction: column;
 align-items: center;

@@ -2,8 +2,8 @@ import React, {useState} from 'react'
 import styled from 'styled-components'
 import { useRecoilState } from 'recoil'
 
-import {menuData} from "../../asset/imgData"
-import {modalStateC, modalStateT} from "../../asset/dressRecoil"
+import {menuData} from "../../utils/imgData"
+import {modalStateC, modalStateT} from "../../utils/dressRecoil"
 
 import {CateMenuCon} from '../../styles/dressUp/DressUp.jsx'
 

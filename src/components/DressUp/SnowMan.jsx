@@ -3,8 +3,8 @@ import {useRecoilState} from 'recoil'
 import {BaseContainer, Base, Head, Eye, Nose, Item, Arm, Mouth, ImgContainer} from '../../styles/dressUp/DressUp.jsx'
 
 import base from '../../asset/img/base.png'
-import {headImg, eyeImg, noseImg, armImg, mouthImg, accImg} from '../../asset/imgData.jsx'
-import {baseEyes, baseArms, baseHead, baseNose, baseItem, baseMouth} from '../../asset/dressRecoil'
+import {headImg, eyeImg, noseImg, armImg, mouthImg, accImg} from '../../utils/imgData.jsx'
+import {baseEyes, baseArms, baseHead, baseNose, baseItem, baseMouth} from '../../utils/dressRecoil'
 
 const SnowMan = ({imgSize}) => {
     const [eye, setEyes] = useRecoilState(baseEyes);

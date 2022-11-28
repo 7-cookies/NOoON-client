@@ -53,7 +53,7 @@ const Login = () => {
                     
         <div>
             <p>PASSWORD</p>
-            <StLoginInpt placeholder="숫자 4자리를 입력해주세요" ref={userPasswordRef} />
+            <StLoginInpt type="password" placeholder="숫자 4자리를 입력해주세요" ref={userPasswordRef} />
         </div>
         </StLogin>
         <ShortButton button="button" className="check" onClick={handleSubmit}>확인</ShortButton>

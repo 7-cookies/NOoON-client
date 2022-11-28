@@ -3,8 +3,8 @@ import GridLayout from "react-grid-layout";
 import styled from "styled-components";
 
 import { MiddleButton } from "../../styles/globalStyle";
-// import ShareModal from "./ShareModal";
-import StartModal from "./StartModal";
+import ShareModal from "./ShareModal";
+// import StartModal from "./StartModal";
 // import CheckModal from "./CheckModal";
 
 import SnowManforGrid from "../../components/dongsan/SnowManforGrid.jsx";
@@ -14,8 +14,8 @@ class StaticGrid extends React.Component {
   render() {
     return (
       <StGridWrapper>
-        <StartModal />
-        {/* <ShareModal /> */}
+        {/* <StartModal /> */}
+        <ShareModal />
         {/* <CheckModal /> */}
 
         <GridLayout className="layout" cols={2} rowHeight={60.85} width={413}>
@@ -114,6 +114,6 @@ const StGridWrapper = styled.section`
   background-size: 430px;
 `;
 
-const StImg = styled.img`
-  width: 192px;
-`;
+// const StImg = styled.img`
+//   width: 192px;
+// `;

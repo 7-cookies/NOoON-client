@@ -1,25 +1,42 @@
 import styled from "styled-components";
-import { ShortButton } from "../../styles/globalStyle";
 
 import close from "../../asset/icon/close.svg";
 import kakao from "../../asset/icon/kakao.svg";
+import share from "../../asset/icon/share.svg";
 
 const ShareModal = () => {
+  const handleCopyClipBoard = async (text: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      alert("복사 성공!");
+    } catch (error) {
+      alert("복사 실패!");
+    }
+  };
+
   return (
     <>
       <SrModalWrapper>
         <SrModal>
           <SrHeader>
+            <h1>공유하기</h1>
             <Icon src={close} alt="#" />
-            <h1>카카오톡 공유하기</h1>
           </SrHeader>
-
-          <p>카카오톡 공유</p>
-          <Icon src={kakao} alt="#" />
-          <p>링크 복사</p>
-          <StButtonWrapper>
-            <ShortButton button="submit">시작하기</ShortButton>
-          </StButtonWrapper>
+          <SrMiddle>
+            <p>카카오톡 공유</p>
+            <Icon src={kakao} alt="#" />
+            <p>링크 복사</p>
+          </SrMiddle>
+          <SrButtonWrapper>
+            <Icon src={share} alt="#" />
+            <input type="text" value={"https://noonsaram.kr"} />
+            <button
+              type="submit"
+              onClick={() => handleCopyClipBoard("https://noonsaram.kr")}
+            >
+              copy
+            </button>
+          </SrButtonWrapper>
         </SrModal>
       </SrModalWrapper>
     </>
@@ -29,7 +46,6 @@ const ShareModal = () => {
 export default ShareModal;
 
 const Icon = styled.img`
-  position: absolute;
   z-index: 2;
 `;
 
@@ -67,23 +83,62 @@ const SrModal = styled.div`
 `;
 
 const SrHeader = styled.section`
-  width: 23.875rem;
+  width: 20.625rem;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
   border-bottom: 1px solid ${({ theme }) => theme.colors.grey};
 
   & > h1 {
-    font-size: 1.5rem;
+    font-size: 1.375rem;
     ${({ theme }) => theme.fonts.kotrahopeText}
   }
 `;
 
-const StButtonWrapper = styled.footer`
+const SrMiddle = styled.section`
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  padding: 30px;
 
-  width: 298px;
-  margin-top: 62.29px;
+  & > p {
+    padding-bottom: 10px;
+    ${({ theme }) => theme.fonts.kotrahopeText}
+  }
+`;
+
+const SrButtonWrapper = styled.footer`
+  display: flex;
+  align-item: center;
+  justify-content: space-evenly;
+
+  width: 21.25rem;
+  height: 3.125rem;
+  border-radius: 15px;
+
+  background-color: #e9f3ff;
+
+  & > input {
+    font-size: 1.25rem;
+    text-decoration: none;
+    border: none;
+    background-color: transparent;
+    ${({ theme }) => theme.colors.grey}
+    ${({ theme }) => theme.fonts.kotrahopeText}
+  }
+
+  & > button {
+    width: 4.688rem;
+    height: 2.375rem;
+    justify-content: center;
+    align-item: center;
+    border: 1px solid transparent;
+    border-radius: 1.25rem;
+    margin-top: 0.38rem;
+    background-color: ${({ theme }) => theme.colors.blue};
+    ${({ theme }) => theme.fonts.kotrahopeText}
+    color: white;
+  }
 `;

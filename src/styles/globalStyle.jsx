@@ -202,6 +202,22 @@ export const ShortButton = styled.button`
   cursor: pointer;
 `;
 
+export const ShareButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 21.25rem;
+  height: 3.375rem;
+
+  border: 1px solid transparent;
+  border-radius: 1.25rem;
+  background-color: ${({ theme }) => theme.colors.blue};
+  color: white;
+  ${({ theme }) => theme.fonts.kotrahopeCommon}
+
+  cursor: pointer;
+`;
+
 export const Container = styled.section`
   width: 26.875rem;
   height: 58.25rem;

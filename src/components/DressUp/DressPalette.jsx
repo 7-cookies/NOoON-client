@@ -246,6 +246,7 @@ padding: 1rem 0.4rem 0;
 white-space:nowrap;
 overflow-y: auto; 
 
+
 ::-webkit-scrollbar {
     height: 1rem;
 }

@@ -25,7 +25,7 @@ const SignUp = () => {
 
         axios
           .post(
-            "api/v1/user/signup",
+            "https://www.noonsaram-server.shop/api/v1/user/login",
             {
               username: username,
               password: password,

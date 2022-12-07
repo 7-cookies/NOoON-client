@@ -22,17 +22,17 @@ const SignUp = () => {
 
     //아이디 중복확인 hook
     const [usableId, setUsableId] = useState(false);
-    const [alertIdMS, setAlertIdMS] = useState('* 사용 중인 아이디입니다')
+    const [alertIdMS, setAlertIdMS] = useState('')
     const duplicationIdCheck = () =>{
       dupCheckAPI(username)
       .then((response)=>{
         console.log(response)
         if(response === false){ 
-          setAlertIdMS('사용 가능한 아이디입니다.');
+          setAlertIdMS('사용 가능한 아이디입니다');
           setUsableId(response);
         }
         else{
-          setAlertIdMS('** 사용 중인 아이디입니다');
+          setAlertIdMS('* 사용 중인 아이디입니다');
           setUsableId(response);
         }
         console.log('중복 체크 완료')
@@ -72,8 +72,12 @@ const SignUp = () => {
                 <div className='password'><p>PASSWORD</p><p className='error'>* 숫자 4자리를 입력해주세요</p></div>
                 <StLoginInpt type="password" placeholder="숫자 4자리를 입력해주세요" ref={userPasswordRef} />
             </StInputWrapper>
+
+            <ButtonWrapper>
+            <ShortButton button="button" className="check2" onClick={duplicationIdCheck}>중복확인</ShortButton>
             <ShortButton button="button" className="check" onClick={handleSubmit}>확인</ShortButton>
-            <ShortButton button="button" className="check" onClick={duplicationIdCheck}>중복확인</ShortButton>
+            </ButtonWrapper>
+            
 
     </StLoginWrapper>
 
@@ -84,8 +88,8 @@ export default SignUp;
 
 const StLoginWrapper = styled.section`
     & > .check{
-        margin: 223px 145px 102px 145px;
-}
+        margin: 13.9375rem 9.0625rem 6.375rem 9.0625rem;
+    }
 `
 const StInputWrapper=styled.div`
     & > div {
@@ -94,29 +98,35 @@ const StInputWrapper=styled.div`
     }
 
     & div.username {
-        margin-top:207.97px;
+        margin-top: 12.9981rem;
     }
 
     & div.password {
-        margin-top:49.3px;
+        margin-top: 3.0813rem;
     }
 
 
     & > div> p{
-        margin-left: 44.62px;
-        margin-bottom:16.5px;
+        margin-left: 2.7888rem;
+        margin-bottom: 1.0313rem;
         ${({ theme }) => theme.fonts.kotrahopeCommon}
     }
 
     & > div> p.error{
-      margin-left: 20.62px;
+      margin-left: 1.2888rem;
       ${({ theme }) => theme.fonts.kotrahopeError};
     } 
+`
+
+const ButtonWrapper = styled.section`
+  display: flex;
+  margin: 13.9375rem 4.5rem 6.375rem;
+
 `
 
 const StLoginInpt=styled(Input)`
     align-items: flex-start;
     text-align: left;
-    margin-left:24px;
-    padding-left: 20.93px;
+    margin-left:1.5rem;
+    padding-left: 1.3081rem;
 `

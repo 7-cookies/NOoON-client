@@ -5,6 +5,7 @@ import { useRef, useState } from 'react';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie'; 
+import { dupCheckAPI } from './dupCheckAPI';
 
 const SignUp = () => {
     const userNameRef=useRef(null)
@@ -18,6 +19,25 @@ const SignUp = () => {
 
 
     const [cookies, setCookie, removeCookie] = useCookies(["access_token"]);
+
+    //아이디 중복확인 hook
+    const [usableId, setUsableId] = useState(false);
+    const [alertIdMS, setAlertIdMS] = useState('* 사용 중인 아이디입니다')
+    const duplicationIdCheck = () =>{
+      dupCheckAPI(username)
+      .then((response)=>{
+        console.log(response)
+        if(response === false){ 
+          setAlertIdMS('사용 가능한 아이디입니다.');
+          setUsableId(response);
+        }
+        else{
+          setAlertIdMS('** 사용 중인 아이디입니다');
+          setUsableId(response);
+        }
+        console.log('중복 체크 완료')
+      })
+    }
 
     const handleSubmit=()=>{
         setUsername(userNameRef.current.value)
@@ -44,7 +64,7 @@ const SignUp = () => {
         <StLoginWrapper>
         <Header title="회원가입"/>
             <StInputWrapper>
-                <div className='username'><p>ID</p> <p className='error'>* 사용 중인 아이디입니다</p></div>
+                <div className='username'><p>ID</p> <p className='error'>{alertIdMS}</p></div>
                 <StLoginInpt placeholder="아이디를 입력해주세요" ref={userNameRef} />
             </StInputWrapper>
                         
@@ -53,6 +73,7 @@ const SignUp = () => {
                 <StLoginInpt type="password" placeholder="숫자 4자리를 입력해주세요" ref={userPasswordRef} />
             </StInputWrapper>
             <ShortButton button="button" className="check" onClick={handleSubmit}>확인</ShortButton>
+            <ShortButton button="button" className="check" onClick={duplicationIdCheck}>중복확인</ShortButton>
 
     </StLoginWrapper>
 

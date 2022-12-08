@@ -23,6 +23,8 @@ const SignUp = () => {
     //아이디 중복확인 hook
     const [usableId, setUsableId] = useState(false);
     const [alertIdMS, setAlertIdMS] = useState('')
+    const [alertPwMS, setAlertPwMS] = useState('')
+
     const duplicationIdCheck = () =>{
       dupCheckAPI(username)
       .then((response)=>{
@@ -74,7 +76,7 @@ const SignUp = () => {
                         
             <StInputWrapper>
                 <div className='password'><p>PASSWORD</p><p className='error'>* 숫자 4자리를 입력해주세요</p></div>
-                <StLoginInpt type="password" placeholder="숫자 4자리를 입력해주세요" ref={userPasswordRef} />
+                <StLoginInpt type="password" placeholder="숫자 4자리를 입력해주세요" ref={userPasswordRef} maxLength='4' />
             </StInputWrapper>
 
             <ButtonWrapper>

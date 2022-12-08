@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
 import {useRecoilState} from 'recoil'
-// import {InfiniteScroll} from 'react-infinite-scroller'
 
 import {headImg, eyeImg, noseImg, armImg, mouthImg, accImg } from "../../utils/imgData"
 import {baseEyes, baseArms, baseHead, baseNose, baseItem, baseMouth} from '../../utils/dressRecoil'
@@ -59,10 +58,6 @@ const DressPalette = ({showModal, modalType}) => {
         const Arr =[{Item, ItemVal}];
         setItem(Arr);
     }
-
-    //팔레트 무한 스크롤 페이징 (좌우))
-
-
 
     // eslint-disable-next-line default-case
     switch (modalType){

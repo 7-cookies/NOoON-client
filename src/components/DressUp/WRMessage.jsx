@@ -1,25 +1,46 @@
-import React, {useState} from 'react'
+import React, {useState, useRef} from 'react'
 import styled from 'styled-components'
 import { Input, ShortButton} from "../../styles/globalStyle";
+import {useRecoilState} from 'recoil'
+import {WRMessageRecoil} from '../../utils/dressRecoil';
+
 
 
 const WRMessage = () => {
+    const createrRef=useRef(null)
+    const messageRef=useRef(null)
+    const [messageContents, setMessageContents] = useState({letter:'', creater:''});
 
+    const saveMessage=()=>{
+        setMessageContents((prev)=>({...prev, letter:messageRef.current.value, creater: createrRef.current.value}));
+
+    }
+    
+
+
+    console.log(messageContents);
     return (
         <TextZone>
             <WriterCon>
                 <div>
                     <p> 만든이 </p>
-                    <WRName placeholder='닉네임을 입력해주세요(최대 10자)'/>
+                    <WRName placeholder='닉네임을 입력해주세요(최대 10자)'
+                    maxLength={10}
+                    ref={createrRef}/>
                 </div>
             </WriterCon>
 
             <ContentsCon>
                 <div>
                     <p> 메세지 내용 </p>
-                    <MessageContents placeholder='메시지를 작성해주세요 (최대 100자)'/>
+                    <MessageContents 
+                    placeholder='메시지를 작성해주세요 (최대 100자)'
+                    maxLength={100}
+                    ref={messageRef}/>
                 </div>
             </ContentsCon>
+
+            <ShortButton onClick={saveMessage}> 저장 </ShortButton>
 
 
         </TextZone>

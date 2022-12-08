@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
 import styled from 'styled-components'
+import { useNavigate } from 'react-router-dom';
 import {useRecoilState, useRecoilValue} from 'recoil'
+import axios from 'axios'
+import {baseEyes, baseArms, baseHead, baseNose, baseItem, baseMouth} from '../../utils/dressRecoil'
 
 import {Container, ShortButton} from '../../styles/globalStyle';
 import {DressZone} from '../../styles/dressUp/DressUp.jsx'
@@ -29,13 +32,47 @@ const DressUp = () => {
     const [saveComp, setSaveComp] = useState(false);
     const isClickedSaveBt = () =>{
         setSaveFirst(!saveFirst);
-        console.log(saveFirst);
+        // console.log(saveFirst);
     }
+    
 
     const isCompSaved = () =>{
         setSaveComp(!saveComp)
         setSaveFirst(false);
 
+    }
+
+    const navigate=useNavigate();
+    const [invitationCode, setInvitationCode] = useState('')
+    const [eye, setEyes] = useRecoilState(baseEyes);
+    const [nose, setNose] = useRecoilState(baseNose);
+    const [arm, setArms] = useRecoilState(baseArms);
+    const [item, setItem] = useRecoilState(baseItem);
+    const [mouth, setMouth] = useRecoilState(baseMouth);
+    const [head, setHead] = useRecoilState(baseHead);
+
+    const handleSubmit =()=>{
+        
+    
+        // console.log(head[0].Head)
+        
+    
+        axios.post(
+            `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${invitationCode}/snowman`,
+            {
+                "head": `${head[0].Head}`,
+                "accessary": `${item[0].Item}`,
+                "eye": `${eye[0].Eye}`,
+                "nose": `${nose[0].Nose}`,
+                "mouse": `${mouth[0].Mouth}`,
+                "arm": `${arm[0].Eye}`,
+                "letter" : "안녕하세요. 크리스마스 너무 좋아. 두리주아 어어어 두리주아",
+                "creator": "유난"
+            },
+        )
+        .then((response) => {
+            navigate("/grid");
+        });
     }
 
     
@@ -81,7 +118,7 @@ const DressUp = () => {
                     <div className='save'> 저장하시겠습니까? </div>
                 </TextCon>
                 <ButtonCon>
-                    <ShortButtonE onClick={isCompSaved}>확인</ShortButtonE>
+                    <ShortButtonE onClick={handleSubmit}>확인</ShortButtonE>
                     <ShortButtonE onClick={isClickedSaveBt}>취소</ShortButtonE>
                 </ButtonCon>
             </ModalCon> : <></>    
@@ -108,6 +145,7 @@ const DressUp = () => {
 };
 
 export default DressUp;
+
 
 const NextButton = styled(ShortButton)`
 width: 23.875rem;

@@ -26,6 +26,8 @@ const SignUp = () => {
     const duplicationIdCheck = () =>{
       dupCheckAPI(username)
       .then((response)=>{
+        //duplicationAPI에서 response가 존재하면, return 값=response
+        //response가 존재하지 않으면, return 값=true
         console.log(response)
         if(response === false){ 
           setAlertIdMS('사용 가능한 아이디입니다');
@@ -41,11 +43,13 @@ const SignUp = () => {
 
     const handleSubmit=()=>{
         setUsername(userNameRef.current.value)
-        setPassword(userNameRef.current.value)
+        setPassword(userPasswordRef.current.value)
+        console.log(username)
+        console.log(password)
 
         axios
           .post(
-            "https://www.noonsaram-server.shop/api/v1/user/login",
+            "https://www.noonsaram-server.shop/api/v1/user/signup",
             {
               username: username,
               password: password,
@@ -53,7 +57,7 @@ const SignUp = () => {
           )
           .then((response) => {
             // access토큰 저장
-            setCookie(response.data.access_token);
+            setCookie(response.data.accessToken);
             
             navigate("/makedongsan");
           });

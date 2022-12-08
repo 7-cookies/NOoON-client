@@ -46,12 +46,12 @@ const SignUp = () => {
       })
     }
 
-    const handleSubmit=(e)=>{
+    const handleSubmit=()=>{
       setUsername(userNameRef.current.value)
       setPassword(userPasswordRef.current.value)
 
-        console.log(username)
-        console.log(password)
+      console.log(username)
+      console.log(password)
 
         axios
           .post(

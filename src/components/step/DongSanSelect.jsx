@@ -13,24 +13,26 @@ const DongSanSelect = () => {
     const [dongsanBeginData, setDongsanBeginData]=useRecoilState(dongsanstep)
     const [isNumClicked, setIsNumClicked] = useState(1)
 
-    const [cookies, setCookie, removeCookie] = useCookies(["access_token"]);
+    const [cookies, setCookie, removeCookie] = useCookies(["accessToken"]);
 
 
     const handleChooseClick =(data)=>{
         setDongsanBeginData((prev)=>({...prev, background:data}))
         setIsNumClicked(data)
-        console.log("dddd");
-        console.log(dongsanBeginData)
+        // console.log("dddd");
+        // console.log(dongsanBeginData)
     }
+    
 
     const handleSubmit =()=>{
         axios
           .post(
-            `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/user/place`,
+            `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place`,
             {
               name: dongsanBeginData.name,
               background: dongsanBeginData.background,
             },
+            console.log(dongsanBeginData),
             {
               headers: {
                 Authorization: `Bearer ${cookies}`,

@@ -26,7 +26,7 @@ const DongSanSelect = () => {
     const handleSubmit =()=>{
         axios
           .post(
-            "api/v1/user/place",
+            `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/user/place`,
             {
               name: dongsanBeginData.name,
               background: dongsanBeginData.background,

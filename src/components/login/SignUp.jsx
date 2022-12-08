@@ -1,17 +1,18 @@
 import styled from 'styled-components';
 import { Input, ShortButton } from '../../styles/globalStyle';
 import Header from '../common/Header';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie'; 
 import { dupCheckAPI } from './dupCheckAPI';
 
 const SignUp = () => {
-    const userNameRef=useRef(null)
-    const userPasswordRef=useRef(null)
     const [username, setUsername] = useState()
     const [password, setPassword] = useState()
+    const userNameRef=useRef(null)
+    const userPasswordRef=useRef(null)
+
     const navigate=useNavigate();
 
     const [usernameError, setUsernameError] = useState(false)
@@ -24,6 +25,8 @@ const SignUp = () => {
     const [usableId, setUsableId] = useState(false);
     const [alertIdMS, setAlertIdMS] = useState('')
     const [alertPwMS, setAlertPwMS] = useState('')
+
+
 
     const duplicationIdCheck = () =>{
       dupCheckAPI(username)
@@ -43,18 +46,19 @@ const SignUp = () => {
       })
     }
 
-    const handleSubmit=()=>{
-        setUsername(userNameRef.current.value)
-        setPassword(userPasswordRef.current.value)
+    const handleSubmit=(e)=>{
+      setUsername(userNameRef.current.value)
+      setPassword(userPasswordRef.current.value)
+
         console.log(username)
         console.log(password)
 
         axios
           .post(
-            "https://www.noonsaram-server.shop/api/v1/user/signup",
+            `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/user/signup`,
             {
-              username: username,
-              password: password,
+              username: userNameRef.current.value,
+              password: userPasswordRef.current.value,
             }
           )
           .then((response) => {

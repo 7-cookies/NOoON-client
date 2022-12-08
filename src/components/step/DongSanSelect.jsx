@@ -15,7 +15,6 @@ const DongSanSelect = () => {
 
     const [cookies, setCookie, removeCookie] = useCookies(["accessToken"]);
 
-
     const handleChooseClick =(data)=>{
         setDongsanBeginData((prev)=>({...prev, background:data}))
         setIsNumClicked(data)

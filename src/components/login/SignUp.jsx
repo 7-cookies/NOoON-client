@@ -49,9 +49,8 @@ const SignUp = () => {
     const handleSubmit=()=>{
       setUsername(userNameRef.current.value)
       setPassword(userPasswordRef.current.value)
-
-      console.log(username)
-      console.log(password)
+      // console.log(username)
+      // console.log(password)
 
         axios
           .post(
@@ -59,7 +58,9 @@ const SignUp = () => {
             {
               username: userNameRef.current.value,
               password: userPasswordRef.current.value,
-            }
+            },
+            console.log(userNameRef.current.value),
+            console.log(userPasswordRef.current.value),
           )
           .then((response) => {
             // access토큰 저장

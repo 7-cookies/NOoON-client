@@ -26,19 +26,19 @@ const Login = () => {
 
         axios
           .post(
-            `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/user/login`,
+            `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/user/signin`,
             {
               username: userNameRef.current.value,
               password: userPasswordRef.current.value,
             },
-            console.log(userNameRef.current.value),
-            console.log(userPasswordRef.current.value)
-      ,
+
             {
               headers: {
-                Authorization: `Bearer ${cookies}`,
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${cookies.accessToken}`,
+                
               },
-              "Content-Type": "application/json",
+              // "Content-Type": "application/json",
             }
           )
           .then((response) => {
@@ -48,13 +48,14 @@ const Login = () => {
           .catch(error=>{
             setAlertMS1('* 아이디 또는 비밀번호를 잘못 입력했습니다.')
             setAlertMS2('다시 확인해주세요.')
+            console.log(error)
           });
     };
     
 
     return (
         <StLoginWrapper>
-            <Header title="로그인"/>
+            <Header title="로그인" url='/'/>
             <StInputWrapper>
                 <div className='username'><p>ID</p></div>
                 <StLoginInpt placeholder="아이디를 입력해주세요" ref={userNameRef} />

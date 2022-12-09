@@ -35,7 +35,7 @@ const DongSanSelect = () => {
             `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place`,
             {
               name: dongsanBeginData.name,
-              background: dongsanBeginData.background,
+              background: parseInt(dongsanBeginData.background),
             },
             // console.log(dongsanBeginData),
             {
@@ -56,10 +56,11 @@ const DongSanSelect = () => {
           });
 
     }
+    console.log(`${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place`)
 
     return (
         <StDongSanSelectWrapper>
-            <Header title="동산 배경 정하기" />
+            <Header title="동산 배경 정하기" url='' />
             <StDongSanWrapper>
                 <img className={isHover.first} src="image/background1.png" alt="동산배경1" onClick={()=>handleChooseClick(1,'first')}/>
                 <img className={isHover.second} src="image/background2.png" alt="동산배경2" onClick={()=>handleChooseClick(2, 'second')}/>

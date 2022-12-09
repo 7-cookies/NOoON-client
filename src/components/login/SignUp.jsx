@@ -63,8 +63,6 @@ const SignUp = () => {
           });
     };
 
-    console.log(cookies.accessToken)
-
     return (
         <StLoginWrapper>
         <Header title="회원가입" url="/"/>

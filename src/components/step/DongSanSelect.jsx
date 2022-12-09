@@ -56,6 +56,7 @@ const DongSanSelect = () => {
           });
 
     }
+    console.log(`${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place`)
 
     return (
         <StDongSanSelectWrapper>

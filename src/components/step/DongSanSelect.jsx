@@ -35,7 +35,7 @@ const DongSanSelect = () => {
             `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place`,
             {
               name: dongsanBeginData.name,
-              background: dongsanBeginData.background,
+              background: parseInt(dongsanBeginData.background),
             },
             // console.log(dongsanBeginData),
             {

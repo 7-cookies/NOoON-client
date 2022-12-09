@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { MiddleButton } from "../../styles/globalStyle";
+import { ShortButton } from "../../styles/globalStyle";
 import SnowManforGrid from "../../components/dongsan/SnowManforGrid";
 import data from "../../mocks/test.json";
 import ShareModal from "../dongsan/ShareModal";
@@ -33,17 +33,13 @@ const GridFix = () => {
           )}
         </StGrid>
       </div>
-      <StMiddleButton>내 동산 공유하기</StMiddleButton>
+      <ShortButton>눈사람 만들기</ShortButton>
+      <ShortButton>내 동산 가기</ShortButton>
     </StGridWrapper>
   );
 };
 
 export default GridFix;
-
-const StMiddleButton = styled(MiddleButton)`
-  /* margin: 845px 0 33px 0px ; */
-  margin: 0px 0 33px 0px;
-`;
 
 const StGridWrapper = styled.section`
   background-image: url("image/background1.png");

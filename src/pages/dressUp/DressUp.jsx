@@ -11,7 +11,6 @@ import SnowMan from '../../components/DressUp/SnowMan.jsx'
 import WRMessage from '../../components/DressUp/WRMessage.jsx'
 import HeaderForDress from '../../components/common/HeaderForDress.jsx'
 import Header from '../../components/common/Header.jsx'
-import {KakaoShare} from '../../utils/kakaoShare.jsx'
 
 import {modalStateC, modalStateT, messageState} from '../../utils/dressRecoil'
 
@@ -25,7 +24,6 @@ const DressUp = () => {
         setMs(!ms);
     }
 
-
     return (
         <>
         <ContainerE>
@@ -33,7 +31,6 @@ const DressUp = () => {
             <DressZone>
                 <SnowMan imgSize={(message===true)?'15':'19.375'} />
 
-                <KakaoShare />
 
                 {message === false ?
                 <>
@@ -85,5 +82,4 @@ z-index: 1;
 const ContainerE = styled.section`
   position: absolute;
 `;
-
 

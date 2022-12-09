@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
 import errorImg from '../asset/img/errorSnow.png'
-import {floating} from '../styles/animation.jsx'
-import {LongButton} from '../styles/globalStyle'
+import {ShortButton} from '../styles/globalStyle'
 
 
 const Error404 = () => {
@@ -29,8 +28,8 @@ height: 58.25rem;
 margin: 0 auto;
 
 & > img{
-    width: 26.875rem;
-    height: 26.875rem;
+    width: 15rem;
+    height: 15rem;
 
     margin-bottom: 5rem;
 }
@@ -38,25 +37,15 @@ margin: 0 auto;
 & > p{
     ${({ theme }) => theme.fonts.kotrahopeLandingTitle}
     color: #D27979;
-    font-size: 5rem;
+    font-size: 1.375rem;
 }
 
 
-/* .floating{
-        animation-name: ${floating};
-        -webkit-animation-name: ${floating};
-
-        animation-duration: 1.5s;	
-        -webkit-animation-duration: 1.5s;
-
-        animation-iteration-count: infinite;
-        -webkit-animation-iteration-count: infinite;
-    } */
-
 `
 
-const ButtonE = styled(LongButton)`
+const ButtonE = styled(ShortButton)`
     background-color: #D27979;
+
     
 `
 

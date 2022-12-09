@@ -1,19 +1,24 @@
-import React, {useEffect,useState} from "react";
-import styled from "styled-components";
 import axios from "axios";
+import React, { useEffect,useState } from "react";
+import styled from "styled-components";
+import { useRecoilState, useRecoilValue } from "recoil";
 
 import { MiddleButton } from "../../styles/globalStyle";
 import SnowManforGrid from "../../components/dongsan/SnowManforGrid";
 import data from "../../mocks/test.json";
+import StartModal from "./StartModal";
 import ShareModal from "../dongsan/ShareModal";
+import CheckModal from "../dongsan/CheckModal";
+import { modalState } from "../../utils/atoms";
 
 const GridFix = () => {
+
   const [snowmanData, setSnowmanData] = useState();
   const invitationCode=sessionStorage.getItem("invitationCode");
 
   async function getSnowmanData() {
       const response = await axios.get(
-          `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${invitationCode}//user`
+          `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${invitationCode}/user`
           // ,{
           //   headers:{
           //     Authorization:`Bearer ${}`,
@@ -28,15 +33,44 @@ const GridFix = () => {
   }, []);
   console.log(snowmanData);
 
+  const [visible, setVisible] = useState(false);
+  const [touch, setTouch] = useState(false);
+
+  const [modalClicked, setmodalClicked] = useRecoilState(modalState);
+  const modal = useRecoilValue(modalState);
+
+  function popupModal() {
+    // console.log("clicked");
+    // setVisible(true);
+    setmodalClicked(!modalClicked);
+  }
+
+  function openModal() {
+    console.log("clicked");
+    setTouch(true);
+  }
+
+  function handleClick() {
+    setTouch(false);
+    console.log(touch);
+  }
+  console.log(touch);
+  
+
   return (
     <StGridWrapper>
-      <ShareModal />
+      <StartModal />
+      {touch && (
+        <StModalWrapper onClick={handleClick}>
+          <CheckModal />
+        </StModalWrapper>
+      )}
       <h1>눈 펑펑 오는 눈동산</h1>
       <div>
         <StGrid>
           {data.snowman.map(
             ({ id, head, eye, nose, arm, mouse, accessary, creator }) => (
-              <StSnowMan key={id}>
+              <StSnowMan key={id} onClick={openModal}>
                 <SnowManforGrid
                   imgSize={12}
                   head={head}
@@ -46,6 +80,7 @@ const GridFix = () => {
                   mouth={mouse}
                   item={accessary}
                 />
+
                 <div>
                   <p>by {creator}</p>
                 </div>
@@ -54,7 +89,8 @@ const GridFix = () => {
           )}
         </StGrid>
       </div>
-      <StMiddleButton>내 동산 공유하기</StMiddleButton>
+      <StMiddleButton onClick={popupModal}>내 동산 공유하기</StMiddleButton>
+      {modal && <ShareModal />}
     </StGridWrapper>
   );
 };
@@ -130,4 +166,12 @@ const StSnowMan = styled.div`
       ${({ theme }) => theme.fonts.kotrahopeCreator}
     }
   }
+`;
+
+const StModalWrapper = styled.section`
+  position: absolute;
+
+  display: flex;
+  justify-contents: center;
+  align-items: center;
 `;

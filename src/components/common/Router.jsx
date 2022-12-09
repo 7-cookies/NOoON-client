@@ -12,6 +12,7 @@ import { CookiesProvider } from "react-cookie";
 
 import MessageModal from "../message/MessageModal";
 import GridFix from "../../pages/dongsan/GridFix";
+import VisitorStep from "../../pages/VisitorStep";
 
 const Router = () => {
   return (
@@ -29,6 +30,7 @@ const Router = () => {
               <Route path="/dressUp" element={<DressUp />} />
               <Route path="/message/:id" element={<MessageModal />} />
               <Route path="/fix" element={<GridFix />} />
+              <Route path="/visitor" element={<VisitorStep />} />
             </Routes>
           </Container>
         </RecoilRoot>

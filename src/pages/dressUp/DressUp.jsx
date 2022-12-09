@@ -104,67 +104,25 @@ const DressUp = () => {
       </ContainerEdit>
     </>
   );
+
 };
 
 export default DressUp;
 
+
 const NextButton = styled(ShortButton)`
-  width: 23.875rem;
-  /* box-shadow: 0.3vw 0.3vw 0.6vw rgba(0, 0, 0, 0.3); */
-  position: fixed;
-  margin-top: 43rem;
-  z-index: 1;
-`;
+width: 23.875rem;
+/* box-shadow: 0.3vw 0.3vw 0.6vw rgba(0, 0, 0, 0.3); */
+/* position: fixed; */
+margin-top: -5rem;
+z-index: 1;
+`
 
-const ContainerEdit = styled(Container)`
-  background: ${(props) =>
-    props.modal === false ? "transparent" : "rgba(85, 85, 85, 0.2)"};
-  z-index: ${(props) => (props.modal === false ? -100 : 100)};
-  position: absolute;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
+
 
 const ContainerE = styled.section`
   position: absolute;
 `;
 
-const ModalCon = styled.section`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 23.875rem;
-  height: 15.1875rem;
 
-  background-color: #ffffff;
-  position: fixed;
-  margin-bottom: 10rem;
-  border-radius: 1.0625rem;
-
-  box-shadow: 0.3vw 0.3vw 0.6vw rgba(0, 0, 0, 0.3);
-`;
-
-const TextCon = styled.section`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  & > div {
-    ${({ theme }) => theme.fonts.kotrahopeText}
-    font-size: 1.25rem;
-    margin-top: 0.6rem;
-  }
-`;
-
-const ButtonCon = styled.section`
-  display: flex;
-  margin-top: 2rem;
-`;
-
-const ShortButtonE = styled(ShortButton)`
-  margin: 0 1rem; ;
-`;

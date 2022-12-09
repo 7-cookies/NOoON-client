@@ -60,6 +60,8 @@ export const KakaoShare = ({ url }) => {
       sender="하린"
     />
   );
+
+
 };
 
 const KakaoImg = styled.img``;

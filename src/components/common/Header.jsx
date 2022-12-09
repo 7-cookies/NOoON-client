@@ -1,13 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import backArrow from "../../asset/icon/arrow.svg";
+import {useState} from 'react'
 
 const Header = (props) => {
     const navigate=useNavigate();
 
     const handleBackClick=()=>{
         navigate(`${props.url}`);
+
+        if (props.url===''){alert('동산 이름을 한번 정하면 수정할 수 없어요🥲')}
     }
+
     return (
         <>
         <Icon src={backArrow} alt="#" onClick={handleBackClick} />
@@ -31,6 +35,7 @@ const Icon = styled.img`
   padding: 4.3125rem 0 0 0.875rem;
 `;
 
+
 const StHeaderWrapper = styled.header`
   display: flex;
   justify-content: center;
@@ -43,11 +48,11 @@ const StHeaderWrapper = styled.header`
 
 const StHeader = styled.section`
   width: 23.875rem;
-  height: 115px;
+  height: 7.1875rem;
   display: flex;
   justify-content: center;
 
-  border-bottom: 1px solid ${({ theme }) => theme.colors.grey};
+  border-bottom: 0.0625rem solid ${({ theme }) => theme.colors.grey};
 
   & > h1 {
     padding-top: 4.895rem;

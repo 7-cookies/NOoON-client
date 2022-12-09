@@ -48,12 +48,12 @@ const StHeaderWrapper=styled.header`
 
 const StHeader=styled.section`
     width: 23.875rem;
-    height: 115px;
+    height: 7.1875rem;
     display: flex;
     justify-content: center;
 
 
-    border-bottom: 1px solid ${({ theme }) => theme.colors.grey};
+    border-bottom: 0.0625rem solid ${({ theme }) => theme.colors.grey};
 
     & > h1{
         padding-top: 4.895rem;

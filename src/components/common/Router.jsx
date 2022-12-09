@@ -30,7 +30,7 @@ const Router = () => {
               <Route path="/dressUp" element={<DressUp />} />
               <Route path="/message/:id" element={<MessageModal />} />
               <Route path="/fix" element={<GridFix />} />
-              <Route path="/visitor" element={<VisitorStep />} />
+              <Route path="/:id" element={<VisitorStep />} />
             </Routes>
           </Container>
         </RecoilRoot>

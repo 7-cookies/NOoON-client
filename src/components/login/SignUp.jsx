@@ -19,7 +19,7 @@ const SignUp = () => {
     const [passwordError, setPasswordError] = useState(false)
 
 
-    const [cookies, setCookie, removeCookie] = useCookies(["access_token"]);
+    const [cookies, setCookie, removeCookie] = useCookies(["accessToken"]);
 
     //아이디 중복확인 hook
     const [usableId, setUsableId] = useState(false);
@@ -37,23 +37,27 @@ const SignUp = () => {
           .post(
             `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/user/signup`,
             {
-              username: username,
-              password: password,
+              username: userNameRef.current.value,
+              password: userPasswordRef.current.value,
             },
           )
           .then((response) => {
             // access토큰 저장
-            setCookie(response.data.accessToken);
-            console.log(response)
+            setCookie("accessToken", response.data.data.accessToken);
+            // console.log(response.data.data.accessToken);
+            // console.log(response);
             navigate("/makedongsan");
           })
           .catch((error)=>{
             if (error.response.data.message==='존재하는 회원입니다.'){setAlertIdMS('* 사용 중인 아이디입니다')}
-              console.log(error.response.data.message)
+            console.log(error.response.data.message)
+            // console.log(error.response)
             
           });
+          // console.log(`쿠키: ${cookies[0]}`);
     };
 
+    console.log(cookies.accessToken)
 
     return (
         <StLoginWrapper>

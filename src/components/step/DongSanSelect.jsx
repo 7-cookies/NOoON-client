@@ -26,7 +26,7 @@ const DongSanSelect = () => {
         // console.log("dddd");
         // console.log(dongsanBeginData)
     }
-    console.log(isHover)
+    console.log(cookies.accessToken)
     
 
     const handleSubmit =()=>{
@@ -37,12 +37,17 @@ const DongSanSelect = () => {
               name: dongsanBeginData.name,
               background: dongsanBeginData.background,
             },
-            console.log(dongsanBeginData),
+            // console.log(dongsanBeginData),
             {
               headers: {
-                Authorization: `Bearer ${cookies}`,
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${cookies.accessToken}`,
+                
               },
-              "Content-Type": "application/json",
+              // "Content-Type": "application/json",
+              // "Content-Type": "application/json",
+              // authorization: `Bearer ${cookies.accessToken}`,
+
             }
           )
           .then((response) => {

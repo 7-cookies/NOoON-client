@@ -23,28 +23,9 @@ const SignUp = () => {
 
     //아이디 중복확인 hook
     const [usableId, setUsableId] = useState(false);
-    const [alertIdMS, setAlertIdMS] = useState('')
+    const [alertIdMS, setAlertIdMS] = useState('* 아이디를 입력해주세요')
     const [alertPwMS, setAlertPwMS] = useState('')
 
-
-
-    const duplicationIdCheck = () =>{
-      dupCheckAPI(username)
-      .then((response)=>{
-        //duplicationAPI에서 response가 존재하면, return 값=response
-        //response가 존재하지 않으면, return 값=true
-        console.log(response)
-        if(response === false){ 
-          setAlertIdMS('사용 가능한 아이디입니다');
-          setUsableId(response);
-        }
-        else{
-          setAlertIdMS('* 사용 중인 아이디입니다');
-          setUsableId(response);
-        }
-        console.log('중복 체크 완료')
-      })
-    }
 
     const handleSubmit=()=>{
       setUsername(userNameRef.current.value)
@@ -56,18 +37,20 @@ const SignUp = () => {
           .post(
             `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/user/signup`,
             {
-              username: userNameRef.current.value,
-              password: userPasswordRef.current.value,
+              username: username,
+              password: password,
             },
-            console.log(userNameRef.current.value),
-            console.log(userPasswordRef.current.value),
           )
           .then((response) => {
             // access토큰 저장
             setCookie(response.data.accessToken);
             console.log(response)
-            
             navigate("/makedongsan");
+          })
+          .catch((error)=>{
+            setAlertIdMS('* 사용 중인 아이디입니다')
+            console.log(error.message)
+            
           });
     };
 
@@ -85,10 +68,8 @@ const SignUp = () => {
                 <StLoginInpt type="password" placeholder="숫자 4자리를 입력해주세요" ref={userPasswordRef} maxLength='4' />
             </StInputWrapper>
 
-            <ButtonWrapper>
-            <ShortButton button="button" className="check2" onClick={duplicationIdCheck}>중복확인</ShortButton>
             <ShortButton button="button" className="check" onClick={handleSubmit}>확인</ShortButton>
-            </ButtonWrapper>
+            
             
 
     </StLoginWrapper>

@@ -69,4 +69,14 @@ export const messageState =atom({
 })
 
 
+//메시지 내용, 글쓴이
+export const WRMessageRecoil = atom({
+    key: 'message',
+    defalut: {
+        letter: '', 
+        creater: ''
+    }
+})
+
+
 

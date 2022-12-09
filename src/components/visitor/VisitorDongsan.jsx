@@ -7,7 +7,7 @@ import SnowManforGrid from "../../components/dongsan/SnowManforGrid";
 import data from "../../mocks/test.json";
 import { useNavigate } from 'react-router-dom';
 
-const VisitorDongsan = ({ setStep }) => {
+const VisitorDongsan = ({ setStep, match }) => {
     const [snowmanData, setSnowmanData] = useState();
     const navigate=useNavigate();
 
@@ -19,18 +19,20 @@ const VisitorDongsan = ({ setStep }) => {
         navigate('/');
     }
 
-    const invitationCode=sessionStorage.getItem("invitationCode");
+    // const invitationCode=sessionStorage.getItem("invitationCode");
 
+    //hnvvc6
     async function getSnowmanData() {
         const response = await axios.get(
-            `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/`+invitationCode)
+            `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${match.params.invitationCode}`)
         setSnowmanData(response.data);
+        console.log(response)
     }
 
     useEffect(() => {
         getSnowmanData();
     }, []);
-    console.log(snowmanData);
+    // console.log(snowmanData);
 
   return (
     <StGridWrapper>

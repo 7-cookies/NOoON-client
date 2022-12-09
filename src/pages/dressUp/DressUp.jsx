@@ -11,7 +11,6 @@ import SnowMan from "../../components/DressUp/SnowMan.jsx";
 import WRMessage from "../../components/DressUp/WRMessage.jsx";
 import HeaderForDress from "../../components/common/HeaderForDress.jsx";
 import Header from "../../components/common/Header.jsx";
-import { KakaoShare } from "../../utils/kakaoShare.jsx";
 
 import {
   modalStateC,
@@ -50,8 +49,6 @@ const DressUp = () => {
         )}
         <DressZone>
           <SnowMan imgSize={message === true ? "15" : "19.375"} />
-
-          <KakaoShare />
 
           {message === false ? (
             <>

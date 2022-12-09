@@ -20,6 +20,7 @@ const DressUp = () => {
     const [modalType, setModalType] = useRecoilState(modalStateT);
     const [ms, setMs] = useRecoilState(messageState);
     const message = useRecoilValue(messageState);
+    
     const moveToMessage = () =>{
         setMs(!ms);
     }

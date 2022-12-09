@@ -65,6 +65,7 @@ const SignUp = () => {
           .then((response) => {
             // access토큰 저장
             setCookie(response.data.accessToken);
+            console.log(response)
             
             navigate("/makedongsan");
           });

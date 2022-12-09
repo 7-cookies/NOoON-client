@@ -10,20 +10,23 @@ import StartModal from "./StartModal";
 import ShareModal from "../dongsan/ShareModal";
 import CheckModal from "../dongsan/CheckModal";
 import { modalState } from "../../utils/atoms";
+import { useCookies } from 'react-cookie';
 
 const GridFix = () => {
 
   const [snowmanData, setSnowmanData] = useState();
-  const invitationCode=sessionStorage.getItem("invitationCode");
+  const invitationCode=window.sessionStorage.getItem("invitationCode");
+  const [cookies, setCookie, removeCookie] = useCookies(["accessToken"]);
+
 
   async function getSnowmanData() {
       const response = await axios.get(
-          `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${invitationCode}/user`
-          // ,{
-          //   headers:{
-          //     Authorization:`Bearer ${}`,
-          //   }
-          // }
+          `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${invitationCode}/user`,
+          {
+            headers:{
+              Authorization: `Bearer ${cookies.accessToken}`,
+            }
+          }
           )
       setSnowmanData(response.data);
   }

@@ -11,10 +11,8 @@ const VisitorStepRenderer = ({ step, setStep }) => {
             return <VisitorDongsan setStep={setStep} />;
         case 'VISITOR-DRESSUP':
             return <DressUp setStep={setStep} />;
-        case 'VISITOR-MESSAGE':
-            return <MessageModal setStep={setStep} />;
         default:
-            return <MessageModal setStep={setStep} />;
+            return <DressUp setStep={setStep} />;
         }
 };
 

@@ -19,9 +19,8 @@ import {
   noseImg,
   armImg,
   mouthImg,
-  accImg
+  accImg,
 } from "../../utils/imgData.jsx";
-
 
 const SnowManforGrid = (props) => {
   return (
@@ -34,10 +33,14 @@ const SnowManforGrid = (props) => {
         src={headImg[props.head].putOn}
         alt="머리"
         imgSize={props.imgSize}
-        style={{width:"192px", height:"192px"}}
+        style={{ width: "192px", height: "192px" }}
       ></Head>
-      <Eye src={eyeImg[props.eye].putOn} alt="눈" imgSize={props.imgSize} style={{width:"192px", height:"192px"}}
-></Eye>
+      <Eye
+        src={eyeImg[props.eye].putOn}
+        alt="눈"
+        imgSize={props.imgSize}
+        style={{ width: "192px", height: "192px" }}
+      ></Eye>
       <Nose
         src={noseImg[props.nose].putOn}
         alt="코"
@@ -60,15 +63,15 @@ const SnowManforGrid = (props) => {
 
 export default SnowManforGrid;
 
-const StImgContainer=styled.section`
-display: flex;
-justify-content: center;
-align-items: center;
-width: ${(props)=>props.imgSize}rem;
-height: ${(props)=>props.imgSize}rem;
-width: 12rem;
-height: 12rem;
+const StImgContainer = styled.section`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: ${(props) => props.imgSize}rem;
+  height: ${(props) => props.imgSize}rem;
+  width: 12rem;
+  height: 12rem;
 
-/* margin: 0 -1rem; */
-/* margin-top: 1rem; */
-`
+  /* margin: 0 -1rem; */
+  /* margin-top: 1rem; */
+`;

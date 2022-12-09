@@ -116,4 +116,6 @@ const StButtonWrapper = styled.section`
 
 const StShortButton=styled(ShortButton)`
     width: 170px;
+
+    box-shadow: 0.3vw 0.3vw 0.6vw rgba(0, 0, 0, 0.3);
 `

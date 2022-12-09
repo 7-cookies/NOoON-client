@@ -17,21 +17,30 @@ const SignUp = () => {
 
     const [usernameError, setUsernameError] = useState(false)
     const [passwordError, setPasswordError] = useState(false)
-
-
     const [cookies, setCookie, removeCookie] = useCookies(["accessToken"]);
-
-    //아이디 중복확인 hook
     const [usableId, setUsableId] = useState(false);
     const [alertIdMS, setAlertIdMS] = useState('* 아이디를 입력해주세요')
     const [alertPwMS, setAlertPwMS] = useState('')
+
+    const onChangePW = (e) =>{
+      console.log(e.target.value.length)
+      const passwordLen = e.target.value.length;
+      if(passwordLen<4){setAlertPwMS('* 숫자 4자리를 입력해주세요')}
+      else {setAlertPwMS('')}
+    }
+
+    const onChangeID = (e) =>{
+      const idLen = e.target.value.length;
+      if(idLen==0){setAlertIdMS('* 아이디를 입력해주세요')}
+      else {setAlertIdMS('')}
+    }
+
+    
 
 
     const handleSubmit=()=>{
       setUsername(userNameRef.current.value)
       setPassword(userPasswordRef.current.value)
-      // console.log(username)
-      // console.log(password)
 
         axios
           .post(
@@ -44,17 +53,14 @@ const SignUp = () => {
           .then((response) => {
             // access토큰 저장
             setCookie("accessToken", response.data.data.accessToken);
-            // console.log(response.data.data.accessToken);
             // console.log(response);
             navigate("/makedongsan");
           })
           .catch((error)=>{
             if (error.response.data.message==='존재하는 회원입니다.'){setAlertIdMS('* 사용 중인 아이디입니다')}
             console.log(error.response.data.message)
-            // console.log(error.response)
             
           });
-          // console.log(`쿠키: ${cookies[0]}`);
     };
 
     console.log(cookies.accessToken)
@@ -64,12 +70,12 @@ const SignUp = () => {
         <Header title="회원가입"/>
             <StInputWrapper>
                 <div className='username'><p>ID</p> <p className='error'>{alertIdMS}</p></div>
-                <StLoginInpt placeholder="아이디를 입력해주세요" ref={userNameRef} />
+                <StLoginInpt placeholder="아이디를 입력해주세요" ref={userNameRef} onChange={onChangeID} />
             </StInputWrapper>
                         
             <StInputWrapper>
-                <div className='password'><p>PASSWORD</p><p className='error'>* 숫자 4자리를 입력해주세요</p></div>
-                <StLoginInpt type="password" placeholder="숫자 4자리를 입력해주세요" ref={userPasswordRef} maxLength='4' />
+                <div className='password'><p>PASSWORD</p><p className='error' >{alertPwMS}</p></div>
+                <StLoginInpt type="password" placeholder="숫자 4자리를 입력해주세요" ref={userPasswordRef} maxLength='4' onChange={onChangePW} />
             </StInputWrapper>
 
             <ShortButton button="button" className="check" onClick={handleSubmit}>확인</ShortButton>

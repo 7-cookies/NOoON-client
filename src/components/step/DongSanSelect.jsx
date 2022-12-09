@@ -50,13 +50,14 @@ const DongSanSelect = () => {
             }
           )
           .then((response) => {
-            sessionStorage.setItem("invitationCode", response.data.invitationCode);
+            sessionStorage.setItem("invitationCode", response.data.data.invitationCode);
+            console.log(response.data.data.invitationCode)
             //가져올 때에는 window.sessionStorage.getItem으로 가져옴.
-            navigate("/grid");
+            navigate("/fix");
           });
 
     }
-    console.log(`${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place`)
+
 
     return (
         <StDongSanSelectWrapper>

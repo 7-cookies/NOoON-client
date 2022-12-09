@@ -45,8 +45,6 @@ const StMainWrapper = styled.section`
         color:white;
         ${({ theme }) => theme.fonts.kotrahopeCommon};
 
-        animation-name: ${tossing1};
-        -webkit-animation-name: ${tossing1};
 
     }
     & > .button2 {
@@ -62,13 +60,6 @@ const StMainWrapper = styled.section`
         animation-duration: 1.5s;	
         -webkit-animation-duration: 1.5s;
 
-        animation-iteration-count: infinite;
-        -webkit-animation-iteration-count: infinite;
-    }
-
-    #buttonAni{	
-        animation-duration: 2.5s;	
-        -webkit-animation-duration: 2.5s;
         animation-iteration-count: infinite;
         -webkit-animation-iteration-count: infinite;
     }

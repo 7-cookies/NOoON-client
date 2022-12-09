@@ -32,8 +32,8 @@ const VisitorDongsan = ({ setStep }) => {
         </StGrid>
       </div>
       <StButtonWrapper>
-        <StShortButton>눈사람 만들기</StShortButton>
-        <StShortButton>내 동산 가기</StShortButton>
+        <StShortButton type="button">눈사람 만들기</StShortButton>
+        <StShortButton type="button">내 동산 가기</StShortButton>
       </StButtonWrapper>
     </StGridWrapper>
   );

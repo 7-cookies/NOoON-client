@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useEffect,useState} from "react";
 import styled from "styled-components";
+import axios from "axios";
 
 import { ShortButton } from "../../styles/globalStyle";
 import SnowManforGrid from "../../components/dongsan/SnowManforGrid";
@@ -7,6 +8,7 @@ import data from "../../mocks/test.json";
 import { useNavigate } from 'react-router-dom';
 
 const VisitorDongsan = ({ setStep }) => {
+    const [snowmanData, setSnowmanData] = useState();
     const navigate=useNavigate();
 
     const handleMakeNoonClick=()=>{
@@ -16,6 +18,19 @@ const VisitorDongsan = ({ setStep }) => {
     const handleMyDongsanClick=()=>{
         navigate('/');
     }
+
+    const invitationCode=sessionStorage.getItem("invitationCode");
+
+    async function getSnowmanData() {
+        const response = await axios.get(
+            `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/`+invitationCode)
+        setSnowmanData(response.data);
+    }
+
+    useEffect(() => {
+        getSnowmanData();
+    }, []);
+    console.log(snowmanData);
 
   return (
     <StGridWrapper>

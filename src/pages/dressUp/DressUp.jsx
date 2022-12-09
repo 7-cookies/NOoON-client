@@ -19,7 +19,7 @@ import {
   messageState,
 } from "../../utils/dressRecoil";
 
-const DressUp = () => {
+const DressUp = ({setStep}) => {
   const [showModal, setModal] = useRecoilState(modalStateC);
   const [modalType, setModalType] = useRecoilState(modalStateT);
   const [ms, setMs] = useRecoilState(messageState);

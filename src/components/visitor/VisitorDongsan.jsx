@@ -4,12 +4,10 @@ import styled from "styled-components";
 import { ShortButton } from "../../styles/globalStyle";
 import SnowManforGrid from "../../components/dongsan/SnowManforGrid";
 import data from "../../mocks/test.json";
-import ShareModal from "../dongsan/ShareModal";
 
-const GridFix = () => {
+const VisitorDongsan = ({ setStep }) => {
   return (
     <StGridWrapper>
-      <ShareModal />
       <h1>눈 펑펑 오는 눈동산</h1>
       <div>
         <StGrid>
@@ -33,13 +31,15 @@ const GridFix = () => {
           )}
         </StGrid>
       </div>
-      <ShortButton>눈사람 만들기</ShortButton>
-      <ShortButton>내 동산 가기</ShortButton>
+      <StButtonWrapper>
+        <StShortButton>눈사람 만들기</StShortButton>
+        <StShortButton>내 동산 가기</StShortButton>
+      </StButtonWrapper>
     </StGridWrapper>
   );
 };
 
-export default GridFix;
+export default VisitorDongsan;
 
 const StGridWrapper = styled.section`
   background-image: url("image/background1.png");
@@ -67,17 +67,10 @@ const StGridWrapper = styled.section`
   }
 `;
 
-// const SnowManforGrid = styled.img`
-//   width: 192px;
-// `;
-
 const StGrid = styled.div`
-  /* width: 400px; */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   transform: rotate(-90deg);
-  /* flex-direction: column; */
-  /* border: 1px solid black; */
   width: 700px;
   height: 430px;
 
@@ -85,16 +78,11 @@ const StGrid = styled.div`
 
   position: absolute;
   z-index: 2;
-  /* overflow: hidden; */
-  /* overflow:scroll; */
-  /* overflow-y: auto; */
 `;
 const StSnowMan = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* width: 200px;
-    height:  200px; */
   transform: rotate(90deg);
   & > div {
     display: flex;
@@ -106,3 +94,15 @@ const StSnowMan = styled.div`
     }
   }
 `;
+
+const StButtonWrapper = styled.section`
+    display: flex;
+    justify-content: space-between;
+
+    width: 363px;
+    margin-bottom:33px;
+`
+
+const StShortButton=styled(ShortButton)`
+    width: 170px;
+`

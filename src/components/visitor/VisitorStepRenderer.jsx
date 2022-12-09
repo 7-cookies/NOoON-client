@@ -3,7 +3,7 @@ import DressUp from "../../pages/dressUp/DressUp";
 import MessageModal from "../message/MessageModal";
 
 
-const StepRenderer = ({ step, setStep }) => {
+const VisitorStepRenderer = ({ step, setStep }) => {
     console.log(step);
 
     switch (step) {
@@ -12,11 +12,11 @@ const StepRenderer = ({ step, setStep }) => {
         case 'VISITOR-DRESSUP':
             return <DressUp setStep={setStep} />;
         case 'VISITOR-MESSAGE':
-            return <MessageModal />;
+            return <MessageModal setStep={setStep} />;
         default:
             return <MessageModal setStep={setStep} />;
         }
 };
 
-export default StepRenderer;
+export default VisitorStepRenderer;
 

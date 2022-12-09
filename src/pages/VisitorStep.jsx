@@ -1,18 +1,18 @@
 import { useState } from 'react';
-import StepRenderer from '../components/step/StepRenderer';
+import VisitorStepRenderer from '../components/visitor/VisitorStepRenderer';
 
-const DongSanStep = () => {
+const VisitorStep = () => {
   // type step= 'VISITOR-DONGSAN' | 'VISITOR-DRESSUP' | 'VISITOR-MESSAGE'
-  const [step, setStep] = useState('DONSAN-NAMING');
+  const [step, setStep] = useState('VISITOR-DONGSAN');
   
     return (
       <>
-        <StepRenderer step={step} setStep={setStep} />
+        <VisitorStepRenderer step={step} setStep={setStep} />
       </>
 
     );
 };
 
-export default DongSanStep;
+export default VisitorStep;
 
 

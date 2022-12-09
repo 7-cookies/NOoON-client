@@ -17,7 +17,7 @@ const DongsanName = ({ setStep }) => {
     return (
         <>
         <StDongsanNameWrapper>
-            <Header title="동산이름 정하기" />
+            <Header title="동산이름 정하기" url="/signup"/>
             <StDongsanName>
                 <div>
                     <p>동산 이름을 지어주세요 ☃️</p>

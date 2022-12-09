@@ -1,58 +1,84 @@
 import styled from 'styled-components';
 import { Input, ShortButton } from '../../styles/globalStyle';
 import Header from '../common/Header';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
-import { useCookies } from 'react-cookie'; 
+import { useCookies, withCookies } from 'react-cookie'; 
+import { dupCheckAPI } from './dupCheckAPI';
 
 const SignUp = () => {
-    const userNameRef=useRef(null)
-    const userPasswordRef=useRef(null)
     const [username, setUsername] = useState()
     const [password, setPassword] = useState()
+    const userNameRef=useRef(null)
+    const userPasswordRef=useRef(null)
+
     const navigate=useNavigate();
 
     const [usernameError, setUsernameError] = useState(false)
     const [passwordError, setPasswordError] = useState(false)
+    const [cookies, setCookie, removeCookie] = useCookies(["accessToken"]);
+    const [usableId, setUsableId] = useState(false);
+    const [alertIdMS, setAlertIdMS] = useState('* 아이디를 입력해주세요')
+    const [alertPwMS, setAlertPwMS] = useState('')
 
+    const onChangePW = (e) =>{
+      console.log(e.target.value.length)
+      const passwordLen = e.target.value.length;
+      if(passwordLen<4){setAlertPwMS('* 숫자 4자리를 입력해주세요')}
+      else {setAlertPwMS('')}
+    }
 
-    const [cookies, setCookie, removeCookie] = useCookies(["access_token"]);
+    const onChangeID = (e) =>{
+      const idLen = e.target.value.length;
+      if(idLen==0){setAlertIdMS('* 아이디를 입력해주세요')}
+      else {setAlertIdMS('')}
+    }
+
+    
+
 
     const handleSubmit=()=>{
-        setUsername(userNameRef.current.value)
-        setPassword(userNameRef.current.value)
+      setUsername(userNameRef.current.value)
+      setPassword(userPasswordRef.current.value)
 
         axios
           .post(
-            "api/v1/user/signup",
+            `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/user/signup`,
             {
-              username: username,
-              password: password,
-            }
+              username: userNameRef.current.value,
+              password: userPasswordRef.current.value,
+            },
           )
           .then((response) => {
             // access토큰 저장
-            setCookie(response.data.access_token);
-            
+            setCookie("accessToken", response.data.data.accessToken);
+            // console.log(response);
             navigate("/makedongsan");
+          })
+          .catch((error)=>{
+            if (error.response.data.message==='존재하는 회원입니다.'){setAlertIdMS('* 사용 중인 아이디입니다')}
+            console.log(error.response.data.message)
+            
           });
     };
 
-
     return (
         <StLoginWrapper>
-        <Header title="회원가입"/>
+        <Header title="회원가입" url="/"/>
             <StInputWrapper>
-                <div className='username'><p>ID</p> <p className='error'>* 사용 중인 아이디입니다</p></div>
-                <StLoginInpt placeholder="아이디를 입력해주세요" ref={userNameRef} />
+                <div className='username'><p>ID</p> <p className='error'>{alertIdMS}</p></div>
+                <StLoginInpt placeholder="아이디를 입력해주세요" ref={userNameRef} onChange={onChangeID} />
             </StInputWrapper>
                         
             <StInputWrapper>
-                <div className='password'><p>PASSWORD</p><p className='error'>* 숫자 4자리를 입력해주세요</p></div>
-                <StLoginInpt type="password" placeholder="숫자 4자리를 입력해주세요" ref={userPasswordRef} />
+                <div className='password'><p>PASSWORD</p><p className='error' >{alertPwMS}</p></div>
+                <StLoginInpt type="password" placeholder="숫자 4자리를 입력해주세요" ref={userPasswordRef} maxLength='4' onChange={onChangePW} />
             </StInputWrapper>
+
             <ShortButton button="button" className="check" onClick={handleSubmit}>확인</ShortButton>
+            
+            
 
     </StLoginWrapper>
 
@@ -63,8 +89,8 @@ export default SignUp;
 
 const StLoginWrapper = styled.section`
     & > .check{
-        margin: 223px 145px 102px 145px;
-}
+        margin: 13.9375rem 9.0625rem 6.375rem 9.0625rem;
+    }
 `
 const StInputWrapper=styled.div`
     & > div {
@@ -73,29 +99,35 @@ const StInputWrapper=styled.div`
     }
 
     & div.username {
-        margin-top:207.97px;
+        margin-top: 12.9981rem;
     }
 
     & div.password {
-        margin-top:49.3px;
+        margin-top: 3.0813rem;
     }
 
 
     & > div> p{
-        margin-left: 44.62px;
-        margin-bottom:16.5px;
+        margin-left: 2.7888rem;
+        margin-bottom: 1.0313rem;
         ${({ theme }) => theme.fonts.kotrahopeCommon}
     }
 
     & > div> p.error{
-      margin-left: 20.62px;
+      margin-left: 1.2888rem;
       ${({ theme }) => theme.fonts.kotrahopeError};
     } 
+`
+
+const ButtonWrapper = styled.section`
+  display: flex;
+  margin: 13.9375rem 4.5rem 6.375rem;
+
 `
 
 const StLoginInpt=styled(Input)`
     align-items: flex-start;
     text-align: left;
-    margin-left:24px;
-    padding-left: 20.93px;
+    margin-left:1.5rem;
+    padding-left: 1.3081rem;
 `

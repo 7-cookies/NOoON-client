@@ -1,9 +1,14 @@
-import { atom } from 'recoil';
+import { atom } from "recoil";
 
 export const dongsanstep = atom({
-  key: 'dongsanstep',
+  key: "dongsanstep",
   default: {
-    name:``,
-    background:``
-  }
+    name: ``,
+    background: ``,
+  },
+});
+
+export const modalState = atom({
+  key: "mdState",
+  default: false,
 });

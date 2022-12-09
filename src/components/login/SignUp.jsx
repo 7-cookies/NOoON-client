@@ -48,8 +48,8 @@ const SignUp = () => {
             navigate("/makedongsan");
           })
           .catch((error)=>{
-            setAlertIdMS('* 사용 중인 아이디입니다')
-            console.log(error.message)
+            if (error.response.data.message==='존재하는 회원입니다.'){setAlertIdMS('* 사용 중인 아이디입니다')}
+              console.log(error.response.data.message)
             
           });
     };

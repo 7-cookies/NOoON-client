@@ -46,7 +46,7 @@ const Login = () => {
             navigate("/");
           })
           .catch(error=>{
-            setAlertMS1('*아이디 또는 비밀번호를 잘못 입력했습니다.')
+            setAlertMS1('* 아이디 또는 비밀번호를 잘못 입력했습니다.')
             setAlertMS2('다시 확인해주세요.')
           });
     };
@@ -66,7 +66,7 @@ const Login = () => {
                 <div className='error errorsection'><p>{alertMS1}</p></div>
                 <div className='error'><p>{alertMS2}</p></div>
             </StInputWrapper>
-            <ShortButton button="button" className="check" onClick={handleSubmit}>확인</ShortButton>
+            <ShortButtonE button="button" className="check" onClick={handleSubmit}>확인</ShortButtonE>
 
         </StLoginWrapper>
     );
@@ -126,4 +126,9 @@ const StLoginInpt=styled(Input)`
     text-align: left;
     margin-left:24px;
     padding-left: 20.93px;
+`
+
+const ShortButtonE= styled(ShortButton)`
+  position: fixed;
+  top: 38rem;
 `

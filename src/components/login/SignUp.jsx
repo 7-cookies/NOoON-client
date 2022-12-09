@@ -4,7 +4,7 @@ import Header from '../common/Header';
 import { useRef, useState, useEffect } from 'react';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
-import { useCookies } from 'react-cookie'; 
+import { useCookies, withCookies } from 'react-cookie'; 
 import { dupCheckAPI } from './dupCheckAPI';
 
 const SignUp = () => {

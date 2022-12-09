@@ -19,7 +19,8 @@ import {
   messageState,
 } from "../../utils/dressRecoil";
 
-const DressUp = () => {
+
+const DressUp = ({setStep}) => {
   const [showModal, setModal] = useRecoilState(modalStateC);
   const [modalType, setModalType] = useRecoilState(modalStateT);
   const [ms, setMs] = useRecoilState(messageState);
@@ -39,6 +40,13 @@ const DressUp = () => {
     setSaveComp(!saveComp);
     setSaveFirst(false);
   };
+
+  const handleChecked = () => {
+    setSaveComp(!saveComp);
+    setSaveFirst(false);
+    setStep('VISITOR-DONGSAN')
+  };
+
 
   return (
     <>
@@ -98,7 +106,7 @@ const DressUp = () => {
               <div> 저장되었습니다. </div>
             </TextCon>
             <ButtonCon>
-              <ShortButtonE onClick={isCompSaved}>확인</ShortButtonE>
+              <ShortButtonE onClick={handleChecked}>확인</ShortButtonE>
             </ButtonCon>
           </ModalCon>
         ) : (

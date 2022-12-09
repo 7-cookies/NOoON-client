@@ -4,8 +4,19 @@ import styled from "styled-components";
 import { ShortButton } from "../../styles/globalStyle";
 import SnowManforGrid from "../../components/dongsan/SnowManforGrid";
 import data from "../../mocks/test.json";
+import { useNavigate } from 'react-router-dom';
 
 const VisitorDongsan = ({ setStep }) => {
+    const navigate=useNavigate();
+
+    const handleMakeNoonClick=()=>{
+        setStep('VISITOR-DRESSUP');
+    }
+
+    const handleMyDongsanClick=()=>{
+        navigate('/');
+    }
+
   return (
     <StGridWrapper>
       <h1>눈 펑펑 오는 눈동산</h1>
@@ -32,8 +43,8 @@ const VisitorDongsan = ({ setStep }) => {
         </StGrid>
       </div>
       <StButtonWrapper>
-        <StShortButton type="button">눈사람 만들기</StShortButton>
-        <StShortButton type="button">내 동산 가기</StShortButton>
+        <StShortButton type="button" onClick={handleMakeNoonClick}>눈사람 만들기</StShortButton>
+        <StShortButton type="button" onClick={handleMyDongsanClick}>내 동산 가기</StShortButton>
       </StButtonWrapper>
     </StGridWrapper>
   );

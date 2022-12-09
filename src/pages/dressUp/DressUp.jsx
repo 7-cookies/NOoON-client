@@ -65,6 +65,7 @@ const DressUp = () => {
             
         
     );
+
 };
 
 export default DressUp;
@@ -80,7 +81,9 @@ z-index: 1;
 
 
 
+
 const ContainerE = styled.section`
-position: absolute;
-`
+  position: absolute;
+`;
+
 

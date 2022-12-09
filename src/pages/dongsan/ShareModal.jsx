@@ -3,23 +3,41 @@ import { ShortButton } from "../../styles/globalStyle";
 
 import close from "../../asset/icon/close.svg";
 import kakao from "../../asset/icon/kakao.svg";
+import share from "../../asset/icon/share.svg";
 
 const ShareModal = () => {
+  const handleCopyClipBoard = async (text) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      alert("링크가 복사되었습니다");
+    } catch (error) {
+      alert("링크 복사에 실패했습니다");
+    }
+  };
+
   return (
     <>
       <SrModalWrapper>
         <SrModal>
           <SrHeader>
-            <Icon src={close} alt="#" />
-            <h1>카카오톡 공유하기</h1>
+            <h1>공유하기</h1>
+            <HeaderIcon src={close} alt="#" />
           </SrHeader>
 
           <p>카카오톡 공유</p>
           <Icon src={kakao} alt="#" />
           <p>링크 복사</p>
-          <StButtonWrapper>
-            <ShortButton button="submit">시작하기</ShortButton>
-          </StButtonWrapper>
+
+          <SrButtonWrapper>
+            <Icon src={share} alt="#" />
+            <input type="text" value={"https://noonsaram.kr"} />
+            <button
+              type="submit"
+              onClick={() => handleCopyClipBoard("https://noonsaram.kr")}
+            >
+              copy
+            </button>
+          </SrButtonWrapper>
         </SrModal>
       </SrModalWrapper>
     </>
@@ -28,11 +46,12 @@ const ShareModal = () => {
 
 export default ShareModal;
 
-const Icon = styled.img`
+const HeaderIcon = styled.img`
   position: absolute;
-  z-index: 2;
+  padding: 0 0 0 20rem;
 `;
 
+const Icon = styled.img``;
 const SrModalWrapper = styled.section`
   display: flex;
   justify-content: center;
@@ -49,7 +68,7 @@ const SrModalWrapper = styled.section`
 const SrModal = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 
   width: 382px;
@@ -58,16 +77,17 @@ const SrModal = styled.div`
   border: 1px solid transparent;
   border-radius: 15px;
 
+  padding-bottom: 10px;
   background-color: white;
 
   & > p {
-    margin-top: 17.84px;
     ${({ theme }) => theme.fonts.kotrahopeText}
   }
 `;
 
 const SrHeader = styled.section`
   width: 23.875rem;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -80,10 +100,32 @@ const SrHeader = styled.section`
   }
 `;
 
-const StButtonWrapper = styled.footer`
+const SrButtonWrapper = styled.footer`
   display: flex;
-  justify-content: center;
-
-  width: 298px;
-  margin-top: 62.29px;
+  align-item: center;
+  justify-content: space-evenly;
+  width: 21.25rem;
+  height: 3.125rem;
+  border-radius: 15px;
+  background-color: #e9f3ff;
+  & > input {
+    font-size: 1.25rem;
+    text-decoration: none;
+    border: none;
+    background-color: transparent;
+    ${({ theme }) => theme.colors.grey}
+    ${({ theme }) => theme.fonts.kotrahopeText}
+  }
+  & > button {
+    width: 4.688rem;
+    height: 2.375rem;
+    justify-content: center;
+    align-item: center;
+    border: 1px solid transparent;
+    border-radius: 1.25rem;
+    margin-top: 0.38rem;
+    background-color: ${({ theme }) => theme.colors.blue};
+    ${({ theme }) => theme.fonts.kotrahopeText}
+    color: white;
+  }
 `;

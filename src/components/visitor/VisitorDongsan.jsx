@@ -1,15 +1,24 @@
 import React from "react";
 import styled from "styled-components";
 
-import { MiddleButton } from "../../styles/globalStyle";
+import { ShortButton } from "../../styles/globalStyle";
 import SnowManforGrid from "../../components/dongsan/SnowManforGrid";
 import data from "../../mocks/test.json";
-import ShareModal from "../dongsan/ShareModal";
+import { useNavigate } from 'react-router-dom';
 
-const GridFix = () => {
+const VisitorDongsan = ({ setStep }) => {
+    const navigate=useNavigate();
+
+    const handleMakeNoonClick=()=>{
+        setStep('VISITOR-DRESSUP');
+    }
+
+    const handleMyDongsanClick=()=>{
+        navigate('/');
+    }
+
   return (
     <StGridWrapper>
-      <ShareModal />
       <h1>눈 펑펑 오는 눈동산</h1>
       <div>
         <StGrid>
@@ -33,17 +42,15 @@ const GridFix = () => {
           )}
         </StGrid>
       </div>
-      <StMiddleButton>내 동산 공유하기</StMiddleButton>
+      <StButtonWrapper>
+        <StShortButton type="button" onClick={handleMakeNoonClick}>눈사람 만들기</StShortButton>
+        <StShortButton type="button" onClick={handleMyDongsanClick}>내 동산 가기</StShortButton>
+      </StButtonWrapper>
     </StGridWrapper>
   );
 };
 
-export default GridFix;
-
-const StMiddleButton = styled(MiddleButton)`
-  /* margin: 845px 0 33px 0px ; */
-  margin: 0px 0 33px 0px;
-`;
+export default VisitorDongsan;
 
 const StGridWrapper = styled.section`
   background-image: url("image/background1.png");
@@ -71,17 +78,10 @@ const StGridWrapper = styled.section`
   }
 `;
 
-// const SnowManforGrid = styled.img`
-//   width: 192px;
-// `;
-
 const StGrid = styled.div`
-  /* width: 400px; */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   transform: rotate(-90deg);
-  /* flex-direction: column; */
-  /* border: 1px solid black; */
   width: 700px;
   height: 430px;
 
@@ -89,16 +89,11 @@ const StGrid = styled.div`
 
   position: absolute;
   z-index: 2;
-  /* overflow: hidden; */
-  /* overflow:scroll; */
-  /* overflow-y: auto; */
 `;
 const StSnowMan = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* width: 200px;
-    height:  200px; */
   transform: rotate(90deg);
   & > div {
     display: flex;
@@ -110,3 +105,17 @@ const StSnowMan = styled.div`
     }
   }
 `;
+
+const StButtonWrapper = styled.section`
+    display: flex;
+    justify-content: space-between;
+
+    width: 363px;
+    margin-bottom:33px;
+`
+
+const StShortButton=styled(ShortButton)`
+    width: 170px;
+
+    box-shadow: 0.3vw 0.3vw 0.6vw rgba(0, 0, 0, 0.3);
+`

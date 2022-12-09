@@ -1,109 +1,67 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import { useRecoilState, useRecoilValue } from "recoil";
+import React, {useState} from 'react';
+import styled from 'styled-components'
+import {useRecoilState, useRecoilValue} from 'recoil'
 
-import { Container, ShortButton } from "../../styles/globalStyle";
-import { DressZone } from "../../styles/dressUp/DressUp.jsx";
+import {Container, ShortButton} from '../../styles/globalStyle';
+import {DressZone} from '../../styles/dressUp/DressUp.jsx'
 
-import CateMenu from "../../components/DressUp/CateMenu.jsx";
-import DressPalette from "../../components/DressUp/DressPalette";
-import SnowMan from "../../components/DressUp/SnowMan.jsx";
-import WRMessage from "../../components/DressUp/WRMessage.jsx";
-import HeaderForDress from "../../components/common/HeaderForDress.jsx";
-import Header from "../../components/common/Header.jsx";
+import CateMenu from '../../components/DressUp/CateMenu.jsx'
+import DressPalette from '../../components/DressUp/DressPalette';
+import SnowMan from '../../components/DressUp/SnowMan.jsx'
+import WRMessage from '../../components/DressUp/WRMessage.jsx'
+import HeaderForDress from '../../components/common/HeaderForDress.jsx'
+import Header from '../../components/common/Header.jsx'
 
-import {
-  modalStateC,
-  modalStateT,
-  messageState,
-} from "../../utils/dressRecoil";
+import {modalStateC, modalStateT, messageState} from '../../utils/dressRecoil'
 
 const DressUp = () => {
-  const [showModal, setModal] = useRecoilState(modalStateC);
-  const [modalType, setModalType] = useRecoilState(modalStateT);
-  const [ms, setMs] = useRecoilState(messageState);
-  const message = useRecoilValue(messageState);
-  const moveToMessage = () => {
-    setMs(!ms);
-  };
+    const [showModal, setModal] = useRecoilState(modalStateC);
+    const [modalType, setModalType] = useRecoilState(modalStateT);
+    const [ms, setMs] = useRecoilState(messageState);
+    const message = useRecoilValue(messageState);
+    
+    const moveToMessage = () =>{
+        setMs(!ms);
+    }
 
-  const [saveFirst, setSaveFirst] = useState(false);
-  const [saveComp, setSaveComp] = useState(false);
-  const isClickedSaveBt = () => {
-    setSaveFirst(!saveFirst);
-    console.log(saveFirst);
-  };
+    return (
+        <>
+        <ContainerE>
+            {message? <HeaderForDress title={'메세지 남기기'}/>:<Header title={'눈사람 꾸미기'}></Header>}
+            <DressZone>
+                <SnowMan imgSize={(message===true)?'15':'19.375'} />
 
-  const isCompSaved = () => {
-    setSaveComp(!saveComp);
-    setSaveFirst(false);
-  };
 
-  return (
-    <>
-      <ContainerE>
-        {message ? (
-          <HeaderForDress title={"메세지 남기기"} />
-        ) : (
-          <Header title={"눈사람 꾸미기"}></Header>
-        )}
-        <DressZone>
-          <SnowMan imgSize={message === true ? "15" : "19.375"} />
+                {message === false ?
+                <>
+                    <section>
+                        <CateMenu 
+                        setModal={setModal} 
+                        showModal={showModal} 
+                        setModalType={setModalType} 
+                        modalType={modalType} />
 
-          {message === false ? (
-            <>
-              <section>
-                <CateMenu
-                  setModal={setModal}
-                  showModal={showModal}
-                  setModalType={setModalType}
-                  modalType={modalType}
-                />
+                        <DressPalette 
+                        showModal={showModal} 
+                        modalType={modalType}/>
+                    </section>
 
-                <DressPalette showModal={showModal} modalType={modalType} />
-              </section>
+                    <NextButton onClick={moveToMessage}> 저장하기 </NextButton>
 
-              <NextButton onClick={moveToMessage}> 저장하기 </NextButton>
-            </>
-          ) : (
-            <>
-              <WRMessage modalFirst={saveFirst} modalSecond={saveComp} />
-              <ShortButton onClick={isClickedSaveBt}> 저장 </ShortButton>
-            </>
-          )}
-        </DressZone>
-      </ContainerE>
-      <ContainerEdit modal={saveComp ? true : saveFirst ? true : false}>
-        {saveFirst ? (
-          <ModalCon>
-            <TextCon>
-              <div> 저장한 눈사람과 메세지는 수정할 수 없습니다. </div>
-              <div className="save"> 저장하시겠습니까? </div>
-            </TextCon>
-            <ButtonCon>
-              <ShortButtonE onClick={isCompSaved}>확인</ShortButtonE>
-              <ShortButtonE onClick={isClickedSaveBt}>취소</ShortButtonE>
-            </ButtonCon>
-          </ModalCon>
-        ) : (
-          <></>
-        )}
+                </> :
+                <>
+                <WRMessage />
+                </>
+                }
 
-        {saveComp ? (
-          <ModalCon className="compSaved">
-            <TextCon>
-              <div> 저장되었습니다. </div>
-            </TextCon>
-            <ButtonCon>
-              <ShortButtonE onClick={isCompSaved}>확인</ShortButtonE>
-            </ButtonCon>
-          </ModalCon>
-        ) : (
-          <></>
-        )}
-      </ContainerEdit>
-    </>
-  );
+            </DressZone>
+        </ContainerE >
+        
+        
+        </>
+            
+        
+    );
 
 };
 
@@ -124,5 +82,4 @@ z-index: 1;
 const ContainerE = styled.section`
   position: absolute;
 `;
-
 

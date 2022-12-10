@@ -33,7 +33,7 @@ const GridFix = () => {
 
   const backgroundNum = parseInt(sessionStorage.background)-1
   console.log(backgroundNum)
-
+  console.log(sessionStorage.background)
 
   return (
     <StGridWrapper img={BGImg[backgroundNum]}>
@@ -43,7 +43,7 @@ const GridFix = () => {
           <CheckModal />
         </StModalWrapper>
       )}
-      <h1 color={backgroundNum}>{sessionStorage.dongsanName}</h1>
+      <H1 title={sessionStorage.background}>{sessionStorage.dongsanName}</H1>
       <div>
         <StGrid>
           {data.snowman.map(
@@ -99,14 +99,24 @@ const StGridWrapper = styled.section`
     overflow: scroll;
   }
 
-  & > h1 {
+  /* & > h1 {
     margin: 0;
     padding: 84.5px 0px 0px 242px;
 
     ${({ theme }) => theme.fonts.kotrahopeTitle}
-    color: ${(props)=>(props.color=== 3) ? 'black' : 'white'}
-  }
+    color: ${(props)=>props.title==='4' ? 'black' : 'white'}; 
+  } */
 `;
+
+const H1 = styled.h1`
+margin: 0;
+    padding: 84.5px 0px 0px 242px;
+
+    ${({ theme }) => theme.fonts.kotrahopeTitle}
+    color: ${(props)=>props.title==='4' ? 'black' : 'white'};
+  
+
+`
 
 // const SnowManforGrid = styled.img`
 //   width: 192px;

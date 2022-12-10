@@ -112,10 +112,10 @@ export const accImg = [
     {palette : accPal+'2.png', putOn:acc+'2.png', val:'acc2'},
     {palette : accPal+'3.png', putOn:acc+'3.png', val:'acc3'},
     {palette : accPal+'4.png', putOn:acc+'4.png', val:'acc4'},
-    {palette : accPal+'5.png', putOn:acc+'5.png', val:'acc5'},
+    {palette : accPal+'5.png', putOn:acc+'7.png', val:'acc5'},
     {palette : accPal+'6.png', putOn:acc+'6.png', val:'acc6'},
-    {palette : accPal+'7.png', putOn:acc+'7.png', val:'acc7'},
-    {palette : accPal+'8.png', putOn:acc+'8.png', val:'acc8'},
+    {palette : accPal+'7.png', putOn:acc+'8.png', val:'acc7'},
+    {palette : accPal+'8.png', putOn:acc+'5.png', val:'acc8'},
     {palette : accPal+'9.png', putOn:acc+'9.png', val:'acc9'},
     {palette : accPal+'10.png', putOn:acc+'10.png', val:'acc10'},
     ]

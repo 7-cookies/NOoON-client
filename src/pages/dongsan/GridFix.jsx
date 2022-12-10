@@ -32,7 +32,7 @@ const GridFix = () => {
   }
 
   const backgroundNum = parseInt(sessionStorage.background)-1
-  console.log(BGImg[backgroundNum])
+  console.log(backgroundNum)
 
 
   return (
@@ -43,7 +43,7 @@ const GridFix = () => {
           <CheckModal />
         </StModalWrapper>
       )}
-      <h1>{sessionStorage.dongsanName}</h1>
+      <h1 color={backgroundNum}>{sessionStorage.dongsanName}</h1>
       <div>
         <StGrid>
           {data.snowman.map(
@@ -104,6 +104,7 @@ const StGridWrapper = styled.section`
     padding: 84.5px 0px 0px 242px;
 
     ${({ theme }) => theme.fonts.kotrahopeTitle}
+    color: ${(props)=>(props.color=== 3) ? 'black' : 'white'}
   }
 `;
 

@@ -8,8 +8,8 @@ const Error404 = () => {
     return (
         <>
         <ContainerE>
-            <p className='floating'>!ErROr!</p>
             <img src={errorImg} alt='error'/>
+            <p className>error!</p>
             <ButtonE > 뒤로가기 </ButtonE>
         </ContainerE>
         </>
@@ -28,23 +28,23 @@ height: 58.25rem;
 margin: 0 auto;
 
 & > img{
-    width: 15rem;
-    height: 15rem;
-
-    margin-bottom: 5rem;
+    width: 18rem;
+    height: 18rem;
 }
 
 & > p{
     ${({ theme }) => theme.fonts.kotrahopeLandingTitle}
-    color: #D27979;
+    color: #E20000;
     font-size: 1.375rem;
+    margin-bottom: 5rem;
 }
 
 
 `
 
 const ButtonE = styled(ShortButton)`
-    background-color: #D27979;
+    background-color: #A6C7EF;
+    width: 10rem;
 
     
 `

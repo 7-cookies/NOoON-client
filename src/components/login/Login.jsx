@@ -43,7 +43,7 @@ const Login = () => {
           )
           .then((response) => {
             console.log(response.data);
-            navigate("/");
+            navigate("/fix");
           })
           .catch(error=>{
             setAlertMS1('* 아이디 또는 비밀번호를 잘못 입력했습니다.')
@@ -51,6 +51,7 @@ const Login = () => {
             console.log(error)
           });
     };
+
     
 
     return (
@@ -63,7 +64,7 @@ const Login = () => {
                         
             <StInputWrapper>
               <div className='password'><p>PASSWORD</p></div>
-                <StLoginInpt type="password" placeholder="숫자 4자리를 입력해주세요" ref={userPasswordRef} />
+                <StLoginInpt type="password" placeholder="숫자 4자리를 입력해주세요" ref={userPasswordRef} maxLength='4' />
                 <div className='error errorsection'><p>{alertMS1}</p></div>
                 <div className='error'><p>{alertMS2}</p></div>
             </StInputWrapper>

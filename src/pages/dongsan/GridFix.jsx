@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import styled from "styled-components";
-import { useState } from "react";
+import { useState} from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 
 import { MiddleButton } from "../../styles/globalStyle";
@@ -11,39 +11,39 @@ import ShareModal from "../dongsan/ShareModal";
 import CheckModal from "../dongsan/CheckModal";
 import { modalState } from "../../utils/atoms";
 
+import {BGImg} from '../../utils/imgData'
+
 const GridFix = () => {
-  const [visible, setVisible] = useState(false);
   const [touch, setTouch] = useState(false);
 
   const [modalClicked, setmodalClicked] = useRecoilState(modalState);
   const modal = useRecoilValue(modalState);
 
   function popupModal() {
-    // console.log("clicked");
-    // setVisible(true);
     setmodalClicked(!modalClicked);
   }
 
   function openModal() {
-    console.log("clicked");
     setTouch(true);
   }
 
   function handleClick() {
     setTouch(false);
-    console.log(touch);
   }
-  console.log(touch);
+
+  const backgroundNum = parseInt(sessionStorage.background)-1
+  console.log(backgroundNum)
+  console.log(sessionStorage.background)
 
   return (
-    <StGridWrapper>
+    <StGridWrapper img={BGImg[backgroundNum]}>
       <StartModal />
       {touch && (
         <StModalWrapper onClick={handleClick}>
           <CheckModal />
         </StModalWrapper>
       )}
-      <h1>눈 펑펑 오는 눈동산</h1>
+      <H1 title={sessionStorage.background}>{sessionStorage.dongsanName}</H1>
       <div>
         <StGrid>
           {data.snowman.map(
@@ -81,7 +81,8 @@ const StMiddleButton = styled(MiddleButton)`
 `;
 
 const StGridWrapper = styled.section`
-  background-image: url("image/background1.png");
+  /* background-image: url(image/background1.png); */
+  background-image: url(${(props)=>props.img});
   background-size: 430px;
   display: flex;
   justify-content: center;
@@ -98,13 +99,24 @@ const StGridWrapper = styled.section`
     overflow: scroll;
   }
 
-  & > h1 {
+  /* & > h1 {
     margin: 0;
     padding: 84.5px 0px 0px 242px;
 
     ${({ theme }) => theme.fonts.kotrahopeTitle}
-  }
+    color: ${(props)=>props.title==='4' ? 'black' : 'white'}; 
+  } */
 `;
+
+const H1 = styled.h1`
+margin: 0;
+    padding: 84.5px 0px 0px 242px;
+
+    ${({ theme }) => theme.fonts.kotrahopeTitle}
+    color: ${(props)=>props.title==='4' ? 'black' : 'white'};
+  
+
+`
 
 // const SnowManforGrid = styled.img`
 //   width: 192px;
@@ -148,8 +160,7 @@ const StSnowMan = styled.div`
 
 const StModalWrapper = styled.section`
   position: absolute;
-
   display: flex;
-  justify-contents: center;
+  justify-content: center;
   align-items: center;
 `;

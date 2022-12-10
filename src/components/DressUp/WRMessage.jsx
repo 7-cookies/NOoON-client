@@ -5,6 +5,7 @@ import {useRecoilState} from 'recoil'
 import axios from 'axios'
 import {baseEyes, baseArms, baseHead, baseNose, baseItem, baseMouth} from '../../utils/dressRecoil'
 import { useNavigate } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 
 
 const WRMessage = () => {
@@ -31,34 +32,51 @@ const WRMessage = () => {
     const [mouth, setMouth] = useRecoilState(baseMouth);
     const [head, setHead] = useRecoilState(baseHead);
 
+    const [cookies, setCookie, removeCookie] = useCookies(["accessToken"]);
+
     const saveMessage=()=>{
         setMessageContents((prev)=>({...prev, letter:messageRef.current.value, creater: createrRef.current.value}));
+        setInvitationCode(sessionStorage.invitationCode);
     }
+
+    console.log({
+        "head": parseInt(head[0].Head),
+        "accessary": parseInt(item[0].Item),
+        "eye": parseInt(eye[0].Eye),
+        "nose": parseInt(nose[0].Nose),
+        "mouse": parseInt(mouth[0].Mouth),
+        "arm": parseInt(arm[0].Eye),
+        "letter" : `${messageContents.letter}`,
+        "creator": `${messageContents.creater}`
+    },)
 
 
     const handleSubmit =()=>{
         axios.post(
             `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${invitationCode}/snowman`,
             {
-                "head": `${head[0].Head}`,
-                "accessary": `${item[0].Item}`,
-                "eye": `${eye[0].Eye}`,
-                "nose": `${nose[0].Nose}`,
-                "mouse": `${mouth[0].Mouth}`,
-                "arm": `${arm[0].Eye}`,
+                "head": parseInt(head[0].Head),
+                "accessary": parseInt(item[0].Item),
+                "eye": parseInt(eye[0].Eye),
+                "nose": parseInt(nose[0].Nose),
+                "mouse": parseInt(mouth[0].Mouth),
+                "arm": parseInt(arm[0].Eye),
                 "letter" : `${messageContents.letter}`,
                 "creator": `${messageContents.creater}`
             },
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${cookies.accessToken}`,
+                },
+            }
         )
         .then((response) => {
-            navigate("/grid");
+            navigate("/fix");
         });
     }
 
-    
 
-
-    console.log(messageContents);
     return (
         <>
         <TextZone>

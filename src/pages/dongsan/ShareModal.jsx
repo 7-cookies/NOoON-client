@@ -1,24 +1,25 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { KakaoShare } from "../../utils/kakaoShare";
 
 import close from "../../asset/icon/close.svg";
-import kakao from "../../asset/icon/kakao.svg";
 import share from "../../asset/icon/share.svg";
 import { modalState } from "../../utils/atoms";
 
 const ShareModal = (props) => {
+  const [shareButton, setShareButton] = useState(false);
   const navigate = useNavigate();
-  // const [visible, setVisible] = useState(true);
 
   const [modalClicked, setmodalClicked] = useRecoilState(modalState);
   const modal = useRecoilValue(modalState);
 
+  // const invitationCode = window.sessionStorage.invitationCode;
+  // const invitationURL = `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${window.sessionStorage.invitationCode}`
+
+
   function deleteModal() {
-    // console.log("clicked");
-    // setVisible(false);
     setmodalClicked(!modalClicked);
   }
 
@@ -31,6 +32,10 @@ const ShareModal = (props) => {
     }
   };
 
+  const [IC, setIC] = useState(window.sessionStorage.invitationCode);
+
+
+
   return (
     <>
       {modal ? (
@@ -42,16 +47,15 @@ const ShareModal = (props) => {
             </SrHeader>
 
             <p>카카오톡 공유</p>
-            {/* <KakaoShare src={kakao} alt="#" /> */}
-            <KakaoShare />
+            <KakaoShare url={IC}/>
             <p>링크 복사</p>
 
             <SrButtonWrapper>
               <Icon src={share} alt="#" />
-              <input type="text" value={"https://noonsaram.kr"} />
+              <input type="text" value={`${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${window.sessionStorage.invitationCode}`} />
               <button
                 type="submit"
-                onClick={() => handleCopyClipBoard("https://noonsaram.kr")}
+                onClick={() => handleCopyClipBoard(`${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${window.sessionStorage.invitationCode}`)}
               >
                 copy
               </button>
@@ -87,6 +91,8 @@ const SrModalWrapper = styled.section`
   width: 26.875rem;
   height: 58.25rem;
   background: rgba(85, 85, 85, 0.25);
+
+
 `;
 
 const SrModal = styled.div`

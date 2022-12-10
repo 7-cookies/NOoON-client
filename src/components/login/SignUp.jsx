@@ -35,9 +35,7 @@ const SignUp = () => {
       else {setAlertIdMS('')}
     }
 
-    
-
-
+  
     const handleSubmit=()=>{
       setUsername(userNameRef.current.value)
       setPassword(userPasswordRef.current.value)
@@ -51,9 +49,10 @@ const SignUp = () => {
             },
           )
           .then((response) => {
-            // access토큰 저장
+            // access토큰, username 저장
+            console.log(response);
             setCookie("accessToken", response.data.data.accessToken);
-            // console.log(response);
+            sessionStorage.setItem("username", response.data.data.username);
             navigate("/makedongsan");
           })
           .catch((error)=>{

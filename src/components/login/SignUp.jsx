@@ -35,9 +35,7 @@ const SignUp = () => {
       else {setAlertIdMS('')}
     }
 
-    
-
-
+  
     const handleSubmit=()=>{
       setUsername(userNameRef.current.value)
       setPassword(userPasswordRef.current.value)

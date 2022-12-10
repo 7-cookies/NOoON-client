@@ -25,6 +25,7 @@ const DongSanSelect = () => {
 
     }
     console.log(cookies.accessToken)
+    console.log(dongsanBeginData)
     
 
     const handleSubmit =()=>{
@@ -46,7 +47,7 @@ const DongSanSelect = () => {
           .then((response) => {
             sessionStorage.setItem("invitationCode", response.data.data.invitationCode);
             sessionStorage.setItem("dongsanName", response.data.data.name);
-            sessionStorage.setItem("background", parseInt(response.data.data.background)-1);
+            sessionStorage.setItem("background", parseInt(response.data.data.background));
             //가져올 때에는 window.sessionStorage.getItem으로 가져옴.
             navigate("/fix");
           });
@@ -61,7 +62,7 @@ const DongSanSelect = () => {
                 <img className={isHover.first} src="image/background1.png" alt="동산배경1" onClick={()=>handleChooseClick(1,'first')}/>
                 <img className={isHover.second} src="image/background2.png" alt="동산배경2" onClick={()=>handleChooseClick(2, 'second')}/>
                 <img className={isHover.third} src="image/background3.png" alt="동산배경3"  onClick={()=>handleChooseClick(3, 'third')}/>
-                <img  className={isHover.fourth} src="image/background4.png" alt="동산배경4"  onClick={()=>handleChooseClick(4, 'fourth')}/>
+                <img  className={isHover.fourth} src="image/background4.png" alt="동산배경4" onClick={()=>handleChooseClick(4, 'fourth')}/>
                 <StShortButton button="submit" onClick={handleSubmit}>확인</StShortButton>
             </StDongSanWrapper>
         </StDongSanSelectWrapper>

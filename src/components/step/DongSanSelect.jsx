@@ -22,9 +22,7 @@ const DongSanSelect = () => {
         else if (data[1]==='second') {setIsHover((prev)=>({...prev, first:'', second:'hover', third:'', fourth:''}))}
         else if (data[1]==='third') {setIsHover((prev)=>({...prev, first:'', second:'', third:'hover', fourth:''}))}
         else if (data[1]==='fourth') {setIsHover((prev)=>({...prev, first:'', second:'', third:'', fourth:'hover'}))}
-  
-        // console.log("dddd");
-        // console.log(dongsanBeginData)
+
     }
     console.log(cookies.accessToken)
     
@@ -37,21 +35,18 @@ const DongSanSelect = () => {
               name: dongsanBeginData.name,
               background: parseInt(dongsanBeginData.background),
             },
-            // console.log(dongsanBeginData),
             {
               headers: {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${cookies.accessToken}`,
                 
               },
-              // "Content-Type": "application/json",
-              // authorization: `Bearer ${cookies.accessToken}`,
-
             }
           )
           .then((response) => {
             sessionStorage.setItem("invitationCode", response.data.data.invitationCode);
-            console.log(response.data.data.invitationCode)
+            sessionStorage.setItem("dongsanName", response.data.data.name);
+            sessionStorage.setItem("background", parseInt(response.data.data.background)-1);
             //가져올 때에는 window.sessionStorage.getItem으로 가져옴.
             navigate("/fix");
           });

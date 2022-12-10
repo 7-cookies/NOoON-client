@@ -119,3 +119,8 @@ export const accImg = [
     {palette : accPal+'9.png', putOn:acc+'9.png', val:'acc9'},
     {palette : accPal+'10.png', putOn:acc+'10.png', val:'acc10'},
     ]
+
+
+// 배경이미지
+const background = process.env.REACT_APP_BACKGROUND_URL;
+export const BGImg =[background+'1.png', background+'2.png', background+'3.png', background+'4.png']

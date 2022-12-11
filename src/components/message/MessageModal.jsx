@@ -1,18 +1,41 @@
 import styled from "styled-components";
 import messageCard from "../../asset/img/messageCard.png";
 import xButton from "../../asset/icon/Group 130.svg";
-import { useNavigate } from "react-router-dom";
-
+import { useNavigate,useParams } from "react-router-dom";
+import axios from "axios";
+import {useState, useEffect} from "react";
 import test from "../../mocks/test.json";
+import { useCookies } from "react-cookie";
+
 
 const MessageModal = ({ setStep,id } ) => {
+  const [creator, setCreator]=useState();
+  const [letter, setLetter]=useState();
+
   const nagivate = useNavigate();
-  const handleXClick = () => {
-    nagivate(-1);
-  };
+  // const handleXClick = () => {
+  //   nagivate(-1);
+  // };
 
+  const [cookies, setCookie, removeCookie] = useCookies(["accessToken"]);
+  // const invitationCode = window.sessionStorage.getItem("invitationCode");
 
-  console.log(id);
+  async function getMessageData() {
+    const response = await axios.get(
+        `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/snowman/${id}`,{
+          headers:{
+            Authorization: `Bearer ${cookies.accessToken}`,
+          }
+        })
+        console.log(response.data)
+        setCreator(response.data.data.creator);
+        setLetter(response.data.data.letter);
+  }
+
+  useEffect(() => {
+    getMessageData();
+  }, []);
+
 
   return (
     <>
@@ -23,11 +46,11 @@ const MessageModal = ({ setStep,id } ) => {
             <StContentWrapper>
               <StTitle>
                 <div>
-                  <p>From. {test.snowman[id].creator}</p>
+                  <p>From. {creator}</p>
                   {/* <StXButton src={xButton} alt="#" onClick={handleXClick} /> */}
                 </div>
               </StTitle>
-              <div>{test.snowman[id].letter}</div>
+              <div>{letter}</div>
             </StContentWrapper>
           </StModal>
         </StModalWrapper>

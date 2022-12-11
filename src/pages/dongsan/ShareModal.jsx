@@ -18,7 +18,6 @@ const ShareModal = (props) => {
   // const invitationCode = window.sessionStorage.invitationCode;
   // const invitationURL = `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${window.sessionStorage.invitationCode}`
 
-
   function deleteModal() {
     setmodalClicked(!modalClicked);
   }
@@ -34,8 +33,6 @@ const ShareModal = (props) => {
 
   const [IC, setIC] = useState(window.sessionStorage.invitationCode);
 
-
-
   return (
     <>
       {modal ? (
@@ -47,7 +44,7 @@ const ShareModal = (props) => {
             </SrHeader>
 
             <p>카카오톡 공유</p>
-            <KakaoShare url={IC}/>
+            <KakaoShare url={IC} />
             <p>링크 복사</p>
 
             <SrButtonWrapper>
@@ -55,7 +52,11 @@ const ShareModal = (props) => {
               <input type="text" value={`http://localhost:3000/${window.sessionStorage.invitationCode}`} />
               <button
                 type="submit"
-                onClick={() => handleCopyClipBoard(`http://localhost:3000/${window.sessionStorage.invitationCode}`)}
+                onClick={() =>
+                  handleCopyClipBoard(
+                    `http://localhost:3000/${window.sessionStorage.invitationCode}`
+                  )
+                }
               >
                 copy
               </button>
@@ -91,8 +92,6 @@ const SrModalWrapper = styled.section`
   width: 26.875rem;
   height: 58.25rem;
   background: rgba(85, 85, 85, 0.25);
-
-
 `;
 
 const SrModal = styled.div`

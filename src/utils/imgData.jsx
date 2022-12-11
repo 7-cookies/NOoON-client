@@ -5,6 +5,7 @@ import mouthI from '../asset/icon/menuIcon/mouthIcon.png'
 import noseI from '../asset/icon/menuIcon/noseIcon.png'
 import accI from '../asset/icon/menuIcon/accIcon.png'
 
+
 export const menuData = [
     {categoryName : 'head', url : headI},
     {categoryName : 'eye', url : eyeI},
@@ -112,10 +113,26 @@ export const accImg = [
     {palette : accPal+'2.png', putOn:acc+'2.png', val:'acc2'},
     {palette : accPal+'3.png', putOn:acc+'3.png', val:'acc3'},
     {palette : accPal+'4.png', putOn:acc+'4.png', val:'acc4'},
-    {palette : accPal+'5.png', putOn:acc+'5.png', val:'acc5'},
+    {palette : accPal+'5.png', putOn:acc+'7.png', val:'acc5'},
     {palette : accPal+'6.png', putOn:acc+'6.png', val:'acc6'},
-    {palette : accPal+'7.png', putOn:acc+'7.png', val:'acc7'},
-    {palette : accPal+'8.png', putOn:acc+'8.png', val:'acc8'},
+    {palette : accPal+'7.png', putOn:acc+'8.png', val:'acc7'},
+    {palette : accPal+'8.png', putOn:acc+'5.png', val:'acc8'},
     {palette : accPal+'9.png', putOn:acc+'9.png', val:'acc9'},
     {palette : accPal+'10.png', putOn:acc+'10.png', val:'acc10'},
     ]
+
+
+const backgroundUrl=process.env.REACT_APP_S3_URL+'background/background';
+export const backgroundImg=[
+    {id:none, img:none},
+    {id:1, img:backgroundUrl+'1.png'},
+    {id:2, img:backgroundUrl+'2.png'},
+    {id:3, img:backgroundUrl+'3.png'},
+    {id:4, img:backgroundUrl+'4.png'},
+]
+
+
+// 배경이미지
+const background = process.env.REACT_APP_BACKGROUND_URL;
+export const BGImg =[background+'1.png', background+'2.png', background+'3.png', background+'4.png']
+

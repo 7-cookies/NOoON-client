@@ -1,11 +1,28 @@
 import styled from "styled-components";
-import { ShortButton } from "../../styles/globalStyle";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { KakaoShare } from "../../utils/kakaoShare";
 
 import close from "../../asset/icon/close.svg";
-import kakao from "../../asset/icon/kakao.svg";
 import share from "../../asset/icon/share.svg";
+import { modalState } from "../../utils/atoms";
 
-const ShareModal = () => {
+const ShareModal = (props) => {
+  const [shareButton, setShareButton] = useState(false);
+  const navigate = useNavigate();
+
+  const [modalClicked, setmodalClicked] = useRecoilState(modalState);
+  const modal = useRecoilValue(modalState);
+
+  // const invitationCode = window.sessionStorage.invitationCode;
+  // const invitationURL = `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${window.sessionStorage.invitationCode}`
+
+
+  function deleteModal() {
+    setmodalClicked(!modalClicked);
+  }
+
   const handleCopyClipBoard = async (text) => {
     try {
       await navigator.clipboard.writeText(text);
@@ -15,31 +32,39 @@ const ShareModal = () => {
     }
   };
 
+  const [IC, setIC] = useState(window.sessionStorage.invitationCode);
+
+
+
   return (
     <>
-      <SrModalWrapper>
-        <SrModal>
-          <SrHeader>
-            <h1>공유하기</h1>
-            <HeaderIcon src={close} alt="#" />
-          </SrHeader>
+      {modal ? (
+        <SrModalWrapper>
+          <SrModal>
+            <SrHeader>
+              <h1>공유하기</h1>
+              <HeaderIcon src={close} alt="#" onClick={deleteModal} />
+            </SrHeader>
 
-          <p>카카오톡 공유</p>
-          <Icon src={kakao} alt="#" />
-          <p>링크 복사</p>
+            <p>카카오톡 공유</p>
+            <KakaoShare url={IC}/>
+            <p>링크 복사</p>
 
-          <SrButtonWrapper>
-            <Icon src={share} alt="#" />
-            <input type="text" value={"https://noonsaram.kr"} />
-            <button
-              type="submit"
-              onClick={() => handleCopyClipBoard("https://noonsaram.kr")}
-            >
-              copy
-            </button>
-          </SrButtonWrapper>
-        </SrModal>
-      </SrModalWrapper>
+            <SrButtonWrapper>
+              <Icon src={share} alt="#" />
+              <input type="text" value={`http://localhost:3000/visitor/${window.sessionStorage.invitationCode}`} />
+              <button
+                type="submit"
+                onClick={() => handleCopyClipBoard(`http://localhost:3000/${window.sessionStorage.invitationCode}`)}
+              >
+                copy
+              </button>
+            </SrButtonWrapper>
+          </SrModal>
+        </SrModalWrapper>
+      ) : (
+        <></>
+      )}
     </>
   );
 };
@@ -51,18 +76,23 @@ const HeaderIcon = styled.img`
   padding: 0 0 0 20rem;
 `;
 
-const Icon = styled.img``;
+const Icon = styled.img`
+  // padding-bottom: 17px;
+`;
+
 const SrModalWrapper = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
 
   position: absolute;
-  z-index: 2;
+  z-index: 3;
 
   width: 26.875rem;
   height: 58.25rem;
   background: rgba(85, 85, 85, 0.25);
+
+
 `;
 
 const SrModal = styled.div`
@@ -80,13 +110,15 @@ const SrModal = styled.div`
   padding-bottom: 10px;
   background-color: white;
 
+  box-shadow: 0.3vw 0.3vw 0.6vw rgba(0, 0, 0, 0.3);
+
   & > p {
     ${({ theme }) => theme.fonts.kotrahopeText}
   }
 `;
 
 const SrHeader = styled.section`
-  width: 23.875rem;
+  width: 320px;
   height: 50px;
   display: flex;
   justify-content: center;
@@ -108,6 +140,7 @@ const SrButtonWrapper = styled.footer`
   height: 3.125rem;
   border-radius: 15px;
   background-color: #e9f3ff;
+
   & > input {
     font-size: 1.25rem;
     text-decoration: none;
@@ -116,6 +149,7 @@ const SrButtonWrapper = styled.footer`
     ${({ theme }) => theme.colors.grey}
     ${({ theme }) => theme.fonts.kotrahopeText}
   }
+
   & > button {
     width: 4.688rem;
     height: 2.375rem;

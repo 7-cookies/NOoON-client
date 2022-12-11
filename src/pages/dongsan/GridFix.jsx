@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect,useState } from "react";
 import styled from "styled-components";
+
 import { useRecoilState, useRecoilValue } from "recoil";
 
 import { MiddleButton } from "../../styles/globalStyle";
@@ -12,7 +13,10 @@ import CheckModal from "../dongsan/CheckModal";
 import { modalState } from "../../utils/atoms";
 import { useCookies } from 'react-cookie';
 
+import {BGImg} from '../../utils/imgData'
+
 const GridFix = () => {
+
 
   const [snowmanData, setSnowmanData] = useState([]);
   const [background, setBackground] = useState(1);
@@ -22,26 +26,24 @@ const GridFix = () => {
   const [cookies, setCookie, removeCookie] = useCookies(["accessToken"]);
 
   const [visible, setVisible] = useState(false);
+
   const [touch, setTouch] = useState(false);
 
   const [modalClicked, setmodalClicked] = useRecoilState(modalState);
   const modal = useRecoilValue(modalState);
 
   function popupModal() {
-    // console.log("clicked");
-    // setVisible(true);
     setmodalClicked(!modalClicked);
   }
 
   function openModal() {
-    console.log("clicked");
     setTouch(true);
   }
 
   function handleClick() {
     setTouch(false);
-    console.log(touch);
   }
+
   console.log(touch);
   
   async function getSnowmanData() {
@@ -68,13 +70,27 @@ const GridFix = () => {
 
   return (
     <StGridWrapper url={process.env.REACT_APP_S3_URL+'background/background'+`${background}`+".png"}>
+
+  const backgroundNum = parseInt(sessionStorage.background)-1
+
+  //브라우저 상에서 뒤로가기 X
+  window.history.pushState(null, null, window.location.href);
+  window.onpopstate = function(event) { window.history.go(1); };
+
+  return (
+    <StGridWrapper img={BGImg[backgroundNum]}>
+
       <StartModal />
       {touch && (
         <StModalWrapper onClick={handleClick}>
           <CheckModal />
         </StModalWrapper>
       )}
-      <h1>{title}</h1>
+
+
+
+      <H1 title={sessionStorage.background}>{sessionStorage.dongsanName}</H1>
+
       <div>
         <StGrid>
           {snowmanData.map(
@@ -112,8 +128,13 @@ const StMiddleButton = styled(MiddleButton)`
 `;
 
 const StGridWrapper = styled.section`
-  background-image: url(${(props)=>props.url});
+
+  /*background-image: url(${(props)=>props.url});*/
   
+
+  /* background-image: url(image/background1.png); */
+  background-image: url(${(props)=>props.img});
+
   background-size: 430px;
   display: flex;
   justify-content: center;
@@ -130,13 +151,24 @@ const StGridWrapper = styled.section`
     overflow: scroll;
   }
 
-  & > h1 {
+  /* & > h1 {
     margin: 0;
     padding: 84.5px 0px 0px 242px;
 
     ${({ theme }) => theme.fonts.kotrahopeTitle}
-  }
+    color: ${(props)=>props.title==='4' ? 'black' : 'white'}; 
+  } */
 `;
+
+const H1 = styled.h1`
+margin: 0;
+    padding: 84.5px 0px 0px 242px;
+
+    ${({ theme }) => theme.fonts.kotrahopeTitle}
+    color: ${(props)=>(props.title==='4'||'2') ? '#877C73' : 'white'};
+  
+
+`
 
 // const SnowManforGrid = styled.img`
 //   width: 192px;
@@ -180,8 +212,7 @@ const StSnowMan = styled.div`
 
 const StModalWrapper = styled.section`
   position: absolute;
-
   display: flex;
-  justify-contents: center;
+  justify-content: center;
   align-items: center;
 `;

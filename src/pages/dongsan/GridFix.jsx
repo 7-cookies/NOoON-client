@@ -11,18 +11,19 @@ import StartModal from "./StartModal";
 import ShareModal from "../dongsan/ShareModal";
 import CheckModal from "../dongsan/CheckModal";
 import { modalState } from "../../utils/atoms";
+import { checkmodalState } from "../../utils/atoms";
 import { useCookies } from "react-cookie";
 import MessageModal from "../../components/message/MessageModal";
 
 import { BGImg } from "../../utils/imgData";
 import xButton from "../../asset/icon/Group 130.svg";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const GridFix = () => {
   // const navigate=useNavigate();
   const [snowmanData, setSnowmanData] = useState([]);
-  const [id, setId]=useState();
-  const [creator, setCreator]=useState();
+  const [id, setId] = useState();
+  const [creator, setCreator] = useState();
   const [background, setBackground] = useState(1);
   const [title, setTitle] = useState();
 
@@ -36,22 +37,25 @@ const GridFix = () => {
   const [modalClicked, setmodalClicked] = useRecoilState(modalState);
   const modal = useRecoilValue(modalState);
 
+  const [ckmodalClicked, setckmodalClicked] = useRecoilState(checkmodalState);
+  const ckmodal = useRecoilValue(checkmodalState);
+
   function popupModal() {
     setmodalClicked(!modalClicked);
   }
 
-  function openModal(id,creator) {
+  function openModal(id, creator) {
     setTouch(true);
     setId(id);
     setCreator(creator);
+    setckmodalClicked(!ckmodalClicked);
   }
 
   function handleClick(id) {
     setTouch(false);
-    console.log(id)
+    console.log(id);
   }
 
-  
   // console.log(touch);
 
   // ${invitationCode}
@@ -92,8 +96,8 @@ const GridFix = () => {
 
   return (
     // <StGridWrapper img={BGImg[backgroundNum]}>
-// onClick={()=>handleClick(id)}
-    
+    // onClick={()=>handleClick(id)}
+
     <StGridWrapper
       url={
         process.env.REACT_APP_S3_URL +
@@ -106,19 +110,21 @@ const GridFix = () => {
 
       {touch && (
         <StModalWrapper>
-          <CheckModal title={creator}/>
-          {/* <MessageModal id={id} />
-          <StXButton src={xButton} alt="#" onClick={handleXClick} /> */}
+          {ckmodal && <CheckModal title={creator} />}
+          {/* <MessageModal id={id} /> */}
+          {/* <StXButton src={xButton} alt="#" onClick={handleXClick} /> */}
         </StModalWrapper>
       )}
 
-      <H1 background={sessionStorage.background}>{sessionStorage.dongsanName}</H1>
+      <H1 background={sessionStorage.background}>
+        {sessionStorage.dongsanName}
+      </H1>
 
       <div>
         <StGrid>
           {snowmanData.map(
             ({ id, head, eye, nose, arm, mouth, accessory, creator }) => (
-              <StSnowMan key={id} onClick={()=>openModal(id, creator)}>
+              <StSnowMan key={id} onClick={() => openModal(id, creator)}>
                 <SnowManforGrid
                   imgSize={12}
                   head={head}
@@ -239,7 +245,7 @@ const StModalWrapper = styled.section`
 `;
 
 const StXButton = styled.img`
-    position: absolute;
-    z-index: 15;
-    margin: 0px 0px 380px 315px;
+  position: absolute;
+  z-index: 15;
+  margin: 0px 0px 380px 315px;
 `;

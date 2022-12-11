@@ -29,8 +29,8 @@ const Router = () => {
               <Route path="/" element={<Landing />} />
               <Route path="/dressUp" element={<DressUp />} />
               <Route path="/message/:id" element={<MessageModal />} />
-              <Route path="/fix" element={<GridFix />} />
-              <Route path="/visitor" element={<VisitorStep />} />
+              <Route path="/mydongsan" element={<GridFix />} />
+              <Route path="/:invitationCode" element={<VisitorStep />} />
             </Routes>
           </Container>
         </RecoilRoot>

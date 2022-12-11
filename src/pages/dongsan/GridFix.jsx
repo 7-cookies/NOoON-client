@@ -1,6 +1,7 @@
-import React, { Fragment } from "react";
+import axios from "axios";
+import React, { useEffect,useState } from "react";
 import styled from "styled-components";
-import { useState, useEffect } from "react";
+
 import { useRecoilState, useRecoilValue } from "recoil";
 
 import { MiddleButton } from "../../styles/globalStyle";
@@ -10,10 +11,22 @@ import StartModal from "./StartModal";
 import ShareModal from "../dongsan/ShareModal";
 import CheckModal from "../dongsan/CheckModal";
 import { modalState } from "../../utils/atoms";
+import { useCookies } from 'react-cookie';
 
 import {BGImg} from '../../utils/imgData'
 
 const GridFix = () => {
+
+
+  const [snowmanData, setSnowmanData] = useState([]);
+  const [background, setBackground] = useState(1);
+  const [title, setTitle] = useState();
+
+  const invitationCode=window.sessionStorage.getItem("invitationCode");
+  const [cookies, setCookie, removeCookie] = useCookies(["accessToken"]);
+
+  const [visible, setVisible] = useState(false);
+
   const [touch, setTouch] = useState(false);
 
   const [modalClicked, setmodalClicked] = useRecoilState(modalState);
@@ -31,6 +44,33 @@ const GridFix = () => {
     setTouch(false);
   }
 
+  console.log(touch);
+  
+  async function getSnowmanData() {
+    const response = await axios.get(
+        `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${invitationCode}/user`,
+          {
+            headers:{
+              Authorization: `Bearer ${cookies.accessToken}`,
+            }
+          }
+        )
+        console.log(response.data.data)
+        setSnowmanData(response.data.data.snowmans);
+        setBackground(response.data.data.background);
+        setTitle(response.data.data.name);
+  }
+
+  useEffect(() => {
+      getSnowmanData();
+  }, []);
+
+
+
+
+  return (
+    <StGridWrapper url={process.env.REACT_APP_S3_URL+'background/background'+`${background}`+".png"}>
+
   const backgroundNum = parseInt(sessionStorage.background)-1
 
   //브라우저 상에서 뒤로가기 X
@@ -39,6 +79,7 @@ const GridFix = () => {
 
   return (
     <StGridWrapper img={BGImg[backgroundNum]}>
+
       <StartModal />
       {touch && (
         <StModalWrapper onClick={handleClick}>
@@ -46,11 +87,14 @@ const GridFix = () => {
         </StModalWrapper>
       )}
 
+
+
       <H1 title={sessionStorage.background}>{sessionStorage.dongsanName}</H1>
+
       <div>
         <StGrid>
-          {data.snowman.map(
-            ({ id, head, eye, nose, arm, mouse, accessary, creator }) => (
+          {snowmanData.map(
+            ({ id, head, eye, nose, arm, mouth, accessory, creator }) => (
               <StSnowMan key={id} onClick={openModal}>
                 <SnowManforGrid
                   imgSize={12}
@@ -58,8 +102,8 @@ const GridFix = () => {
                   eye={eye}
                   nose={nose}
                   arm={arm}
-                  mouth={mouse}
-                  item={accessary}
+                  mouth={mouth}
+                  item={accessory}
                 />
 
                 <div>
@@ -84,8 +128,13 @@ const StMiddleButton = styled(MiddleButton)`
 `;
 
 const StGridWrapper = styled.section`
+
+  /*background-image: url(${(props)=>props.url});*/
+  
+
   /* background-image: url(image/background1.png); */
   background-image: url(${(props)=>props.img});
+
   background-size: 430px;
   display: flex;
   justify-content: center;

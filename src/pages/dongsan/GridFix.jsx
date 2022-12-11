@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import { useRecoilState, useRecoilValue } from "recoil";
@@ -11,18 +11,17 @@ import StartModal from "./StartModal";
 import ShareModal from "../dongsan/ShareModal";
 import CheckModal from "../dongsan/CheckModal";
 import { modalState } from "../../utils/atoms";
-import { useCookies } from 'react-cookie';
+import { useCookies } from "react-cookie";
+import MessageModal from "../../components/message/MessageModal";
 
-import {BGImg} from '../../utils/imgData'
+import { BGImg } from "../../utils/imgData";
 
 const GridFix = () => {
-
-
   const [snowmanData, setSnowmanData] = useState([]);
   const [background, setBackground] = useState(1);
   const [title, setTitle] = useState();
 
-  const invitationCode=window.sessionStorage.getItem("invitationCode");
+  const invitationCode = window.sessionStorage.getItem("invitationCode");
   const [cookies, setCookie, removeCookie] = useCookies(["accessToken"]);
 
   const [visible, setVisible] = useState(false);
@@ -45,50 +44,49 @@ const GridFix = () => {
   }
 
   console.log(touch);
-  
+
+  // ${invitationCode}
   async function getSnowmanData() {
     const response = await axios.get(
-        `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${invitationCode}/user`,
-          {
-            headers:{
-              Authorization: `Bearer ${cookies.accessToken}`,
-            }
-          }
-        )
-        console.log(response.data.data)
-        setSnowmanData(response.data.data.snowmans);
-        setBackground(response.data.data.background);
-        setTitle(response.data.data.name);
+      `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/hnvvc6/user`,
+      {
+        headers: {
+          Authorization: `Bearer ${cookies.accessToken}`,
+        },
+      }
+    );
+    console.log(response.data.data);
+    setSnowmanData(response.data.data.snowmans);
+    setBackground(response.data.data.background);
+    setTitle(response.data.data.name);
   }
 
   useEffect(() => {
-      getSnowmanData();
+    getSnowmanData();
   }, []);
-
-
-
 
   // return (
   //   <StGridWrapper url={process.env.REACT_APP_S3_URL+'background/background'+`${background}`+".png"}>
 
-  const backgroundNum = parseInt(sessionStorage.background)-1
+  const backgroundNum = parseInt(sessionStorage.background) - 1;
 
   //브라우저 상에서 뒤로가기 X
   window.history.pushState(null, null, window.location.href);
-  window.onpopstate = function(event) { window.history.go(1); };
+  window.onpopstate = function (event) {
+    window.history.go(1);
+  };
 
   return (
     // <StGridWrapper img={BGImg[backgroundNum]}>
-    <StGridWrapper url={process.env.REACT_APP_S3_URL+'background/background'+`${background}`+".png"}>
-
+    <StGridWrapper
+      url={
+        process.env.REACT_APP_S3_URL +
+        "background/background" +
+        `${background}` +
+        ".png"
+      }
+    >
       <StartModal />
-      {touch && (
-        <StModalWrapper onClick={handleClick}>
-          <CheckModal />
-        </StModalWrapper>
-      )}
-
-
 
       <H1 title={sessionStorage.background}>{sessionStorage.dongsanName}</H1>
 
@@ -97,6 +95,13 @@ const GridFix = () => {
           {snowmanData.map(
             ({ id, head, eye, nose, arm, mouth, accessory, creator }) => (
               <StSnowMan key={id} onClick={openModal}>
+                {touch && (
+                  <StModalWrapper onClick={handleClick}>
+                    {/* <CheckModal /> */}
+                    <MessageModal id={id} />
+                  </StModalWrapper>
+                )}
+
                 <SnowManforGrid
                   imgSize={12}
                   head={head}
@@ -129,12 +134,10 @@ const StMiddleButton = styled(MiddleButton)`
 `;
 
 const StGridWrapper = styled.section`
-
-  background-image: url(${(props)=>props.url});
-  
+  background-image: url(${(props) => props.url});
 
   /* background-image: url(image/background1.png); */
-  /* background-image: url(${(props)=>props.img}); */
+  /* background-image: url(${(props) => props.img}); */
 
   background-size: 430px;
   display: flex;
@@ -157,19 +160,17 @@ const StGridWrapper = styled.section`
     padding: 84.5px 0px 0px 242px;
 
     ${({ theme }) => theme.fonts.kotrahopeTitle}
-    color: ${(props)=>props.title==='4' ? 'black' : 'white'}; 
+    color: ${(props) => (props.title === "4" ? "black" : "white")}; 
   } */
 `;
 
 const H1 = styled.h1`
-margin: 0;
-    padding: 84.5px 0px 0px 242px;
+  margin: 0;
+  padding: 84.5px 0px 0px 242px;
 
-    ${({ theme }) => theme.fonts.kotrahopeTitle}
-    color: ${(props)=>(props.title==='4'||'2') ? '#877C73' : 'white'};
-  
-
-`
+  ${({ theme }) => theme.fonts.kotrahopeTitle}
+  color: ${(props) => (props.title === "4" || "2" ? "#877C73" : "white")};
+`;
 
 // const SnowManforGrid = styled.img`
 //   width: 192px;

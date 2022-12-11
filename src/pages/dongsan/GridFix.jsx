@@ -12,7 +12,6 @@ import StartModal from "./StartModal";
 import ShareModal from "../dongsan/ShareModal";
 import CheckModal from "../dongsan/CheckModal";
 import { modalState, outModalState } from "../../utils/atoms";
-import { modalState } from "../../utils/atoms";
 import { checkmodalState } from "../../utils/atoms";
 import { useCookies } from "react-cookie";
 import MessageModal from "../../components/message/MessageModal";
@@ -21,7 +20,6 @@ import { ShortButton } from "../../styles/globalStyle";
 import { BGImg } from "../../utils/imgData";
 import logoutImg from '../../asset/icon/logout.png'
 import xButton from "../../asset/icon/Group 130.svg";
-import { useNavigate } from "react-router-dom";
 
 const GridFix = () => {
   // const navigate=useNavigate();

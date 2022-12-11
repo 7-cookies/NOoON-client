@@ -11,6 +11,7 @@ import StartModal from "./StartModal";
 import ShareModal from "../dongsan/ShareModal";
 import CheckModal from "../dongsan/CheckModal";
 import { modalState } from "../../utils/atoms";
+import { checkmodalState } from "../../utils/atoms";
 import { useCookies } from "react-cookie";
 import MessageModal from "../../components/message/MessageModal";
 
@@ -36,6 +37,9 @@ const GridFix = () => {
   const [modalClicked, setmodalClicked] = useRecoilState(modalState);
   const modal = useRecoilValue(modalState);
 
+  const [ckmodalClicked, setckmodalClicked] = useRecoilState(checkmodalState);
+  const ckmodal = useRecoilValue(checkmodalState);
+
   function popupModal() {
     setmodalClicked(!modalClicked);
   }
@@ -44,6 +48,7 @@ const GridFix = () => {
     setTouch(true);
     setId(id);
     setCreator(creator);
+    setckmodalClicked(!ckmodalClicked);
   }
 
   function handleClick(id) {
@@ -105,7 +110,7 @@ const GridFix = () => {
 
       {touch && (
         <StModalWrapper>
-          <CheckModal title={creator} />
+          {ckmodal && <CheckModal title={creator} />}
           {/* <MessageModal id={id} /> */}
           {/* <StXButton src={xButton} alt="#" onClick={handleXClick} /> */}
         </StModalWrapper>

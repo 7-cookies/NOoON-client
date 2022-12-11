@@ -222,6 +222,7 @@ const StSnowMan = styled.div`
     align-items: center;
 
     & > p {
+      margin-right: 2.5rem;
       ${({ theme }) => theme.fonts.kotrahopeCreator}
     }
   }
@@ -236,8 +237,7 @@ const StModalWrapper = styled.section`
 `;
 
 const StXButton = styled.img`
-  position: absolute;
-  z-index:15;
-
-  margin: 0px 0px 350px 336px;
+    position: absolute;
+    z-index: 15;
+    margin: 0px 0px 380px 315px;
 `;

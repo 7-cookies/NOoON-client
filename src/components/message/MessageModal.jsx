@@ -71,7 +71,7 @@ const StTitle = styled.div`
 
     & > p {
       width: 150px;
-      margin: 36px 120px 15px 12px;
+      margin: 36px 0px 15px -30px;
     }
   }
 `;

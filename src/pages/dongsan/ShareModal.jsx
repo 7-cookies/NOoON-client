@@ -49,10 +49,7 @@ const ShareModal = (props) => {
 
             <SrButtonWrapper>
               <Icon src={share} alt="#" />
-              <input
-                type="text"
-                value={`http://localhost:3000/visitor/${window.sessionStorage.invitationCode}`}
-              />
+              <input type="text" value={`http://localhost:3000/${window.sessionStorage.invitationCode}`} />
               <button
                 type="submit"
                 onClick={() =>

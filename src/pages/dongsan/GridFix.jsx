@@ -45,7 +45,7 @@ const GridFix = () => {
           <CheckModal />
         </StModalWrapper>
       )}
-      
+
       <H1 title={sessionStorage.background}>{sessionStorage.dongsanName}</H1>
       <div>
         <StGrid>
@@ -116,7 +116,7 @@ margin: 0;
     padding: 84.5px 0px 0px 242px;
 
     ${({ theme }) => theme.fonts.kotrahopeTitle}
-    color: ${(props)=>props.title==='4' ? 'black' : 'white'};
+    color: ${(props)=>(props.title==='4'||'2') ? '#877C73' : 'white'};
   
 
 `

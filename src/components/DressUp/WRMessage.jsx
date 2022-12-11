@@ -218,6 +218,7 @@ align-items: center;
 
 width: 430px;
 height: 932px;
+top: 0rem;
 `
 
 const ModalCon = styled.section`
@@ -227,7 +228,6 @@ justify-content: center;
 align-items: center;
 width: 23.875rem;
 height: 15.1875rem;
-margin-bottom: 7rem;
 
 background-color: #FFFFFF;
 border-radius: 1.0625rem;

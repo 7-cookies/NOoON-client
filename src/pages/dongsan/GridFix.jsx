@@ -15,9 +15,13 @@ import { useCookies } from "react-cookie";
 import MessageModal from "../../components/message/MessageModal";
 
 import { BGImg } from "../../utils/imgData";
+import xButton from "../../asset/icon/Group 130.svg";
+import { useNavigate } from 'react-router-dom';
 
 const GridFix = () => {
+  // const navigate=useNavigate();
   const [snowmanData, setSnowmanData] = useState([]);
+  const [id, setId]=useState();
   const [background, setBackground] = useState(1);
   const [title, setTitle] = useState();
 
@@ -35,20 +39,23 @@ const GridFix = () => {
     setmodalClicked(!modalClicked);
   }
 
-  function openModal() {
+  function openModal(id) {
     setTouch(true);
+    setId(id);
   }
 
-  function handleClick() {
+  function handleClick(id) {
     setTouch(false);
+    console.log(id)
   }
 
-  console.log(touch);
+  
+  // console.log(touch);
 
   // ${invitationCode}
   async function getSnowmanData() {
     const response = await axios.get(
-      `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/hnvvc6/user`,
+      `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${invitationCode}/user`,
       {
         headers: {
           Authorization: `Bearer ${cookies.accessToken}`,
@@ -65,6 +72,11 @@ const GridFix = () => {
     getSnowmanData();
   }, []);
 
+  const nagivate = useNavigate();
+  const handleXClick = () => {
+    setTouch(false);
+  };
+
   // return (
   //   <StGridWrapper url={process.env.REACT_APP_S3_URL+'background/background'+`${background}`+".png"}>
 
@@ -78,6 +90,8 @@ const GridFix = () => {
 
   return (
     // <StGridWrapper img={BGImg[backgroundNum]}>
+// onClick={()=>handleClick(id)}
+    
     <StGridWrapper
       url={
         process.env.REACT_APP_S3_URL +
@@ -88,20 +102,21 @@ const GridFix = () => {
     >
       <StartModal />
 
+      {touch && (
+        <StModalWrapper>
+          {/* <CheckModal /> */}
+          <MessageModal id={id} />
+          <StXButton src={xButton} alt="#" onClick={handleXClick} />
+        </StModalWrapper>
+      )}
+
       <H1 title={sessionStorage.background}>{sessionStorage.dongsanName}</H1>
 
       <div>
         <StGrid>
           {snowmanData.map(
             ({ id, head, eye, nose, arm, mouth, accessory, creator }) => (
-              <StSnowMan key={id} onClick={openModal}>
-                {touch && (
-                  <StModalWrapper onClick={handleClick}>
-                    {/* <CheckModal /> */}
-                    <MessageModal id={id} />
-                  </StModalWrapper>
-                )}
-
+              <StSnowMan key={id} onClick={()=>openModal(id)}>
                 <SnowManforGrid
                   imgSize={12}
                   head={head}
@@ -207,6 +222,7 @@ const StSnowMan = styled.div`
     align-items: center;
 
     & > p {
+      margin-right: 2.5rem;
       ${({ theme }) => theme.fonts.kotrahopeCreator}
     }
   }
@@ -214,7 +230,14 @@ const StSnowMan = styled.div`
 
 const StModalWrapper = styled.section`
   position: absolute;
+  z-index: 11;
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+const StXButton = styled.img`
+    position: absolute;
+    z-index: 15;
+    margin: 0px 0px 380px 315px;
 `;

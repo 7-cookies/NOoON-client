@@ -53,7 +53,7 @@ console.log(process.env.REACT_APP_S3_URL+'background/background'+`${background}`
 
   return (
     <StGridWrapper url={process.env.REACT_APP_S3_URL+'background/background'+`${background}`+".png"}>
-      <h1>{title}</h1>
+      <H1>{title}</H1>
       <div>
         <StGrid>
           {snowmandata.map(
@@ -137,6 +137,7 @@ const StSnowMan = styled.div`
     align-items: center;
 
     & > p {
+      margin-right: 2.5rem;
       ${({ theme }) => theme.fonts.kotrahopeCreator}
     }
   }
@@ -154,4 +155,9 @@ const StShortButton=styled(ShortButton)`
     width: 170px;
 
     box-shadow: 0.3vw 0.3vw 0.6vw rgba(0, 0, 0, 0.3);
+`
+
+const H1=styled.h1`
+  ${({ theme }) => theme.fonts.kotrahopeTitle}
+  color: ${(props) => (props.title === "4" || "2" ? "#877C73" : "white")};
 `

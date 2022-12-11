@@ -36,8 +36,6 @@ const MessageModal = ({ setStep,id } ) => {
     getMessageData();
   }, []);
 
-  console.log(creator)
-  console.log(letter)
 
   return (
     <>

@@ -5,12 +5,13 @@ import {ShortButton} from '../styles/globalStyle'
 
 
 const Error404 = () => {
+
     return (
         <>
         <ContainerE>
             <img src={errorImg} alt='error'/>
             <p className>error!</p>
-            <ButtonE > 뒤로가기 </ButtonE>
+            <ButtonE onClick={()=>{window.history.back(-1)}}> 뒤로가기 </ButtonE>
         </ContainerE>
         </>
     );

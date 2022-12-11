@@ -52,10 +52,10 @@ const ShareModal = (props) => {
 
             <SrButtonWrapper>
               <Icon src={share} alt="#" />
-              <input type="text" value={`${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${window.sessionStorage.invitationCode}`} />
+              <input type="text" value={`http://localhost:3000/visitor/${window.sessionStorage.invitationCode}`} />
               <button
                 type="submit"
-                onClick={() => handleCopyClipBoard(`${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${window.sessionStorage.invitationCode}`)}
+                onClick={() => handleCopyClipBoard(`http://localhost:3000/visitor/${window.sessionStorage.invitationCode}`)}
               >
                 copy
               </button>

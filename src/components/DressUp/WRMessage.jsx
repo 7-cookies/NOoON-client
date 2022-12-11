@@ -73,7 +73,7 @@ const WRMessage = () => {
         )
         .then((response) => {
             console.log(response)
-            navigate("/fix");
+            navigate(`/visitor${sessionStorage.invitationCode}`);
         });
     }
 

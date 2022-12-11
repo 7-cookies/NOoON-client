@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import styled from "styled-components";
-import { useState} from "react";
+import { useState, useEffect } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 
 import { MiddleButton } from "../../styles/globalStyle";
@@ -32,8 +32,10 @@ const GridFix = () => {
   }
 
   const backgroundNum = parseInt(sessionStorage.background)-1
-  console.log(backgroundNum)
-  console.log(sessionStorage.background)
+
+  //브라우저 상에서 뒤로가기 X
+  window.history.pushState(null, null, window.location.href);
+  window.onpopstate = function(event) { window.history.go(1); };
 
   return (
     <StGridWrapper img={BGImg[backgroundNum]}>

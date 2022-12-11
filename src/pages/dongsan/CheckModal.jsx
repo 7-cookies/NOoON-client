@@ -12,21 +12,25 @@ const CheckModal = (props) => {
 
   return (
     <>
-      <ChModalWrapper>
-        <ChModal>
-          <ChHeader>
-            <h1>From. {props.title}</h1>
-          </ChHeader>
-          <p>
-            친구가 남긴 메시지는
-            <br />
-            12월 25일에 확인 가능합니다.
-          </p>
-          <ShortButton button="submit" onClick={deleteModal}>
-            확인
-          </ShortButton>
-        </ChModal>
-      </ChModalWrapper>
+      {visible ? (
+        <ChModalWrapper>
+          <ChModal>
+            <ChHeader>
+              <h1>From. {props.title}</h1>
+            </ChHeader>
+            <p>
+              친구가 남긴 메시지는
+              <br />
+              12월 25일에 확인 가능합니다.
+            </p>
+            <ShortButton button="submit" onClick={deleteModal}>
+              확인
+            </ShortButton>
+          </ChModal>
+        </ChModalWrapper>
+      ) : (
+        <></>
+      )}
     </>
   );
 };

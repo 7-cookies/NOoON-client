@@ -12,3 +12,15 @@ export const modalState = atom({
   key: "mdState",
   default: false,
 });
+
+
+export const outModalState = atom({
+  key: "outModalStateM",
+  default: false,
+})
+
+export const checkmodalState = atom({
+  key: "ckState",
+  default: true,
+});
+

@@ -1,18 +1,26 @@
 import styled from "styled-components";
+import { useRecoilState, useRecoilValue } from "recoil";
+
+import { checkmodalState } from "../../utils/atoms";
 
 import { ShortButton } from "../../styles/globalStyle";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const CheckModal = (props) => {
-  const [visible, setVisible] = useState(true);
+  // const [visible, setVisible] = useState(false);
+  const navigate = useNavigate();
+
+  const [ckmodalClicked, setckmodalClicked] = useRecoilState(checkmodalState);
+  const ckmodal = useRecoilValue(checkmodalState);
 
   function deleteModal() {
-    setVisible(false);
+    setckmodalClicked(!ckmodalClicked);
   }
 
   return (
     <>
-      {visible ? (
+      {ckmodal ? (
         <ChModalWrapper>
           <ChModal>
             <ChHeader>

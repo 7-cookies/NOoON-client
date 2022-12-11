@@ -14,27 +14,12 @@ import { useCookies } from 'react-cookie';
 
 const GridFix = () => {
 
-  const [snowmanData, setSnowmanData] = useState();
+  const [snowmanData, setSnowmanData] = useState([]);
+  const [background, setBackground] = useState(1);
+  const [title, setTitle] = useState();
+
   const invitationCode=window.sessionStorage.getItem("invitationCode");
   const [cookies, setCookie, removeCookie] = useCookies(["accessToken"]);
-
-
-  async function getSnowmanData() {
-      const response = await axios.get(
-          `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${invitationCode}/user`,
-          {
-            headers:{
-              Authorization: `Bearer ${cookies.accessToken}`,
-            }
-          }
-          )
-      setSnowmanData(response.data);
-  }
-
-  useEffect(() => {
-      getSnowmanData();
-  }, []);
-  console.log(snowmanData);
 
   const [visible, setVisible] = useState(false);
   const [touch, setTouch] = useState(false);
@@ -59,20 +44,41 @@ const GridFix = () => {
   }
   console.log(touch);
   
+  async function getSnowmanData() {
+    const response = await axios.get(
+        `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${invitationCode}/user`,
+          {
+            headers:{
+              Authorization: `Bearer ${cookies.accessToken}`,
+            }
+          }
+        )
+        console.log(response.data.data)
+        setSnowmanData(response.data.data.snowmans);
+        setBackground(response.data.data.background);
+        setTitle(response.data.data.name);
+  }
+
+  useEffect(() => {
+      getSnowmanData();
+  }, []);
+
+
+
 
   return (
-    <StGridWrapper>
+    <StGridWrapper url={process.env.REACT_APP_S3_URL+'background/background'+`${background}`+".png"}>
       <StartModal />
       {touch && (
         <StModalWrapper onClick={handleClick}>
           <CheckModal />
         </StModalWrapper>
       )}
-      <h1>눈 펑펑 오는 눈동산</h1>
+      <h1>{title}</h1>
       <div>
         <StGrid>
-          {data.snowman.map(
-            ({ id, head, eye, nose, arm, mouse, accessary, creator }) => (
+          {snowmanData.map(
+            ({ id, head, eye, nose, arm, mouth, accessory, creator }) => (
               <StSnowMan key={id} onClick={openModal}>
                 <SnowManforGrid
                   imgSize={12}
@@ -80,8 +86,8 @@ const GridFix = () => {
                   eye={eye}
                   nose={nose}
                   arm={arm}
-                  mouth={mouse}
-                  item={accessary}
+                  mouth={mouth}
+                  item={accessory}
                 />
 
                 <div>
@@ -106,7 +112,8 @@ const StMiddleButton = styled(MiddleButton)`
 `;
 
 const StGridWrapper = styled.section`
-  background-image: url("image/background1.png");
+  background-image: url(${(props)=>props.url});
+  
   background-size: 430px;
   display: flex;
   justify-content: center;

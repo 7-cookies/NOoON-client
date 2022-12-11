@@ -45,6 +45,7 @@ const GridFix = () => {
           <CheckModal />
         </StModalWrapper>
       )}
+      
       <H1 title={sessionStorage.background}>{sessionStorage.dongsanName}</H1>
       <div>
         <StGrid>

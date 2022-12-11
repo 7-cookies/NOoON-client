@@ -7,7 +7,7 @@ const VisitorStep = () => {
   
     return (
       <>
-        <VisitorStepRenderer step={step} setStep={setStep} />
+        <VisitorStepRenderer step={step} setStep={setStep}/>
       </>
 
     );

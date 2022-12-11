@@ -12,7 +12,7 @@ const VisitorStepRenderer = ({ step, setStep }) => {
         case 'VISITOR-DRESSUP':
             return <DressUp setStep={setStep} />;
         default:
-            return <DressUp setStep={setStep} />;
+            return <VisitorDongsan setStep={setStep} />;
         }
 };
 

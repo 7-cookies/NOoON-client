@@ -1,7 +1,7 @@
 import React, { useEffect, useState }  from 'react'
 import axios from "axios";
 import Loading from '../components/common/Loading.jsx'
-import StaticGrid from "../pages/dongsan/StaticGrid";
+import GridFix from '../pages/dongsan/GridFix.jsx';
 
 const DongsanAxios = () => {
     const [loading, setLoading] = useState(false);
@@ -23,7 +23,7 @@ const DongsanAxios = () => {
     }
 
     return (
-        <StaticGrid />
+        <GridFix />
     )
 } 
 

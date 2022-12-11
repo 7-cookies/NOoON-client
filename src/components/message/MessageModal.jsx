@@ -9,31 +9,35 @@ import { useCookies } from "react-cookie";
 
 
 const MessageModal = ({ setStep,id } ) => {
-  const [messageData, setMessageData]=useState();
+  const [creator, setCreator]=useState();
+  const [letter, setLetter]=useState();
+
   const nagivate = useNavigate();
   // const handleXClick = () => {
   //   nagivate(-1);
   // };
 
   const [cookies, setCookie, removeCookie] = useCookies(["accessToken"]);
-  const invitationCode = window.sessionStorage.getItem("invitationCode");
+  // const invitationCode = window.sessionStorage.getItem("invitationCode");
 
   async function getMessageData() {
     const response = await axios.get(
-        `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/snowman/${invitationCode}`,{
+        `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/snowman/${id}`,{
           headers:{
             Authorization: `Bearer ${cookies.accessToken}`,
           }
         })
         console.log(response.data)
-        setMessageData(response.data.data.snowmans);
-        
+        setCreator(response.data.data.creator);
+        setLetter(response.data.data.letter);
   }
 
   useEffect(() => {
     getMessageData();
   }, []);
 
+  console.log(creator)
+  console.log(letter)
 
   return (
     <>
@@ -44,11 +48,11 @@ const MessageModal = ({ setStep,id } ) => {
             <StContentWrapper>
               <StTitle>
                 <div>
-                  <p>From. {test.snowman[id-1].creator}</p>
+                  <p>From. {creator}</p>
                   {/* <StXButton src={xButton} alt="#" onClick={handleXClick} /> */}
                 </div>
               </StTitle>
-              <div>{test.snowman[id-1].letter}</div>
+              <div>{letter}</div>
             </StContentWrapper>
           </StModal>
         </StModalWrapper>

@@ -22,6 +22,7 @@ const GridFix = () => {
   // const navigate=useNavigate();
   const [snowmanData, setSnowmanData] = useState([]);
   const [id, setId]=useState();
+  const [creator, setCreator]=useState();
   const [background, setBackground] = useState(1);
   const [title, setTitle] = useState();
 
@@ -39,9 +40,10 @@ const GridFix = () => {
     setmodalClicked(!modalClicked);
   }
 
-  function openModal(id) {
+  function openModal(id,creator) {
     setTouch(true);
     setId(id);
+    setCreator(creator);
   }
 
   function handleClick(id) {
@@ -104,9 +106,9 @@ const GridFix = () => {
 
       {touch && (
         <StModalWrapper>
-          {/* <CheckModal /> */}
-          <MessageModal id={id} />
-          <StXButton src={xButton} alt="#" onClick={handleXClick} />
+          <CheckModal title={creator}/>
+          {/* <MessageModal id={id} />
+          <StXButton src={xButton} alt="#" onClick={handleXClick} /> */}
         </StModalWrapper>
       )}
 
@@ -116,7 +118,7 @@ const GridFix = () => {
         <StGrid>
           {snowmanData.map(
             ({ id, head, eye, nose, arm, mouth, accessory, creator }) => (
-              <StSnowMan key={id} onClick={()=>openModal(id)}>
+              <StSnowMan key={id} onClick={()=>openModal(id, creator)}>
                 <SnowManforGrid
                   imgSize={12}
                   head={head}

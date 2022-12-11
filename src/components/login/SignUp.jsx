@@ -6,6 +6,8 @@ import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import { useCookies, withCookies } from 'react-cookie'; 
 import { dupCheckAPI } from './dupCheckAPI';
+import block from '../../asset/icon/Group 142.png'
+import visible from '../../asset/icon/Vector.png'
 
 const SignUp = () => {
     const [username, setUsername] = useState()
@@ -19,8 +21,11 @@ const SignUp = () => {
     const [passwordError, setPasswordError] = useState(false)
     const [cookies, setCookie, removeCookie] = useCookies(["accessToken"]);
     const [usableId, setUsableId] = useState(false);
-    const [alertIdMS, setAlertIdMS] = useState('* 아이디를 입력해주세요')
+    const [alertIdMS, setAlertIdMS] = useState('* 영문, 숫자, 특수기호를 사용하여 입력해주세요')
     const [alertPwMS, setAlertPwMS] = useState('')
+    const [PWState, setPWState] = useState(true);
+    const [PWImg, setPWImg] = useState(block);
+    const [PWType, setPWType] = useState('password');
 
     const onChangePW = (e) =>{
       console.log(e.target.value.length)
@@ -29,10 +34,13 @@ const SignUp = () => {
       else {setAlertPwMS('')}
     }
 
-    const onChangeID = (e) =>{
-      const idLen = e.target.value.length;
-      if(idLen==0){setAlertIdMS('* 아이디를 입력해주세요')}
-      else {setAlertIdMS('')}
+    const passwordCheck = () => {
+      setPWState(!PWState);
+      (PWState ? setPWImg(block) : setPWImg(visible))
+      (PWState ? setPWType('password') : setPWType('text'))
+
+      console.log(PWImg)
+
     }
 
   
@@ -67,12 +75,16 @@ const SignUp = () => {
         <Header title="회원가입" url="/"/>
             <StInputWrapper>
                 <div className='username'><p>ID</p> <p className='error'>{alertIdMS}</p></div>
-                <StLoginInpt placeholder="아이디를 입력해주세요" ref={userNameRef} onChange={onChangeID} />
+                <StLoginInpt placeholder="아이디를 입력해주세요" ref={userNameRef} />
             </StInputWrapper>
                         
             <StInputWrapper>
                 <div className='password'><p>PASSWORD</p><p className='error' >{alertPwMS}</p></div>
-                <StLoginInpt type="password" placeholder="숫자 4자리를 입력해주세요" ref={userPasswordRef} maxLength='4' onChange={onChangePW} />
+                <div className='passwordWrapper'>
+                  <StLoginInpt type={PWType} placeholder="숫자 4자리를 입력해주세요" ref={userPasswordRef} maxLength='4' onChange={onChangePW} />
+                  <img src={PWImg} alt={'비밀번호표시'} onClick={passwordCheck}/>
+                </div>
+                
             </StInputWrapper>
 
             <ShortButton button="button" className="check" onClick={handleSubmit}>확인</ShortButton>
@@ -105,6 +117,22 @@ const StInputWrapper=styled.div`
         margin-top: 3.0813rem;
     }
 
+    & > div.passwordWrapper{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+
+      & > img {
+        width: 1.125em;
+        height: 0.75rem;
+        position: relative;
+
+        left: -3rem;
+      }
+      
+    }
+
 
     & > div> p{
         margin-left: 2.7888rem;
@@ -116,6 +144,8 @@ const StInputWrapper=styled.div`
       margin-left: 1.2888rem;
       ${({ theme }) => theme.fonts.kotrahopeError};
     } 
+
+    
 `
 
 const ButtonWrapper = styled.section`

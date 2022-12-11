@@ -55,7 +55,7 @@ const WRMessage = () => {
 
     const handleSubmit =()=>{
         axios.post(
-            `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${invitationCode}/snowman`,
+            `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/snowman/${invitationCode}`,
             {
                 "head": parseInt(head[0].Head),
                 "accessory": parseInt(item[0].Item),

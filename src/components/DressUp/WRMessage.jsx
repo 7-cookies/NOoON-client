@@ -227,13 +227,10 @@ justify-content: center;
 align-items: center;
 width: 23.875rem;
 height: 15.1875rem;
+margin-bottom: 7rem;
 
 background-color: #FFFFFF;
-position: fixed;
-/* margin-bottom: 10rem; */
 border-radius: 1.0625rem;
-/* margin-top:344px; */
-
 box-shadow: 0.3vw 0.3vw 0.6vw rgba(0, 0, 0, 0.3);
 `
 

@@ -22,6 +22,7 @@ import {
   accImg,
 } from "../../utils/imgData.jsx";
 
+
 const SnowManforGrid = (props) => {
   return (
     <StImgContainer>

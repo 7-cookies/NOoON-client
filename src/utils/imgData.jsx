@@ -5,6 +5,7 @@ import mouthI from '../asset/icon/menuIcon/mouthIcon.png'
 import noseI from '../asset/icon/menuIcon/noseIcon.png'
 import accI from '../asset/icon/menuIcon/accIcon.png'
 
+
 export const menuData = [
     {categoryName : 'head', url : headI},
     {categoryName : 'eye', url : eyeI},
@@ -119,3 +120,19 @@ export const accImg = [
     {palette : accPal+'9.png', putOn:acc+'9.png', val:'acc9'},
     {palette : accPal+'10.png', putOn:acc+'10.png', val:'acc10'},
     ]
+
+const backgroundUrl=process.env.REACT_APP_S3_URL+'background/background';
+export const backgroundImg=[
+    {id:none, img:none},
+    {id:1, img:backgroundUrl+'1.png'},
+    {id:2, img:backgroundUrl+'2.png'},
+    {id:3, img:backgroundUrl+'3.png'},
+    {id:4, img:backgroundUrl+'4.png'},
+]
+// export const backgroundImg=[
+//     none,
+//     backgroundUrl+'1.png',
+//     backgroundUrl+'2.png',
+//     backgroundUrl+'3.png',
+//     backgroundUrl+'4.png',
+// ]

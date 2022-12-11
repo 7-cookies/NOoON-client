@@ -21,9 +21,9 @@ const SignUp = () => {
     const [passwordError, setPasswordError] = useState(false)
     const [cookies, setCookie, removeCookie] = useCookies(["accessToken"]);
     const [usableId, setUsableId] = useState(false);
-    const [alertIdMS, setAlertIdMS] = useState('* 영문, 숫자, 특수기호를 사용하여 입력해주세요')
+    const [alertIdMS, setAlertIdMS] = useState('* 영문, 숫자, 특수기호를 사용할 수 있어요')
     const [alertPwMS, setAlertPwMS] = useState('')
-    const [PWState, setPWState] = useState(true);
+    const [PWState, setPWState] = useState(false);
     const [PWImg, setPWImg] = useState(block);
     const [PWType, setPWType] = useState('password');
 

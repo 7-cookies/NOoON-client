@@ -79,8 +79,10 @@ const WRMessage = () => {
             console.log("tjdrhdtjdrhtjdthdjfj");
             // navigate(`/${sessionStorage.invitationCode}`);
         });
+        setSaveFirst(false);
+        setSaveComp(!saveComp)
 
-        setSaveComp(true);
+        // setSaveComp(true);
     }
 
 

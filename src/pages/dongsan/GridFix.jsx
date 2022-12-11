@@ -184,7 +184,7 @@ const H1 = styled.h1`
   padding: 84.5px 0px 0px 242px;
 
   ${({ theme }) => theme.fonts.kotrahopeTitle}
-  color: ${(props) => (props.title === "4" || "2" ? "#877C73" : "white")};
+  color: ${(props) => (props.background === 4 || 2 ? "#877C73" : "white")};
 `;
 
 // const SnowManforGrid = styled.img`

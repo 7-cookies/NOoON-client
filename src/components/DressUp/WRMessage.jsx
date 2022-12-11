@@ -4,12 +4,14 @@ import { Input, ShortButton, Container} from "../../styles/globalStyle";
 import {useRecoilState} from 'recoil'
 import axios from 'axios'
 import {baseEyes, baseArms, baseHead, baseNose, baseItem, baseMouth} from '../../utils/dressRecoil'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 
 
 const WRMessage = () => {
     const navigate=useNavigate();
+
+    let {invitationCode}=useParams();
     const createrRef=useRef(null)
     const messageRef=useRef(null)
     const [messageContents, setMessageContents] = useState({letter:'', creater:''});
@@ -21,10 +23,10 @@ const WRMessage = () => {
     const isCompSaved = () =>{
         setSaveComp(!saveComp)
         setSaveFirst(false);
-
+        window.location.replace("/"+`${invitationCode}`);
     }
 
-    const [invitationCode, setInvitationCode] = useState('')
+    const [invitationCode2, setInvitationCode2] = useState('')
     const [eye, setEyes] = useRecoilState(baseEyes);
     const [nose, setNose] = useRecoilState(baseNose);
     const [arm, setArms] = useRecoilState(baseArms);
@@ -36,19 +38,19 @@ const WRMessage = () => {
 
     const saveMessage=()=>{
         setMessageContents((prev)=>({...prev, letter:messageRef.current.value, creater: createrRef.current.value}));
-        setInvitationCode(sessionStorage.invitationCode);
+        setInvitationCode2(sessionStorage.invitationCode);
     }
 
-    console.log({
-        "head": parseInt(head[0].Head),
-        "accessary": parseInt(item[0].Item),
-        "eye": parseInt(eye[0].Eye),
-        "nose": parseInt(nose[0].Nose),
-        "mouse": parseInt(mouth[0].Mouth),
-        "arm": parseInt(arm[0].Arm),
-        "letter" : `${messageContents.letter}`,
-        "creator": `${messageContents.creater}`
-    },)
+    // console.log({
+    //     "head": parseInt(head[0].Head),
+    //     "accessary": parseInt(item[0].Item),
+    //     "eye": parseInt(eye[0].Eye),
+    //     "nose": parseInt(nose[0].Nose),
+    //     "mouse": parseInt(mouth[0].Mouth),
+    //     "arm": parseInt(arm[0].Arm),
+    //     "letter" : `${messageContents.letter}`,
+    //     "creator": `${messageContents.creater}`
+    // },)
 
 
     const handleSubmit =()=>{
@@ -56,25 +58,29 @@ const WRMessage = () => {
             `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${invitationCode}/snowman`,
             {
                 "head": parseInt(head[0].Head),
-                "accessary": parseInt(item[0].Item),
+                "accessory": parseInt(item[0].Item),
                 "eye": parseInt(eye[0].Eye),
                 "nose": parseInt(nose[0].Nose),
-                "mouse": parseInt(mouth[0].Mouth),
+                "mouth": parseInt(mouth[0].Mouth),
                 "arm": parseInt(arm[0].Arm),
                 "letter" : `${messageContents.letter}`,
                 "creator": `${messageContents.creater}`
-            },
-            {
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${cookies.accessToken}`,
-                },
             }
+            // ,
+            // {
+            //     headers: {
+            //         "Content-Type": "application/json",
+            //         Authorization: `Bearer ${cookies.accessToken}`,
+            //     },
+            // }
         )
         .then((response) => {
             console.log(response)
-            navigate(`/visitor${sessionStorage.invitationCode}`);
+            console.log("tjdrhdtjdrhtjdthdjfj");
+            // navigate(`/${sessionStorage.invitationCode}`);
         });
+
+        setSaveComp(true);
     }
 
 
@@ -210,6 +216,8 @@ display: flex;
 justify-content: center;
 align-items: center;
 
+width: 430px;
+height: 932px;
 `
 
 const ModalCon = styled.section`
@@ -222,8 +230,9 @@ height: 15.1875rem;
 
 background-color: #FFFFFF;
 position: fixed;
-margin-bottom: 10rem;
+/* margin-bottom: 10rem; */
 border-radius: 1.0625rem;
+/* margin-top:344px; */
 
 box-shadow: 0.3vw 0.3vw 0.6vw rgba(0, 0, 0, 0.3);
 `

@@ -55,7 +55,7 @@ const ShareModal = (props) => {
               <input type="text" value={`http://localhost:3000/visitor/${window.sessionStorage.invitationCode}`} />
               <button
                 type="submit"
-                onClick={() => handleCopyClipBoard(`http://localhost:3000/visitor/${window.sessionStorage.invitationCode}`)}
+                onClick={() => handleCopyClipBoard(`http://localhost:3000/${window.sessionStorage.invitationCode}`)}
               >
                 copy
               </button>

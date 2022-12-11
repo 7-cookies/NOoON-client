@@ -78,7 +78,8 @@ const GridFix = () => {
   window.onpopstate = function(event) { window.history.go(1); };
 
   return (
-    <StGridWrapper img={BGImg[backgroundNum]}>
+    // <StGridWrapper img={BGImg[backgroundNum]}>
+    <StGridWrapper url={process.env.REACT_APP_S3_URL+'background/background'+`${background}`+".png"}>
 
       <StartModal />
       {touch && (
@@ -129,11 +130,11 @@ const StMiddleButton = styled(MiddleButton)`
 
 const StGridWrapper = styled.section`
 
-  /*background-image: url(${(props)=>props.url});*/
+  background-image: url(${(props)=>props.url});
   
 
   /* background-image: url(image/background1.png); */
-  background-image: url(${(props)=>props.img});
+  /* background-image: url(${(props)=>props.img}); */
 
   background-size: 430px;
   display: flex;

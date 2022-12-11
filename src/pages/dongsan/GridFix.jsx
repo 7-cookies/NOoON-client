@@ -55,7 +55,7 @@ const GridFix = () => {
   // ${invitationCode}
   async function getSnowmanData() {
     const response = await axios.get(
-      `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/hnvvc6/user`,
+      `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${invitationCode}/user`,
       {
         headers: {
           Authorization: `Bearer ${cookies.accessToken}`,

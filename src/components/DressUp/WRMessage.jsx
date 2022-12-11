@@ -45,7 +45,7 @@ const WRMessage = () => {
         "eye": parseInt(eye[0].Eye),
         "nose": parseInt(nose[0].Nose),
         "mouse": parseInt(mouth[0].Mouth),
-        "arm": parseInt(arm[0].Eye),
+        "arm": parseInt(arm[0].Arm),
         "letter" : `${messageContents.letter}`,
         "creator": `${messageContents.creater}`
     },)
@@ -60,7 +60,7 @@ const WRMessage = () => {
                 "eye": parseInt(eye[0].Eye),
                 "nose": parseInt(nose[0].Nose),
                 "mouse": parseInt(mouth[0].Mouth),
-                "arm": parseInt(arm[0].Eye),
+                "arm": parseInt(arm[0].Arm),
                 "letter" : `${messageContents.letter}`,
                 "creator": `${messageContents.creater}`
             },
@@ -72,7 +72,8 @@ const WRMessage = () => {
             }
         )
         .then((response) => {
-            navigate("/fix");
+            console.log(response)
+            navigate(`/visitor${sessionStorage.invitationCode}`);
         });
     }
 

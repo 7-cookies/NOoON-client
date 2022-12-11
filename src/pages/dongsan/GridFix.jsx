@@ -68,8 +68,8 @@ const GridFix = () => {
 
 
 
-  return (
-    <StGridWrapper url={process.env.REACT_APP_S3_URL+'background/background'+`${background}`+".png"}>
+  // return (
+  //   <StGridWrapper url={process.env.REACT_APP_S3_URL+'background/background'+`${background}`+".png"}>
 
   const backgroundNum = parseInt(sessionStorage.background)-1
 

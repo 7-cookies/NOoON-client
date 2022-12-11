@@ -47,7 +47,6 @@ const DongSanSelect = () => {
           .then((response) => {
             sessionStorage.setItem("invitationCode", response.data.data.invitationCode);
 
-
             sessionStorage.setItem("dongsanName", response.data.data.name);
             sessionStorage.setItem("background", parseInt(response.data.data.background));
             //가져올 때에는 window.sessionStorage.getItem으로 가져옴.

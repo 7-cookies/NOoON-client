@@ -1,10 +1,14 @@
 import styled from "styled-components";
 
 import { ShortButton } from "../../styles/globalStyle";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const CheckModal = (props) => {
-  const navigate = useNavigate();
+  const [visible, setVisible] = useState(true);
+
+  function deleteModal() {
+    setVisible(false);
+  }
 
   return (
     <>
@@ -18,7 +22,9 @@ const CheckModal = (props) => {
             <br />
             12월 25일에 확인 가능합니다.
           </p>
-          <ShortButton>확인</ShortButton>
+          <ShortButton button="submit" onClick={deleteModal}>
+            확인
+          </ShortButton>
         </ChModal>
       </ChModalWrapper>
     </>

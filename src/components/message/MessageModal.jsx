@@ -5,13 +5,15 @@ import { useNavigate } from "react-router-dom";
 
 import test from "../../mocks/test.json";
 
-const MessageModal = ({ setStep }, id) => {
+const MessageModal = ({ setStep,id } ) => {
   const nagivate = useNavigate();
   const handleXClick = () => {
     nagivate(-1);
   };
 
-  console.log("안녕" + id);
+
+  console.log(id);
+
   return (
     <>
       <StModalBackgroundWrapper>
@@ -21,11 +23,11 @@ const MessageModal = ({ setStep }, id) => {
             <StContentWrapper>
               <StTitle>
                 <div>
-                  <p>From. {test.snowman[{ id }].creator}</p>
-                  <StXButton src={xButton} alt="#" onClick={handleXClick} />
+                  <p>From. {test.snowman[id].creator}</p>
+                  {/* <StXButton src={xButton} alt="#" onClick={handleXClick} /> */}
                 </div>
               </StTitle>
-              <div>{test.snowman[{ id }].letter}</div>
+              <div>{test.snowman[id].letter}</div>
             </StContentWrapper>
           </StModal>
         </StModalWrapper>
@@ -55,9 +57,6 @@ const StContentWrapper = styled.div`
     color: white;
   }
 `;
-const StXButton = styled.img`
-  margin: 0 0 0 10px;
-`;
 const StTitle = styled.div`
   display: flex;
   justify-content: center;
@@ -78,7 +77,7 @@ const StTitle = styled.div`
 `;
 const StModalBackgroundWrapper = styled.section`
   position: absolute;
-  z-index: 2;
+  z-index: 10;
 `;
 const StModalWrapper = styled.section`
   display: flex;

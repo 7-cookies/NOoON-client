@@ -41,18 +41,6 @@ const WRMessage = () => {
         setInvitationCode2(sessionStorage.invitationCode);
     }
 
-    // console.log({
-    //     "head": parseInt(head[0].Head),
-    //     "accessary": parseInt(item[0].Item),
-    //     "eye": parseInt(eye[0].Eye),
-    //     "nose": parseInt(nose[0].Nose),
-    //     "mouse": parseInt(mouth[0].Mouth),
-    //     "arm": parseInt(arm[0].Arm),
-    //     "letter" : `${messageContents.letter}`,
-    //     "creator": `${messageContents.creater}`
-    // },)
-
-
     const handleSubmit =()=>{
         axios.post(
             `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/snowman/${invitationCode}`,
@@ -156,8 +144,8 @@ margin: 1rem 0;
 `
 const WriterCon = styled.section`
 & > div> p{
-        margin-left: 44.62px;
-        margin-bottom:16.5px;
+        margin: 0 2.7888rem;
+        margin-bottom:1.0313rem;
         ${({ theme }) => theme.fonts.kotrahopeCommon}
     }
 margin-bottom: 2.75rem;
@@ -167,7 +155,7 @@ const WRName = styled(Input)`
 align-items: flex-start;
 text-align: left;
 
-margin-left: 24px;
+margin: 0 1.5rem;
 padding-left:20.5px;
 
 ::placeholder{
@@ -178,7 +166,7 @@ padding-left:20.5px;
 
 const ContentsCon = styled.section`
 & > div> p{
-        margin-left: 44.62px;
+        margin: 0 2.7888rem;
         margin-bottom:16.5px;
         ${({ theme }) => theme.fonts.kotrahopeCommon}
     }
@@ -199,7 +187,7 @@ ${({ theme }) => theme.fonts.kotrahopeText}
 
 align-items: flex-start;
 text-align: left;
-margin-left: 24px;
+margin: 0 1.5rem;
 padding-left:20.5px;
 overflow: hidden;
 margin-bottom: 2.6875rem;

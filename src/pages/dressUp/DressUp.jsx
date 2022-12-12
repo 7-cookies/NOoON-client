@@ -82,6 +82,9 @@ z-index: 1;
 
 
 const ContainerE = styled.section`
-  position: absolute;
+    position: absolute;
+    border: solid black;
+    display: flex;
+    flex-direction: column;
 `;
 

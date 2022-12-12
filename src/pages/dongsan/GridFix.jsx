@@ -254,17 +254,10 @@ const H1 = styled.h1`
   color: ${(props) => (props.background === "4" || "2" ? "#877C73" : "white")};
 `;
 
-// const SnowManforGrid = styled.img`
-//   width: 192px;
-// `;
-
 const StGrid = styled.div`
-  /* width: 400px; */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   transform: rotate(-90deg);
-  /* flex-direction: column; */
-  /* border: 1px solid black; */
   width: 700px;
   height: 430px;
 
@@ -272,17 +265,13 @@ const StGrid = styled.div`
 
   position: absolute;
   z-index: 2;
-  /* overflow: hidden; */
-  /* overflow:scroll; */
-  /* overflow-y: auto; */
 `;
 const StSnowMan = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* width: 200px;
-    height:  200px; */
   transform: rotate(90deg);
+
   & > div {
     display: flex;
     justify-content: center;
@@ -321,7 +310,6 @@ const ButtonWrapper = styled.section`
     position: relative;
     left: 2.5rem;
 
-    
   }
 `
 
@@ -339,6 +327,7 @@ const StModal=styled.div`
     border-radius: 0.9375rem;
 
     background-color: white;
+    box-shadow: 0px 4px 4px rgba(130, 130, 130, 0.25);
 
     & > p {
         margin-top: 1.115rem;
@@ -350,7 +339,7 @@ const StButtonWrapper=styled.footer`
     justify-content: space-between;
     
     width:18.625rem;
-    margin-top: 3.8931rem;
+    margin-top: 2.5rem;
 `
 
 const SrModalWrapper = styled.section`

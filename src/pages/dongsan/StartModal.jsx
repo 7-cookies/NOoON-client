@@ -65,7 +65,7 @@ const StModal = styled.div`
 
   background-color: white;
 
-  box-shadow: 0.3vw 0.3vw 0.6vw rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 4px 4px rgba(130, 130, 130, 0.25);
 
   & > p {
     margin-top: 17.84px;

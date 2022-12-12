@@ -67,8 +67,7 @@ const StMainWrapper = styled.section`
     }
 `
 const ContainerE = styled(Container)`
-border: solid black;
-height:55em ;
+height: 55em;
 
 display: flex;
 justify-content: center;

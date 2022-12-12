@@ -66,8 +66,8 @@ export const noseImg = [
     {palette : nosePal+'6.png', putOn:nose+'6.png', val:'nose6'},
     {palette : nosePal+'7.png', putOn:nose+'7.png', val:'nose7'},
     {palette : nosePal+'8.png', putOn:nose+'8.png', val:'nose8'},
-    {palette : nosePal+'9.png', putOn:nose+'9.png', val:'nose9'},
-    {palette : nosePal+'10.png', putOn:nose+'10.png', val:'nose10'},
+    {palette : nosePal+'9.png', putOn:nose+'10.png', val:'nose9'},
+    {palette : nosePal+'10.png', putOn:nose+'9.png', val:'nose10'},
     ]
     
 //팔

@@ -21,7 +21,7 @@ const DongsanName = ({ setStep }) => {
             <StDongsanName>
                 <div>
                     <p>동산 이름을 지어주세요 ☃️</p>
-                    <StNameInput placeholder="ex) 눈 펑펑 오는 눈동산 (최대 20자)" ref={nameRef} />
+                    <StNameInput placeholder="ex) 눈 펑펑 오는 눈동산 (최대 20자)" ref={nameRef} maxLength='20'/>
                 </div> 
                 <StButtonWrapper>
                     <ShortButton button="button" className="check" onClick={handleNextClick}>확인</ShortButton>

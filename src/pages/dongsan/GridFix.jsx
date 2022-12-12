@@ -22,6 +22,7 @@ import logoutImg from '../../asset/icon/logout.png'
 import xButton from "../../asset/icon/Group 130.svg";
 
 const GridFix = () => {
+  
   // const navigate=useNavigate();
   const {state}=useLocation();
   const [snowmanData, setSnowmanData] = useState([]);

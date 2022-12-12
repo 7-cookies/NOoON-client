@@ -58,5 +58,6 @@
   "devDependencies": {
     "concurrently": "^7.6.0",
     "nodemon": "^2.0.20"
-  }
+  },
+  "hompage":"http://nooon-bucket.s3-website.ap-northeast-2.amazonaws.com/"
 }

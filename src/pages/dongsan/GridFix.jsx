@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import { useRecoilState, useRecoilValue } from "recoil";
 
@@ -23,6 +23,7 @@ import xButton from "../../asset/icon/Group 130.svg";
 
 const GridFix = () => {
   // const navigate=useNavigate();
+  const {state}=useLocation();
   const [snowmanData, setSnowmanData] = useState([]);
   const [id, setId] = useState();
   const [creator, setCreator] = useState();
@@ -63,18 +64,35 @@ const GridFix = () => {
 
   // ${invitationCode}
   async function getSnowmanData() {
-    const response = await axios.get(
-      `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${invitationCode}/user`,
-      {
-        headers: {
-          Authorization: `Bearer ${cookies.accessToken}`,
-        },
+    try{
+      const response = await axios.get(
+        `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${invitationCode}/user`,
+        {
+          headers: {
+            Authorization: `Bearer ${cookies.accessToken}`,
+          },
+        }
+      );
+      console.log(response.data.data);
+      setSnowmanData(response.data.data.snowmans);
+      setBackground(response.data.data.background);
+      setTitle(response.data.data.name);  
+    }catch(error){
+      if(error.response && error.response.status === 400){
+        const response = await axios.get(
+          `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${state.invitationCode}/user`,
+          {
+            headers: {
+              Authorization: `Bearer ${state.accessToken}`,
+            },
+          }
+        );  
+        console.log(response.data.data);
+        setSnowmanData(response.data.data.snowmans);
+        setBackground(response.data.data.background);
+        setTitle(response.data.data.name);    
       }
-    );
-    console.log(response.data.data);
-    setSnowmanData(response.data.data.snowmans);
-    setBackground(response.data.data.background);
-    setTitle(response.data.data.name);
+    }
   }
 
   useEffect(() => {

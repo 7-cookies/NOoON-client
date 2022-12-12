@@ -30,20 +30,21 @@ const Login = () => {
             {
               username: userNameRef.current.value,
               password: userPasswordRef.current.value,
-            },
-
-            {
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${cookies.accessToken}`,
-                
-              },
-              // "Content-Type": "application/json",
             }
+            // ,
+
+            // {
+            //   headers: {
+            //     "Content-Type": "application/json",
+            //     Authorization: `Bearer ${cookies.accessToken}`,
+                
+            //   },
+              // "Content-Type": "application/json",
+            // }
           )
           .then((response) => {
             console.log(response.data);
-            (response.data.data.hasPlace) ? navigate("/mydongsan") : navigate('/makedongsan');
+            (response.data.data.hasPlace) ? navigate("/mydongsan", {state:{accessToken:response.data.data.accessToken,invitationCode:response.data.data.hasPlace}}) : navigate('/makedongsan');
 
           })
           .catch(error=>{

@@ -70,7 +70,7 @@ const Login = () => {
                 <div className='error errorsection'><p>{alertMS1}</p></div>
                 <div className='error'><p>{alertMS2}</p></div>
             </StInputWrapper>
-            <ShortButtonE button="button" className="check" onClick={handleSubmit}>확인</ShortButtonE>
+            <ShortButton button="button" className="check" onClick={handleSubmit}>확인</ShortButton>
 
         </StLoginWrapper>
     );
@@ -80,7 +80,7 @@ export default Login;
 
 const StLoginWrapper = styled.section`
     & > .check{
-        margin: 223px 145px 102px 145px;
+        margin: 170px 145px 102px 145px;
     
     & .username {
         margin-top:207.97px;
@@ -130,9 +130,4 @@ const StLoginInpt=styled(Input)`
     text-align: left;
     margin-left:24px;
     padding-left: 20.93px;
-`
-
-const ShortButtonE= styled(ShortButton)`
-  position: fixed;
-  top: 38rem;
 `

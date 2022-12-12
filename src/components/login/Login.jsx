@@ -44,7 +44,7 @@ const Login = () => {
           )
           .then((response) => {
             console.log(response.data);
-            (response.data.data.hasPlace) ? navigate("/mydongsan", {state:{accessToken:response.data.data.accessToken,invitationCode:response.data.data.hasPlace}}) : navigate('/makedongsan');
+            (response.data.data.hasPlace)==="NO_PLACE" ? navigate('/makedongsan') : navigate("/mydongsan", {state:{accessToken:response.data.data.accessToken,invitationCode:response.data.data.hasPlace}});
 
           })
           .catch(error=>{

@@ -80,14 +80,14 @@ export default Login;
 
 const StLoginWrapper = styled.section`
     & > .check{
-        margin: 170px 145px 102px 145px;
+        margin: 10.625rem 9.0625rem 16.37rem 9.0625rem;
     
     & .username {
-        margin-top:207.97px;
+        margin-top:12.9981rem;
     }
 
     & .passowrd {
-        margin-top:49.3px;
+        margin-top:3.0813rem;
     }
 
 }
@@ -100,11 +100,11 @@ const StInputWrapper=styled.div`
     }
 
     & div.username {
-        margin-top:207.97px;
+        margin-top:12.9981rem;
     }
 
     & div.password {
-        margin-top:49.3px;
+        margin-top:3.0813rem;
     }
 
     & div.error {
@@ -114,20 +114,20 @@ const StInputWrapper=styled.div`
     }
 
     & div.errorsection {
-        margin-top: 18px;
-        margin-bottom: -18px;
+        margin-top: 1.125rem;
+        margin-bottom: -1.125px;
     }
 
 
     & > div> p{
-        margin-left: 44.62px;
-        margin-bottom:16.5px;
+        margin-left: 2.7888rem;
+        margin-bottom: 1.0313rem;
         ${({ theme }) => theme.fonts.kotrahopeCommon}
     }
 `
 const StLoginInpt=styled(Input)`
     align-items: flex-start;
     text-align: left;
-    margin-left:24px;
-    padding-left: 20.93px;
+    margin-left:1.5rem;
+    padding-left: 1.3081rem;
 `

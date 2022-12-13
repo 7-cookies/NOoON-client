@@ -7,11 +7,10 @@ import { useRecoilState, useRecoilValue } from "recoil";
 
 import { MiddleButton } from "../../styles/globalStyle";
 import SnowManforGrid from "../../components/dongsan/SnowManforGrid";
-import data from "../../mocks/test.json";
 import StartModal from "./StartModal";
 import ShareModal from "../dongsan/ShareModal";
 import CheckModal from "../dongsan/CheckModal";
-import { modalState, outModalState } from "../../utils/atoms";
+import { modalState } from "../../utils/atoms";
 import { checkmodalState } from "../../utils/atoms";
 import { useCookies } from "react-cookie";
 import MessageModal from "../../components/message/MessageModal";
@@ -44,6 +43,8 @@ const GridFix = () => {
   const [ckmodalClicked, setckmodalClicked] = useRecoilState(checkmodalState);
   const ckmodal = useRecoilValue(checkmodalState);
 
+  const [IC, setIC] = useState('')
+
   function popupModal() {
     setmodalClicked(!modalClicked);
     console.log(modal)
@@ -61,8 +62,6 @@ const GridFix = () => {
     console.log(id);
   }
 
-  // console.log(touch);
-
   // ${invitationCode}
   async function getSnowmanData() {
     try{
@@ -78,6 +77,7 @@ const GridFix = () => {
       setSnowmanData(response.data.data.snowmans);
       setBackground(response.data.data.background);
       setTitle(response.data.data.name);  
+      setIC(response.data.data.invitationCode)
     }catch(error){
       if(error.response && error.response.status === 400){
         const response = await axios.get(
@@ -91,7 +91,8 @@ const GridFix = () => {
         console.log(response.data.data);
         setSnowmanData(response.data.data.snowmans);
         setBackground(response.data.data.background);
-        setTitle(response.data.data.name);    
+        setTitle(response.data.data.name);  
+        setIC(response.data.data.invitationCode)  
       }
     }
   }
@@ -116,10 +117,6 @@ const GridFix = () => {
       window.location.href = '/';	
 
     }
-
-
-  // return (
-  //   <StGridWrapper url={process.env.REACT_APP_S3_URL+'background/background'+`${background}`+".png"}>
 
   const backgroundNum = parseInt(sessionStorage.background) - 1;
 
@@ -201,7 +198,7 @@ const GridFix = () => {
     </>
     }
 
-      {modal && <ShareModal />}
+      {modal && <ShareModal invitation={IC}/>}
       
       
     </StGridWrapper>

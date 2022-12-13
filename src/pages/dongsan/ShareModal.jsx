@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState, useRecoilValue } from "recoil";
+import {axios} from 'axios'
+import { useCookies } from "react-cookie";
 import { KakaoShare } from "../../utils/kakaoShare";
 
 import close from "../../asset/icon/close.svg";
@@ -14,9 +16,6 @@ const ShareModal = (props) => {
 
   const [modalClicked, setmodalClicked] = useRecoilState(modalState);
   const modal = useRecoilValue(modalState);
-
-  // const invitationCode = window.sessionStorage.invitationCode;
-  // const invitationURL = `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${window.sessionStorage.invitationCode}`
 
   function deleteModal() {
     setmodalClicked(!modalClicked);
@@ -31,7 +30,10 @@ const ShareModal = (props) => {
     }
   };
 
-  const [IC, setIC] = useState(window.sessionStorage.invitationCode);
+  const [cookies, setCookie, removeCookie] = useCookies(["accessToken"]);
+  // const [IC, setIC] = useState(window.sessionStorage.invitationCode);
+  const invitationCode = props.invitation;
+  
 
   return (
     <>
@@ -44,17 +46,17 @@ const ShareModal = (props) => {
             </SrHeader>
 
             <p>카카오톡 공유</p>
-            <KakaoShare url={IC} />
+            <KakaoShare url={invitationCode} />
             <p>링크 복사</p>
 
             <SrButtonWrapper>
               <Icon src={share} alt="#" />
-              <input type="text" value={`http://nooon-bucket.s3-website.ap-northeast-2.amazonaws.com//${window.sessionStorage.invitationCode}`} />
+              <input type="text" value={`noonsaram.site/${invitationCode}`} />
               <button
                 type="submit"
                 onClick={() =>
                   handleCopyClipBoard(
-                    `http://nooon-bucket.s3-website.ap-northeast-2.amazonaws.com//${window.sessionStorage.invitationCode}`
+                    `http://nooon-bucket.s3-website.ap-northeast-2.amazonaws.com/${invitationCode}`
                   )
                 }
               >

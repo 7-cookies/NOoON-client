@@ -8,7 +8,7 @@ import test from "../../mocks/test.json";
 import { useCookies } from "react-cookie";
 
 
-const MessageModal = ({ setStep,id } ) => {
+const MessageModal = ({ id } ) => {
   const [creator, setCreator]=useState();
   const [letter, setLetter]=useState();
 
@@ -18,11 +18,11 @@ const MessageModal = ({ setStep,id } ) => {
   // };
 
   const [cookies, setCookie, removeCookie] = useCookies(["accessToken"]);
-  // const invitationCode = window.sessionStorage.getItem("invitationCode");
+  const invitationCode = window.sessionStorage.getItem("invitationCode");
 
   async function getMessageData() {
     const response = await axios.get(
-        `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/snowman/${id}`,{
+        `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${invitationCode}/snowman/${id}`,{
           headers:{
             Authorization: `Bearer ${cookies.accessToken}`,
           }

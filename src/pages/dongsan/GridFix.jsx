@@ -236,7 +236,7 @@ const H1 = styled.h1`
 
 
   ${({ theme }) => theme.fonts.kotrahopeTitle}
-  color: ${(props) => (props.background === (4 || 2) ? "#877C73" : "white")};
+  color: ${(props) => ((props.background === 2 || props.background === 4)  ? "#877C73" : "white")};
 `;
 
 const StGrid = styled.div`

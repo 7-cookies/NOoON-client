@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState, useRecoilValue } from "recoil";
+import {axios} from 'axios'
+import { useCookies } from "react-cookie";
 import { KakaoShare } from "../../utils/kakaoShare";
 
 import close from "../../asset/icon/close.svg";
@@ -14,9 +16,6 @@ const ShareModal = (props) => {
 
   const [modalClicked, setmodalClicked] = useRecoilState(modalState);
   const modal = useRecoilValue(modalState);
-
-  // const invitationCode = window.sessionStorage.invitationCode;
-  // const invitationURL = `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${window.sessionStorage.invitationCode}`
 
   function deleteModal() {
     setmodalClicked(!modalClicked);
@@ -31,7 +30,9 @@ const ShareModal = (props) => {
     }
   };
 
-  const [IC, setIC] = useState(window.sessionStorage.invitationCode);
+  const [cookies, setCookie, removeCookie] = useCookies(["accessToken"]);
+  const invitationCode = props.invitation;
+  
 
   return (
     <>
@@ -44,17 +45,17 @@ const ShareModal = (props) => {
             </SrHeader>
 
             <p>카카오톡 공유</p>
-            <KakaoShare url={IC} />
+            <KakaoShare url={invitationCode} />
             <p>링크 복사</p>
 
             <SrButtonWrapper>
               <Icon src={share} alt="#" />
-              <input type="text" value={`http://nooon-bucket.s3-website.ap-northeast-2.amazonaws.com//${window.sessionStorage.invitationCode}`} />
+              <input type="text" value={`noonsaram.site/${invitationCode}`} />
               <button
                 type="submit"
                 onClick={() =>
                   handleCopyClipBoard(
-                    `http://nooon-bucket.s3-website.ap-northeast-2.amazonaws.com//${window.sessionStorage.invitationCode}`
+                    `http://nooon-bucket.s3-website.ap-northeast-2.amazonaws.com/${invitationCode}`
                   )
                 }
               >
@@ -109,7 +110,7 @@ const SrModal = styled.div`
   padding-bottom: 10px;
   background-color: white;
 
-  box-shadow: 0.3vw 0.3vw 0.6vw rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 4px 4px rgba(130, 130, 130, 0.25);
 
   & > p {
     ${({ theme }) => theme.fonts.kotrahopeText}
@@ -139,6 +140,7 @@ const SrButtonWrapper = styled.footer`
   height: 3.125rem;
   border-radius: 15px;
   background-color: #e9f3ff;
+  padding: 0.1rem;
 
   & > input {
     font-size: 1.25rem;
@@ -156,7 +158,7 @@ const SrButtonWrapper = styled.footer`
     align-item: center;
     border: 1px solid transparent;
     border-radius: 1.25rem;
-    margin-top: 0.38rem;
+    margin-top: 0.27rem;
     background-color: ${({ theme }) => theme.colors.blue};
     ${({ theme }) => theme.fonts.kotrahopeText}
     color: white;

@@ -31,8 +31,8 @@ export default Header;
 const Icon = styled.img`
   position: absolute;
   z-index: 2;
-
-  padding: 4.3125rem 0 0 0.875rem;
+  width: 1.75rem;
+  margin: 4.7rem 0 0 1.6rem;
 `;
 
 

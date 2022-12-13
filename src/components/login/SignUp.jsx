@@ -60,7 +60,7 @@ const SignUp = () => {
             // access토큰, username 저장
             console.log(response);
             setCookie("accessToken", response.data.data.accessToken);
-            sessionStorage.setItem("username", response.data.data.username);
+            window.sessionStorage.setItem('username', userNameRef.current.value);
             navigate("/makedongsan");
           })
           .catch((error)=>{

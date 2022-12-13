@@ -67,6 +67,7 @@ const StModal=styled.div`
     border-radius: 15px;
 
     background-color: white;
+    box-shadow: 0px 4px 4px rgba(130, 130, 130, 0.25);
 
     & > p {
         margin-top: 17.84px;

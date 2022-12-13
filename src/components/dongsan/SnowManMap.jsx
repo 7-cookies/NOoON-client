@@ -8,9 +8,17 @@ const SnowManMap = () => {
         <>
         {data.snowman.map(({id, head, eye, nose, arm, mouse, accessary, creator})=>(
             <StSnowMan>
-              <SnowManforGrid imgSize={12} head={head} eye={eye} nose={nose} arm={arm} mouth={mouse} item={accessary} />
-              <div><p>by {creator}</p></div>
-              {/* {id%3===0&&<div>dfdfdfdf</div>} */}
+                <SnowManforGrid 
+                imgSize={12} 
+                head={head} 
+                eye={eye} 
+                nose={nose} 
+                arm={arm} 
+                mouth={mouse} 
+                item={accessary}
+                owner='false' />
+                <div>
+                    <p>by {creator}</p></div>
             </StSnowMan>
         ))}
         </>

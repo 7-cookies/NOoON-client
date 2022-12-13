@@ -25,7 +25,7 @@ import {
 
 const SnowManforGrid = (props) => {
   return (
-    <StImgContainer>
+    <StImgContainer owner={props.owner}>
       <BaseContainer imgSize={props.imgSize}>
         <Base src={base} imgSize={props.imgSize} />
       </BaseContainer>
@@ -59,6 +59,7 @@ const SnowManforGrid = (props) => {
         imgSize={props.imgSize}
       ></Item>
     </StImgContainer>
+    
   );
 };
 
@@ -72,7 +73,5 @@ const StImgContainer = styled.section`
   height: ${(props) => props.imgSize}rem;
   width: 12rem;
   height: 12rem;
-
-  /* margin: 0 -1rem; */
-  /* margin-top: 1rem; */
+  cursor: ${(props) => props.owner ? 'pointer' : 'default'};
 `;

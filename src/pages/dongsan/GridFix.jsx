@@ -163,6 +163,7 @@ const GridFix = () => {
                   arm={arm}
                   mouth={mouth}
                   item={accessory}
+                  owner='true'
                 />
 
                 <div>

@@ -125,7 +125,7 @@ const StInputWrapper=styled.div`
     }
 
     & div.errorsection2 {
-      margin-top: 17px;
+      margin-top: 20px;
     }
 
 

@@ -48,12 +48,21 @@ const VisitorDongsan = ({ setStep}) => {
     console.log(title)
     
 
+    console.log(background)
 //id, head, eye, nose, arm, mouse, accessary, creator
 console.log(process.env.REACT_APP_S3_URL+'background/background'+`${background}`+".png")
 
   return (
     <StGridWrapper url={process.env.REACT_APP_S3_URL+'background/background'+`${background}`+".png"}>
-      <H1>{title}</H1>
+      {background===2||background===4?(
+          <h1 style={{color:"#877C73"}}>
+            {title}
+          </h1>
+      ):(
+          <h1 style={{color:"white"}}>
+            {title}
+          </h1>
+      )}
       <div>
         <StGrid>
           {snowmandata.map(
@@ -109,8 +118,9 @@ const StGridWrapper = styled.section`
   & > h1 {
     margin: 0;
     padding: 84.5px 0px 0px 242px;
-
     ${({ theme }) => theme.fonts.kotrahopeTitle}
+
+    color: ${(props) => ((props.background === 2) || (props.background === 4)  ? "white" : "#877C73")};
   }
 `;
 
@@ -157,7 +167,7 @@ const StShortButton=styled(ShortButton)`
     box-shadow: 0.3vw 0.3vw 0.6vw rgba(0, 0, 0, 0.3);
 `
 
-const H1=styled.h1`
-  ${({ theme }) => theme.fonts.kotrahopeTitle}
-  color: ${(props) => ((props.background === 2 || props.background === 4)  ? "#877C73" : "white")};
-`
+// const H=styled.h1`
+//   ${({ theme }) => theme.fonts.kotrahopeTitle}
+//   color: ${(props) => ((props.background === 2 || props.background === 4)  ? "#877C73" : "white")};
+// `

@@ -30,7 +30,8 @@ const CateMenu = () => {
                 check={data} 
                 num={cateNum}>
 
-                    <MenuImg  
+                    <MenuImg
+                    id={data.categoryName}  
                     url={data.url}
                     type={data.categoryName}
                     onClick={openModal}/>
@@ -63,12 +64,15 @@ padding: 0;
 `
 
 const MenuImg = styled.section`
-width: 3rem;
-height: 3rem;
+width: ${(props)=>props.type==='acc'? 2.7 : 3}rem;
+height: ${(props)=>props.type==='acc'? 2.7 : 3}rem;
 
 background-image: url(${(props)=>props.url});
 background-position: center;
 background-repeat: no-repeat;
 background-size: cover;
 
+
+
 `
+

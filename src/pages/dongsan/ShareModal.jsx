@@ -118,6 +118,17 @@ const SrModal = styled.div`
   & > p {
     ${({ theme }) => theme.fonts.kotrahopeText}
   }
+
+  & > p:nth-child(1){
+    margin-top: -5px;
+    margin-bottom: -15px;
+  }
+
+  & > p:nth-child(2){
+    margin-top: 10px;
+    margin-bottom: -20px;
+  }
+
 `;
 
 const SrHeader = styled.section`
@@ -167,5 +178,7 @@ const SrButtonWrapper = styled.footer`
     background-color: ${({ theme }) => theme.colors.blue};
     ${({ theme }) => theme.fonts.kotrahopeText}
     color: white;
+
+    cursor: pointer;
   }
 `;

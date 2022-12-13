@@ -50,7 +50,7 @@ const ShareModal = (props) => {
 
             <SrButtonWrapper>
               <Icon src={share} alt="#" />
-              <input type="text" value={`noonsaram.site/${invitationCode}`} />
+              <input type="text" value={`http://nooon-bucket.s3-website.ap-northeast-2.amazonaws.com/${invitationCode}`} />
               <button
                 type="submit"
                 onClick={() =>
@@ -134,8 +134,10 @@ const SrHeader = styled.section`
 
 const SrButtonWrapper = styled.footer`
   display: flex;
-  align-item: center;
+  align-items: center;
   justify-content: space-evenly;
+  /* justify-content: center; */
+
   width: 21.25rem;
   height: 3.125rem;
   border-radius: 15px;
@@ -155,10 +157,10 @@ const SrButtonWrapper = styled.footer`
     width: 4.688rem;
     height: 2.375rem;
     justify-content: center;
-    align-item: center;
+    align-items: center;
     border: 1px solid transparent;
-    border-radius: 1.25rem;
-    margin-top: 0.27rem;
+    border-radius: 0.75rem;
+    /* margin-top: 0.27rem; */
     background-color: ${({ theme }) => theme.colors.blue};
     ${({ theme }) => theme.fonts.kotrahopeText}
     color: white;

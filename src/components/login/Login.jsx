@@ -71,8 +71,8 @@ const Login = () => {
             <StInputWrapper>
               <div className='password'><p>PASSWORD</p></div>
                 <StLoginInpt type="password" placeholder="숫자 4자리를 입력해주세요" ref={userPasswordRef} maxLength='4' />
-                <div className='error errorsection'><p>{alertMS1}</p></div>
-                <div className='error'><p>{alertMS2}</p></div>
+                <div className='error errorsection1'><p>{alertMS1}</p></div>
+                <div className='error errorsection2'><p>{alertMS2}</p></div>
             </StInputWrapper>
             <ShortButton button="button" className="check" onClick={handleSubmit}>확인</ShortButton>
 
@@ -113,13 +113,19 @@ const StInputWrapper=styled.div`
 
     & div.error {
         & > p{
+          position: absolute;
+          z-index: 3;
           ${({ theme }) => theme.fonts.kotrahopeError};
         }
     }
 
-    & div.errorsection {
+    & div.errorsection1 {
         margin-top: 1.125rem;
         margin-bottom: -1.125px;
+    }
+
+    & div.errorsection2 {
+      margin-top: 17px;
     }
 
 

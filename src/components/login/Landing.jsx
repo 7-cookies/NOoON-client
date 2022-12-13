@@ -12,8 +12,8 @@ const Landing = () => {
             <p className='floating'>크리스마스에 완성되는 나만의 눈동산</p>
             <h1 className='floating'>내가 만든 눈동산</h1>
             <img src={`${process.env.REACT_APP_S3_URL}kakaoTitle.png`} alt='랜딩이미지' />
-            <LongButton button="button" className="button1" id='buttonAni' onClick={()=>navigate('/login')}>로그인</LongButton>
-            <LongButton button="button" className="button2" id='buttonAni' onClick={()=>navigate('/signup')}>회원가입</LongButton>
+            <LongButtonE button="button" className="button1" id='buttonAni' onClick={()=>navigate('/login')}>로그인</LongButtonE>
+            <LongButtonE button="button" className="button2" id='buttonAni' onClick={()=>navigate('/signup')}>회원가입</LongButtonE>
             </StMainWrapper>  
         </ContainerE>    
         
@@ -30,19 +30,23 @@ const StMainWrapper = styled.section`
     flex-direction: column;
     align-items: center;
     padding-top: 10rem;
+    position: relative;
+    width: 100%;
+    /* border: pink solid; */
+
 
     & > p{
         ${({ theme }) => theme.fonts.kotrahopeCommon}
         color: ${({ theme }) => theme.colors.grey};
     }
     & > h1{
-        /* margin: 1rem 0 20rem 0; */
-        margin: 1rem 0 0rem 0;
+        margin: 1rem 0rem 0rem 0rem;
         ${({ theme }) => theme.fonts.kotrahopeLandingTitle}
     }
     & > img{
-        width: 26.875rem;
-        height: 26.875rem;
+        /* width: 26.875rem; */
+        width: 100%;
+
     }
     & > .button1 {
         /* margin-top: 6.4375rem; */
@@ -55,7 +59,7 @@ const StMainWrapper = styled.section`
 
     }
     & > .button2 {
-        margin-bottom: 4.625rem;
+        /* margin-bottom: 4rem; */
         animation-name: ${tossing2};
         -webkit-animation-name: ${tossing2};
     }
@@ -75,9 +79,16 @@ const ContainerE = styled.section`
 display: flex;
 justify-content: center;
 align-items: center;
+flex-direction: column;
 
-width: 26.875rem;
+/* width: 26.875rem; */
 /* height: 58.25rem; */
+width: 100%;
+height: 55rem;
+
 margin: 0 auto;
-        
-    `
+/* border: solid black; */   
+`
+
+const LongButtonE = styled(LongButton)`
+`

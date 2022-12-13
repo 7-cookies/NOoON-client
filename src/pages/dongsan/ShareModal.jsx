@@ -10,6 +10,8 @@ import close from "../../asset/icon/close.svg";
 import share from "../../asset/icon/share.svg";
 import { modalState } from "../../utils/atoms";
 
+import { Input } from "../../styles/globalStyle";
+
 const ShareModal = (props) => {
   const [shareButton, setShareButton] = useState(false);
   const navigate = useNavigate();
@@ -50,7 +52,9 @@ const ShareModal = (props) => {
 
             <SrButtonWrapper>
               <Icon src={share} alt="#" />
-              <input type="text" value={`noonsaram.site/${invitationCode}`} />
+
+              <Input type="text" value={`http://nooon-bucket.s3-website.ap-northeast-2.amazonaws.com/${invitationCode}`} />
+
               <button
                 type="submit"
                 onClick={() =>
@@ -80,6 +84,7 @@ const HeaderIcon = styled.img`
 
 const Icon = styled.img`
   // padding-bottom: 17px;
+  margin-right: 3px;
 `;
 
 const SrModalWrapper = styled.section`
@@ -115,6 +120,17 @@ const SrModal = styled.div`
   & > p {
     ${({ theme }) => theme.fonts.kotrahopeText}
   }
+
+  & > p:nth-child(1){
+    margin-top: -5px;
+    margin-bottom: -15px;
+  }
+
+  & > p:nth-child(2){
+    margin-top: 10px;
+    margin-bottom: -20px;
+  }
+
 `;
 
 const SrHeader = styled.section`
@@ -134,13 +150,15 @@ const SrHeader = styled.section`
 
 const SrButtonWrapper = styled.footer`
   display: flex;
-  align-item: center;
-  justify-content: space-evenly;
+  align-items: center;
+  /* justify-content: space-evenly; */
+  justify-content: center;
+
   width: 21.25rem;
   height: 3.125rem;
   border-radius: 15px;
   background-color: #e9f3ff;
-  padding: 0.1rem;
+  padding: 0rem 0.5rem;
 
   & > input {
     font-size: 1.25rem;
@@ -152,15 +170,17 @@ const SrButtonWrapper = styled.footer`
   }
 
   & > button {
-    width: 4.688rem;
+    width: 110px;
     height: 2.375rem;
     justify-content: center;
-    align-item: center;
+    align-items: center;
     border: 1px solid transparent;
-    border-radius: 1.25rem;
-    margin-top: 0.27rem;
+    border-radius: 0.75rem;
+    /* margin-top: 0.27rem; */
     background-color: ${({ theme }) => theme.colors.blue};
     ${({ theme }) => theme.fonts.kotrahopeText}
     color: white;
+
+    cursor: pointer;
   }
 `;

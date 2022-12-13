@@ -78,6 +78,7 @@ const GridFix = () => {
       setBackground(response.data.data.background);
       setTitle(response.data.data.name);  
       setIC(response.data.data.invitationCode);
+      console.log(background)
     }catch(error){
       if(error.response && error.response.status === 400){
         const response = await axios.get(
@@ -145,7 +146,7 @@ const GridFix = () => {
         </StModalWrapper>
       )}
 
-      <H1 background={background}>
+      <H1>
         {title}
       </H1>
 
@@ -162,6 +163,7 @@ const GridFix = () => {
                   arm={arm}
                   mouth={mouth}
                   item={accessory}
+                  owner='true'
                 />
 
                 <div>
@@ -236,7 +238,8 @@ const H1 = styled.h1`
 
 
   ${({ theme }) => theme.fonts.kotrahopeTitle}
-  color: ${(props) => (props.background === (4 || 2) ? "#877C73" : "white")};
+  /* color: ${(props) => ((props.background === 2 || props.background === 4)  ? "#877C73" : "white")}; */
+  color: ${(props) => ((props.background === 2 || props.background === 4)  ? "#877C73" : "white")};
 `;
 
 const StGrid = styled.div`

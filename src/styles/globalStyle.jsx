@@ -204,6 +204,7 @@ export const ShortButton = styled.button`
 
 export const Container = styled.section`
   width: 26.875rem;
+  /* width: 100%; */
   height: 58.25rem;
   margin: 0 auto;
 `;

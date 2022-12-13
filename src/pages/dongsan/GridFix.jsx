@@ -242,13 +242,12 @@ const H1 = styled.h1`
   margin: 0;
   /* padding: 84.5px 0px 0px 242px; */
   padding: 84px 24px 0px 0px;
-  border: black solid;
   width: 432px;
   text-align: right;
 
 
   ${({ theme }) => theme.fonts.kotrahopeTitle}
-  color: ${(props) => (props.background === "4" || "2" ? "#877C73" : "white")};
+  color: ${(props) => (props.background === (4 || 2) ? "#877C73" : "white")};
 `;
 
 const StGrid = styled.div`

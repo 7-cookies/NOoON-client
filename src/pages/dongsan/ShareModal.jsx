@@ -139,6 +139,7 @@ const SrButtonWrapper = styled.footer`
   height: 3.125rem;
   border-radius: 15px;
   background-color: #e9f3ff;
+  padding: 0.1rem;
 
   & > input {
     font-size: 1.25rem;
@@ -156,7 +157,7 @@ const SrButtonWrapper = styled.footer`
     align-item: center;
     border: 1px solid transparent;
     border-radius: 1.25rem;
-    margin-top: 0.38rem;
+    margin-top: 0.27rem;
     background-color: ${({ theme }) => theme.colors.blue};
     ${({ theme }) => theme.fonts.kotrahopeText}
     color: white;

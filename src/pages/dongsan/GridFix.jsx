@@ -211,8 +211,8 @@ const GridFix = () => {
 export default GridFix;
 
 const StMiddleButton = styled(MiddleButton)`
-  /* margin: 845px 0 33px 0px ; */
-  margin: 0px 0 33px 0px;
+  margin: 0px 0 2.0625rem 0px;
+  width: 14rem;
 `;
 
 const StGridWrapper = styled.section`
@@ -236,19 +236,16 @@ const StGridWrapper = styled.section`
     position: relative;
     overflow: scroll;
   }
-
-  /* & > h1 {
-    margin: 0;
-    padding: 84.5px 0px 0px 242px;
-
-    ${({ theme }) => theme.fonts.kotrahopeTitle}
-    color: ${(props) => (props.title === "4" ? "black" : "white")}; 
-  } */
 `;
 
 const H1 = styled.h1`
   margin: 0;
-  padding: 84.5px 0px 0px 242px;
+  /* padding: 84.5px 0px 0px 242px; */
+  padding: 84px 24px 0px 0px;
+  border: black solid;
+  width: 432px;
+  text-align: right;
+
 
   ${({ theme }) => theme.fonts.kotrahopeTitle}
   color: ${(props) => (props.background === "4" || "2" ? "#877C73" : "white")};
@@ -308,7 +305,7 @@ const ButtonWrapper = styled.section`
     width: 2.875rem;
     height: 3.1875rem;
     position: relative;
-    left: 2.5rem;
+    left: 1.7rem;
 
   }
 `

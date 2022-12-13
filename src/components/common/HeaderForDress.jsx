@@ -29,11 +29,16 @@ const Header = (props) => {
 export default Header;
 
 const Icon=styled.img`
-    position: absolute;
+    /* position: absolute;
     z-index: 2;
 
+    width: 1.75rem;
     padding: 4.3125rem 0 0 0.875rem;
-
+ */
+    position: absolute;
+  z-index: 2;
+  width: 1.75rem;
+  margin: 4.7rem 0 0 1.6rem;
 `
 
 const StHeaderWrapper=styled.header`

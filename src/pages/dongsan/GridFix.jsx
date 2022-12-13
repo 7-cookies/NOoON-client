@@ -146,7 +146,7 @@ const GridFix = () => {
         </StModalWrapper>
       )}
 
-      <H1>
+      <H1 background={background}>
         {title}
       </H1>
 

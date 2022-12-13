@@ -48,7 +48,6 @@ const VisitorDongsan = ({ setStep}) => {
     console.log(title)
     
 
-    console.log(background)
 //id, head, eye, nose, arm, mouse, accessary, creator
 console.log(process.env.REACT_APP_S3_URL+'background/background'+`${background}`+".png")
 
@@ -120,7 +119,7 @@ const StGridWrapper = styled.section`
     padding: 84.5px 0px 0px 242px;
     ${({ theme }) => theme.fonts.kotrahopeTitle}
 
-    color: ${(props) => ((props.background === 2) || (props.background === 4)  ? "white" : "#877C73")};
+    /* color: ${(props) => ((props.background === 2) || (props.background === 4)  ? "white" : "#877C73")}; */
   }
 `;
 

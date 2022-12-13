@@ -10,6 +10,8 @@ import close from "../../asset/icon/close.svg";
 import share from "../../asset/icon/share.svg";
 import { modalState } from "../../utils/atoms";
 
+import { Input } from "../../styles/globalStyle";
+
 const ShareModal = (props) => {
   const [shareButton, setShareButton] = useState(false);
   const navigate = useNavigate();
@@ -50,7 +52,7 @@ const ShareModal = (props) => {
 
             <SrButtonWrapper>
               <Icon src={share} alt="#" />
-              <input type="text" value={`http://nooon-bucket.s3-website.ap-northeast-2.amazonaws.com/${invitationCode}`} />
+              <Input type="text" value={`http://nooon-bucket.s3-website.ap-northeast-2.amazonaws.com/${invitationCode}`} />
               <button
                 type="submit"
                 onClick={() =>
@@ -80,6 +82,7 @@ const HeaderIcon = styled.img`
 
 const Icon = styled.img`
   // padding-bottom: 17px;
+  margin-right: 3px;
 `;
 
 const SrModalWrapper = styled.section`
@@ -135,14 +138,14 @@ const SrHeader = styled.section`
 const SrButtonWrapper = styled.footer`
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  /* justify-content: center; */
+  /* justify-content: space-evenly; */
+  justify-content: center;
 
   width: 21.25rem;
   height: 3.125rem;
   border-radius: 15px;
   background-color: #e9f3ff;
-  padding: 0.1rem;
+  padding: 0rem 0.5rem;
 
   & > input {
     font-size: 1.25rem;
@@ -154,7 +157,7 @@ const SrButtonWrapper = styled.footer`
   }
 
   & > button {
-    width: 4.688rem;
+    width: 110px;
     height: 2.375rem;
     justify-content: center;
     align-items: center;

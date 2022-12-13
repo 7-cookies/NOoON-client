@@ -77,7 +77,7 @@ const GridFix = () => {
       setSnowmanData(response.data.data.snowmans);
       setBackground(response.data.data.background);
       setTitle(response.data.data.name);  
-      setIC(response.data.data.invitationCode)
+      setIC(response.data.data.invitationCode);
     }catch(error){
       if(error.response && error.response.status === 400){
         const response = await axios.get(
@@ -113,12 +113,14 @@ const GridFix = () => {
     }
 
     const rmCookie = () => {
-      removeCookie(cookies.accessToken, { path: '/' }); 
+      // removeCookie(cookies.accessToken, { path: '/' }); 
+      removeCookie(cookies, { path: '/' }); 
+      window.sessionStorage.setItem('invitationCode', '');
+      window.sessionStorage.setItem('username', '');
       window.location.href = '/';	
 
     }
-
-  const backgroundNum = parseInt(sessionStorage.background) - 1;
+    // console.log(cookies);
 
   //브라우저 상에서 뒤로가기 X
   window.history.pushState(null, null, window.location.href);
@@ -127,9 +129,6 @@ const GridFix = () => {
   };
 
   return (
-    // <StGridWrapper img={BGImg[backgroundNum]}>
-    // onClick={()=>handleClick(id)}
-
     <StGridWrapper
       url={
         process.env.REACT_APP_S3_URL +
@@ -143,13 +142,11 @@ const GridFix = () => {
       {touch && (
         <StModalWrapper>
           {ckmodal && <CheckModal title={creator} />}
-          {/* <MessageModal id={id} /> */}
-          {/* <StXButton src={xButton} alt="#" onClick={handleXClick} /> */}
         </StModalWrapper>
       )}
 
-      <H1 background={sessionStorage.background}>
-        {sessionStorage.dongsanName}
+      <H1 background={background}>
+        {title}
       </H1>
 
       <div>
@@ -214,10 +211,6 @@ const StMiddleButton = styled(MiddleButton)`
 
 const StGridWrapper = styled.section`
   background-image: url(${(props) => props.url});
-
-  /* background-image: url(image/background1.png); */
-  /* background-image: url(${(props) => props.img}); */
-
   background-size: 430px;
   display: flex;
   justify-content: center;
@@ -237,7 +230,6 @@ const StGridWrapper = styled.section`
 
 const H1 = styled.h1`
   margin: 0;
-  /* padding: 84.5px 0px 0px 242px; */
   padding: 84px 24px 0px 0px;
   width: 432px;
   text-align: right;

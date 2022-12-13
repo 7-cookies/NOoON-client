@@ -31,7 +31,6 @@ const ShareModal = (props) => {
   };
 
   const [cookies, setCookie, removeCookie] = useCookies(["accessToken"]);
-  // const [IC, setIC] = useState(window.sessionStorage.invitationCode);
   const invitationCode = props.invitation;
   
 

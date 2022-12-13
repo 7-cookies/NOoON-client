@@ -44,8 +44,12 @@ const Login = () => {
           )
           .then((response) => {
             console.log(response.data);
-            (response.data.data.hasPlace)==="NO_PLACE" ? navigate('/makedongsan') : navigate("/mydongsan", {state:{accessToken:response.data.data.accessToken,invitationCode:response.data.data.hasPlace}});
-
+            console.log(response);
+            window.sessionStorage.setItem('username', userNameRef.current.value);
+            (response.data.data.hasPlace)==="NO_PLACE" ? navigate('/makedongsan') : navigate("/mydongsan", 
+            {state:{accessToken:response.data.data.accessToken,invitationCode:response.data.data.hasPlace}},
+            window.sessionStorage.setItem('invitationCode', response.data.data.hasPlace));
+            
           })
           .catch(error=>{
             setAlertMS1('* 아이디 또는 비밀번호를 잘못 입력했습니다.')

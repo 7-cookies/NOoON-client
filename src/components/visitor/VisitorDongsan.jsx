@@ -159,5 +159,5 @@ const StShortButton=styled(ShortButton)`
 
 const H1=styled.h1`
   ${({ theme }) => theme.fonts.kotrahopeTitle}
-  color: ${(props) => (props.title === "4" || "2" ? "#877C73" : "white")};
+  color: ${(props) => (props.title === (4 || 2) ? "#877C73" : "white")};
 `

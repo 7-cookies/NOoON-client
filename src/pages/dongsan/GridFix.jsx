@@ -7,11 +7,10 @@ import { useRecoilState, useRecoilValue } from "recoil";
 
 import { MiddleButton } from "../../styles/globalStyle";
 import SnowManforGrid from "../../components/dongsan/SnowManforGrid";
-import data from "../../mocks/test.json";
 import StartModal from "./StartModal";
 import ShareModal from "../dongsan/ShareModal";
 import CheckModal from "../dongsan/CheckModal";
-import { modalState, outModalState } from "../../utils/atoms";
+import { modalState } from "../../utils/atoms";
 import { checkmodalState } from "../../utils/atoms";
 import { useCookies } from "react-cookie";
 import MessageModal from "../../components/message/MessageModal";
@@ -44,6 +43,8 @@ const GridFix = () => {
   const [ckmodalClicked, setckmodalClicked] = useRecoilState(checkmodalState);
   const ckmodal = useRecoilValue(checkmodalState);
 
+  const [IC, setIC] = useState('')
+
   function popupModal() {
     setmodalClicked(!modalClicked);
     console.log(modal)
@@ -61,8 +62,6 @@ const GridFix = () => {
     console.log(id);
   }
 
-  // console.log(touch);
-
   // ${invitationCode}
   async function getSnowmanData() {
     try{
@@ -78,6 +77,7 @@ const GridFix = () => {
       setSnowmanData(response.data.data.snowmans);
       setBackground(response.data.data.background);
       setTitle(response.data.data.name);  
+      setIC(response.data.data.invitationCode);
     }catch(error){
       if(error.response && error.response.status === 400){
         const response = await axios.get(
@@ -91,7 +91,8 @@ const GridFix = () => {
         console.log(response.data.data);
         setSnowmanData(response.data.data.snowmans);
         setBackground(response.data.data.background);
-        setTitle(response.data.data.name);    
+        setTitle(response.data.data.name);  
+        setIC(response.data.data.invitationCode)  
       }
     }
   }
@@ -112,16 +113,14 @@ const GridFix = () => {
     }
 
     const rmCookie = () => {
-      removeCookie(cookies.accessToken, { path: '/' }); 
+      // removeCookie(cookies.accessToken, { path: '/' }); 
+      removeCookie(cookies, { path: '/' }); 
+      window.sessionStorage.setItem('invitationCode', '');
+      window.sessionStorage.setItem('username', '');
       window.location.href = '/';	
 
     }
-
-
-  // return (
-  //   <StGridWrapper url={process.env.REACT_APP_S3_URL+'background/background'+`${background}`+".png"}>
-
-  const backgroundNum = parseInt(sessionStorage.background) - 1;
+    // console.log(cookies);
 
   //브라우저 상에서 뒤로가기 X
   window.history.pushState(null, null, window.location.href);
@@ -130,9 +129,6 @@ const GridFix = () => {
   };
 
   return (
-    // <StGridWrapper img={BGImg[backgroundNum]}>
-    // onClick={()=>handleClick(id)}
-
     <StGridWrapper
       url={
         process.env.REACT_APP_S3_URL +
@@ -146,13 +142,11 @@ const GridFix = () => {
       {touch && (
         <StModalWrapper>
           {ckmodal && <CheckModal title={creator} />}
-          {/* <MessageModal id={id} /> */}
-          {/* <StXButton src={xButton} alt="#" onClick={handleXClick} /> */}
         </StModalWrapper>
       )}
 
-      <H1 background={sessionStorage.background}>
-        {sessionStorage.dongsanName}
+      <H1 background={background}>
+        {title}
       </H1>
 
       <div>
@@ -201,7 +195,7 @@ const GridFix = () => {
     </>
     }
 
-      {modal && <ShareModal />}
+      {modal && <ShareModal invitation={IC}/>}
       
       
     </StGridWrapper>
@@ -211,16 +205,12 @@ const GridFix = () => {
 export default GridFix;
 
 const StMiddleButton = styled(MiddleButton)`
-  /* margin: 845px 0 33px 0px ; */
-  margin: 0px 0 33px 0px;
+  margin: 0px 0 2.0625rem 0px;
+  width: 14rem;
 `;
 
 const StGridWrapper = styled.section`
   background-image: url(${(props) => props.url});
-
-  /* background-image: url(image/background1.png); */
-  /* background-image: url(${(props) => props.img}); */
-
   background-size: 430px;
   display: flex;
   justify-content: center;
@@ -236,35 +226,23 @@ const StGridWrapper = styled.section`
     position: relative;
     overflow: scroll;
   }
-
-  /* & > h1 {
-    margin: 0;
-    padding: 84.5px 0px 0px 242px;
-
-    ${({ theme }) => theme.fonts.kotrahopeTitle}
-    color: ${(props) => (props.title === "4" ? "black" : "white")}; 
-  } */
 `;
 
 const H1 = styled.h1`
   margin: 0;
-  padding: 84.5px 0px 0px 242px;
+  padding: 84px 24px 0px 0px;
+  width: 432px;
+  text-align: right;
+
 
   ${({ theme }) => theme.fonts.kotrahopeTitle}
-  color: ${(props) => (props.background === "4" || "2" ? "#877C73" : "white")};
+  color: ${(props) => (props.background === (4 || 2) ? "#877C73" : "white")};
 `;
 
-// const SnowManforGrid = styled.img`
-//   width: 192px;
-// `;
-
 const StGrid = styled.div`
-  /* width: 400px; */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   transform: rotate(-90deg);
-  /* flex-direction: column; */
-  /* border: 1px solid black; */
   width: 700px;
   height: 430px;
 
@@ -272,17 +250,13 @@ const StGrid = styled.div`
 
   position: absolute;
   z-index: 2;
-  /* overflow: hidden; */
-  /* overflow:scroll; */
-  /* overflow-y: auto; */
 `;
 const StSnowMan = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* width: 200px;
-    height:  200px; */
   transform: rotate(90deg);
+
   & > div {
     display: flex;
     justify-content: center;
@@ -319,9 +293,8 @@ const ButtonWrapper = styled.section`
     width: 2.875rem;
     height: 3.1875rem;
     position: relative;
-    left: 2.5rem;
+    left: 1.7rem;
 
-    
   }
 `
 
@@ -339,6 +312,7 @@ const StModal=styled.div`
     border-radius: 0.9375rem;
 
     background-color: white;
+    box-shadow: 0px 4px 4px rgba(130, 130, 130, 0.25);
 
     & > p {
         margin-top: 1.115rem;
@@ -350,7 +324,7 @@ const StButtonWrapper=styled.footer`
     justify-content: space-between;
     
     width:18.625rem;
-    margin-top: 3.8931rem;
+    margin-top: 2.5rem;
 `
 
 const SrModalWrapper = styled.section`

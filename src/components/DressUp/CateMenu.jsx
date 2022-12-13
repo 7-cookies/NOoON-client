@@ -63,8 +63,8 @@ padding: 0;
 `
 
 const MenuImg = styled.section`
-width: 3.1875rem;
-height: 3.1875rem;
+width: 3rem;
+height: 3rem;
 
 background-image: url(${(props)=>props.url});
 background-position: center;

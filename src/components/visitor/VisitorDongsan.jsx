@@ -35,7 +35,7 @@ const VisitorDongsan = ({ setStep}) => {
     //match.params.invitationCode
     async function getSnowmanData() {
         const response = await axios.get(
-            `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${invitationCode}/snowman`)
+            `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${invitationCode}`)
             console.log(response.data)
             setSnowmanData(response.data.data.snowmans);
             setBackground(response.data.data.background);

@@ -13,7 +13,7 @@ import {backgroundImg} from "../../utils/imgData";
 
 const VisitorDongsan = ({ setStep}) => {
     const [snowmandata, setSnowmanData] = useState([]);
-    const [background, setBackground] = useState(1);
+    const [background, setBackground] = useState(null);
     const [title, setTitle] = useState();
 
     const navigate=useNavigate();

@@ -54,7 +54,7 @@ const ShareModal = (props) => {
             <SrButtonWrapper>
               <Icon src={share} alt="#" />
 
-              <Input type="text" value={`https://www.noonsaram.site/${invitationCode}`} />
+              <Input id='linkText' type="text" value={`https://www.noonsaram.site/${invitationCode}`}/>
 
               <button
                 type="submit"
@@ -183,5 +183,9 @@ const SrButtonWrapper = styled.footer`
     color: white;
 
     cursor: pointer;
+  }
+
+  #linkText{
+    color: #616161;
   }
 `;

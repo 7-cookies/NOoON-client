@@ -36,9 +36,9 @@ export const KakaoShare = ({url}) => {
           {
             title: "❄️눈사람 만들러 가기❄️",
             link: {
-              webUrl: `http://nooon-bucket.s3-website.ap-northeast-2.amazonaws.com/${url}`,
+              webUrl: `https://www.noonsaram.site/${url}`,
 
-              mobileWebUrl: `http://nooon-bucket.s3-website.ap-northeast-2.amazonaws.com/${url}`,
+              mobileWebUrl: `https://www.noonsaram.site/${url}`,
 
             },
           },

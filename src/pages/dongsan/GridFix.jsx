@@ -155,7 +155,7 @@ const GridFix = () => {
         </StModalWrapper>
       )}
 
-      <a id='insta' href="https://www.noonsaram.site/">@noon_dongsan</a>
+      <a id='insta' href="https://instagram.com/noon_dongsan?igshid=YmMyMTA2M2Y=">@noon_dongsan</a>
       <H1 background={background}>
         {title}
       </H1>

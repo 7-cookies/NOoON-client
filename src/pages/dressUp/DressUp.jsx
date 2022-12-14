@@ -25,7 +25,7 @@ const DressUp = () => {
         setMs(!ms);
     }
 
-    const invitationCode = useParams();
+    let {invitationCode}=useParams();
 
     
 

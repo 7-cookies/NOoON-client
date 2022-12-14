@@ -86,7 +86,7 @@ const WRMessage = () => {
 
             <ContentsCon>
                 <div>
-                    <p> 메세지 내용 </p>
+                    <p> 메시지 내용 </p>
                     <MessageContents 
                     placeholder='메시지를 작성해주세요 (최대 100자)'
                     maxLength={100}
@@ -103,7 +103,7 @@ const WRMessage = () => {
         {saveFirst?
             <ModalCon> 
             <TextCon>
-                <div> 저장한 눈사람과 메세지는 수정할 수 없습니다. </div>
+                <div> 저장한 눈사람과 메시지는 수정할 수 없습니다. </div>
                 <div className='save'> 저장하시겠습니까? </div>
             </TextCon>
             <ButtonCon>

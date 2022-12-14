@@ -24,6 +24,7 @@ const WRMessage = () => {
         setSaveComp(!saveComp)
         setSaveFirst(false);
         window.location.replace("/"+`${invitationCode}`);
+        console.log(invitationCode);
     }
 
     const [invitationCode2, setInvitationCode2] = useState('')
@@ -46,10 +47,10 @@ const WRMessage = () => {
             `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${invitationCode}/snowman`,
             {
                 "head": parseInt(head[0].Head),
-                "accessory": parseInt(item[0].Item),
+                "accessary": parseInt(item[0].Item),
                 "eye": parseInt(eye[0].Eye),
                 "nose": parseInt(nose[0].Nose),
-                "mouth": parseInt(mouth[0].Mouth),
+                "mouse": parseInt(mouth[0].Mouth),
                 "arm": parseInt(arm[0].Arm),
                 "letter" : `${messageContents.letter}`,
                 "creator": `${messageContents.creater}`

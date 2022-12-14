@@ -25,7 +25,8 @@ const DressUp = () => {
         setMs(!ms);
     }
 
-    let {invitationCode}=useParams();
+    // let {invitationCode}=useParams();
+    let {invitationCode}=window.location.pathname;
 
     
 

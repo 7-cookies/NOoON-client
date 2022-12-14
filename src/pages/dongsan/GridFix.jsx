@@ -124,6 +124,7 @@ const GridFix = () => {
       removeCookie(cookies, { path: '/' }); 
       window.sessionStorage.setItem('invitationCode', '');
       window.sessionStorage.setItem('username', '');
+      window.sessionStorage.setItem('stepState', '');
       window.location.href = '/';	
 
     }

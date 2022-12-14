@@ -46,6 +46,7 @@ const SignUp = () => {
     const handleSubmit=()=>{
       setUsername(userNameRef.current.value)
       setPassword(userPasswordRef.current.value)
+      sessionStorage.setItem('stepState',false);
 
         axios
           .post(

@@ -26,8 +26,8 @@ text-align: center;
 
 #loading{ 
     width: 25rem;
-    /* border-radius: 15rem; */
-    
+    /* border: solid black; */
+
 }
 
 `
@@ -37,7 +37,7 @@ const LoadingContainer=styled(Container)`
 display: flex;
 justify-content: center;
 align-items: center; 
-
+/* border: solid black; */
 
 
 `

@@ -23,6 +23,8 @@ const Login = () => {
     const handleSubmit=()=>{
         setUsername(userNameRef.current.value)
         setPassword(userPasswordRef.current.value)
+        sessionStorage.setItem('stepState',true);
+        console.log(sessionStorage.getItem('stepState'));
 
         axios
           .post(

@@ -5,7 +5,6 @@ import { useRef, useState, useEffect } from 'react';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import { useCookies, withCookies } from 'react-cookie'; 
-import { dupCheckAPI } from './dupCheckAPI';
 import block from '../../asset/icon/Group 142.png'
 import visible from '../../asset/icon/Vector.png'
 
@@ -47,6 +46,7 @@ const SignUp = () => {
     const handleSubmit=()=>{
       setUsername(userNameRef.current.value)
       setPassword(userPasswordRef.current.value)
+      sessionStorage.setItem('stepState',false);
 
         axios
           .post(

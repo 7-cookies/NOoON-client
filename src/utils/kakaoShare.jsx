@@ -27,8 +27,8 @@ export const KakaoShare = ({url}) => {
           description: `${username}님의 눈동산에 방문해 눈사람을 꾸미고 메시지를 남겨주세요!⛄️`,
           imageUrl: `${process.env.REACT_APP_S3_URL}kakaoTitle.png`,
           link: {
-            webUrl: `http://nooon-bucket.s3-website.ap-northeast-2.amazonaws.com/${url}`,
-            mobileWebUrl: `http://nooon-bucket.s3-website.ap-northeast-2.amazonaws.com/${url}`,
+            webUrl: `https://www.noonsaram.site/${url}`,
+            mobileWebUrl: `https://www.noonsaram.site/${url}`,
           },
         },
 

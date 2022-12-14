@@ -54,13 +54,13 @@ const ShareModal = (props) => {
             <SrButtonWrapper>
               <Icon src={share} alt="#" />
 
-              <Input type="text" value={`http://nooon-bucket.s3-website.ap-northeast-2.amazonaws.com/${invitationCode}`} />
+              <Input type="text" value={`https://www.noonsaram.site/${invitationCode}`} />
 
               <button
                 type="submit"
                 onClick={() =>
                   handleCopyClipBoard(
-                    `http://nooon-bucket.s3-website.ap-northeast-2.amazonaws.com/${invitationCode}`
+                    `https://www.noonsaram.site/${invitationCode}`
                   )
                 }
               >

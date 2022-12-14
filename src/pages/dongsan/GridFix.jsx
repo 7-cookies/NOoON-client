@@ -28,7 +28,7 @@ const GridFix = () => {
   const [snowmanData, setSnowmanData] = useState([]);
   const [id, setId] = useState();
   const [creator, setCreator] = useState();
-  const [background, setBackground] = useState(1);
+  const [background, setBackground] = useState(null);
   const [title, setTitle] = useState();
 
   const invitationCode = window.sessionStorage.getItem("invitationCode");

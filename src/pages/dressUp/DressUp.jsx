@@ -13,6 +13,7 @@ import HeaderForDress from '../../components/common/HeaderForDress.jsx'
 import Header from '../../components/common/Header.jsx'
 
 import {modalStateC, modalStateT, messageState} from '../../utils/dressRecoil'
+import { useParams } from 'react-router-dom';
 
 const DressUp = () => {
     const [showModal, setModal] = useRecoilState(modalStateC);
@@ -24,12 +25,14 @@ const DressUp = () => {
         setMs(!ms);
     }
 
+    const invitationCode = useParams();
+
     
 
     return (
         <>
         <ContainerE>
-            {message? <HeaderForDress title={'메시지 남기기'}/>:<Header title={'눈사람 꾸미기'}></Header>}
+            {message? <HeaderForDress title={'메시지 남기기'} />:<Header title={'눈사람 꾸미기'} url= {`/${invitationCode}`}></Header>}
             <DressZone>
                 <SnowMan imgSize={(message===true)?'15':'19.375'} />
 

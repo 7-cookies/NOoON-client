@@ -4,8 +4,8 @@ import xButton from "../../asset/icon/Group 130.svg";
 import { useNavigate,useParams } from "react-router-dom";
 import axios from "axios";
 import {useState, useEffect} from "react";
-import test from "../../mocks/test.json";
 import { useCookies } from "react-cookie";
+import Loading from '../../components/common/Loading.jsx'
 
 
 const MessageModal = ({ id } ) => {
@@ -19,6 +19,7 @@ const MessageModal = ({ id } ) => {
 
   const [cookies, setCookie, removeCookie] = useCookies(["accessToken"]);
   const invitationCode = window.sessionStorage.getItem("invitationCode");
+  const [loading, setLoading] = useState(true)
 
   async function getMessageData() {
     const response = await axios.get(
@@ -30,6 +31,7 @@ const MessageModal = ({ id } ) => {
         console.log(response.data)
         setCreator(response.data.data.creator);
         setLetter(response.data.data.letter);
+        setLoading(false)
   }
 
   useEffect(() => {
@@ -37,6 +39,8 @@ const MessageModal = ({ id } ) => {
   }, []);
 
 
+  if (loading) {return(<Loading/>)}
+  else {
   return (
     <>
       <StModalBackgroundWrapper>
@@ -56,7 +60,7 @@ const MessageModal = ({ id } ) => {
         </StModalWrapper>
       </StModalBackgroundWrapper>
     </>
-  );
+  );}
 };
 
 export default MessageModal;

@@ -15,6 +15,7 @@ import { checkmodalState } from "../../utils/atoms";
 import { useCookies } from "react-cookie";
 import MessageModal from "../../components/message/MessageModal";
 import { ShortButton } from "../../styles/globalStyle";
+import Loading from '../../components/common/Loading.jsx'
 
 import { BGImg } from "../../utils/imgData";
 import logoutImg from '../../asset/icon/logout.png'
@@ -45,6 +46,8 @@ const GridFix = () => {
 
   const [IC, setIC] = useState('')
 
+  const [loading, setLoading] = useState(true);
+
   function popupModal() {
     setmodalClicked(!modalClicked);
     console.log(modal)
@@ -58,14 +61,15 @@ const GridFix = () => {
   }
 
   function handleClick(id) {
-    setTouch(false);
     console.log(id);
   }
 
   // ${invitationCode}
   async function getSnowmanData() {
+    setLoading(false)
     try{
       const response = await axios.get(
+        
         `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${invitationCode}/user`,
         {
           headers: {
@@ -78,6 +82,7 @@ const GridFix = () => {
       setBackground(response.data.data.background);
       setTitle(response.data.data.name);  
       setIC(response.data.data.invitationCode);
+      setLoading(false) 
       console.log(background)
     }catch(error){
       if(error.response && error.response.status === 400){
@@ -93,12 +98,13 @@ const GridFix = () => {
         setSnowmanData(response.data.data.snowmans);
         setBackground(response.data.data.background);
         setTitle(response.data.data.name);  
-        setIC(response.data.data.invitationCode)  
+        setIC(response.data.data.invitationCode) 
       }
     }
   }
 
   useEffect(() => {
+
     getSnowmanData();
   }, []);
 
@@ -129,6 +135,8 @@ const GridFix = () => {
     window.history.go(1);
   };
 
+  if (loading) {return (<Loading />)}
+  else {
   return (
     <StGridWrapper
       url={
@@ -201,7 +209,7 @@ const GridFix = () => {
       
       
     </StGridWrapper>
-  );
+  );}
 };
 
 export default GridFix;

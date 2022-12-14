@@ -4,7 +4,8 @@ import axios from "axios";
 
 import { ShortButton } from "../../styles/globalStyle";
 import SnowManforGrid from "../../components/dongsan/SnowManforGrid";
-import data from "../../mocks/test.json";
+import Loading from '../../components/common/Loading.jsx'
+
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
@@ -28,7 +29,9 @@ const VisitorDongsan = ({ setStep}) => {
 
     // const invitationCode=sessionStorage.getItem("invitationCode");
 
-    //hnvvc6
+
+    const[loading, setLoading] = useState(true);
+
     //match.params.invitationCode
     async function getSnowmanData() {
         const response = await axios.get(
@@ -37,6 +40,7 @@ const VisitorDongsan = ({ setStep}) => {
             setSnowmanData(response.data.data.snowmans);
             setBackground(response.data.data.background);
             setTitle(response.data.data.name);
+            setLoading(false)
     }
 
     useEffect(() => {
@@ -50,6 +54,9 @@ const VisitorDongsan = ({ setStep}) => {
 
 //id, head, eye, nose, arm, mouse, accessary, creator
 console.log(process.env.REACT_APP_S3_URL+'background/background'+`${background}`+".png")
+
+  if (loading){return(<Loading/>)}
+  else {
 
   return (
     <StGridWrapper url={process.env.REACT_APP_S3_URL+'background/background'+`${background}`+".png"}>
@@ -89,7 +96,7 @@ console.log(process.env.REACT_APP_S3_URL+'background/background'+`${background}`
         <StShortButton type="button" onClick={handleMyDongsanClick}>내 동산 가기</StShortButton>
       </StButtonWrapper>
     </StGridWrapper>
-  );
+  );}
 };
 
 export default VisitorDongsan;

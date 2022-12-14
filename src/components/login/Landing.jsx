@@ -84,7 +84,8 @@ flex-direction: column;
 /* width: 26.875rem; */
 /* height: 58.25rem; */
 width: 100%;
-height: 55rem;
+/* height: 55rem; */
+height: 100vh;
 
 margin: 0 auto;
 /* border: solid black; */   

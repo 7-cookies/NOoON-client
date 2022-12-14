@@ -155,6 +155,7 @@ const GridFix = () => {
         </StModalWrapper>
       )}
 
+      <a id='insta' href="https://www.noonsaram.site/">@noon_dongsan</a>
       <H1 background={background}>
         {title}
       </H1>
@@ -237,17 +238,28 @@ const StGridWrapper = styled.section`
     position: relative;
     overflow: scroll;
   }
+
+  & > #insta{
+    ${({ theme }) => theme.fonts.kotrahopeText}
+    color: #A6C7EF;
+    font-size:0.9375rem;
+    cursor: pointer;
+    position: relative;
+    top: 1.25rem;
+    left: 8.8rem;
+    text-decoration-line: none;
+    
+}
 `;
 
 const H1 = styled.h1`
   margin: 0;
-  padding: 84px 24px 0px 0px;
-  width: 432px;
+  padding: 3.75rem 2.2rem 0rem 0rem;
+  width: 27rem;
   text-align: right;
 
 
   ${({ theme }) => theme.fonts.kotrahopeTitle}
-  /* color: ${(props) => ((props.background === 2 || props.background === 4)  ? "#877C73" : "white")}; */
   color: ${(props) => ((props.background === 2 || props.background === 4)  ? "#877C73" : "white")};
 `;
 

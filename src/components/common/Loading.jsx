@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 
 import {Container} from '../../styles/globalStyle.jsx'
-import loadingImg from '../../asset/img/최종로딩기프.gif'
+import loadingImg from '../../asset/img/loading.gif'
 
 const Loading = ({props}) => {
     return (

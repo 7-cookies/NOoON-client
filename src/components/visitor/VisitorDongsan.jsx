@@ -60,6 +60,7 @@ console.log(process.env.REACT_APP_S3_URL+'background/background'+`${background}`
 
   return (
     <StGridWrapper url={process.env.REACT_APP_S3_URL+'background/background'+`${background}`+".png"}>
+      <a id='insta' href="https://www.noonsaram.site/">@noon_dongsan</a>
       {background===2||background===4?(
           <h1 style={{color:"#877C73"}}>
             {title}
@@ -121,12 +122,25 @@ const StGridWrapper = styled.section`
     overflow: scroll;
   }
 
+  & > #insta{
+    ${({ theme }) => theme.fonts.kotrahopeText}
+    color: #A6C7EF;
+    font-size:0.9375rem;
+    cursor: pointer;
+    position: relative;
+    top: 1.25rem;
+    left: 8.8rem;
+    text-decoration-line: none;
+    
+}
+
   & > h1 {
     margin: 0;
-    padding: 84.5px 0px 0px 242px;
+    padding: 3.75rem 2.2rem 0rem 0rem;
+    width: 27rem;
+    text-align: right;
+    /* padding: 84.5px 0px 0px 242px; */
     ${({ theme }) => theme.fonts.kotrahopeTitle}
-
-    /* color: ${(props) => ((props.background === 2) || (props.background === 4)  ? "white" : "#877C73")}; */
   }
 `;
 

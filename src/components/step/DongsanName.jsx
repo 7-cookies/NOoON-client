@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Header from '../common/Header'
 import { Input, ShortButton } from "../../styles/globalStyle";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import {useRecoilState} from "recoil";
 import {dongsanstep} from '../../utils/atoms';
 
@@ -17,7 +17,7 @@ const DongsanName = ({ setStep }) => {
     return (
         <>
         <StDongsanNameWrapper>
-            <Header title="동산이름 정하기" url="/signup"/>
+            <Header title="동산이름 정하기" url={(sessionStorage.getItem('stepState')==='true') ? '/login':'/signup'}/>
             <StDongsanName>
                 <div>
                     <p>동산 이름을 지어주세요 ☃️</p>

@@ -2,14 +2,13 @@ import React from 'react'
 import styled from 'styled-components';
 
 import {Container} from '../../styles/globalStyle.jsx'
-import loadingImg from '../../asset/img/최종로딩기프.gif'
+import loadingImg from '../../asset/img/loading.gif'
 
 const Loading = ({props}) => {
     return (
-            <LoadingContainer>
+        <LoadingContainer>
             <LoadingImg>
-                <img src={loadingImg} alt='로딩' />
-                <h3> 로딩중 </h3>
+                <img id="loading" src={loadingImg} alt='로딩중' />
             </LoadingImg>
         </LoadingContainer>
         
@@ -20,14 +19,25 @@ export default Loading;
 
 
 const LoadingImg = styled.section`
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
+
+#loading{ 
+    width: 25rem;
+    /* border: solid black; */
+
+}
 
 `
 
+
 const LoadingContainer=styled(Container)`
-position: relative;
-    
+display: flex;
+justify-content: center;
+align-items: center; 
+/* border: solid black; */
+
+
 `

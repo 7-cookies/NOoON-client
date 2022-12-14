@@ -15,6 +15,7 @@ import { checkmodalState } from "../../utils/atoms";
 import { useCookies } from "react-cookie";
 import MessageModal from "../../components/message/MessageModal";
 import { ShortButton } from "../../styles/globalStyle";
+import Loading from '../../components/common/Loading.jsx'
 
 import { BGImg } from "../../utils/imgData";
 import logoutImg from '../../asset/icon/logout.png'
@@ -45,6 +46,8 @@ const GridFix = () => {
 
   const [IC, setIC] = useState('')
 
+  const [loading, setLoading] = useState(true);
+
   function popupModal() {
     setmodalClicked(!modalClicked);
     console.log(modal)
@@ -58,14 +61,15 @@ const GridFix = () => {
   }
 
   function handleClick(id) {
-    setTouch(false);
     console.log(id);
   }
 
   // ${invitationCode}
   async function getSnowmanData() {
+    setLoading(false)
     try{
       const response = await axios.get(
+        
         `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${invitationCode}/user`,
         {
           headers: {
@@ -78,6 +82,7 @@ const GridFix = () => {
       setBackground(response.data.data.background);
       setTitle(response.data.data.name);  
       setIC(response.data.data.invitationCode);
+      setLoading(false) 
       console.log(background)
     }catch(error){
       if(error.response && error.response.status === 400){
@@ -93,12 +98,13 @@ const GridFix = () => {
         setSnowmanData(response.data.data.snowmans);
         setBackground(response.data.data.background);
         setTitle(response.data.data.name);  
-        setIC(response.data.data.invitationCode)  
+        setIC(response.data.data.invitationCode) 
       }
     }
   }
 
   useEffect(() => {
+
     getSnowmanData();
   }, []);
 
@@ -118,6 +124,7 @@ const GridFix = () => {
       removeCookie(cookies, { path: '/' }); 
       window.sessionStorage.setItem('invitationCode', '');
       window.sessionStorage.setItem('username', '');
+      window.sessionStorage.setItem('stepState', '');
       window.location.href = '/';	
 
     }
@@ -129,6 +136,8 @@ const GridFix = () => {
     window.history.go(1);
   };
 
+  if (loading) {return (<Loading />)}
+  else {
   return (
     <StGridWrapper
       url={
@@ -146,7 +155,8 @@ const GridFix = () => {
         </StModalWrapper>
       )}
 
-      <H1>
+      <a id='insta' href="https://www.noonsaram.site/">@noon_dongsan</a>
+      <H1 background={background}>
         {title}
       </H1>
 
@@ -201,7 +211,7 @@ const GridFix = () => {
       
       
     </StGridWrapper>
-  );
+  );}
 };
 
 export default GridFix;
@@ -228,17 +238,28 @@ const StGridWrapper = styled.section`
     position: relative;
     overflow: scroll;
   }
+
+  & > #insta{
+    ${({ theme }) => theme.fonts.kotrahopeText}
+    color: #A6C7EF;
+    font-size:0.9375rem;
+    cursor: pointer;
+    position: relative;
+    top: 1.25rem;
+    left: 8.8rem;
+    text-decoration-line: none;
+    
+}
 `;
 
 const H1 = styled.h1`
   margin: 0;
-  padding: 84px 24px 0px 0px;
-  width: 432px;
+  padding: 3.75rem 2.2rem 0rem 0rem;
+  width: 27rem;
   text-align: right;
 
 
   ${({ theme }) => theme.fonts.kotrahopeTitle}
-  /* color: ${(props) => ((props.background === 2 || props.background === 4)  ? "#877C73" : "white")}; */
   color: ${(props) => ((props.background === 2 || props.background === 4)  ? "#877C73" : "white")};
 `;
 

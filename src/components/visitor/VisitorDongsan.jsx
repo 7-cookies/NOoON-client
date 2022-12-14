@@ -4,7 +4,8 @@ import axios from "axios";
 
 import { ShortButton } from "../../styles/globalStyle";
 import SnowManforGrid from "../../components/dongsan/SnowManforGrid";
-import data from "../../mocks/test.json";
+import Loading from '../../components/common/Loading.jsx'
+
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
@@ -28,7 +29,9 @@ const VisitorDongsan = ({ setStep}) => {
 
     // const invitationCode=sessionStorage.getItem("invitationCode");
 
-    //hnvvc6
+
+    const[loading, setLoading] = useState(true);
+
     //match.params.invitationCode
     async function getSnowmanData() {
         const response = await axios.get(
@@ -37,6 +40,7 @@ const VisitorDongsan = ({ setStep}) => {
             setSnowmanData(response.data.data.snowmans);
             setBackground(response.data.data.background);
             setTitle(response.data.data.name);
+            setLoading(false)
     }
 
     useEffect(() => {
@@ -51,9 +55,21 @@ const VisitorDongsan = ({ setStep}) => {
 //id, head, eye, nose, arm, mouse, accessary, creator
 console.log(process.env.REACT_APP_S3_URL+'background/background'+`${background}`+".png")
 
+  if (loading){return(<Loading/>)}
+  else {
+
   return (
     <StGridWrapper url={process.env.REACT_APP_S3_URL+'background/background'+`${background}`+".png"}>
-      <H1>{title}</H1>
+      <a id='insta' href="https://www.noonsaram.site/">@noon_dongsan</a>
+      {background===2||background===4?(
+          <h1 style={{color:"#877C73"}}>
+            {title}
+          </h1>
+      ):(
+          <h1 style={{color:"white"}}>
+            {title}
+          </h1>
+      )}
       <div>
         <StGrid>
           {snowmandata.map(
@@ -81,7 +97,7 @@ console.log(process.env.REACT_APP_S3_URL+'background/background'+`${background}`
         <StShortButton type="button" onClick={handleMyDongsanClick}>내 동산 가기</StShortButton>
       </StButtonWrapper>
     </StGridWrapper>
-  );
+  );}
 };
 
 export default VisitorDongsan;
@@ -106,10 +122,24 @@ const StGridWrapper = styled.section`
     overflow: scroll;
   }
 
+  & > #insta{
+    ${({ theme }) => theme.fonts.kotrahopeText}
+    color: #A6C7EF;
+    font-size:0.9375rem;
+    cursor: pointer;
+    position: relative;
+    top: 1.25rem;
+    left: 8.8rem;
+    text-decoration-line: none;
+    
+}
+
   & > h1 {
     margin: 0;
-    padding: 84.5px 0px 0px 242px;
-
+    padding: 3.75rem 2.2rem 0rem 0rem;
+    width: 27rem;
+    text-align: right;
+    /* padding: 84.5px 0px 0px 242px; */
     ${({ theme }) => theme.fonts.kotrahopeTitle}
   }
 `;
@@ -157,7 +187,7 @@ const StShortButton=styled(ShortButton)`
     box-shadow: 0.3vw 0.3vw 0.6vw rgba(0, 0, 0, 0.3);
 `
 
-const H1=styled.h1`
-  ${({ theme }) => theme.fonts.kotrahopeTitle}
-  color: ${(props) => ((props.background === 2 || props.background === 4)  ? "#877C73" : "white")};
-`
+// const H=styled.h1`
+//   ${({ theme }) => theme.fonts.kotrahopeTitle}
+//   color: ${(props) => ((props.background === 2 || props.background === 4)  ? "#877C73" : "white")};
+// `

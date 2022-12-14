@@ -26,6 +26,7 @@ const ShareModal = (props) => {
   const handleCopyClipBoard = async (text) => {
     try {
       await navigator.clipboard.writeText(text);
+      sessionStorage.removeItem("invitationCode")
       alert("링크가 복사되었습니다");
     } catch (error) {
       alert("링크 복사에 실패했습니다");
@@ -53,13 +54,13 @@ const ShareModal = (props) => {
             <SrButtonWrapper>
               <Icon src={share} alt="#" />
 
-              <Input type="text" value={`http://nooon-bucket.s3-website.ap-northeast-2.amazonaws.com/${invitationCode}`} />
+              <Input id='linkText' type="text" value={`https://www.noonsaram.site/${invitationCode}`}/>
 
               <button
                 type="submit"
                 onClick={() =>
                   handleCopyClipBoard(
-                    `http://nooon-bucket.s3-website.ap-northeast-2.amazonaws.com/${invitationCode}`
+                    `https://www.noonsaram.site/${invitationCode}`
                   )
                 }
               >
@@ -182,5 +183,9 @@ const SrButtonWrapper = styled.footer`
     color: white;
 
     cursor: pointer;
+  }
+
+  #linkText{
+    color: #616161;
   }
 `;

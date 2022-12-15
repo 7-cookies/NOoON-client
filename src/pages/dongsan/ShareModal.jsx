@@ -52,20 +52,18 @@ const ShareModal = (props) => {
             <p>링크 복사</p>
 
             <SrButtonWrapper>
-              <Icon src={share} alt="#" />
-
-              <Input id='linkText' type="text" value={`https://www.noonsaram.site/${invitationCode}`}/>
-
-              <button
-                type="submit"
-                onClick={() =>
-                  handleCopyClipBoard(
-                    `https://www.noonsaram.site/${invitationCode}`
-                  )
-                }
-              >
-                copy
-              </button>
+              {/* <div id="buttonWrapper"> */}
+                <Icon src={share} alt="#" />
+                <Input id='linkText' type="text" value={`https://www.noonsaram.site/${invitationCode}`}/>
+                <button
+                  type="submit"
+                  onClick={() =>
+                    handleCopyClipBoard(
+                      `https://www.noonsaram.site/${invitationCode}`
+                    )}>
+                  copy
+                </button>
+              {/* </div> */}
             </SrButtonWrapper>
           </SrModal>
         </SrModalWrapper>
@@ -99,6 +97,7 @@ const SrModalWrapper = styled.section`
   width: 26.875rem;
   height: 58.25rem;
   background: rgba(85, 85, 85, 0.25);
+
 `;
 
 const SrModal = styled.div`
@@ -160,6 +159,7 @@ const SrButtonWrapper = styled.footer`
   border-radius: 15px;
   background-color: #e9f3ff;
   padding: 0rem 0.5rem;
+  margin: 0rem 0.5rem;
 
   & > input {
     font-size: 1.25rem;
@@ -171,13 +171,12 @@ const SrButtonWrapper = styled.footer`
   }
 
   & > button {
-    width: 110px;
+    width: 75px;
     height: 2.375rem;
     justify-content: center;
     align-items: center;
     border: 1px solid transparent;
     border-radius: 0.75rem;
-    /* margin-top: 0.27rem; */
     background-color: ${({ theme }) => theme.colors.blue};
     ${({ theme }) => theme.fonts.kotrahopeText}
     color: white;
@@ -187,5 +186,8 @@ const SrButtonWrapper = styled.footer`
 
   #linkText{
     color: #616161;
+    width: 13rem;
+    /* border: pink solid; */
+
   }
 `;

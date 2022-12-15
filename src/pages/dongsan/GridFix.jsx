@@ -217,13 +217,13 @@ const GridFix = () => {
 export default GridFix;
 
 const StMiddleButton = styled(MiddleButton)`
-  margin: 0px 0 2.0625rem 0px;
+  margin: 0rem 0 2.0625rem 0rem;
   width: 14rem;
 `;
 
 const StGridWrapper = styled.section`
   background-image: url(${(props) => props.url});
-  background-size: 430px;
+  background-size: 26.875rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -231,10 +231,10 @@ const StGridWrapper = styled.section`
 
   & > div {
     display: inline-block;
-    width: 430px;
-    height: 700px;
-    margin-top: 43px;
-    padding-top: 120px;
+    width: 26.875rem;
+    height: 43.75rem;
+    margin-top: 2.6875rem;
+    padding-top: 7.5rem;
     position: relative;
     overflow: scroll;
   }
@@ -267,10 +267,10 @@ const StGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   transform: rotate(-90deg);
-  width: 700px;
-  height: 430px;
+  width: 43.75rem;
+  height: 26.875rem;
 
-  margin-left: -110px;
+  margin-left: -6.875rem;
 
   position: absolute;
   z-index: 2;
@@ -304,7 +304,7 @@ const StModalWrapper = styled.section`
 const StXButton = styled.img`
   position: absolute;
   z-index: 15;
-  margin: 0px 0px 380px 315px;
+  margin: 0rem 0rem 23.75rem 19.6875rem;
 `;
 
 const ButtonWrapper = styled.section`
@@ -336,7 +336,7 @@ const StModal=styled.div`
     border-radius: 0.9375rem;
 
     background-color: white;
-    box-shadow: 0px 4px 4px rgba(130, 130, 130, 0.25);
+    box-shadow: 0rem 0.25rem 0.25rem rgba(130, 130, 130, 0.25);
 
     & > p {
         margin-top: 1.115rem;

@@ -39,7 +39,7 @@ const DongSanNameModal = ({ setStep }) => {
 export default DongSanNameModal;
 
 const StInput = styled(Input)`
-    width: 341px;
+    width: 21.3125rem;
 `
 const StModalBackgroundWrapper = styled.section`
     position: absolute;
@@ -60,17 +60,17 @@ const StModal=styled.div`
     justify-content: center;
     align-items: center;
 
-    width: 382px;
-    height: 293px;
+    width: 23.875rem;
+    height: 18.3125rem;
 
-    border: 1px solid transparent;
-    border-radius: 15px;
+    border: 0.0625rem solid transparent;
+    border-radius: 0.9375rem;
 
     background-color: white;
-    box-shadow: 0px 4px 4px rgba(130, 130, 130, 0.25);
+    box-shadow: 0rem 0.25rem 0.25rem rgba(130, 130, 130, 0.25);
 
     & > p {
-        margin-top: 17.84px;
+        margin-top: 1.115rem;
         ${({ theme }) => theme.fonts.kotrahopeText}
     }
 `
@@ -78,6 +78,6 @@ const StButtonWrapper=styled.footer`
     display:flex;
     justify-content: space-between;
     
-    width:298px;
-    margin-top: 62.29px;
+    width:18.625rem;
+    margin-top: 3.8931rem;
 `

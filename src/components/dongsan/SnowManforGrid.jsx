@@ -34,13 +34,13 @@ const SnowManforGrid = (props) => {
         src={headImg[props.head].putOn}
         alt="머리"
         imgSize={props.imgSize}
-        style={{ width: "192px", height: "192px" }}
+        style={{ width: "12rem", height: "12rem" }}
       ></Head>
       <Eye
         src={eyeImg[props.eye].putOn}
         alt="눈"
         imgSize={props.imgSize}
-        style={{ width: "192px", height: "192px" }}
+        style={{ width: "12rem", height: "12rem" }}
       ></Eye>
       <Nose
         src={noseImg[props.nose].putOn}

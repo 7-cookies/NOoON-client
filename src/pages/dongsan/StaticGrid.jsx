@@ -53,7 +53,7 @@ class StaticGrid extends React.Component {
             style={{
               display: "flex",
               justifyContent: "center",
-              marginTop: "11.25px",
+              marginTop: "0.7031rem",
             }}
           >
             <MiddleButton>내 동산 공유하기</MiddleButton>
@@ -68,7 +68,7 @@ export default StaticGrid;
 
 const StGridWrapper = styled.section`
   background-image: url("image/background1.png");
-  background-size: 430px;
+  background-size: 26.875rem;
 `;
 
 // const StImg = styled.img`

@@ -80,6 +80,7 @@ const Login = () => {
     return (
         <StLoginWrapper>
             <Header title="로그인" url='/'/>
+
             <StInputWrapper>
                 <div className='username'><p>ID</p></div>
                 <StLoginInpt placeholder="아이디를 입력해주세요" ref={userNameRef} />
@@ -87,12 +88,15 @@ const Login = () => {
                         
             <StInputWrapper>
               <div className='password'><p>PASSWORD</p></div>
-                <div className='passwordWrapper'>
-                  <StLoginInpt type={PWType} placeholder="숫자 4자리를 입력해주세요" ref={userPasswordRef} maxLength='4' />
-                  <img src={PWImg} alt={'비밀번호표시'} onClick={passwordCheck}/>
-                </div>
+              <div className='passwordWrapper'>
+                <StLoginInpt type={PWType} placeholder="숫자 4자리를 입력해주세요" ref={userPasswordRef} maxLength='4' />
+                <img src={PWImg} alt={'비밀번호표시'} onClick={passwordCheck}/>
+              </div>
+              <div className='pwAlert'>
                 <div className='error errorsection1'><p>{alertMS1}</p></div>
                 <div className='error errorsection2'><p>{alertMS2}</p></div>
+              </div>
+              
             </StInputWrapper>
             <ShortButton button="button" className="check" onClick={handleSubmit}>확인</ShortButton>
 
@@ -141,12 +145,20 @@ const StInputWrapper=styled.div`
 
     & div.errorsection1 {
         margin-top: 1.125rem;
-        margin-bottom: -1.125px;
+        /* margin-bottom: -1.125px; */
     }
 
     & div.errorsection2 {
         margin-top: 20px;
     }
+
+    & div.pwAlert{
+        display: flex;
+        flex-direction: column;
+        margin-left: 2.7888rem;
+        margin-bottom: 1.0313rem;
+        /* border: solid black; */
+      }
 
 
     & > div> p{
@@ -168,6 +180,10 @@ const StInputWrapper=styled.div`
 
         left: -3rem;
       }
+
+      
+
+    
       
     }
 `

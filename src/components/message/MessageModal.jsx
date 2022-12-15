@@ -66,7 +66,7 @@ const MessageModal = ({ id } ) => {
 export default MessageModal;
 
 const StCard = styled.img`
-  width: 382px;
+  width: 23.875rem;
 `;
 
 const StContentWrapper = styled.div`
@@ -77,8 +77,8 @@ const StContentWrapper = styled.div`
   z-index: 3;
 
   & > div:nth-child(2) {
-    width: 320px;
-    height: 375px;
+    width: 20rem;
+    height: 23.4375rem;
 
     ${({ theme }) => theme.fonts.kotrahopeMessage}
     color: white;
@@ -89,16 +89,16 @@ const StTitle = styled.div`
   justify-content: center;
 
   & > div {
-    width: 320px;
-    height: 74px;
+    width: 20rem;
+    height: 4.625rem;
 
-    border-bottom: 1px solid white;
+    border-bottom: 0.0625rem solid white;
     ${({ theme }) => theme.fonts.kotrahopeMessage}
     color: white;
 
     & > p {
-      width: 150px;
-      margin: 36px 0px 15px -30px;
+      width: 9.375rem;
+      margin: 2.25rem 0rem 0.9375rem -1.875rem;
     }
   }
 `;
@@ -121,16 +121,16 @@ const StModal = styled.div`
   justify-content: center;
   align-items: center;
 
-  width: 382px;
-  height: 293px;
+  width: 23.875rem;
+  height: 18.3125rem;
 
-  border: 1px solid transparent;
-  border-radius: 15px;
+  border: 0.0625rem solid transparent;
+  border-radius: 0.9375rem;
 
   background-color: white;
 
   & > p {
-    margin-top: 17.84px;
+    margin-top: 1.115rem;
     ${({ theme }) => theme.fonts.kotrahopeText}
   }
 `;
@@ -138,6 +138,6 @@ const StButtonWrapper = styled.footer`
   display: flex;
   justify-content: space-between;
 
-  width: 298px;
-  margin-top: 62.29px;
+  width :18.625rem;
+  margin-top: 3.8931rem;
 `;

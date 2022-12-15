@@ -40,12 +40,12 @@ const StDongsanNameWrapper = styled.section`
 `
 const StDongsanName = styled.div`
     & > div> p{
-        margin-left: 44.62px;
-        margin-bottom:16.5px;
+        margin-left: 2.7888rem;
+        margin-bottom: 1.0313rem;
         ${({ theme }) => theme.fonts.kotrahopeCommon}
     }
     & > div{
-        margin-top:265.04px;
+        margin-top: 16.565rem;
     }
 `
 
@@ -53,13 +53,13 @@ const StNameInput = styled(Input)`
     align-items: flex-start;
     text-align: left;
 
-    margin-left: 24px;
-    padding-left:20.5px;
+    margin-left: 1.5rem;
+    padding-left: 1.2813rem;
 `
 
 const StButtonWrapper = styled.div`
     display: flex;
     justify-content: center;
 
-    margin-top: 299px;
+    margin-top: 18.6875rem;
 `

@@ -161,7 +161,7 @@ export const LongButton = styled.button`
   width: 23.875rem;
   height: 3.75rem;
 
-  border: 1px solid transparent;
+  border: 0.0625rem solid transparent;
   border-radius: 1.25rem;
   background-color: ${({ theme }) => theme.colors.blue};
   color: white;
@@ -177,7 +177,7 @@ export const MiddleButton = styled.button`
   width: 10.625rem;
   height: 3.375rem;
 
-  border: 1px solid transparent;
+  border: 0.0625rem solid transparent;
   border-radius: 1.25rem;
   background-color: ${({ theme }) => theme.colors.blue};
   color: white;
@@ -193,7 +193,7 @@ export const ShortButton = styled.button`
   width: 8.75rem;
   height: 3.375rem;
 
-  border: 1px solid transparent;
+  border: 0.0625rem solid transparent;
   border-radius: 1.25rem;
   background-color: ${({ theme }) => theme.colors.blue};
   color: white;
@@ -213,7 +213,7 @@ export const Input = styled.input`
   width: 23.875rem;
   height: 3.75rem;
 
-  border: 1px solid transparent;
+  border: 0.0625rem solid transparent;
   border-radius: 1.25rem;
 
   background-color: ${({ theme }) => theme.colors.skyblue};

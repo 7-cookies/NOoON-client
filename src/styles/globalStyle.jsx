@@ -138,10 +138,19 @@ export const reset = css`
 export const GlobalStyle = createGlobalStyle`
 ${reset}
 
-#root, body, html {
+body, html {
     width: 100%;
     height: 100vh;
 }
+
+#root{
+  width: 26.875rem;
+  height: 58.25rem;
+  font-size: 100%;
+  margin: auto;
+}
+
+
 * {
     box-sizing: border-box;
     }
@@ -161,7 +170,7 @@ export const LongButton = styled.button`
   width: 23.875rem;
   height: 3.75rem;
 
-  border: 1px solid transparent;
+  border: 0.0625rem solid transparent;
   border-radius: 1.25rem;
   background-color: ${({ theme }) => theme.colors.blue};
   color: white;
@@ -177,7 +186,7 @@ export const MiddleButton = styled.button`
   width: 10.625rem;
   height: 3.375rem;
 
-  border: 1px solid transparent;
+  border: 0.0625rem solid transparent;
   border-radius: 1.25rem;
   background-color: ${({ theme }) => theme.colors.blue};
   color: white;
@@ -193,7 +202,7 @@ export const ShortButton = styled.button`
   width: 8.75rem;
   height: 3.375rem;
 
-  border: 1px solid transparent;
+  border: 0.0625rem solid transparent;
   border-radius: 1.25rem;
   background-color: ${({ theme }) => theme.colors.blue};
   color: white;
@@ -204,16 +213,17 @@ export const ShortButton = styled.button`
 
 export const Container = styled.section`
   width: 26.875rem;
-  /* width: 100%; */
   height: 58.25rem;
   margin: 0 auto;
+
+
 `;
 
 export const Input = styled.input`
   width: 23.875rem;
   height: 3.75rem;
 
-  border: 1px solid transparent;
+  border: 0.0625rem solid transparent;
   border-radius: 1.25rem;
 
   background-color: ${({ theme }) => theme.colors.skyblue};

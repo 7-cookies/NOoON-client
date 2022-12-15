@@ -145,11 +145,10 @@ const StInputWrapper=styled.div`
 
     & div.errorsection1 {
         margin-top: 1.125rem;
-        /* margin-bottom: -1.125px; */
     }
 
     & div.errorsection2 {
-        margin-top: 20px;
+        margin-top: 1.25rem;
     }
 
     & div.pwAlert{

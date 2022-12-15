@@ -82,8 +82,7 @@ const HeaderIcon = styled.img`
 `;
 
 const Icon = styled.img`
-  // padding-bottom: 17px;
-  margin-right: 3px;
+  margin-right: 0.1875rem;
 `;
 
 const SrModalWrapper = styled.section`
@@ -106,41 +105,41 @@ const SrModal = styled.div`
   justify-content: space-around;
   align-items: center;
 
-  width: 382px;
-  height: 323px;
+  width: 23.875rem;
+  height: 20.1875rem;
 
-  border: 1px solid transparent;
-  border-radius: 15px;
+  border: 0.0625rem solid transparent;
+  border-radius: 0.9375rem;
 
-  padding-bottom: 10px;
+  padding-bottom: 0.625rem;
   background-color: white;
 
-  box-shadow: 0px 4px 4px rgba(130, 130, 130, 0.25);
+  box-shadow: 0rem 0.25rem 0.25rem rgba(130, 130, 130, 0.25);
 
   & > p {
     ${({ theme }) => theme.fonts.kotrahopeText}
   }
 
   & > p:nth-child(1){
-    margin-top: -5px;
-    margin-bottom: -15px;
+    margin-top: -0.3125rem;
+    margin-bottom: -0.9375rem;
   }
 
   & > p:nth-child(2){
-    margin-top: 10px;
-    margin-bottom: -20px;
+    margin-top: 0.625rem;
+    margin-bottom: -1.25rem;
   }
 
 `;
 
 const SrHeader = styled.section`
-  width: 320px;
-  height: 50px;
+  width: 20rem;
+  height: 3.125rem;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  border-bottom: 1px solid ${({ theme }) => theme.colors.grey};
+  border-bottom: 0.0625rem solid ${({ theme }) => theme.colors.grey};
 
   & > h1 {
     font-size: 1.5rem;
@@ -156,7 +155,7 @@ const SrButtonWrapper = styled.footer`
 
   width: 21.25rem;
   height: 3.125rem;
-  border-radius: 15px;
+  border-radius: 0.9375rem;
   background-color: #e9f3ff;
   padding: 0rem 0.5rem;
   margin: 0rem 0.5rem;
@@ -171,11 +170,11 @@ const SrButtonWrapper = styled.footer`
   }
 
   & > button {
-    width: 75px;
+    width: 4.6875rem;
     height: 2.375rem;
     justify-content: center;
     align-items: center;
-    border: 1px solid transparent;
+    border: 0.0625rem solid transparent;
     border-radius: 0.75rem;
     background-color: ${({ theme }) => theme.colors.blue};
     ${({ theme }) => theme.fonts.kotrahopeText}

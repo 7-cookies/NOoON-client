@@ -7,7 +7,7 @@ import {tossing1, tossing2, floating} from '../../styles/animation.jsx'
 const Landing = () => {
     const navigate=useNavigate();
     return (    
-        <ContainerE>
+        // <ContainerE>
             <StMainWrapper>
             <p className='floating'>크리스마스에 완성되는 나만의 눈동산</p>
             <h1 className='floating'>내가 만든 눈동산</h1>
@@ -15,7 +15,7 @@ const Landing = () => {
             <LongButtonE button="button" className="button1" id='buttonAni' onClick={()=>navigate('/login')}>로그인</LongButtonE>
             <LongButtonE button="button" className="button2" id='buttonAni' onClick={()=>navigate('/signup')}>회원가입</LongButtonE>
             </StMainWrapper>  
-        </ContainerE>    
+        // </ContainerE>    
         
     );
 };
@@ -84,8 +84,7 @@ flex-direction: column;
 /* width: 26.875rem; */
 /* height: 58.25rem; */
 width: 100%;
-/* height: 55rem; */
-height: 100vh;
+height: 55rem;
 
 margin: 0 auto;
 /* border: solid black; */   

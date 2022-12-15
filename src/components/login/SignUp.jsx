@@ -75,7 +75,7 @@ const SignUp = () => {
         <Header title="회원가입" url="/"/>
             <StInputWrapper>
                 <div className='username'><p>ID</p> <p className='error'>{alertIdMS}</p></div>
-                <StLoginInpt placeholder="아이디를 입력해주세요" ref={userNameRef} />
+                <StLoginInpt placeholder="아이디를 입력해주세요" ref={userNameRef} maxLength='20'/>
             </StInputWrapper>
                         
             <StInputWrapper>

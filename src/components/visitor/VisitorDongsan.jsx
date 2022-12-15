@@ -13,7 +13,7 @@ import {backgroundImg} from "../../utils/imgData";
 
 const VisitorDongsan = ({ setStep}) => {
     const [snowmandata, setSnowmanData] = useState([]);
-    const [background, setBackground] = useState(null);
+    const [background, setBackground] = useState(1);
     const [title, setTitle] = useState();
 
     const navigate=useNavigate();
@@ -106,7 +106,7 @@ const StGridWrapper = styled.section`
   /* background-image: url("image/background1.png"); */
   background-image: url(${(props)=>props.url});
 
-  background-size: 430px;
+  background-size: 26.875rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -114,10 +114,10 @@ const StGridWrapper = styled.section`
 
   & > div {
     display: inline-block;
-    width: 430px;
-    height: 700px;
-    margin-top: 43px;
-    padding-top: 120px;
+    width: 26.875rem;
+    height: 43.75rem;
+    margin-top: 2.6875rem;
+    padding-top: 7.5rem;
     position: relative;
     overflow: scroll;
   }
@@ -139,7 +139,6 @@ const StGridWrapper = styled.section`
     padding: 3.75rem 2.2rem 0rem 0rem;
     width: 27rem;
     text-align: right;
-    /* padding: 84.5px 0px 0px 242px; */
     ${({ theme }) => theme.fonts.kotrahopeTitle}
   }
 `;
@@ -148,10 +147,10 @@ const StGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   transform: rotate(-90deg);
-  width: 700px;
-  height: 430px;
+  width: 43.75rem;
+  height: 26.875rem;
 
-  margin-left: -110px;
+  margin-left: -6.875rem;
 
   position: absolute;
   z-index: 2;
@@ -177,17 +176,12 @@ const StButtonWrapper = styled.section`
     display: flex;
     justify-content: space-between;
 
-    width: 363px;
-    margin-bottom:33px;
+    width: 22.6875rem;
+    margin-bottom:2.0625rem;
 `
 
 const StShortButton=styled(ShortButton)`
-    width: 170px;
+    width: 10.625rem;
 
     box-shadow: 0.3vw 0.3vw 0.6vw rgba(0, 0, 0, 0.3);
 `
-
-// const H=styled.h1`
-//   ${({ theme }) => theme.fonts.kotrahopeTitle}
-//   color: ${(props) => ((props.background === 2 || props.background === 4)  ? "#877C73" : "white")};
-// `

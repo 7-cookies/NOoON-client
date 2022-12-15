@@ -75,27 +75,26 @@ const StDongSanSelectWrapper=styled.section`
 `
 
 const StDongSanWrapper = styled.div`
-    margin-left:39.5px;
+    margin-left:2.4688rem;
     display: flex;
     flex-wrap: wrap;
 
     & img {
-        width: 150px;
-        height: 326px;
+        width: 9.375rem;
+        height: 20.375rem;
 
-        margin:27.5px 12.5px 0 12.5px;
+        margin:1.7188rem 0.7813rem 0rem 0.7813rem;
 
-        border-radius: 1px;
-        border:2px solid #E7E7E7;
+        border-radius: 0.0625rem;
+        border:0.125rem solid #E7E7E7;
 
-        /* box-shadow : ${(props)=>props.check===props.num &&(`0px 0px 0px 5px ${({ theme }) => theme.colors.blue}`)}; */
     }
 
     & img:hover, img.hover{
-        box-shadow :0px 0px 0px 5px ${({ theme }) => theme.colors.blue};
+        box-shadow :0rem 0rem 0rem 0.3125rem ${({ theme }) => theme.colors.blue};
     } 
 `
 
 const StShortButton = styled(ShortButton)`
-    margin: 28px 105.5px;
+    margin: 1.75rem 6.5938rem;
 `

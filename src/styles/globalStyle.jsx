@@ -144,7 +144,7 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 1rem;
+    margin: 0 auto;
 
     position: relative;
     /* position: fixed; */

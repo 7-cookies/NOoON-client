@@ -145,8 +145,9 @@ body, html {
     justify-content: center;
     align-items: center;
 
-    position: fixed;
-    overflow: hidden;
+    position: relative;
+    /* position: fixed; */
+    /* overflow: hidden; */
 }
 
 #root{

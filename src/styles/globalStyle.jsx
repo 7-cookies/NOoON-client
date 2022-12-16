@@ -141,6 +141,12 @@ ${reset}
 body, html {
     width: 100%;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    overflow: hidden;
 }
 
 #root{
@@ -148,6 +154,14 @@ body, html {
   height: 58.25rem;
   font-size: 100%;
   margin: auto;
+
+  /* @media (min-width: 320px) and (max-width: 480px){
+    width: 26.875rem;
+    height: 58.25rem;
+    font-size: 100%;
+    margin: auto;
+
+  } */
 }
 
 

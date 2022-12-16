@@ -43,7 +43,7 @@ const DressUp = () => {
     else{
     return (
         <>
-        <ContainerE>
+        {/* <ContainerE> */}
             {message ? 
             <HeaderForDress title={'메시지 남기기'} />
             :
@@ -62,7 +62,7 @@ const DressUp = () => {
 
                 {message === false ?
                 <>
-                    <section>
+                    <section className='menuCenter'>
                         <CateMenu 
                         setModal={setModal} 
                         showModal={showModal} 
@@ -83,7 +83,7 @@ const DressUp = () => {
                 }
 
             </DressZone>
-        </ContainerE >
+        {/* </ContainerE > */}
         
         
         </>
@@ -139,5 +139,7 @@ const StHeader = styled.section`
     font-size: 1.5rem;
     }
 `;
+
+
 
 

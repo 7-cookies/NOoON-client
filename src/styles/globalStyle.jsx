@@ -152,6 +152,13 @@ body, html {
     //
     @media (min-width: 1000px){ 
       font-size: 16px;
+      @media (min-height: 700px){ 
+        height: 80vh;
+      }
+      @media (min-height: 1000px){ 
+        height: 50vh;
+      }
+
     }
 
 
@@ -189,7 +196,7 @@ body, html {
         height: 55vh;
       }
       @media (min-height: 1100px){ 
-        height: 60vh;
+        height: 50vh;
       }
     }
 
@@ -198,6 +205,10 @@ body, html {
     @media (min-width: 750px) and (max-width:789px){ 
       font-size: 16px;
       height:70vh;
+      @media (min-height: 1000px){ 
+        height: 60vh;
+      }
+
     }
 
     @media (min-width: 471px) and (max-width:749px){ 
@@ -205,7 +216,11 @@ body, html {
       height:83vh;
       //Surface Duo
       @media (min-height: 700px){ 
-        height: 65vh;
+        height: 80vh;
+      }
+      //Galaxy Tab S4
+      @media (min-height: 1000px){ 
+        height: 60vh;
       }
     }
     //
@@ -243,7 +258,7 @@ body, html {
       height:80vh;
 
       @media (min-height: 700px){ 
-        height: 98vh;
+        height: 93vh;
       }
       @media (min-height: 800px){ 
         height: 75vh;
@@ -256,10 +271,10 @@ body, html {
       font-size: 14.7px;
       height:85.1vh;
       @media (min-height: 700px){ 
-        height: 90vh;
+        height: 85vh;
       }
       @media (min-height: 800px){ 
-        height: 85vh;
+        height: 80vh;
       }
 
 
@@ -268,7 +283,7 @@ body, html {
     //
     @media (min-width: 384px) and (max-width:385px){ 
       font-size: 14.2px;
-      height:100vh;
+      height:96vh;
     }
 
 
@@ -293,18 +308,18 @@ body, html {
 
       //Galaxy Note2 & 3 & S3
       @media (max-height: 640px){ //640px 이하
-        height: 103.5vh;
+        height: 95vh;
       }
       //Galaxy S8 & S8+
       @media (min-height: 641px){ //641px 이상
-        height: 97vh;
+        height: 90vh;
       }
     }
 
      //Galaxy S9+
     @media (min-width:301px) and (max-width:330px){
       font-size: 11.9px;
-      height: 103vh;
+      height: 100vh;
     }
 
     //Galaxy Fold

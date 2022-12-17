@@ -146,9 +146,8 @@ body, html {
     align-items: center;
     margin: 0 auto;
 
-    position: relative;
-    /* position: fixed; */
-    /* overflow: hidden; */
+    position: fixed;
+    overflow: scroll;
 }
 
 #root{

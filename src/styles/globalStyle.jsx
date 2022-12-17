@@ -275,7 +275,7 @@ body, html {
       @media (min-height: 800px){ 
         height: 85vh;
       }
-      @media (min-height: 900px){ 
+      @media (min-height: 890px){ 
         height: 77vh;
       }
     }

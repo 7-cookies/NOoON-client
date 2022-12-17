@@ -86,6 +86,7 @@ const GridFix = () => {
       console.log(background)
     }catch(error){
       if(error.response && error.response.status === 400){
+        if(!state){nagivate('/')}
         const response = await axios.get(
           `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${state.invitationCode}/user`,
           {

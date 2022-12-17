@@ -258,10 +258,10 @@ body, html {
       height:80vh;
 
       @media (min-height: 700px){ 
-        height: 85vh;
+        height: 88vh;
       }
       @media (min-height: 800px){ 
-        height: 70vh;
+        height: 73vh;
       }
 
     }
@@ -271,10 +271,10 @@ body, html {
       font-size: 14.7px;
       height:85.1vh;
       @media (min-height: 700px){ 
-        height: 85vh;
+        height: 90vh;
       }
       @media (min-height: 800px){ 
-        height: 75vh;
+        height: 77vh;
       }
 
 
@@ -292,10 +292,10 @@ body, html {
       font-size: 13.95px;
       height:103.5vh;
       @media (min-height: 600px){ 
-        height: 85vh;
+        height: 93vh;
       }
       @media (min-height: 800px){ 
-        height: 75vh;
+        height: 80vh;
       }
     }
 
@@ -321,7 +321,7 @@ body, html {
       font-size: 11.9px;
       height: 100vh;
       @media (min-height: 400px){ 
-        height: 90vh;
+        height: 93vh;
       }
 
     }

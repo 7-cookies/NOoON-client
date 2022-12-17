@@ -150,7 +150,12 @@ body, html {
     overflow: scroll;
 
     //
-    @media (min-width: 931px){ 
+    @media (min-width: 1000px){ 
+      font-size: 16px;
+    }
+
+
+    @media (min-width: 931px) and (max-width:999px){ 
       font-size: 16px;
 
       @media (min-height: 700px){ 
@@ -160,8 +165,6 @@ body, html {
       @media (min-height: 1000px){ 
         height: 52vh;
       }
-
-
     }
 
 
@@ -202,7 +205,7 @@ body, html {
       height:83vh;
       //Surface Duo
       @media (min-height: 700px){ 
-        height: 100vh;
+        height: 65vh;
       }
     }
     //
@@ -243,7 +246,7 @@ body, html {
         height: 98vh;
       }
       @media (min-height: 800px){ 
-        height: 80vh;
+        height: 75vh;
       }
 
     }
@@ -273,8 +276,11 @@ body, html {
     @media (min-width: 371px) and (max-width:383px){ 
       font-size: 13.95px;
       height:103.5vh;
+      @media (min-height: 600px){ 
+        height: 95vh;
+      }
       @media (min-height: 800px){ 
-        height: 89vh;
+        height: 85vh;
       }
     }
 

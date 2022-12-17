@@ -258,10 +258,10 @@ body, html {
       height:80vh;
 
       @media (min-height: 700px){ 
-        height: 93vh;
+        height: 85vh;
       }
       @media (min-height: 800px){ 
-        height: 75vh;
+        height: 70vh;
       }
 
     }
@@ -274,7 +274,7 @@ body, html {
         height: 85vh;
       }
       @media (min-height: 800px){ 
-        height: 80vh;
+        height: 75vh;
       }
 
 
@@ -292,10 +292,10 @@ body, html {
       font-size: 13.95px;
       height:103.5vh;
       @media (min-height: 600px){ 
-        height: 95vh;
+        height: 85vh;
       }
       @media (min-height: 800px){ 
-        height: 85vh;
+        height: 75vh;
       }
     }
 
@@ -320,6 +320,10 @@ body, html {
     @media (min-width:301px) and (max-width:330px){
       font-size: 11.9px;
       height: 100vh;
+      @media (min-height: 400px){ 
+        height: 90vh;
+      }
+
     }
 
     //Galaxy Fold

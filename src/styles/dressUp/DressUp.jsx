@@ -6,6 +6,14 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+
+& > .menuCenter{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 `
 
 //옷입히기 구역- 선택 아이템이 장착되는 구역
@@ -68,6 +76,7 @@ width: 26.875rem;
 height: 26.875rem; 
 display: flex;
 flex-direction: column;
+justify-content: center;
 align-items: center;
 `
 
@@ -75,6 +84,6 @@ export const CateMenuCon = styled.section`
 display: flex;
 justify-content: center;
 
-width:26.875rem; 
+width:25rem; 
 height: 4.125rem;
 `

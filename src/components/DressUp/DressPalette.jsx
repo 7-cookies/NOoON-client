@@ -221,7 +221,7 @@ export default DressPalette;
 
 const ModalContainer= styled.section`
 width: 26.875rem; 
-height: 25rem; 
+height: 26.875rem; 
 background-color:#D6E2F0;
 
 position: relative;

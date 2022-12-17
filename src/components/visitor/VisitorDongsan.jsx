@@ -60,7 +60,7 @@ console.log(process.env.REACT_APP_S3_URL+'background/background'+`${background}`
 
   return (
     <StGridWrapper url={process.env.REACT_APP_S3_URL+'background/background'+`${background}`+".png"}>
-      <a id='insta' href="https://www.noonsaram.site/">@noon_dongsan</a>
+      <a id='insta' href="https://instagram.com/noon_dongsan?igshid=YmMyMTA2M2Y=">@noon_dongsan</a>
       {background===2||background===4?(
           <h1 style={{color:"#877C73"}}>
             {title}

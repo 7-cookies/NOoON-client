@@ -24,7 +24,6 @@ const WRMessage = () => {
         setSaveComp(!saveComp)
         setSaveFirst(false);
         window.location.replace("/"+`${invitationCode}`);
-        console.log(invitationCode);
     }
 
     const [invitationCode2, setInvitationCode2] = useState('')
@@ -64,8 +63,6 @@ const WRMessage = () => {
             // }
         )
         .then((response) => {
-            console.log(response)
-            console.log("tjdrhdtjdrhtjdthdjfj");
             // navigate(`/${sessionStorage.invitationCode}`);
         });
         setSaveFirst(false);

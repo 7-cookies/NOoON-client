@@ -8,7 +8,6 @@ const StartModal = () => {
   const [visible, setVisible] = useState(true);
 
   function deleteModal() {
-    // console.log("clicked");
     setVisible(false);
   }
   return (

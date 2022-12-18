@@ -141,19 +141,15 @@ ${reset}
 body, html {
     width: 100%;
     height:100%;
-    /* height: 100vh; */
+
     display: flex;
     justify-content: center;
     align-items: center;
-    /* margin: 0 auto; */
-    /* margin: 0% 0%; */
-
-    /* position: fixed; */
+    
     overflow: scroll;
 
     @media (min-width: 1200px){ 
       font-size: 16px;
-      /* height: 100vh;*/
     }
     @media (min-width: 1000px){ 
       font-size: 16px;
@@ -169,13 +165,11 @@ body, html {
     //Surface Pro 7
     @media (min-width: 901px) and (max-width:930px){ 
       font-size: 16px;
-      /* height:51vh; */
     }
 
     //
     @media (min-width: 831px) and (max-width:900px){ 
       font-size: 16px;
-      /* height:55vh; */
     }
 
     //iPad Air
@@ -220,7 +214,6 @@ body, html {
     //
     @media (min-width: 384px) and (max-width:385px){ 
       font-size: 14.2px;
-      /* height:98vh; */
     }
 
 
@@ -250,29 +243,12 @@ body, html {
     //Galaxy Fold
     @media (min-width:251px) and (max-width: 300px){ 
       font-size:10.4px;
-      /* height: 100vh; */
     }
 
     @media (max-width:250px){
       font-size:8.9px;
     }
 
-    /* @media (min-height:1100px){
-      height:130%;
-    }
-
-
-    @media (min-height:1000px) and (max-height: 1099px){
-      height:128%;
-    }
-
-    @media (min-height:741px) and (max-height:999px){
-      height:114%;
-    }
-
-    @media (min-height:700px) and (max-height:740px){
-      height:108%;
-    } */
 
 }
 
@@ -282,12 +258,6 @@ body, html {
 
   overflow: scroll;
   margin: auto;
-  /* @media (min-width: 320px) and (max-width: 480px){
-    width: 26.875rem;
-    height: 58.25rem;
-    font-size: 100%;
-    margin: auto;
-  } */
 }
 
 

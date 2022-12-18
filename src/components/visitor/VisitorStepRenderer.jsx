@@ -4,7 +4,6 @@ import MessageModal from "../message/MessageModal";
 import { Landing } from "../login";
 
 const VisitorStepRenderer = ({ step, setStep }) => {
-    console.log(step);
 
     switch (step) {
         case 'VISITOR-DONGSAN':

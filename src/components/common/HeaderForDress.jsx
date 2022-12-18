@@ -14,9 +14,10 @@ const Header = (props) => {
 
     return (
         <>
-        <Icon src={backArrow} alt="#" onClick={moveToCustom} />
 
         <StHeaderWrapper>
+        <Icon src={backArrow} alt="#" onClick={moveToCustom} />
+
             <StHeader>
                 <h1>{props.title}</h1>
             </StHeader>
@@ -35,10 +36,15 @@ const Icon=styled.img`
     width: 1.75rem;
     padding: 4.3125rem 0 0 0.875rem;
  */
-    position: absolute;
+    /* position: absolute;
   z-index: 2;
   width: 1.75rem;
-  margin: 4.7rem 0 0 1.6rem;
+  margin: 4.7rem 0 0 1.6rem; */
+  position: relative;
+  z-index: 2;
+  width: 1.75rem;
+  margin: 4.7rem 0 0 0;
+  left: 1.5rem;
 `
 
 const StHeaderWrapper=styled.header`
@@ -49,6 +55,9 @@ const StHeaderWrapper=styled.header`
     height: 7.2188rem;
 
     ${({ theme }) => theme.fonts.kotrahopeCommon}
+
+    margin-left: -1rem;
+
 `
 
 const StHeader=styled.section`

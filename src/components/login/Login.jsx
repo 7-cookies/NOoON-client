@@ -31,15 +31,12 @@ const Login = () => {
       (PWState ? setPWImg(block) : setPWImg(visible))
       (PWState ? setPWType('password') : setPWType('text'))
 
-      console.log(PWImg)
-
     }
 
     const handleSubmit=()=>{
         setUsername(userNameRef.current.value)
         setPassword(userPasswordRef.current.value)
         sessionStorage.setItem('stepState',true);
-        console.log(sessionStorage.getItem('stepState'));
 
         axios
           .post(
@@ -60,8 +57,6 @@ const Login = () => {
             // }
           )
           .then((response) => {
-            console.log(response.data);
-            console.log(response);
             window.sessionStorage.setItem('username', userNameRef.current.value);
             (response.data.data.hasPlace)==="NO_PLACE" ? navigate('/makedongsan') : navigate("/mydongsan", 
             {state:{accessToken:response.data.data.accessToken,invitationCode:response.data.data.hasPlace}},
@@ -71,7 +66,6 @@ const Login = () => {
           .catch(error=>{
             setAlertMS1('* 아이디 또는 비밀번호를 잘못 입력했습니다.')
             setAlertMS2('다시 확인해주세요.')
-            console.log(error)
           });
     };
 

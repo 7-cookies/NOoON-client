@@ -54,7 +54,7 @@ const ShareModal = (props) => {
             <SrButtonWrapper>
               {/* <div id="buttonWrapper"> */}
                 <Icon src={share} alt="#" />
-                <Input id='linkText' type="text" value={`https://www.noonsaram.site/${invitationCode}`}/>
+                <Input id='linkText' type="text" defaultValue={`https://www.noonsaram.site/${invitationCode}`}/>
                 <button
                   type="submit"
                   onClick={() =>

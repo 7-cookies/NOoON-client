@@ -296,10 +296,9 @@ body, html {
         height: 88vh;
       }
       @media (min-height: 800px){ 
-        height: 82vh;
+        height: 100vh;
+        /* border: black solid; */
       }
-
-
     }
 
     //

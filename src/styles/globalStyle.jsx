@@ -140,189 +140,94 @@ ${reset}
 
 body, html {
     width: 100%;
-    height: 100vh;
+    height:100%;
+    /* height: 100vh; */
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
+    /* margin: 0 auto; */
+    /* margin: 0% 0%; */
 
-    position: fixed;
+    /* position: fixed; */
     overflow: scroll;
 
     @media (min-width: 1200px){ 
       font-size: 16px;
-      height: 100vh;
-
+      /* height: 100vh;*/
     }
     @media (min-width: 1000px){ 
       font-size: 16px;
-      @media (min-height: 700px){ 
-        height: 90vh;
-      }
-      @media (min-height: 1000px){ 
-        height: 52vh;
-      }
-
     }
 
 
     @media (min-width: 931px) and (max-width:999px){ 
       font-size: 16px;
 
-      @media (min-height: 700px){ 
-        height: 90vh;
-      }
-
-      @media (min-height: 1000px){ 
-        height: 52vh;
-      }
     }
 
 
     //Surface Pro 7
     @media (min-width: 901px) and (max-width:930px){ 
       font-size: 16px;
-      height:51vh;
+      /* height:51vh; */
     }
 
     //
     @media (min-width: 831px) and (max-width:900px){ 
       font-size: 16px;
-      height:55vh;
+      /* height:55vh; */
     }
 
     //iPad Air
     @media (min-width: 790px) and (max-width:830px){ 
       font-size: 16px;
-      height:60vh;
-
-      @media (min-height: 1000px){ 
-        height: 55vh;
-      }
-      @media (min-height: 1100px){ 
-        height: 60vh;
-      }
-      @media (min-height: 1200px){ 
-        height: 53vh;
-      }
     }
 
 
     //iPad Mini
     @media (min-width: 750px) and (max-width:789px){ 
       font-size: 16px;
-      height:70vh;
-      @media (min-height: 1000px){ 
-        height: 68vh;
-      }
-
     }
 
-    @media (min-width: 471px) and (max-width:749px){ 
+    @media (min-width: 600px) and (max-width:749px){ 
       font-size: 17.8px;
-      height:100vh;
-      
-      @media (min-height: 700px){ 
-        height: 94vh;
+      @media (min-height: 740px) and (max-height: 999px){
+            height: 80%!important;
       }
-      @media (min-height: 800px){ 
-        height: 82vh;
-      }
-      @media (min-height: 900px){ 
-        height: 72vh;
-      }
-    
-      @media (min-height: 1000px){ 
-        height: 66vh;
-      }
-      //Galaxy Tab S4
-      @media (min-height: 1100px){ 
-        height: 60vh;
-      }
+    }
+
+    @media (min-width: 471px) and (max-width:580px){ 
+      font-size: 17.8px;
 
     }
     //
     @media (min-width: 451px) and (max-width:470px){ 
       font-size: 16px;
-      height:75vh;
-
-      //Surface Duo
-      @media (min-height: 700px){ 
-        height: 100vh;
-      }
-      @media (min-height: 800px){ 
-        height: 80vh;
-      }
-
-      //Nexus 7
-      @media (min-height: 900px){ 
-        height: 75vh;
-      }
-
-      //Blackberry Playbook
-      @media (min-height: 1000px){ 
-        height: 70vh;
-      }
-      //Galaxy Tab S4
-      @media (min-height: 1100px){ 
-        height: 62vh;
-      }
-
     }
 
     //iPhone XR & Galaxy S20 Ultra & A51/71
     @media (min-width: 410px) and (max-width:450px){ 
       font-size: 15.4px;
-      height:98vh;
-
-      @media (min-height: 700px){ 
-        height: 94vh;
-      }
-      @media (min-height: 800px){ 
-        height: 85vh;
-      }
-      @media (min-height: 890px){ 
-        height: 76vh;
-      }
     }
 
     //iPhone 12 Pro
     @media (min-width: 386px) and (max-width:409px){ 
       font-size: 14.7px;
-      height:85.1vh;
-      @media (min-height: 700px){ 
-        height: 88vh;
-      }
-      @media (min-height: 800px){ 
-        height: 82vh;
-      }
-      @media (min-height: 840px){
-        height: 82vh;
-        overflow: visible;
-        /* top: 0; */
-        /* border: black solid; */
-        
-      }
+     
 
     }
 
     //
     @media (min-width: 384px) and (max-width:385px){ 
       font-size: 14.2px;
-      height:98vh;
+      /* height:98vh; */
     }
 
 
     //iPhone SE
     @media (min-width: 371px) and (max-width:383px){ 
       font-size: 13.95px;
-      height:103.5vh;
-      @media (min-height: 600px){ 
-        height: 100vh;
-      }
-      @media (min-height: 800px){ 
-        height: 86vh;
-      }
+   
     }
 
     @media (min-width:361px) and (max-width: 370px){
@@ -332,39 +237,42 @@ body, html {
     @media (min-width:331px) and (max-width: 361px){
       font-size: 13.4px;
 
-      //Galaxy Note2 & 3 & S3
-      @media (max-height: 640px){ //640px 이하
-        height: 98vh;
-      }
-      //Galaxy S8 & S8+
-      @media (min-height: 641px){ //641px 이상
-        height: 95vh;
-      }
-      @media (min-height: 700px){ 
-        height: 93vh;
-      }
-
+   
     }
+
 
      //Galaxy S9+
     @media (min-width:301px) and (max-width:330px){
       font-size: 11.9px;
-      height: 100vh;
-      @media (min-height: 400px){ 
-        height: 99vh;
-      }
-
+   
     }
 
     //Galaxy Fold
     @media (min-width:251px) and (max-width: 300px){ 
       font-size:10.4px;
-      height: 100vh;
+      /* height: 100vh; */
     }
 
     @media (max-width:250px){
       font-size:8.9px;
     }
+
+    /* @media (min-height:1100px){
+      height:130%;
+    }
+
+
+    @media (min-height:1000px) and (max-height: 1099px){
+      height:128%;
+    }
+
+    @media (min-height:741px) and (max-height:999px){
+      height:114%;
+    }
+
+    @media (min-height:700px) and (max-height:740px){
+      height:108%;
+    } */
 
 }
 
@@ -372,6 +280,7 @@ body, html {
   width: 26.875rem;
   height: 58.25rem;
 
+  overflow: scroll;
   margin: auto;
   /* @media (min-width: 320px) and (max-width: 480px){
     width: 26.875rem;

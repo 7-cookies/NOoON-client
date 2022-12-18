@@ -299,6 +299,7 @@ body, html {
       @media (min-height: 840px){
         height: 82vh;
         overflow: visible;
+        /* top: 0; */
         /* border: black solid; */
         
       }

@@ -50,7 +50,7 @@ const GridFix = () => {
 
   function popupModal() {
     setmodalClicked(!modalClicked);
-    console.log(modal)
+    // console.log(modal)
   }
 
   function openModal(id, creator) {
@@ -61,7 +61,7 @@ const GridFix = () => {
   }
 
   function handleClick(id) {
-    console.log(id);
+    // console.log(id);
   }
 
   // ${invitationCode}
@@ -77,13 +77,13 @@ const GridFix = () => {
           },
         }
       );
-      console.log(response.data.data);
+      // console.log(response.data.data);
       setSnowmanData(response.data.data.snowmans);
       setBackground(response.data.data.background);
       setTitle(response.data.data.name);  
       setIC(response.data.data.invitationCode);
       setLoading(false) 
-      console.log(background)
+      // console.log(background)
     }catch(error){
       if(error.response && error.response.status === 400){
         if(!state){nagivate('/')}
@@ -95,7 +95,7 @@ const GridFix = () => {
             },
           }
         );  
-        console.log(response.data.data);
+        // console.log(response.data.data);
         setSnowmanData(response.data.data.snowmans);
         setBackground(response.data.data.background);
         setTitle(response.data.data.name);  

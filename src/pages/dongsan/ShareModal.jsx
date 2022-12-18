@@ -23,9 +23,9 @@ const ShareModal = (props) => {
     setmodalClicked(!modalClicked);
   }
 
-  const handleCopyClipBoard = async (text) => {
+  const handleCopyClipBoard =  (text) => {
     try {
-      await navigator.clipboard.writeText(text);
+      navigator.clipboard.writeText(text);
       sessionStorage.removeItem("invitationCode")
       alert("링크가 복사되었습니다");
     } catch (error) {

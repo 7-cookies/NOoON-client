@@ -24,8 +24,6 @@ const DongSanSelect = () => {
         else if (data[1]==='fourth') {setIsHover((prev)=>({...prev, first:'', second:'', third:'', fourth:'hover'}))}
 
     }
-    console.log(cookies.accessToken)
-    console.log(dongsanBeginData)
     
 
     const handleSubmit =()=>{
@@ -45,7 +43,6 @@ const DongSanSelect = () => {
             }
           )
           .then((response) => {
-            console.log(response)
             sessionStorage.setItem("invitationCode", response.data.data.invitationCode);
             //가져올 때에는 window.sessionStorage.getItem으로 가져옴.
             navigate("/mydongsan");

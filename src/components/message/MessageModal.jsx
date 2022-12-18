@@ -28,7 +28,6 @@ const MessageModal = ({ id } ) => {
             Authorization: `Bearer ${cookies.accessToken}`,
           }
         })
-        console.log(response.data)
         setCreator(response.data.data.creator);
         setLetter(response.data.data.letter);
         setLoading(false)

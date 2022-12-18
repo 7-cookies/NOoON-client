@@ -27,7 +27,6 @@ const SignUp = () => {
     const [PWType, setPWType] = useState('password');
 
     const onChangePW = (e) =>{
-      console.log(e.target.value.length)
       const passwordLen = e.target.value.length;
       if(passwordLen<4){setAlertPwMS('* 숫자 4자리를 입력해주세요')}
       else {setAlertPwMS('')}
@@ -37,8 +36,6 @@ const SignUp = () => {
       setPWState(!PWState);
       (PWState ? setPWImg(block) : setPWImg(visible))
       (PWState ? setPWType('password') : setPWType('text'))
-
-      console.log(PWImg)
 
     }
 
@@ -58,15 +55,12 @@ const SignUp = () => {
           )
           .then((response) => {
             // access토큰, username 저장
-            console.log(response);
             setCookie("accessToken", response.data.data.accessToken);
             window.sessionStorage.setItem('username', userNameRef.current.value);
             navigate("/makedongsan");
           })
           .catch((error)=>{
             if (error.response.data.message==='존재하는 회원입니다.'){setAlertIdMS('* 사용 중인 아이디입니다')}
-            console.log(error.response.data.message)
-            
           });
     };
 

@@ -149,8 +149,6 @@ body, html {
     position: fixed;
     overflow: scroll;
 
-    //
-
     @media (min-width: 1200px){ 
       font-size: 16px;
       height: 100vh;
@@ -296,9 +294,15 @@ body, html {
         height: 88vh;
       }
       @media (min-height: 800px){ 
-        height: 100vh;
-        /* border: black solid; */
+        height: 82vh;
       }
+      @media (min-height: 840px){
+        height: 82vh;
+        overflow: visible;
+        /* border: black solid; */
+        
+      }
+
     }
 
     //

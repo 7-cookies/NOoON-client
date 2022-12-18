@@ -159,7 +159,7 @@ body, html {
     @media (min-width: 1000px){ 
       font-size: 16px;
       @media (min-height: 700px){ 
-        height: 80vh;
+        height: 90vh;
       }
       @media (min-height: 1000px){ 
         height: 52vh;
@@ -204,6 +204,9 @@ body, html {
       @media (min-height: 1100px){ 
         height: 60vh;
       }
+      @media (min-height: 1200px){ 
+        height: 53vh;
+      }
     }
 
 
@@ -222,18 +225,23 @@ body, html {
       height:100vh;
       
       @media (min-height: 700px){ 
-        height: 100vh;
+        height: 94vh;
       }
       @media (min-height: 800px){ 
-        height: 83vh;
+        height: 82vh;
       }
       @media (min-height: 900px){ 
-        height: 73vh;
+        height: 72vh;
+      }
+    
+      @media (min-height: 1000px){ 
+        height: 66vh;
       }
       //Galaxy Tab S4
-      @media (min-height: 1000px){ 
-        height: 63vh;
+      @media (min-height: 1100px){ 
+        height: 60vh;
       }
+
     }
     //
     @media (min-width: 451px) and (max-width:470px){ 
@@ -267,16 +275,16 @@ body, html {
     //iPhone XR & Galaxy S20 Ultra & A51/71
     @media (min-width: 410px) and (max-width:450px){ 
       font-size: 15.4px;
-      height:80vh;
+      height:98vh;
 
       @media (min-height: 700px){ 
-        height: 95vh;
+        height: 94vh;
       }
       @media (min-height: 800px){ 
         height: 85vh;
       }
       @media (min-height: 890px){ 
-        height: 77vh;
+        height: 76vh;
       }
     }
 
@@ -285,10 +293,10 @@ body, html {
       font-size: 14.7px;
       height:85.1vh;
       @media (min-height: 700px){ 
-        height: 90vh;
+        height: 88vh;
       }
       @media (min-height: 800px){ 
-        height: 85.1vh;
+        height: 82vh;
       }
 
 
@@ -297,7 +305,7 @@ body, html {
     //
     @media (min-width: 384px) and (max-width:385px){ 
       font-size: 14.2px;
-      height:100vh;
+      height:98vh;
     }
 
 
@@ -309,7 +317,7 @@ body, html {
         height: 100vh;
       }
       @media (min-height: 800px){ 
-        height: 87vh;
+        height: 86vh;
       }
     }
 
@@ -322,12 +330,16 @@ body, html {
 
       //Galaxy Note2 & 3 & S3
       @media (max-height: 640px){ //640px 이하
-        height: 100vh;
+        height: 98vh;
       }
       //Galaxy S8 & S8+
       @media (min-height: 641px){ //641px 이상
         height: 95vh;
       }
+      @media (min-height: 700px){ 
+        height: 93vh;
+      }
+
     }
 
      //Galaxy S9+
@@ -335,7 +347,7 @@ body, html {
       font-size: 11.9px;
       height: 100vh;
       @media (min-height: 400px){ 
-        height: 100vh;
+        height: 99vh;
       }
 
     }

@@ -157,7 +157,7 @@ const GridFix = () => {
 
       <div>
         <StGrid>
-          {snowmanData.map(
+          {snowmanData.slice(0).reverse().map(
             ({ id, head, eye, nose, arm, mouth, accessory, creator }) => (
               <StSnowMan key={id} onClick={() => openModal(id, creator)}>
                 <SnowManforGrid
@@ -229,9 +229,10 @@ const StGridWrapper = styled.section`
     width: 26.875rem;
     height: 43.75rem;
     margin-top: 2.6875rem;
-    padding-top: 7.5rem;
+    /* padding-top: 7.5rem; */
     position: relative;
     overflow: scroll;
+    padding: 0 0.8rem;
   }
 
   & > #insta{
@@ -260,21 +261,29 @@ const H1 = styled.h1`
 
 const StGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  transform: rotate(-90deg);
+  grid-template-columns: repeat(2, 1fr);
+  /* transform: rotate(-90deg);
   width: 43.75rem;
   height: 26.875rem;
-
-  margin-left: -6.875rem;
-
+  margin-left: -6.875rem; */
   position: absolute;
   z-index: 2;
+
+  height: 43.75rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  
 `;
+
 const StSnowMan = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  transform: rotate(90deg);
+  /* transform: rotate(90deg); */
+
+  margin-right: 1.6rem;
+  margin-bottom: 1rem;
 
   & > div {
     display: flex;
@@ -282,7 +291,6 @@ const StSnowMan = styled.div`
     align-items: center;
 
     & > p {
-      margin-right: 2.5rem;
       ${({ theme }) => theme.fonts.kotrahopeCreator}
     }
   }

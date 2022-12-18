@@ -48,8 +48,8 @@ const DressUp = () => {
             <HeaderForDress title={'메시지 남기기'} />
             :
             <>
-            <Icon src={backArrow} alt="#" onClick={moveToDongsan} />
             <StHeaderWrapper>
+            <Icon src={backArrow} alt="#" onClick={moveToDongsan} />
                 <StHeader>
                     <h1>눈사람 꾸미기</h1>
                 </StHeader>
@@ -109,10 +109,11 @@ const ContainerE = styled.section`
 `;
 
 const Icon = styled.img`
-    position: absolute;
+    position: relative;
     z-index: 2;
     width: 1.75rem;
-    margin: 4.7rem 0 0 1.6rem;
+    margin: 4.7rem 0 0 0;
+    left: 1.5rem;
 `;
 
 
@@ -124,6 +125,7 @@ const StHeaderWrapper = styled.header`
     height: 7.2188rem;
 
     ${({ theme }) => theme.fonts.kotrahopeCommon}
+    margin-left: -1rem;
 `;
 
 const StHeader = styled.section`

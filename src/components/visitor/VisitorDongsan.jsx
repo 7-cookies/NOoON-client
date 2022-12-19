@@ -109,13 +109,20 @@ const StGridWrapper = styled.section`
   & > div {
     display: inline-block;
     width: 26.875rem;
-    height: 43.75rem;
+    height: 45.5em;
     margin-top: 2.6875rem;
     /* padding-top: 7.5rem; */
     position: relative;
     overflow: scroll;
-    padding: 0 0.8rem;
+    padding: 0 0.7rem;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
   }
+  & > div::-webkit-scrollbar {
+  display: none;
+}
 
   & > #insta{
     ${({ theme }) => theme.fonts.kotrahopeText}
@@ -178,7 +185,11 @@ const StButtonWrapper = styled.section`
     justify-content: space-between;
 
     width: 22.6875rem;
-    margin-bottom:2.0625rem;
+    /* margin-bottom:2.0625rem; */
+
+    position: relative;
+    height: 3rem;
+    bottom: 1rem;
 `
 
 const StShortButton=styled(ShortButton)`

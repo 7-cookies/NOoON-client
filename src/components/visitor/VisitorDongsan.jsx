@@ -11,7 +11,7 @@ import { useParams } from 'react-router-dom';
 
 import {backgroundImg} from "../../utils/imgData";
 
-const VisitorDongsan = ({ setStep}) => {
+const VisitorDongsan = ({ setStep }) => {
     const [snowmandata, setSnowmanData] = useState([]);
     const [background, setBackground] = useState(1);
     const [title, setTitle] = useState();
@@ -19,7 +19,7 @@ const VisitorDongsan = ({ setStep}) => {
     const navigate=useNavigate();
     let { invitationCode } = useParams();
 
-    const handleMakeNoonClick=()=>{
+    const handleNoonMakeClick=()=>{
         setStep('VISITOR-DRESSUP');
     }
 
@@ -87,8 +87,8 @@ const VisitorDongsan = ({ setStep}) => {
         </StGrid>
       </div>
       <StButtonWrapper>
-        <StShortButton type="button" onClick={handleMakeNoonClick}>눈사람 만들기</StShortButton>
-        <StShortButton type="button" onClick={handleMyDongsanClick}>내 동산 가기</StShortButton>
+        <StShortButton type="button" onClick={()=>handleNoonMakeClick()}>눈사람 만들기</StShortButton>
+        <StShortButton type="button" onClick={()=>handleMyDongsanClick()}>내 동산 가기</StShortButton>
       </StButtonWrapper>
     </StGridWrapper>
   );}

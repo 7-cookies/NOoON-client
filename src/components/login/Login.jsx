@@ -131,7 +131,7 @@ const StInputWrapper=styled.div`
 
     & div.error {
         & > p{
-          position: absolute;
+          /* position: absolute; */
           z-index: 3;
           ${({ theme }) => theme.fonts.kotrahopeError};
         }
@@ -142,7 +142,7 @@ const StInputWrapper=styled.div`
     }
 
     & div.errorsection2 {
-        margin-top: 1.25rem;
+        margin-top: 0.5rem;
     }
 
     & div.pwAlert{

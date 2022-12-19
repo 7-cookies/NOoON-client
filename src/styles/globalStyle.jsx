@@ -148,6 +148,14 @@ body, html {
     
     overflow: scroll;
 
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+  ::-webkit-scrollbar {
+  display: none;
+  }
+    
+
     @media (min-width: 1200px){ 
       font-size: 16px;
     }
@@ -258,6 +266,13 @@ body, html {
 
   overflow: scroll;
   margin: auto;
+
+  scrollbar-width: none;
+    -ms-overflow-style: none;
+
+  }
+::-webkit-scrollbar {
+  display: none;
 }
 
 

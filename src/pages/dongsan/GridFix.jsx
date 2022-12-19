@@ -214,6 +214,7 @@ export default GridFix;
 const StMiddleButton = styled(MiddleButton)`
   margin: 0rem 0 2.0625rem 0rem;
   width: 14rem;
+  box-shadow: 0.3vw 0.3vw 0.6vw rgba(0, 0, 0, 0.3);
 `;
 
 const StGridWrapper = styled.section`
@@ -227,13 +228,20 @@ const StGridWrapper = styled.section`
   & > div {
     display: inline-block;
     width: 26.875rem;
-    height: 43.75rem;
+    height: 45.5em;
     margin-top: 2.6875rem;
     /* padding-top: 7.5rem; */
     position: relative;
     overflow: scroll;
-    padding: 0 0.8rem;
+    padding: 0 0.7rem;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
   }
+  & > div::-webkit-scrollbar {
+  display: none;
+}
 
   & > #insta{
     ${({ theme }) => theme.fonts.kotrahopeText}
@@ -313,14 +321,17 @@ const StXButton = styled.img`
 const ButtonWrapper = styled.section`
   display: flex;
   position: relative;
+  height: 3rem;
   left: 2rem;
+  bottom: 1rem;
   
 
   & > img{
     width: 2.875rem;
     height: 3.1875rem;
     position: relative;
-    left: 1.7rem;
+    top : 0.2rem;
+    left: 1.6rem;
 
   }
 `

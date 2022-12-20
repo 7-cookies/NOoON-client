@@ -42,7 +42,7 @@ const DressUp = () => {
     if (step){return(<VisitorDongsan setStep='VISITOR-DONGSAN'/>)}
     else{
     return (
-        <>
+        <StDressupWrapper>
         {/* <ContainerE> */}
             {message ? 
             <HeaderForDress title={'메시지 남기기'} />
@@ -74,7 +74,9 @@ const DressUp = () => {
                         modalType={modalType}/>
                     </section>
 
-                    <NextButton onClick={moveToMessage}> 저장하기 </NextButton>
+                    <StButtonWrapper>
+                        <NextButton onClick={moveToMessage}> 저장하기 </NextButton>
+                    </StButtonWrapper>
 
                 </> :
                 <>
@@ -86,7 +88,7 @@ const DressUp = () => {
         {/* </ContainerE > */}
         
         
-        </>
+        </StDressupWrapper>
             
         
     );}
@@ -96,12 +98,25 @@ const DressUp = () => {
 export default DressUp;
 
 
-const NextButton = styled(ShortButton)`
-width: 23.875rem;
-margin-top: -5rem;
-z-index: 1;
+const StDressupWrapper=styled.section`
+    scroll-behavior: smooth;
 `
+const NextButton = styled(ShortButton)`
+    width: 23.875rem;
+    /* margin-top: -5rem; */
+    z-index: 1;
+`
+const StButtonWrapper=styled.section`
+    display: flex;
+    justify-content: space-between;
 
+    position: fixed;
+    z-index: 10;
+    
+    /* height: 3rem; */
+    bottom: 1rem;
+
+`
 const ContainerE = styled.section`
     position: absolute;
     display: flex;

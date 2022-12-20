@@ -242,4 +242,3 @@ const ShortButtonE = styled(ShortButton)`
 margin: 0 1rem;;
 `
 
-

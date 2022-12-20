@@ -42,7 +42,7 @@ const DressUp = () => {
     if (step){return(<VisitorDongsan setStep='VISITOR-DONGSAN'/>)}
     else{
     return (
-        <>
+        <StDressupWrapper>
         {/* <ContainerE> */}
             {message ? 
             <HeaderForDress title={'메시지 남기기'} />
@@ -88,7 +88,7 @@ const DressUp = () => {
         {/* </ContainerE > */}
         
         
-        </>
+        </StDressupWrapper>
             
         
     );}
@@ -98,6 +98,9 @@ const DressUp = () => {
 export default DressUp;
 
 
+const StDressupWrapper=styled.section`
+    scroll-behavior: smooth;
+`
 const NextButton = styled(ShortButton)`
     width: 23.875rem;
     /* margin-top: -5rem; */

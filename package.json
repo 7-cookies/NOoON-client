@@ -25,6 +25,7 @@
     "react-infinite-scroller": "^1.2.6",
     "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1",
+    "react-toastify": "^9.1.1",
     "reactstrap": "^9.1.5",
     "recoil": "^0.7.6",
     "styled-components": "^5.3.6",
@@ -59,5 +60,5 @@
     "concurrently": "^7.6.0",
     "nodemon": "^2.0.20"
   },
-  "homepage":"https://www.noonsaram.site/"
+  "homepage": "https://www.noonsaram.site/"
 }

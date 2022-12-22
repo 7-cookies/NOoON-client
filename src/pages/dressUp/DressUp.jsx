@@ -42,7 +42,7 @@ const DressUp = () => {
         setToast(true);
         let timer = setTimeout(()=>{
             setToast(false);
-        }, 1500);
+        }, 2000);
         return()=>{
             clearTimeout(timer);
         };

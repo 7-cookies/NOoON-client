@@ -320,9 +320,11 @@ const StXButton = styled.img`
 
 const ButtonWrapper = styled.section`
   display: flex;
-  position: relative;
+  justify-content: center;
+  width: 22.6875rem;
+  position: fixed;
+  z-index: 10;
   height: 3rem;
-  left: 2rem;
   bottom: 1rem;
   
 

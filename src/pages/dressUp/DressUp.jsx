@@ -42,7 +42,7 @@ const DressUp = () => {
         setToast(true);
         let timer = setTimeout(()=>{
             setToast(false);
-        }, 1500);
+        }, 2000);
         return()=>{
             clearTimeout(timer);
         };
@@ -179,7 +179,7 @@ const ToastMessage = styled.div`
     color: white;
     background-color: rgba(166,199,239,0.7);
     padding: 1rem;
-    margin-bottom: 3.7rem;
+    margin-bottom: 12rem;
     z-index: 5;
 `
 

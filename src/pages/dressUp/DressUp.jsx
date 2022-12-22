@@ -177,7 +177,7 @@ const ToastMessage = styled.div`
     ${({ theme }) => theme.fonts.kotrahopeCommon}
     font-size: 1.2rem;
     color: white;
-    background-color: rgba(166,199,239,0.7);
+    background-color: rgba(166,199,239,0.89);
     padding: 1rem;
     margin-bottom: 12rem;
     z-index: 5;

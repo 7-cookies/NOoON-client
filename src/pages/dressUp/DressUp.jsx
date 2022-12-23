@@ -173,7 +173,7 @@ const StHeader = styled.section`
 
 const ToastMessage = styled.div`
     position: absolute;
-    border-radius: 1.5rem;
+    border-radius: 2rem;
     ${({ theme }) => theme.fonts.kotrahopeCommon}
     font-size: 1.2rem;
     color: white;

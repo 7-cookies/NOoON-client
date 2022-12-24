@@ -10,7 +10,7 @@ import SnowManforGrid from "../../components/dongsan/SnowManforGrid";
 import StartModal from "./StartModal";
 import ShareModal from "../dongsan/ShareModal";
 import CheckModal from "../dongsan/CheckModal";
-import { modalState } from "../../utils/atoms";
+import { modalState, newAccesstoken } from "../../utils/atoms";
 import { checkmodalState } from "../../utils/atoms";
 import { useCookies } from "react-cookie";
 import MessageModal from "../../components/message/MessageModal";
@@ -48,6 +48,7 @@ const GridFix = () => {
 
   const [loading, setLoading] = useState(true);
   // console.log(cookies.accessToken)
+  // const [newnewAccessToken, setNewnewAccesToken]=useRecoilState(newAccesstoken);
 
   function popupModal() {
     setmodalClicked(!modalClicked);
@@ -96,9 +97,12 @@ const GridFix = () => {
         setBackground(response.data.data.background);
         setTitle(response.data.data.name);  
         setIC(response.data.data.invitationCode) 
+        // setNewnewAccesToken(state.accessToken)
       }
     }
   }
+
+  // console.log(newnewAccessToken)
 
   useEffect(() => {
 
@@ -149,7 +153,8 @@ const GridFix = () => {
         <StModalWrapper>
           {/* {ckmodal && <CheckModal title={creator} />} */}
           <StXButton src={xButton} alt="#" onClick={handleXClick} />
-          {state.accessToken?<MessageModal id={id} accessToken={state.accessToken}/>:<MessageModal id={id} accessToken={cookies.accessToken}/>}
+          <MessageModal id={id}/>
+          {/* {state.accessToken?<MessageModal id={id} accessToken={state.accessToken}/>:<MessageModal id={id} accessToken={cookies.accessToken}/>} */}
         </StModalWrapper>
       )}
 

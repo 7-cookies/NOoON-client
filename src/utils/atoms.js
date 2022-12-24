@@ -24,3 +24,7 @@ export const checkmodalState = atom({
   default: true,
 });
 
+export const newInfo = atom({
+  key: "newInfo",
+  default: [],
+});

@@ -47,6 +47,7 @@ const GridFix = () => {
   const [IC, setIC] = useState('')
 
   const [loading, setLoading] = useState(true);
+  // console.log(cookies.accessToken)
 
   function popupModal() {
     setmodalClicked(!modalClicked);
@@ -146,9 +147,9 @@ const GridFix = () => {
 
       {touch && (
         <StModalWrapper>
-          <StXButton src={xButton} alt="#" onClick={handleXClick} />
           {/* {ckmodal && <CheckModal title={creator} />} */}
-          <MessageModal id={id} />
+          <StXButton src={xButton} alt="#" onClick={handleXClick} />
+          {state.accessToken?<MessageModal id={id} accessToken={state.accessToken}/>:<MessageModal id={id} accessToken={cookies.accessToken}/>}
         </StModalWrapper>
       )}
 
@@ -317,7 +318,8 @@ const StModalWrapper = styled.section`
 const StXButton = styled.img`
   position: absolute;
   z-index: 15;
-  margin: 0rem 0rem 23.75rem 19.6875rem;
+  /* margin: 0rem 0rem 23.75rem 19.6875rem; */
+  margin: 0rem 0rem 27rem 19.6875rem;
 `;
 
 const ButtonWrapper = styled.section`

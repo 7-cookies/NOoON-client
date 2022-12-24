@@ -11,7 +11,7 @@ import { useCookies } from "react-cookie";
 import Loading from '../../components/common/Loading.jsx'
 
 
-const MessageModal = ({ id } ) => {
+const MessageModal = ({ accessToken, id } ) => {
   const [creator, setCreator]=useState();
   const [letter, setLetter]=useState();
 
@@ -20,15 +20,17 @@ const MessageModal = ({ id } ) => {
   //   nagivate(-1);
   // };
 
+
   const [cookies, setCookie, removeCookie] = useCookies(["accessToken"]);
   const invitationCode = window.sessionStorage.getItem("invitationCode");
   const [loading, setLoading] = useState(true)
+  console.log(accessToken)
 
   async function getMessageData() {
     const response = await axios.get(
         `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${invitationCode}/snowman/${id}`,{
           headers:{
-            Authorization: `Bearer ${cookies.accessToken}`,
+            Authorization: `Bearer ${accessToken}`,
           }
         })
         setCreator(response.data.data.creator);

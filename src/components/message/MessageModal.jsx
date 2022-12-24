@@ -46,17 +46,9 @@ const MessageModal = ({ accessToken, id } ) => {
     getMessageData();
   }, []);
 
-  const [ckmodalClicked, setckmodalClicked] = useRecoilState(checkmodalState);
-  const ckmodal = useRecoilValue(checkmodalState);
 
-  function deleteModal() {
-    setckmodalClicked(!ckmodalClicked);
-  }
-
-
-
-  // if (loading) {return(<Loading/>)}
-  // else {
+  if (loading) {return(<Loading/>)}
+  else {
   return (
     <>
       <StModalBackgroundWrapper>
@@ -76,7 +68,7 @@ const MessageModal = ({ accessToken, id } ) => {
       </StModalBackgroundWrapper>
     </>
   );
-// }
+}
 };
 
 export default MessageModal;
@@ -89,14 +81,16 @@ const StCard = styled.img`
 const StContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  
 
   position: absolute;
   z-index: 3;
+  
 
   & > div:nth-child(2) {
     width: 20rem;
     height: 23.4375rem;
-
+    
     ${({ theme }) => theme.fonts.kotrahopeMessage}
     color: white;
 
@@ -111,14 +105,16 @@ const StTitle = styled.div`
   & > div {
     width: 20rem;
     height: 4.625rem;
+    height: 2.5rem;
 
+    /* border-bottom: 0.0625rem solid white; */
     border-bottom: 0.0625rem solid white;
     ${({ theme }) => theme.fonts.kotrahopeMessage}
     color: white;
 
     & > p {
       width: 20rem;
-      margin: 2.25rem 0rem 0.9375rem -1.875rem;
+      margin: 0rem 0rem 0.9375rem -1.875rem;
       text-align: start;
       padding-left: 2rem;
     }

@@ -188,7 +188,7 @@ const StButtonWrapper = styled.section`
     /* margin-bottom:2.0625rem; */
 
     position: fixed;
-    z-index: 10;
+    z-index: 10;d
     
     height: 3rem;
     bottom: 1rem;

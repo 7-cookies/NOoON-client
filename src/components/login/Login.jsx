@@ -8,6 +8,8 @@ import { useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import block from '../../asset/icon/Group 142.png'
 import visible from '../../asset/icon/Vector.png'
+import { modalState, newInfo } from "../../utils/atoms";
+import { useRecoilState } from 'recoil';
 
 const Login = () => {
     const userNameRef=useRef(null)
@@ -25,6 +27,8 @@ const Login = () => {
     const [PWState, setPWState] = useState(false);
     const [PWImg, setPWImg] = useState(block);
     const [PWType, setPWType] = useState('password');
+
+    const [newOne, setNewOne]=useRecoilState(newInfo)
 
     const passwordCheck = () => {
       setPWState(!PWState);
@@ -60,7 +64,10 @@ const Login = () => {
             window.sessionStorage.setItem('username', userNameRef.current.value);
             (response.data.data.hasPlace)==="NO_PLACE" ? navigate('/makedongsan') : navigate("/mydongsan", 
             {state:{accessToken:response.data.data.accessToken,invitationCode:response.data.data.hasPlace}},
-            window.sessionStorage.setItem('invitationCode', response.data.data.hasPlace));
+            window.sessionStorage.setItem('invitationCode', response.data.data.hasPlace),
+            window.sessionStorage.setItem('accessToken', response.data.data.accessToken),
+            );
+            setNewOne(response.data.data)
           })
           .catch(error=>{
             setAlertMS1('* 아이디 또는 비밀번호를 잘못 입력했습니다.')

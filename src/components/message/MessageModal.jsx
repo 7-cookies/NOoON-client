@@ -10,11 +10,13 @@ import {useState, useEffect} from "react";
 import { useCookies } from "react-cookie";
 import Loading from '../../components/common/Loading.jsx'
 
+import { newInfo } from "../../utils/atoms";
 
 const MessageModal = ({ accessToken, id } ) => {
   const [creator, setCreator]=useState();
   const [letter, setLetter]=useState();
 
+  const newOne=useRecoilValue(newInfo)
   const nagivate = useNavigate();
   // const handleXClick = () => {
   //   nagivate(-1);
@@ -23,13 +25,16 @@ const MessageModal = ({ accessToken, id } ) => {
 
   const [cookies, setCookie, removeCookie] = useCookies(["accessToken"]);
   const invitationCode = window.sessionStorage.getItem("invitationCode");
+  const newAccessToken = window.sessionStorage.getItem("accessToken");
+
   const [loading, setLoading] = useState(true)
+
 
   async function getMessageData() {
     const response = await axios.get(
         `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${invitationCode}/snowman/${id}`,{
           headers:{
-            Authorization: `Bearer ${accessToken}`,
+            Authorization: `Bearer ${newAccessToken}`,
           }
         })
         setCreator(response.data.data.creator);

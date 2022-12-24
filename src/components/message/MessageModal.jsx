@@ -112,8 +112,10 @@ const StTitle = styled.div`
     color: white;
 
     & > p {
-      width: 15rem;
+      width: 20rem;
       margin: 2.25rem 0rem 0.9375rem -1.875rem;
+      text-align: start;
+      padding-left: 2rem;
     }
   }
 `;

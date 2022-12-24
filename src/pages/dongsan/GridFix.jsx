@@ -148,7 +148,7 @@ const GridFix = () => {
         <StModalWrapper>
           <StXButton src={xButton} alt="#" onClick={handleXClick} />
           {/* {ckmodal && <CheckModal title={creator} />} */}
-          <MessageModal />
+          <MessageModal id={id} />
         </StModalWrapper>
       )}
 

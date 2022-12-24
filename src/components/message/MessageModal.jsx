@@ -34,6 +34,7 @@ const MessageModal = ({ id } ) => {
         setCreator(response.data.data.creator);
         setLetter(response.data.data.letter);
         setLoading(false)
+        console.log(response.data.data.id);
   }
 
   useEffect(() => {

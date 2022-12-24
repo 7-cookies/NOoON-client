@@ -1,5 +1,8 @@
 import styled from "styled-components";
-import messageCard from "../../asset/img/messageCard.png";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { checkmodalState } from "../../utils/atoms";
+
+import messageCard from "../../asset/img/letter.png";
 import xButton from "../../asset/icon/Group 130.svg";
 import { useNavigate,useParams } from "react-router-dom";
 import axios from "axios";
@@ -7,25 +10,31 @@ import {useState, useEffect} from "react";
 import { useCookies } from "react-cookie";
 import Loading from '../../components/common/Loading.jsx'
 
+import { newInfo } from "../../utils/atoms";
 
-const MessageModal = ({ id } ) => {
+const MessageModal = ({ accessToken, id } ) => {
   const [creator, setCreator]=useState();
   const [letter, setLetter]=useState();
 
+  const newOne=useRecoilValue(newInfo)
   const nagivate = useNavigate();
   // const handleXClick = () => {
   //   nagivate(-1);
   // };
 
+
   const [cookies, setCookie, removeCookie] = useCookies(["accessToken"]);
   const invitationCode = window.sessionStorage.getItem("invitationCode");
+  const newAccessToken = window.sessionStorage.getItem("accessToken");
+
   const [loading, setLoading] = useState(true)
+
 
   async function getMessageData() {
     const response = await axios.get(
         `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${invitationCode}/snowman/${id}`,{
           headers:{
-            Authorization: `Bearer ${cookies.accessToken}`,
+            Authorization: `Bearer ${newAccessToken}`,
           }
         })
         setCreator(response.data.data.creator);
@@ -50,7 +59,6 @@ const MessageModal = ({ id } ) => {
               <StTitle>
                 <div>
                   <p>From. {creator}</p>
-                  {/* <StXButton src={xButton} alt="#" onClick={handleXClick} /> */}
                 </div>
               </StTitle>
               <div>{letter}</div>
@@ -59,28 +67,35 @@ const MessageModal = ({ id } ) => {
         </StModalWrapper>
       </StModalBackgroundWrapper>
     </>
-  );}
+  );
+}
 };
 
 export default MessageModal;
 
 const StCard = styled.img`
   width: 23.875rem;
+  border-radius: 1.2rem;
 `;
 
 const StContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  
 
   position: absolute;
   z-index: 3;
+  
 
   & > div:nth-child(2) {
     width: 20rem;
     height: 23.4375rem;
-
+    
     ${({ theme }) => theme.fonts.kotrahopeMessage}
     color: white;
+
+    align-items: start;
+    padding-top: 1rem;
   }
 `;
 const StTitle = styled.div`
@@ -90,14 +105,18 @@ const StTitle = styled.div`
   & > div {
     width: 20rem;
     height: 4.625rem;
+    height: 2.5rem;
 
+    /* border-bottom: 0.0625rem solid white; */
     border-bottom: 0.0625rem solid white;
     ${({ theme }) => theme.fonts.kotrahopeMessage}
     color: white;
 
     & > p {
-      width: 9.375rem;
-      margin: 2.25rem 0rem 0.9375rem -1.875rem;
+      width: 20rem;
+      margin: 0rem 0rem 0.9375rem -1.875rem;
+      text-align: start;
+      padding-left: 2rem;
     }
   }
 `;
@@ -140,3 +159,5 @@ const StButtonWrapper = styled.footer`
   width :18.625rem;
   margin-top: 3.8931rem;
 `;
+
+

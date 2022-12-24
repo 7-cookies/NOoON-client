@@ -10,7 +10,7 @@ import SnowManforGrid from "../../components/dongsan/SnowManforGrid";
 import StartModal from "./StartModal";
 import ShareModal from "../dongsan/ShareModal";
 import CheckModal from "../dongsan/CheckModal";
-import { modalState } from "../../utils/atoms";
+import { modalState, newAccesstoken } from "../../utils/atoms";
 import { checkmodalState } from "../../utils/atoms";
 import { useCookies } from "react-cookie";
 import MessageModal from "../../components/message/MessageModal";
@@ -47,6 +47,8 @@ const GridFix = () => {
   const [IC, setIC] = useState('')
 
   const [loading, setLoading] = useState(true);
+  // console.log(cookies.accessToken)
+  // const [newnewAccessToken, setNewnewAccesToken]=useRecoilState(newAccesstoken);
 
   function popupModal() {
     setmodalClicked(!modalClicked);
@@ -95,9 +97,12 @@ const GridFix = () => {
         setBackground(response.data.data.background);
         setTitle(response.data.data.name);  
         setIC(response.data.data.invitationCode) 
+        // setNewnewAccesToken(state.accessToken)
       }
     }
   }
+
+  // console.log(newnewAccessToken)
 
   useEffect(() => {
 
@@ -142,11 +147,14 @@ const GridFix = () => {
         ".png"
       }
     >
-      <StartModal />
+      {/* <StartModal /> */}
 
       {touch && (
         <StModalWrapper>
-          {ckmodal && <CheckModal title={creator} />}
+          {/* {ckmodal && <CheckModal title={creator} />} */}
+          <StXButton src={xButton} alt="#" onClick={handleXClick} />
+          <MessageModal id={id}/>
+          {/* {state.accessToken?<MessageModal id={id} accessToken={state.accessToken}/>:<MessageModal id={id} accessToken={cookies.accessToken}/>} */}
         </StModalWrapper>
       )}
 
@@ -315,7 +323,8 @@ const StModalWrapper = styled.section`
 const StXButton = styled.img`
   position: absolute;
   z-index: 15;
-  margin: 0rem 0rem 23.75rem 19.6875rem;
+  /* margin: 0rem 0rem 23.75rem 19.6875rem; */
+  margin: 0rem 0rem 27rem 19.6875rem;
 `;
 
 const ButtonWrapper = styled.section`

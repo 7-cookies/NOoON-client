@@ -10,11 +10,13 @@ import {useState, useEffect} from "react";
 import { useCookies } from "react-cookie";
 import Loading from '../../components/common/Loading.jsx'
 
+import { newInfo } from "../../utils/atoms";
 
 const MessageModal = ({ accessToken, id } ) => {
   const [creator, setCreator]=useState();
   const [letter, setLetter]=useState();
 
+  const newOne=useRecoilValue(newInfo)
   const nagivate = useNavigate();
   // const handleXClick = () => {
   //   nagivate(-1);
@@ -23,20 +25,21 @@ const MessageModal = ({ accessToken, id } ) => {
 
   const [cookies, setCookie, removeCookie] = useCookies(["accessToken"]);
   const invitationCode = window.sessionStorage.getItem("invitationCode");
+  const newAccessToken = window.sessionStorage.getItem("accessToken");
+
   const [loading, setLoading] = useState(true)
-  console.log(accessToken)
+
 
   async function getMessageData() {
     const response = await axios.get(
         `${process.env.REACT_APP_BE_SERVER_DOMAIN}api/v1/place/${invitationCode}/snowman/${id}`,{
           headers:{
-            Authorization: `Bearer ${accessToken}`,
+            Authorization: `Bearer ${newAccessToken}`,
           }
         })
         setCreator(response.data.data.creator);
         setLetter(response.data.data.letter);
         setLoading(false)
-        console.log(response.data.data.id);
   }
 
   useEffect(() => {
@@ -64,8 +67,6 @@ const MessageModal = ({ accessToken, id } ) => {
               <StTitle>
                 <div>
                   <p>From. {creator}</p>
-                  {/* <StXButton src={xButton} alt="#" onClick={handleXClick} /> */}
-                  {/* <StXButton src={xButton} alt="#" onClick={deleteModal} /> */}
                 </div>
               </StTitle>
               <div>{letter}</div>
@@ -98,6 +99,9 @@ const StContentWrapper = styled.div`
 
     ${({ theme }) => theme.fonts.kotrahopeMessage}
     color: white;
+
+    align-items: start;
+    padding-top: 1rem;
   }
 `;
 const StTitle = styled.div`
@@ -113,8 +117,10 @@ const StTitle = styled.div`
     color: white;
 
     & > p {
-      width: 9.375rem;
+      width: 20rem;
       margin: 2.25rem 0rem 0.9375rem -1.875rem;
+      text-align: start;
+      padding-left: 2rem;
     }
   }
 `;

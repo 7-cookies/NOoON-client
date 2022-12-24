@@ -1,5 +1,8 @@
 import styled from "styled-components";
-import messageCard from "../../asset/img/messageCard.png";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { checkmodalState } from "../../utils/atoms";
+
+import messageCard from "../../asset/img/letter.png";
 import xButton from "../../asset/icon/Group 130.svg";
 import { useNavigate,useParams } from "react-router-dom";
 import axios from "axios";
@@ -37,9 +40,17 @@ const MessageModal = ({ id } ) => {
     getMessageData();
   }, []);
 
+  const [ckmodalClicked, setckmodalClicked] = useRecoilState(checkmodalState);
+  const ckmodal = useRecoilValue(checkmodalState);
 
-  if (loading) {return(<Loading/>)}
-  else {
+  function deleteModal() {
+    setckmodalClicked(!ckmodalClicked);
+  }
+
+
+
+  // if (loading) {return(<Loading/>)}
+  // else {
   return (
     <>
       <StModalBackgroundWrapper>
@@ -51,6 +62,7 @@ const MessageModal = ({ id } ) => {
                 <div>
                   <p>From. {creator}</p>
                   {/* <StXButton src={xButton} alt="#" onClick={handleXClick} /> */}
+                  {/* <StXButton src={xButton} alt="#" onClick={deleteModal} /> */}
                 </div>
               </StTitle>
               <div>{letter}</div>
@@ -59,13 +71,15 @@ const MessageModal = ({ id } ) => {
         </StModalWrapper>
       </StModalBackgroundWrapper>
     </>
-  );}
+  );
+// }
 };
 
 export default MessageModal;
 
 const StCard = styled.img`
   width: 23.875rem;
+  border-radius: 1.2rem;
 `;
 
 const StContentWrapper = styled.div`
@@ -140,3 +154,5 @@ const StButtonWrapper = styled.footer`
   width :18.625rem;
   margin-top: 3.8931rem;
 `;
+
+

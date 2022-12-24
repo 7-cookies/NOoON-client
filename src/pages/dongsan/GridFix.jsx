@@ -143,7 +143,7 @@ const GridFix = () => {
         ".png"
       }
     >
-      <StartModal />
+      {/* <StartModal /> */}
 
       {touch && (
         <StModalWrapper>

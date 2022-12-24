@@ -24,7 +24,6 @@ const MessageModal = ({ accessToken, id } ) => {
   const [cookies, setCookie, removeCookie] = useCookies(["accessToken"]);
   const invitationCode = window.sessionStorage.getItem("invitationCode");
   const [loading, setLoading] = useState(true)
-  console.log(accessToken)
 
   async function getMessageData() {
     const response = await axios.get(
@@ -36,7 +35,6 @@ const MessageModal = ({ accessToken, id } ) => {
         setCreator(response.data.data.creator);
         setLetter(response.data.data.letter);
         setLoading(false)
-        console.log(response.data.data.id);
   }
 
   useEffect(() => {
@@ -64,8 +62,6 @@ const MessageModal = ({ accessToken, id } ) => {
               <StTitle>
                 <div>
                   <p>From. {creator}</p>
-                  {/* <StXButton src={xButton} alt="#" onClick={handleXClick} /> */}
-                  {/* <StXButton src={xButton} alt="#" onClick={deleteModal} /> */}
                 </div>
               </StTitle>
               <div>{letter}</div>
@@ -98,6 +94,9 @@ const StContentWrapper = styled.div`
 
     ${({ theme }) => theme.fonts.kotrahopeMessage}
     color: white;
+
+    align-items: start;
+    padding-top: 1rem;
   }
 `;
 const StTitle = styled.div`
@@ -113,8 +112,10 @@ const StTitle = styled.div`
     color: white;
 
     & > p {
-      width: 9.375rem;
+      width: 20rem;
       margin: 2.25rem 0rem 0.9375rem -1.875rem;
+      text-align: start;
+      padding-left: 2rem;
     }
   }
 `;

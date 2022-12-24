@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components'
-import {useRecoilState, useRecoilValue} from 'recoil'
+import {useRecoilState, useRecoilValue, useSetRecoilState} from 'recoil'
 
 import {Container, ShortButton} from '../../styles/globalStyle';
 import {DressZone} from '../../styles/dressUp/DressUp.jsx'
@@ -16,6 +16,7 @@ import backArrow from "../../asset/icon/arrow.svg";
 import {modalStateC, modalStateT, messageState} from '../../utils/dressRecoil'
 import { useParams } from 'react-router-dom';
 import VisitorDongsan from '../../components/visitor/VisitorDongsan';
+import Toast from '../../components/DressUp/Toast';
 
 const DressUp = () => {
     const [showModal, setModal] = useRecoilState(modalStateC);
@@ -27,21 +28,31 @@ const DressUp = () => {
         setMs(!ms);
     }
 
-    // let {invitationCode}=useParams();
-    // let {invitationCode}=window.location.pathname;
     const invitationCode = window.location.pathname;
     
-
     const [step, setStep] = useState(false);
 
     const moveToDongsan = () =>{
         setStep(true);
     }
+
+    const [toast, setToast] = useState(false);
+
+    useEffect(()=>{
+        setToast(true);
+        let timer = setTimeout(()=>{
+            setToast(false);
+        }, 2000);
+        return()=>{
+            clearTimeout(timer);
+        };
+    },[]);
     
 
     if (step){return(<VisitorDongsan setStep='VISITOR-DONGSAN'/>)}
     else{
     return (
+        <>
         <StDressupWrapper>
         {/* <ContainerE> */}
             {message ? 
@@ -69,6 +80,8 @@ const DressUp = () => {
                         setModalType={setModalType} 
                         modalType={modalType} />
 
+                        {toast && <ToastMessage>좌우로 스크롤을 넘겨 다양한 아이템을 확인해보세요!</ToastMessage>}
+
                         <DressPalette 
                         showModal={showModal} 
                         modalType={modalType}/>
@@ -89,6 +102,7 @@ const DressUp = () => {
         
         
         </StDressupWrapper>
+        </>
             
         
     );}
@@ -156,6 +170,18 @@ const StHeader = styled.section`
     font-size: 1.5rem;
     }
 `;
+
+const ToastMessage = styled.div`
+    position: absolute;
+    border-radius: 2rem;
+    ${({ theme }) => theme.fonts.kotrahopeCommon}
+    font-size: 1.2rem;
+    color: white;
+    background-color: rgba(166,199,239,0.89);
+    padding: 1rem;
+    margin-bottom: 12rem;
+    z-index: 5;
+`
 
 
 

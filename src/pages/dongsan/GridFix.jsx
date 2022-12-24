@@ -146,7 +146,9 @@ const GridFix = () => {
 
       {touch && (
         <StModalWrapper>
-          {ckmodal && <CheckModal title={creator} />}
+          <StXButton src={xButton} alt="#" onClick={handleXClick} />
+          {/* {ckmodal && <CheckModal title={creator} />} */}
+          <MessageModal id={id} />
         </StModalWrapper>
       )}
 
@@ -320,9 +322,11 @@ const StXButton = styled.img`
 
 const ButtonWrapper = styled.section`
   display: flex;
-  position: relative;
+  justify-content: center;
+  width: 22.6875rem;
+  position: fixed;
+  z-index: 10;
   height: 3rem;
-  left: 2rem;
   bottom: 1rem;
   
 

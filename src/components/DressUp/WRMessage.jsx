@@ -86,8 +86,8 @@ const WRMessage = () => {
                 <div>
                     <p> 메시지 내용 </p>
                     <MessageContents 
-                    placeholder='메시지를 작성해주세요 (최대 100자)'
-                    maxLength={100}
+                    placeholder='메시지를 작성해주세요 (최대 200자)'
+                    maxLength={200}
                     ref={messageRef}/>
                 </div>
             </ContentsCon>
